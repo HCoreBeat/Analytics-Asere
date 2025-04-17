@@ -1,0 +1,1727 @@
+[
+  {
+        "ip": "2603:3020:e3c:a000:75cb:d780:778e:43e3",
+        "pais": "United States",
+        "fecha_hora_entrada": "2025-04-02T13:30:50.272Z",
+        "origen": "https://www.asereshops.com/",
+        "afiliado": "Natty",
+        "duracion_sesion_segundos": 42346,
+        "tiempo_carga_pagina_ms": 30,
+        "nombre_comprador": "Nayelin Reyes ",
+        "telefono_comprador": "7863002520",
+        "correo_comprador": "nileyan2018@gmail.com",
+        "compras": [
+          {
+            "producto": "Mano de plátano burro",
+            "cantidad": 1,
+            "precio_unitario": 0.95,
+            "precio_total": 0.95
+          },
+          {
+            "producto": "Tomate x Lb",
+            "cantidad": 5,
+            "precio_unitario": 0.93,
+            "precio_total": 4.65
+          },
+          {
+            "producto": "Pepino x Lb",
+            "cantidad": 2,
+            "precio_unitario": 0.58,
+            "precio_total": 1.16
+          },
+          {
+            "producto": "Plátano macho x unidad",
+            "cantidad": 5,
+            "precio_unitario": 0.26,
+            "precio_total": 1.3
+          },
+          {
+            "producto": "Boniato x Lb",
+            "cantidad": 4,
+            "precio_unitario": 0.42,
+            "precio_total": 1.68
+          },
+          {
+            "producto": "Frijol Negro x Lb",
+            "cantidad": 1,
+            "precio_unitario": 2.63,
+            "precio_total": 2.63
+          },
+          {
+            "producto": "Garbanzos (500g)",
+            "cantidad": 1,
+            "precio_unitario": 2.4,
+            "precio_total": 2.4
+          },
+          {
+            "producto": "Arroz Criollo 1Lb",
+            "cantidad": 6,
+            "precio_unitario": 0.95,
+            "precio_total": 5.7
+          }
+        ],
+        "precio_compra_total": "20.47",
+        "navegador": "Safari",
+        "sistema_operativo": "iOS",
+        "tipo_usuario": "Único",
+        "tiempo_promedio_pagina": 0
+      },
+  {
+        "ip": "5.90.56.196",
+        "pais": "Italy",
+        "fecha_hora_entrada": "2025-04-02T13:31:07.652Z",
+        "origen": "Acceso directo",
+        "afiliado": "Ninguno",
+        "duracion_sesion_segundos": 520,
+        "tiempo_carga_pagina_ms": 1562,
+        "nombre_comprador": "Donato bacarini ",
+        "telefono_comprador": "3455868186",
+        "correo_comprador": "meryrodriguez1974@gmail.com",
+        "compras": [
+          {
+            "producto": "Café Espresso «El Ricote»",
+            "cantidad": 2,
+            "precio_unitario": 6.87,
+            "precio_total": 13.74
+          },
+          {
+            "producto": "Garbanzos (500g)",
+            "cantidad": 6,
+            "precio_unitario": 2.4,
+            "precio_total": 14.4
+          },
+          {
+            "producto": "Mano de plátano burro",
+            "cantidad": 5,
+            "precio_unitario": 0.95,
+            "precio_total": 4.75
+          },
+          {
+            "producto": "Limón x Lb",
+            "cantidad": 2,
+            "precio_unitario": 2.31,
+            "precio_total": 4.62
+          },
+          {
+            "producto": "Cartón de Huevos",
+            "cantidad": 1,
+            "precio_unitario": 9.73,
+            "precio_total": 9.73
+          },
+          {
+            "producto": "Jabón de Baño (100g)",
+            "cantidad": 3,
+            "precio_unitario": 1.05,
+            "precio_total": 3.15
+          },
+          {
+            "producto": "Pasta de tomate Vima (400g)",
+            "cantidad": 2,
+            "precio_unitario": 1.98,
+            "precio_total": 3.96
+          }
+        ],
+        "precio_compra_total": "54.35",
+        "navegador": "Chrome",
+        "sistema_operativo": "Android",
+        "tipo_usuario": "Recurrente",
+        "tiempo_promedio_pagina": 0
+      },
+  {
+        "ip": "2600:1700:3d65:580:9494:e299:7e23:c44b",
+        "pais": "United States",
+        "fecha_hora_entrada": "2025-04-03T08:28:43(GMT-4)",
+        "origen": "Acceso directo",
+        "afiliado": "Juana",
+        "duracion_sesion_segundos": 762,
+        "tiempo_carga_pagina_ms": 494,
+        "nombre_comprador": "Ketileni Perez",
+        "telefono_comprador": "3056062122",
+        "correo_comprador": "ketilenip@gmail.com",
+        "compras": [
+          {
+            "producto": "Pack Ligero",
+            "cantidad": 1,
+            "precio_unitario": 16,
+            "precio_total": 16
+          },
+          {
+            "producto": "Pack Estilizado",
+            "cantidad": 1,
+            "precio_unitario": 16,
+            "precio_total": 16
+          }
+        ],
+        "precio_compra_total": "32.00",
+        "navegador": "Safari",
+        "sistema_operativo": "iOS",
+        "tipo_usuario": "Recurrente",
+        "tiempo_promedio_pagina": 0
+      },
+  {
+        "ip": "2600:1700:3d65:580:9494:e299:7e23:c44b",
+        "pais": "United States",
+        "fecha_hora_entrada": "2025-04-03T08:33:25(GMT-4)",
+        "origen": "https://www.asereshops.com/?ref=SnVhbmE=",
+        "afiliado": "Juana",
+        "duracion_sesion_segundos": 186,
+        "tiempo_carga_pagina_ms": 444,
+        "nombre_comprador": "Ketileni Perez",
+        "telefono_comprador": "3056062122",
+        "correo_comprador": "ketilenip@gmail.com",
+        "compras": [
+          {
+            "producto": "Mayonesa Vima (450ml)",
+            "cantidad": 1,
+            "precio_unitario": 4.17,
+            "precio_total": 4.17
+          },
+          {
+            "producto": "Aceite refinado de girasol 1L",
+            "cantidad": 2,
+            "precio_unitario": 3.8,
+            "precio_total": 7.6
+          },
+          {
+            "producto": "Café Espresso «El Ricote»",
+            "cantidad": 1,
+            "precio_unitario": 6.87,
+            "precio_total": 6.87
+          }
+        ],
+        "precio_compra_total": "18.64",
+        "navegador": "Safari",
+        "sistema_operativo": "iOS",
+        "tipo_usuario": "Recurrente",
+        "tiempo_promedio_pagina": 0
+      },
+  {
+        "ip": "172.58.135.101",
+        "pais": "United States",
+        "fecha_hora_entrada": "2025-04-03T12:06:38(GMT-4)",
+        "origen": "Acceso directo",
+        "afiliado": "Ninguno",
+        "duracion_sesion_segundos": 342,
+        "tiempo_carga_pagina_ms": 823,
+        "nombre_comprador": "Yakelin Suarez ",
+        "telefono_comprador": "2393169117",
+        "correo_comprador": "leiser.yaki@yahoo.es",
+        "compras": [
+          {
+            "producto": "Pollo Golden Phoenix (2Kg)",
+            "cantidad": 1,
+            "precio_unitario": 7.46,
+            "precio_total": 7.46
+          },
+          {
+            "producto": "Pack de 4 Hamburguesas de pollo",
+            "cantidad": 2,
+            "precio_unitario": 1.89,
+            "precio_total": 3.78
+          },
+          {
+            "producto": "Picadillo de pollo (1Kg)",
+            "cantidad": 2,
+            "precio_unitario": 2.97,
+            "precio_total": 5.94
+          },
+          {
+            "producto": "Aceite refinado de girasol 1L",
+            "cantidad": 1,
+            "precio_unitario": 3.8,
+            "precio_total": 3.8
+          },
+          {
+            "producto": "Cartón de Huevos",
+            "cantidad": 1,
+            "precio_unitario": 9.73,
+            "precio_total": 9.73
+          },
+          {
+            "producto": "Ajo Pelado (1kg)",
+            "cantidad": 1,
+            "precio_unitario": 7.2,
+            "precio_total": 7.2
+          },
+          {
+            "producto": "Frijoles Negros (1Kg)",
+            "cantidad": 1,
+            "precio_unitario": 3.57,
+            "precio_total": 3.57
+          },
+          {
+            "producto": "Garbanzos (500g)",
+            "cantidad": 1,
+            "precio_unitario": 3.2,
+            "precio_total": 3.2
+          }
+        ],
+        "precio_compra_total": "44.68",
+        "navegador": "Safari",
+        "sistema_operativo": "iOS",
+        "tipo_usuario": "Recurrente",
+        "tiempo_promedio_pagina": 0
+      },
+  {
+        "ip": "107.134.113.72",
+        "pais": "United States",
+        "fecha_hora_entrada": "2025-04-05 15:54:00",
+        "origen": "Acceso directo",
+        "afiliado": "Natty",
+        "duracion_sesion_segundos": 794,
+        "tiempo_carga_pagina_ms": 601,
+        "nombre_comprador": "Shakira Granda",
+        "telefono_comprador": "7866094405",
+        "correo_comprador": "h7707shaki@yahoo.com",
+        "compras": [
+          {
+            "producto": "Gelatina Gely de Melocotón (125ml)",
+            "cantidad": 3,
+            "precio_unitario": 1.99,
+            "precio_total": 5.97
+          },
+          {
+            "producto": "Caja de Malta Bucanero",
+            "cantidad": 1,
+            "precio_unitario": 25,
+            "precio_total": 25
+          },
+          {
+            "producto": "Helado 4Lts",
+            "cantidad": 1,
+            "precio_unitario": 10.45,
+            "precio_total": 10.45
+          },
+          {
+            "producto": "Mayonesa Vima (450ml)",
+            "cantidad": 1,
+            "precio_unitario": 4.17,
+            "precio_total": 4.17
+          },
+          {
+            "producto": "Aceite refinado de girasol 1L",
+            "cantidad": 2,
+            "precio_unitario": 3.8,
+            "precio_total": 7.6
+          },
+          {
+            "producto": "Paquete de pan de bola 10u",
+            "cantidad": 2,
+            "precio_unitario": 1.9,
+            "precio_total": 3.8
+          }
+        ],
+        "precio_compra_total": "56.99",
+        "navegador": "Edge",
+        "sistema_operativo": "Windows",
+        "tipo_usuario": "Recurrente",
+        "tiempo_promedio_pagina": 0,
+        "fuente_trafico": "Directo"
+      },
+  {
+        "ip": "2600:387:f:d1b::9",
+        "pais": "United States",
+        "fecha_hora_entrada": "2025-04-05 19:40:26",
+        "origen": "Acceso directo",
+        "afiliado": "Natty",
+        "duracion_sesion_segundos": 1093,
+        "tiempo_carga_pagina_ms": 724,
+        "nombre_comprador": "Nayelin Reyes",
+        "telefono_comprador": "7863002520",
+        "correo_comprador": "nileyan2018@gmail.com",
+        "compras": [
+          {
+            "producto": "Azúcar blanca x lb",
+            "cantidad": 5,
+            "precio_unitario": 1.23,
+            "precio_total": 6.15
+          },
+          {
+            "producto": "Frazada de Piso",
+            "cantidad": 3,
+            "precio_unitario": 1.99,
+            "precio_total": 5.97
+          },
+          {
+            "producto": "Mano de plátano burro",
+            "cantidad": 1,
+            "precio_unitario": 0.95,
+            "precio_total": 0.95
+          },
+          {
+            "producto": "Pepino x Lb",
+            "cantidad": 1,
+            "precio_unitario": 0.58,
+            "precio_total": 0.58
+          },
+          {
+            "producto": "Tomate x Lb",
+            "cantidad": 2,
+            "precio_unitario": 0.93,
+            "precio_total": 1.86
+          },
+          {
+            "producto": "Refresco Instantáneo (2Lt)",
+            "cantidad": 4,
+            "precio_unitario": 0.42,
+            "precio_total": 1.68
+          },
+          {
+            "producto": "Salsa Cocktail Vima (225ml)",
+            "cantidad": 1,
+            "precio_unitario": 2.66,
+            "precio_total": 2.66
+          },
+          {
+            "producto": "Cartón de Huevos",
+            "cantidad": 1,
+            "precio_unitario": 9.73,
+            "precio_total": 9.73
+          }
+        ],
+        "precio_compra_total": "29.58",
+        "navegador": "Safari",
+        "sistema_operativo": "iOS",
+        "tipo_usuario": "Recurrente",
+        "tiempo_promedio_pagina": 0,
+        "fuente_trafico": "Directo"
+      },
+  {
+    "ip": "2600:387:f:d1b::9",
+    "pais": "United States",
+    "fecha_hora_entrada": "2025-04-05 19:40:26",
+    "origen": "Acceso directo",
+    "afiliado": "Natty",
+    "duracion_sesion_segundos": 1093,
+    "tiempo_carga_pagina_ms": 724,
+    "nombre_comprador": "Nayelin Reyes",
+    "telefono_comprador": "7863002520",
+    "correo_comprador": "nileyan2018@gmail.com",
+    "compras": [
+      {
+        "producto": "Azúcar blanca x lb",
+        "cantidad": 5,
+        "precio_unitario": 1.23,
+        "precio_total": 6.15
+      },
+      {
+        "producto": "Frazada de Piso",
+        "cantidad": 3,
+        "precio_unitario": 1.99,
+        "precio_total": 5.97
+      },
+      {
+        "producto": "Mano de plátano burro",
+        "cantidad": 1,
+        "precio_unitario": 0.95,
+        "precio_total": 0.95
+      },
+      {
+        "producto": "Pepino x Lb",
+        "cantidad": 1,
+        "precio_unitario": 0.58,
+        "precio_total": 0.58
+      },
+      {
+        "producto": "Tomate x Lb",
+        "cantidad": 2,
+        "precio_unitario": 0.93,
+        "precio_total": 1.86
+      },
+      {
+        "producto": "Refresco Instantáneo (2Lt)",
+        "cantidad": 4,
+        "precio_unitario": 0.42,
+        "precio_total": 1.68
+      },
+      {
+        "producto": "Salsa Cocktail Vima (225ml)",
+        "cantidad": 1,
+        "precio_unitario": 2.66,
+        "precio_total": 2.66
+      },
+      {
+        "producto": "Cartón de Huevos",
+        "cantidad": 1,
+        "precio_unitario": 9.73,
+        "precio_total": 9.73
+      }
+    ],
+    "precio_compra_total": "29.58",
+    "navegador": "Safari",
+    "sistema_operativo": "iOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2603:3020:e3c:a000:fcdc:fc0a:6f54:2f8",
+    "pais": "United States",
+    "fecha_hora_entrada": "2025-04-07 11:31:47",
+    "origen": "Acceso directo",
+    "afiliado": "Natty",
+    "duracion_sesion_segundos": 3429,
+    "tiempo_carga_pagina_ms": 125,
+    "nombre_comprador": "Nayelin Reyes",
+    "telefono_comprador": "7863002520",
+    "correo_comprador": "nileyan2018@gmail.com",
+    "compras": [
+      {
+        "producto": "Pack Confituras",
+        "cantidad": 1,
+        "precio_unitario": 15,
+        "precio_total": 15
+      }
+    ],
+    "precio_compra_total": "15.00",
+    "navegador": "Safari",
+    "sistema_operativo": "iOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2607:fb90:d180:cd09:e180:c55e:3ce:9d4",
+    "pais": "United States",
+    "fecha_hora_entrada": "2025-04-07 21:14:13",
+    "origen": "Acceso directo",
+    "afiliado": "Dalva 1",
+    "duracion_sesion_segundos": 1539,
+    "tiempo_carga_pagina_ms": -538574,
+    "nombre_comprador": "Sandra Gonzalez Lopez",
+    "telefono_comprador": "+17722566301",
+    "correo_comprador": "gonzaleziris1971@gmail.com",
+    "compras": [
+      {
+        "producto": "Espaguetis (500g)",
+        "cantidad": 2,
+        "precio_unitario": 1.89,
+        "precio_total": 3.78
+      },
+      {
+        "producto": "Mano de plátano burro",
+        "cantidad": 2,
+        "precio_unitario": 0.95,
+        "precio_total": 1.9
+      },
+      {
+        "producto": "Pollo Golden Phoenix (2Kg)",
+        "cantidad": 1,
+        "precio_unitario": 7.46,
+        "precio_total": 7.46
+      },
+      {
+        "producto": "Leche entera en polvo (1kg)",
+        "cantidad": 1,
+        "precio_unitario": 11.97,
+        "precio_total": 11.97
+      },
+      {
+        "producto": "Paquete de pan de bola 10u",
+        "cantidad": 5,
+        "precio_unitario": 1.9,
+        "precio_total": 9.5
+      },
+      {
+        "producto": "Galletas Porleo (45g)",
+        "cantidad": 2,
+        "precio_unitario": 0.91,
+        "precio_total": 1.82
+      },
+      {
+        "producto": "Azúcar blanca x lb",
+        "cantidad": 5,
+        "precio_unitario": 1.23,
+        "precio_total": 6.15
+      }
+    ],
+    "precio_compra_total": "42.58",
+    "navegador": "Safari",
+    "sistema_operativo": "iOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2a02:3100:82d9:bf00:6008:4769:44df:8cb9",
+    "pais": "Germany",
+    "fecha_hora_entrada": "2025-04-08 04:59:24",
+    "origen": "Acceso directo",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 1135,
+    "tiempo_carga_pagina_ms": 677,
+    "nombre_comprador": "Leoncio Yaciel Chirino Infante",
+    "telefono_comprador": "1777808639",
+    "correo_comprador": "yaciel.cc@gmail.com",
+    "compras": [
+      {
+        "producto": "Pollo Golden Phoenix (2Kg)",
+        "cantidad": 2,
+        "precio_unitario": 7.46,
+        "precio_total": 14.92
+      },
+      {
+        "producto": "Carne de Ovejo x Lb",
+        "cantidad": 5,
+        "precio_unitario": 2.36,
+        "precio_total": 11.8
+      },
+      {
+        "producto": "Jamón de Pierna x Lb",
+        "cantidad": 1,
+        "precio_unitario": 5.04,
+        "precio_total": 5.04
+      },
+      {
+        "producto": "Espaguetis (500g)",
+        "cantidad": 4,
+        "precio_unitario": 1.89,
+        "precio_total": 7.56
+      },
+      {
+        "producto": "Paquete de Papel Sanitario",
+        "cantidad": 1,
+        "precio_unitario": 2.09,
+        "precio_total": 2.09
+      }
+    ],
+    "precio_compra_total": "41.41",
+    "navegador": "Safari",
+    "sistema_operativo": "iOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2600:387:15:3a13::4",
+    "pais": "United States",
+    "fecha_hora_entrada": "2025-04-08 10:31:06",
+    "origen": "Acceso directo",
+    "afiliado": "Dalva 1",
+    "duracion_sesion_segundos": 171,
+    "tiempo_carga_pagina_ms": 8162,
+    "nombre_comprador": "Michel Avila Wilcox",
+    "telefono_comprador": "8329408815",
+    "correo_comprador": "michelmatatan17@gmail.com",
+    "compras": [
+      {
+        "producto": "Caja de Cervezas Cristal",
+        "cantidad": 2,
+        "precio_unitario": 25.15,
+        "precio_total": 50.3
+      }
+    ],
+    "precio_compra_total": "50.30",
+    "navegador": "Firefox",
+    "sistema_operativo": "Android",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2607:fb91:c3a:380:e8ea:8d62:f9d2:8fed",
+    "pais": "United States",
+    "fecha_hora_entrada": "2025-04-08 19:15:35",
+    "origen": "Acceso directo",
+    "afiliado": "Natty",
+    "duracion_sesion_segundos": 294,
+    "tiempo_carga_pagina_ms": 481,
+    "nombre_comprador": "Nayelin Reyes",
+    "telefono_comprador": "7863002520",
+    "correo_comprador": "nileyan2018@gmail.com",
+    "compras": [
+      {
+        "producto": "Pollo Golden Phoenix (2Kg)",
+        "cantidad": 1,
+        "precio_unitario": 7.46,
+        "precio_total": 7.46
+      },
+      {
+        "producto": "Mano de plátano burro",
+        "cantidad": 1,
+        "precio_unitario": 0.95,
+        "precio_total": 0.95
+      },
+      {
+        "producto": "Pepino x Lb",
+        "cantidad": 1,
+        "precio_unitario": 0.58,
+        "precio_total": 0.58
+      },
+      {
+        "producto": "Tomate x Lb",
+        "cantidad": 2,
+        "precio_unitario": 0.93,
+        "precio_total": 1.86
+      },
+      {
+        "producto": "Plátano macho x unidad",
+        "cantidad": 5,
+        "precio_unitario": 0.26,
+        "precio_total": 1.3
+      },
+      {
+        "producto": "Frijol Negro x Lb",
+        "cantidad": 1,
+        "precio_unitario": 2.63,
+        "precio_total": 2.63
+      },
+      {
+        "producto": "Frijol Rojo x Lb",
+        "cantidad": 1,
+        "precio_unitario": 3.15,
+        "precio_total": 3.15
+      },
+      {
+        "producto": "Arroz Criollo 1Lb",
+        "cantidad": 6,
+        "precio_unitario": 0.95,
+        "precio_total": 5.7
+      },
+      {
+        "producto": "Aceite refinado de girasol 1L",
+        "cantidad": 1,
+        "precio_unitario": 3.8,
+        "precio_total": 3.8
+      },
+      {
+        "producto": "Azúcar blanca x lb",
+        "cantidad": 2,
+        "precio_unitario": 1.23,
+        "precio_total": 2.46
+      }
+    ],
+    "precio_compra_total": "29.89",
+    "navegador": "Safari",
+    "sistema_operativo": "iOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "149.22.88.139",
+    "pais": "United States",
+    "fecha_hora_entrada": "2025-04-09 09:57:48",
+    "origen": "Acceso directo",
+    "afiliado": "Daniel",
+    "duracion_sesion_segundos": 188,
+    "tiempo_carga_pagina_ms": 7546,
+    "nombre_comprador": "Alejandro González Peña",
+    "telefono_comprador": "52573825",
+    "correo_comprador": "yamilef698@gmail.com",
+    "compras": [
+      {
+        "producto": "Galletas Porleo (45g)",
+        "cantidad": 7,
+        "precio_unitario": 0.91,
+        "precio_total": 6.37
+      },
+      {
+        "producto": "Galletas de Soda con Mantequilla Doricas",
+        "cantidad": 1,
+        "precio_unitario": 5.25,
+        "precio_total": 5.25
+      }
+    ],
+    "precio_compra_total": "11.62",
+    "navegador": "Chrome",
+    "sistema_operativo": "Android",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2601:6c2:100:e250:ac72:93e6:1ab:9783",
+    "pais": "United States",
+    "fecha_hora_entrada": "2025-04-09 18:00:31",
+    "origen": "Acceso directo",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 411,
+    "tiempo_carga_pagina_ms": 1272,
+    "nombre_comprador": "Yakelin Suárez",
+    "telefono_comprador": "2393169117",
+    "correo_comprador": "leiser.yaki@yahoo.es",
+    "compras": [
+      {
+        "producto": "Pollo Country Pride",
+        "cantidad": 1,
+        "precio_unitario": 13.9,
+        "precio_total": 13.9
+      },
+      {
+        "producto": "Pack de 4 Hamburguesas de pollo",
+        "cantidad": 2,
+        "precio_unitario": 1.89,
+        "precio_total": 3.78
+      },
+      {
+        "producto": "Salchicha de pollo y cerdo 10u (340g)",
+        "cantidad": 1,
+        "precio_unitario": 1.9,
+        "precio_total": 1.9
+      },
+      {
+        "producto": "Picadillo de pollo (1Kg)",
+        "cantidad": 2,
+        "precio_unitario": 2.97,
+        "precio_total": 5.94
+      },
+      {
+        "producto": "Cartón de Huevos",
+        "cantidad": 1,
+        "precio_unitario": 9.73,
+        "precio_total": 9.73
+      },
+      {
+        "producto": "Leche Condensada azucarada (390g)",
+        "cantidad": 2,
+        "precio_unitario": 2.89,
+        "precio_total": 5.78
+      },
+      {
+        "producto": "Croqueta Jamón (500g)",
+        "cantidad": 2,
+        "precio_unitario": 2.8,
+        "precio_total": 5.6
+      },
+      {
+        "producto": "Espaguetis (500g)",
+        "cantidad": 1,
+        "precio_unitario": 1.89,
+        "precio_total": 1.89
+      },
+      {
+        "producto": "Codito Badelli (350g)",
+        "cantidad": 1,
+        "precio_unitario": 1.89,
+        "precio_total": 1.89
+      },
+      {
+        "producto": "Jabón de Baño (100g)",
+        "cantidad": 2,
+        "precio_unitario": 1.05,
+        "precio_total": 2.1
+      }
+    ],
+    "precio_compra_total": "52.51",
+    "navegador": "Safari",
+    "sistema_operativo": "iOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2607:fb91:c3a:380:d08c:925e:d2bb:5014",
+    "pais": "United States",
+    "fecha_hora_entrada": "2025-04-09 23:47:05",
+    "origen": "Acceso directo",
+    "afiliado": "Natty",
+    "duracion_sesion_segundos": 315,
+    "tiempo_carga_pagina_ms": 311,
+    "nombre_comprador": "Nayelin Reyes",
+    "telefono_comprador": "7863002520",
+    "correo_comprador": "nileyan2018@gmail.com",
+    "compras": [
+      {
+        "producto": "Pollo Golden Phoenix (2Kg)",
+        "cantidad": 1,
+        "precio_unitario": 7.46,
+        "precio_total": 7.46
+      },
+      {
+        "producto": "Café Espresso «El Ricote»",
+        "cantidad": 1,
+        "precio_unitario": 6.87,
+        "precio_total": 6.87
+      },
+      {
+        "producto": "Pasta de tomate Vima (400g)",
+        "cantidad": 1,
+        "precio_unitario": 1.98,
+        "precio_total": 1.98
+      },
+      {
+        "producto": "Salsa Cocktail Vima (225ml)",
+        "cantidad": 1,
+        "precio_unitario": 2.66,
+        "precio_total": 2.66
+      },
+      {
+        "producto": "Mano de plátano burro",
+        "cantidad": 1,
+        "precio_unitario": 0.95,
+        "precio_total": 0.95
+      },
+      {
+        "producto": "Pepino x Lb",
+        "cantidad": 1,
+        "precio_unitario": 0.58,
+        "precio_total": 0.58
+      },
+      {
+        "producto": "Tomate x Lb",
+        "cantidad": 1,
+        "precio_unitario": 0.93,
+        "precio_total": 0.93
+      },
+      {
+        "producto": "Frijol Negro x Lb",
+        "cantidad": 1,
+        "precio_unitario": 2.63,
+        "precio_total": 2.63
+      },
+      {
+        "producto": "Frijol Rojo x Lb",
+        "cantidad": 1,
+        "precio_unitario": 3.15,
+        "precio_total": 3.15
+      },
+      {
+        "producto": "Espaguetis (500g)",
+        "cantidad": 1,
+        "precio_unitario": 1.89,
+        "precio_total": 1.89
+      },
+      {
+        "producto": "Arroz Criollo 1Lb",
+        "cantidad": 5,
+        "precio_unitario": 0.95,
+        "precio_total": 4.75
+      },
+      {
+        "producto": "Aceite refinado de girasol 1L",
+        "cantidad": 1,
+        "precio_unitario": 4.2,
+        "precio_total": 4.2
+      }
+    ],
+    "precio_compra_total": "38.05",
+    "navegador": "Safari",
+    "sistema_operativo": "iOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2607:fb91:c6c:418a:b9d9:f74d:28c2:d56e",
+    "pais": "United States",
+    "fecha_hora_entrada": "2025-04-10 16:19:50",
+    "origen": "Acceso directo",
+    "afiliado": "Ramón",
+    "duracion_sesion_segundos": 1630,
+    "tiempo_carga_pagina_ms": 697,
+    "nombre_comprador": "Adrian Alejandro Acosta Mercantete",
+    "telefono_comprador": "7123265652",
+    "correo_comprador": "banderaliliam@gmail.com",
+    "compras": [
+      {
+        "producto": "Helado 4Lts",
+        "cantidad": 1,
+        "precio_unitario": 10.45,
+        "precio_total": 10.45
+      }
+    ],
+    "precio_compra_total": "10.45",
+    "navegador": "Safari",
+    "sistema_operativo": "iOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "152.207.247.24",
+    "pais": "Cuba",
+    "fecha_hora_entrada": "2025-04-10 17:16:46",
+    "origen": "Acceso directo",
+    "afiliado": "Daniel",
+    "duracion_sesion_segundos": 174,
+    "tiempo_carga_pagina_ms": 3181,
+    "nombre_comprador": "Rosangel Espinosa Escobar",
+    "telefono_comprador": "54764836",
+    "correo_comprador": "rosangel9704@gmail.com",
+    "compras": [
+      {
+        "producto": "Spam",
+        "cantidad": 4,
+        "precio_unitario": 2.93,
+        "precio_total": 11.72
+      }
+    ],
+    "precio_compra_total": "11.72",
+    "navegador": "Safari",
+    "sistema_operativo": "iOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2607:fb91:c3a:380:e514:747e:838e:11f3",
+    "pais": "United States",
+    "fecha_hora_entrada": "2025-04-10 18:24:42",
+    "origen": "Acceso directo",
+    "afiliado": "Natty",
+    "duracion_sesion_segundos": 638,
+    "tiempo_carga_pagina_ms": 390,
+    "nombre_comprador": "Cheila Cordove Pupo",
+    "telefono_comprador": "7863220667",
+    "correo_comprador": "cordovesheila@gmail.com",
+    "compras": [
+      {
+        "producto": "Pollo Golden Phoenix (2Kg)",
+        "cantidad": 1,
+        "precio_unitario": 7.46,
+        "precio_total": 7.46
+      },
+      {
+        "producto": "Pack de 4 Hamburguesas de pollo",
+        "cantidad": 2,
+        "precio_unitario": 1.89,
+        "precio_total": 3.78
+      },
+      {
+        "producto": "Picadillo de pollo (1Kg)",
+        "cantidad": 1,
+        "precio_unitario": 2.97,
+        "precio_total": 2.97
+      },
+      {
+        "producto": "Pasta de tomate Vima (400g)",
+        "cantidad": 1,
+        "precio_unitario": 1.98,
+        "precio_total": 1.98
+      },
+      {
+        "producto": "Mano de plátano burro",
+        "cantidad": 1,
+        "precio_unitario": 0.95,
+        "precio_total": 0.95
+      },
+      {
+        "producto": "Pepino x Lb",
+        "cantidad": 2,
+        "precio_unitario": 0.58,
+        "precio_total": 1.16
+      },
+      {
+        "producto": "Tomate x Lb",
+        "cantidad": 2,
+        "precio_unitario": 0.93,
+        "precio_total": 1.86
+      },
+      {
+        "producto": "Plátano macho x unidad",
+        "cantidad": 10,
+        "precio_unitario": 0.26,
+        "precio_total": 2.6
+      },
+      {
+        "producto": "Boniato x Lb",
+        "cantidad": 2,
+        "precio_unitario": 0.42,
+        "precio_total": 0.84
+      },
+      {
+        "producto": "Frijol Negro x Lb",
+        "cantidad": 1,
+        "precio_unitario": 2.63,
+        "precio_total": 2.63
+      },
+      {
+        "producto": "Frijol Rojo x Lb",
+        "cantidad": 1,
+        "precio_unitario": 3.15,
+        "precio_total": 3.15
+      },
+      {
+        "producto": "Codito Badelli (350g)",
+        "cantidad": 1,
+        "precio_unitario": 1.89,
+        "precio_total": 1.89
+      },
+      {
+        "producto": "Arroz Criollo 1Lb",
+        "cantidad": 6,
+        "precio_unitario": 0.95,
+        "precio_total": 5.7
+      },
+      {
+        "producto": "Aceite refinado de girasol 1L",
+        "cantidad": 1,
+        "precio_unitario": 4.2,
+        "precio_total": 4.2
+      }
+    ],
+    "precio_compra_total": "41.17",
+    "navegador": "Safari",
+    "sistema_operativo": "iOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2603:3020:e3c:a000:943f:e896:f0d0:c81b",
+    "pais": "United States",
+    "fecha_hora_entrada": "2025-04-11 13:45:29",
+    "origen": "Acceso directo",
+    "afiliado": "Natty",
+    "duracion_sesion_segundos": 618,
+    "tiempo_carga_pagina_ms": 674,
+    "nombre_comprador": "Nayelin Reyes",
+    "telefono_comprador": "7863002520",
+    "correo_comprador": "nileyan2018@gmail.com",
+    "compras": [
+      {
+        "producto": "Pollo Golden Phoenix (2Kg)",
+        "cantidad": 1,
+        "precio_unitario": 7.46,
+        "precio_total": 7.46
+      },
+      {
+        "producto": "Mano de plátano burro",
+        "cantidad": 1,
+        "precio_unitario": 0.95,
+        "precio_total": 0.95
+      },
+      {
+        "producto": "Pepino x Lb",
+        "cantidad": 2,
+        "precio_unitario": 0.58,
+        "precio_total": 1.16
+      },
+      {
+        "producto": "Tomate x Lb",
+        "cantidad": 1,
+        "precio_unitario": 0.93,
+        "precio_total": 0.93
+      },
+      {
+        "producto": "Plátano macho x unidad",
+        "cantidad": 5,
+        "precio_unitario": 0.26,
+        "precio_total": 1.3
+      },
+      {
+        "producto": "Boniato x Lb",
+        "cantidad": 2,
+        "precio_unitario": 0.42,
+        "precio_total": 0.84
+      },
+      {
+        "producto": "Frijol Negro x Lb",
+        "cantidad": 1,
+        "precio_unitario": 2.63,
+        "precio_total": 2.63
+      },
+      {
+        "producto": "Frijol Rojo x Lb",
+        "cantidad": 1,
+        "precio_unitario": 3.15,
+        "precio_total": 3.15
+      },
+      {
+        "producto": "Arroz Criollo 1Lb",
+        "cantidad": 5,
+        "precio_unitario": 0.95,
+        "precio_total": 4.75
+      },
+      {
+        "producto": "Azúcar blanca x lb",
+        "cantidad": 1,
+        "precio_unitario": 1.23,
+        "precio_total": 1.23
+      },
+      {
+        "producto": "Sal x Lb",
+        "cantidad": 1,
+        "precio_unitario": 0.35,
+        "precio_total": 0.35
+      }
+    ],
+    "precio_compra_total": "24.75",
+    "navegador": "Safari",
+    "sistema_operativo": "iOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "5.90.56.196",
+    "pais": "Italy",
+    "fecha_hora_entrada": "2025-04-11 15:26:06",
+    "origen": "Acceso directo",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 187,
+    "tiempo_carga_pagina_ms": 1986,
+    "nombre_comprador": "Maria Antonia Rodriguez torres",
+    "telefono_comprador": "+393455868186",
+    "correo_comprador": "meryrodriguez1974@gmail.com",
+    "compras": [
+      {
+        "producto": "Manzanas Pack x6",
+        "cantidad": 3,
+        "precio_unitario": 9,
+        "precio_total": 27
+      },
+      {
+        "producto": "Manzana",
+        "cantidad": 2,
+        "precio_unitario": 1.7,
+        "precio_total": 3.4
+      }
+    ],
+    "precio_compra_total": "30.40",
+    "navegador": "Chrome",
+    "sistema_operativo": "Android",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2603:3020:e3c:a000:5098:457f:2e6c:b972",
+    "pais": "United States",
+    "fecha_hora_entrada": "2025-04-11 12:34:23",
+    "origen": "Acceso directo",
+    "afiliado": "Natty",
+    "duracion_sesion_segundos": 8236,
+    "tiempo_carga_pagina_ms": 233,
+    "nombre_comprador": "Nayelin Reyes",
+    "telefono_comprador": "7863002520",
+    "correo_comprador": "nileyan2018@gmail.com",
+    "compras": [
+      {
+        "producto": "Pollo Golden Phoenix (2Kg)",
+        "cantidad": 1,
+        "precio_unitario": 7.46,
+        "precio_total": 7.46
+      },
+      {
+        "producto": "Pack de 4 Hamburguesas de pollo",
+        "cantidad": 2,
+        "precio_unitario": 1.89,
+        "precio_total": 3.78
+      },
+      {
+        "producto": "Picadillo de pollo (1Kg)",
+        "cantidad": 1,
+        "precio_unitario": 2.97,
+        "precio_total": 2.97
+      },
+      {
+        "producto": "Pasta de tomate Vima (400g)",
+        "cantidad": 1,
+        "precio_unitario": 1.98,
+        "precio_total": 1.98
+      },
+      {
+        "producto": "Salsa Cocktail Vima (225ml)",
+        "cantidad": 1,
+        "precio_unitario": 2.66,
+        "precio_total": 2.66
+      },
+      {
+        "producto": "Mano de plátano burro",
+        "cantidad": 1,
+        "precio_unitario": 0.95,
+        "precio_total": 0.95
+      },
+      {
+        "producto": "Pepino x Lb",
+        "cantidad": 2,
+        "precio_unitario": 0.58,
+        "precio_total": 1.16
+      },
+      {
+        "producto": "Tomate x Lb",
+        "cantidad": 2,
+        "precio_unitario": 0.93,
+        "precio_total": 1.86
+      },
+      {
+        "producto": "Limón x Lb",
+        "cantidad": 1,
+        "precio_unitario": 2.31,
+        "precio_total": 2.31
+      },
+      {
+        "producto": "Plátano macho x unidad",
+        "cantidad": 10,
+        "precio_unitario": 0.26,
+        "precio_total": 2.6
+      },
+      {
+        "producto": "Boniato x Lb",
+        "cantidad": 3,
+        "precio_unitario": 0.42,
+        "precio_total": 1.26
+      },
+      {
+        "producto": "Frijol Negro x Lb",
+        "cantidad": 1,
+        "precio_unitario": 2.63,
+        "precio_total": 2.63
+      },
+      {
+        "producto": "Frijol Rojo x Lb",
+        "cantidad": 2,
+        "precio_unitario": 3.15,
+        "precio_total": 6.3
+      },
+      {
+        "producto": "Arroz Criollo 1Lb",
+        "cantidad": 6,
+        "precio_unitario": 0.95,
+        "precio_total": 5.7
+      },
+      {
+        "producto": "Aceite refinado de girasol 1L",
+        "cantidad": 1,
+        "precio_unitario": 4.2,
+        "precio_total": 4.2
+      },
+      {
+        "producto": "Cartón de Huevos",
+        "cantidad": 1,
+        "precio_unitario": 9.73,
+        "precio_total": 9.73
+      },
+      {
+        "producto": "Sal x Lb",
+        "cantidad": 1,
+        "precio_unitario": 0.35,
+        "precio_total": 0.35
+      }
+    ],
+    "precio_compra_total": "57.90",
+    "navegador": "Safari",
+    "sistema_operativo": "iOS",
+    "tipo_usuario": "Único",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "47.195.228.133",
+    "pais": "United States",
+    "fecha_hora_entrada": "2025-04-11 22:08:02",
+    "origen": "Acceso directo",
+    "afiliado": "Juana",
+    "duracion_sesion_segundos": 351,
+    "tiempo_carga_pagina_ms": 238,
+    "nombre_comprador": "Ailen Vega marino",
+    "telefono_comprador": "+9413123962",
+    "correo_comprador": "ailen29101990@gmail.com",
+    "compras": [
+      {
+        "producto": "Pollo Golden Phoenix (2Kg)",
+        "cantidad": 1,
+        "precio_unitario": 7.46,
+        "precio_total": 7.46
+      },
+      {
+        "producto": "Carne de cerdo x Lb",
+        "cantidad": 5,
+        "precio_unitario": 2.9,
+        "precio_total": 14.5
+      },
+      {
+        "producto": "Salchicha de pollo y cerdo 10u (340g)",
+        "cantidad": 2,
+        "precio_unitario": 1.9,
+        "precio_total": 3.8
+      },
+      {
+        "producto": "Carne de Ovejo x Lb",
+        "cantidad": 5,
+        "precio_unitario": 2.36,
+        "precio_total": 11.8
+      },
+      {
+        "producto": "Pasta de tomate Vima (400g)",
+        "cantidad": 1,
+        "precio_unitario": 1.98,
+        "precio_total": 1.98
+      },
+      {
+        "producto": "Espaguetis (500g)",
+        "cantidad": 2,
+        "precio_unitario": 1.89,
+        "precio_total": 3.78
+      },
+      {
+        "producto": "Frijoles Rojos (1kg)",
+        "cantidad": 1,
+        "precio_unitario": 4.8,
+        "precio_total": 4.8
+      },
+      {
+        "producto": "Leche entera en polvo (1kg)",
+        "cantidad": 1,
+        "precio_unitario": 11.97,
+        "precio_total": 11.97
+      },
+      {
+        "producto": "Aceite refinado de girasol 1L",
+        "cantidad": 1,
+        "precio_unitario": 4.2,
+        "precio_total": 4.2
+      },
+      {
+        "producto": "Paquete de pan de bola 10u",
+        "cantidad": 2,
+        "precio_unitario": 1.9,
+        "precio_total": 3.8
+      },
+      {
+        "producto": "Cartón de Huevos",
+        "cantidad": 1,
+        "precio_unitario": 9.73,
+        "precio_total": 9.73
+      },
+      {
+        "producto": "Leche Condensada azucarada (390g)",
+        "cantidad": 2,
+        "precio_unitario": 2.89,
+        "precio_total": 5.78
+      },
+      {
+        "producto": "Arroz grano largo Vima (1Kg)",
+        "cantidad": 2,
+        "precio_unitario": 3,
+        "precio_total": 6
+      },
+      {
+        "producto": "Mantequilla (250g)",
+        "cantidad": 1,
+        "precio_unitario": 2.42,
+        "precio_total": 2.42
+      },
+      {
+        "producto": "Refresco Instantáneo (2Lt)",
+        "cantidad": 10,
+        "precio_unitario": 0.42,
+        "precio_total": 4.2
+      }
+    ],
+    "precio_compra_total": "96.22",
+    "navegador": "Chrome",
+    "sistema_operativo": "Android",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2600:1700:3961:1510:ad8a:d7b8:94c4:c6f6",
+    "pais": "United States",
+    "fecha_hora_entrada": "2025-04-12 10:15:24",
+    "origen": "Acceso directo",
+    "afiliado": "Natty",
+    "duracion_sesion_segundos": 943,
+    "tiempo_carga_pagina_ms": 514,
+    "nombre_comprador": "Shakira Granda",
+    "telefono_comprador": "7866094405",
+    "correo_comprador": "h7707shaki@yahoo.com",
+    "compras": [
+      {
+        "producto": "Manzanas Pack x6",
+        "cantidad": 3,
+        "precio_unitario": 9,
+        "precio_total": 27
+      },
+      {
+        "producto": "Paquete de pan de bola 10u",
+        "cantidad": 3,
+        "precio_unitario": 1.9,
+        "precio_total": 5.7
+      },
+      {
+        "producto": "Mayonesa Vima (450ml)",
+        "cantidad": 1,
+        "precio_unitario": 4.17,
+        "precio_total": 4.17
+      },
+      {
+        "producto": "Plátano macho x unidad",
+        "cantidad": 10,
+        "precio_unitario": 0.26,
+        "precio_total": 2.6
+      },
+      {
+        "producto": "Frazada de Piso",
+        "cantidad": 2,
+        "precio_unitario": 1.99,
+        "precio_total": 3.98
+      },
+      {
+        "producto": "Jabón de Baño (100g)",
+        "cantidad": 5,
+        "precio_unitario": 1.05,
+        "precio_total": 5.25
+      }
+    ],
+    "precio_compra_total": "48.70",
+    "navegador": "Safari",
+    "sistema_operativo": "iOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "65.186.181.153",
+    "pais": "United States",
+    "fecha_hora_entrada": "2025-04-13 13:29:07",
+    "origen": "Acceso directo",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 483,
+    "tiempo_carga_pagina_ms": 184,
+    "nombre_comprador": "Alejandro Rodriguez",
+    "telefono_comprador": "5024137884",
+    "correo_comprador": "rodriguez030225@iclou.com",
+    "compras": [
+      {
+        "producto": "Aceite refinado de girasol 1L",
+        "cantidad": 2,
+        "precio_unitario": 4.2,
+        "precio_total": 8.4
+      },
+      {
+        "producto": "Pasta de tomate Vima (400g)",
+        "cantidad": 2,
+        "precio_unitario": 1.98,
+        "precio_total": 3.96
+      },
+      {
+        "producto": "Frijol Negro x Lb",
+        "cantidad": 2,
+        "precio_unitario": 2.63,
+        "precio_total": 5.26
+      },
+      {
+        "producto": "Leche Condensada azucarada (390g)",
+        "cantidad": 1,
+        "precio_unitario": 2.89,
+        "precio_total": 2.89
+      },
+      {
+        "producto": "Azúcar blanca x lb",
+        "cantidad": 5,
+        "precio_unitario": 1.23,
+        "precio_total": 6.15
+      },
+      {
+        "producto": "Paquete de pan de bola 10u",
+        "cantidad": 1,
+        "precio_unitario": 1.9,
+        "precio_total": 1.9
+      },
+      {
+        "producto": "Cartón de Huevos",
+        "cantidad": 1,
+        "precio_unitario": 9.73,
+        "precio_total": 9.73
+      },
+      {
+        "producto": "Jabón de Baño (100g)",
+        "cantidad": 4,
+        "precio_unitario": 1.05,
+        "precio_total": 4.2
+      },
+      {
+        "producto": "Pollo Golden Phoenix (2Kg)",
+        "cantidad": 2,
+        "precio_unitario": 7.46,
+        "precio_total": 14.92
+      }
+    ],
+    "precio_compra_total": "57.41",
+    "navegador": "Safari",
+    "sistema_operativo": "iOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "24.45.216.171",
+    "pais": "United States",
+    "fecha_hora_entrada": "2025-04-13 19:12:07",
+    "origen": "Acceso directo",
+    "afiliado": "Legna",
+    "duracion_sesion_segundos": 685,
+    "tiempo_carga_pagina_ms": 702,
+    "nombre_comprador": "Arnardo A vargas",
+    "telefono_comprador": "6468539929",
+    "correo_comprador": "arnardov393@gmail.com",
+    "compras": [
+      {
+        "producto": "Nutela",
+        "cantidad": 2,
+        "precio_unitario": 4.7,
+        "precio_total": 9.4
+      },
+      {
+        "producto": "Paquete de pan de bola 10u",
+        "cantidad": 3,
+        "precio_unitario": 1.9,
+        "precio_total": 5.7
+      },
+      {
+        "producto": "Mantequilla (250g)",
+        "cantidad": 1,
+        "precio_unitario": 2.42,
+        "precio_total": 2.42
+      },
+      {
+        "producto": "Chocolate en Polvo «Rico» (500g)",
+        "cantidad": 1,
+        "precio_unitario": 4.2,
+        "precio_total": 4.2
+      }
+    ],
+    "precio_compra_total": "21.72",
+    "navegador": "Chrome",
+    "sistema_operativo": "Android",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2a01:e11:9001:1240:4053:f501:e864:2db2",
+    "pais": "Italy",
+    "fecha_hora_entrada": "2025-04-14 07:29:41",
+    "origen": "android-app://com.google.android.googlequicksearchbox/",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 1526,
+    "tiempo_carga_pagina_ms": 1035,
+    "nombre_comprador": "yaida Rodriguez Espinoza",
+    "telefono_comprador": "3209714800",
+    "correo_comprador": "yaida30espi@yahoo.it",
+    "compras": [
+      {
+        "producto": "Carne de cerdo x Lb",
+        "cantidad": 5,
+        "precio_unitario": 2.9,
+        "precio_total": 14.5
+      },
+      {
+        "producto": "Chuletas de cerdo x Lb",
+        "cantidad": 3,
+        "precio_unitario": 3.15,
+        "precio_total": 9.45
+      },
+      {
+        "producto": "Boniato x Lb",
+        "cantidad": 5,
+        "precio_unitario": 0.42,
+        "precio_total": 2.1
+      },
+      {
+        "producto": "Plátano macho x unidad",
+        "cantidad": 5,
+        "precio_unitario": 0.26,
+        "precio_total": 1.3
+      },
+      {
+        "producto": "Pepino x Lb",
+        "cantidad": 5,
+        "precio_unitario": 0.58,
+        "precio_total": 2.9
+      },
+      {
+        "producto": "Helado 4Lts",
+        "cantidad": 1,
+        "precio_unitario": 10.45,
+        "precio_total": 10.45
+      },
+      {
+        "producto": "Papas Prefritas Vima 1Kg",
+        "cantidad": 1,
+        "precio_unitario": 5.4,
+        "precio_total": 5.4
+      },
+      {
+        "producto": "Paquete de pan de bola 10u",
+        "cantidad": 5,
+        "precio_unitario": 1.9,
+        "precio_total": 9.5
+      },
+      {
+        "producto": "Mantequilla (250g)",
+        "cantidad": 2,
+        "precio_unitario": 2.42,
+        "precio_total": 4.84
+      },
+      {
+        "producto": "Sal x Lb",
+        "cantidad": 5,
+        "precio_unitario": 0.35,
+        "precio_total": 1.75
+      },
+      {
+        "producto": "Ajo Pelado (1kg)",
+        "cantidad": 1,
+        "precio_unitario": 7.2,
+        "precio_total": 7.2
+      }
+    ],
+    "precio_compra_total": "69.39",
+    "navegador": "Chrome",
+    "sistema_operativo": "Linux",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "com.google.android.googlequicksearchbox"
+  },
+  {
+    "ip": "2601:6c2:100:e250:8153:b421:f7c2:c994",
+    "pais": "United States",
+    "fecha_hora_entrada": "2025-04-15 16:45:40",
+    "origen": "Acceso directo",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 223,
+    "tiempo_carga_pagina_ms": 129,
+    "nombre_comprador": "Yakelin Suárez",
+    "telefono_comprador": "2393169117",
+    "correo_comprador": "leiser.yaki@yahoo.es",
+    "compras": [
+      {
+        "producto": "Pack de 4 Hamburguesas de pollo",
+        "cantidad": 3,
+        "precio_unitario": 1.89,
+        "precio_total": 5.67
+      },
+      {
+        "producto": "Picadillo de pollo (1Kg)",
+        "cantidad": 3,
+        "precio_unitario": 2.97,
+        "precio_total": 8.91
+      },
+      {
+        "producto": "Helado 4Lts",
+        "cantidad": 1,
+        "precio_unitario": 10.45,
+        "precio_total": 10.45
+      },
+      {
+        "producto": "Leche Condensada azucarada (390g)",
+        "cantidad": 2,
+        "precio_unitario": 2.89,
+        "precio_total": 5.78
+      },
+      {
+        "producto": "Croqueta Jamón (500g)",
+        "cantidad": 5,
+        "precio_unitario": 2.8,
+        "precio_total": 14
+      },
+      {
+        "producto": "Malta Bucanero",
+        "cantidad": 5,
+        "precio_unitario": 1.15,
+        "precio_total": 5.75
+      }
+    ],
+    "precio_compra_total": "50.56",
+    "navegador": "Safari",
+    "sistema_operativo": "iOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+  }
+]
