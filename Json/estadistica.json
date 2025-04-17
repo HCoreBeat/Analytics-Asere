@@ -929,32 +929,6 @@
     "fuente_trafico": "Directo"
   },
   {
-    "ip": "152.207.247.24",
-    "pais": "Cuba",
-    "fecha_hora_entrada": "2025-04-10 17:16:46",
-    "origen": "Acceso directo",
-    "afiliado": "Daniel",
-    "duracion_sesion_segundos": 174,
-    "tiempo_carga_pagina_ms": 3181,
-    "nombre_comprador": "Rosangel Espinosa Escobar",
-    "telefono_comprador": "54764836",
-    "correo_comprador": "rosangel9704@gmail.com",
-    "compras": [
-      {
-        "producto": "Spam",
-        "cantidad": 4,
-        "precio_unitario": 2.93,
-        "precio_total": 11.72
-      }
-    ],
-    "precio_compra_total": "11.72",
-    "navegador": "Safari",
-    "sistema_operativo": "iOS",
-    "tipo_usuario": "Recurrente",
-    "tiempo_promedio_pagina": 0,
-    "fuente_trafico": "Directo"
-  },
-  {
     "ip": "2607:fb91:c3a:380:e514:747e:838e:11f3",
     "pais": "United States",
     "fecha_hora_entrada": "2025-04-10 18:24:42",
