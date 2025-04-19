@@ -3,6 +3,9 @@ class SalesDashboard {
         this.orders = [];
         this.affiliates = [];
         this.currentView = 'dashboard';
+        this.filteredOrders = [];
+        this.filteredAffiliates = [];
+        this.filteredTemporaryAffiliates = [];
         this.initialize();
     }
 
@@ -21,6 +24,7 @@ class SalesDashboard {
             const response = await fetch('Json/estadistica.json');
             this.orders = await response.json();
             this.normalizeData();
+            this.filteredOrders = [...this.orders];
         } catch (error) {
             console.error('Error loading data:', error);
         }
@@ -36,7 +40,10 @@ class SalesDashboard {
                 affiliate.telefono = affiliate.telefono || 'No especificado';
                 affiliate.numero = affiliate.numero || 'Temporal';
                 affiliate.link = `https://www.asereshops.com/?ref=${affiliate.id}`;
+                affiliate.searchText = `${affiliate.nombre} ${affiliate.id} ${affiliate.numero} ${affiliate.telefono}`.toLowerCase();
             });
+            this.filteredAffiliates = [...this.affiliates.filter(a => a.numero !== 'Temporal')];
+            this.filteredTemporaryAffiliates = [...this.affiliates.filter(a => a.numero === 'Temporal')];
         } catch (error) {
             console.error('Error loading affiliates:', error);
         }
@@ -50,6 +57,7 @@ class SalesDashboard {
             order.userType = order.tipo_usuario || 'No especificado';
             order.affiliate = order.afiliado || 'Sin afiliado';
             order.country = order.pais || 'No especificado';
+            order.searchText = `${order.nombre_comprador} ${order.country} ${order.userType} ${order.affiliate} ${order.telefono_comprador} ${order.correo_comprador}`.toLowerCase();
         });
     }
 
@@ -115,6 +123,46 @@ class SalesDashboard {
                 });
             }
         });
+
+        // Búsqueda en pedidos
+        const searchOrdersInput = document.getElementById('search-orders');
+        if (searchOrdersInput) {
+            searchOrdersInput.addEventListener('input', (e) => {
+                const searchTerm = e.target.value.toLowerCase();
+                this.filteredOrders = this.orders.filter(order => 
+                    order.searchText.includes(searchTerm)
+                );
+                this.renderOrders(this.filteredOrders);
+            });
+        }
+
+        // Búsqueda en afiliados permanentes
+        const searchAffiliatesInput = document.getElementById('search-affiliates');
+        if (searchAffiliatesInput) {
+            searchAffiliatesInput.addEventListener('input', (e) => {
+                const searchTerm = e.target.value.toLowerCase();
+                this.filteredAffiliates = this.affiliates
+                    .filter(a => a.numero !== 'Temporal')
+                    .filter(affiliate => 
+                        affiliate.searchText.includes(searchTerm)
+                    );
+                this.renderAffiliatesList('affiliates-list', this.filteredAffiliates);
+            });
+        }
+
+        // Búsqueda en afiliados temporales
+        const searchTempAffiliatesInput = document.getElementById('search-temporary-affiliates');
+        if (searchTempAffiliatesInput) {
+            searchTempAffiliatesInput.addEventListener('input', (e) => {
+                const searchTerm = e.target.value.toLowerCase();
+                this.filteredTemporaryAffiliates = this.affiliates
+                    .filter(a => a.numero === 'Temporal')
+                    .filter(affiliate => 
+                        affiliate.searchText.includes(searchTerm)
+                    );
+                this.renderAffiliatesList('temporary-affiliates-list', this.filteredTemporaryAffiliates);
+            });
+        }
     }
 
     setupView() {
@@ -136,12 +184,8 @@ class SalesDashboard {
     }
 
     renderAllAffiliates() {
-        // Separar afiliados permanentes y temporales
-        const permanentAffiliates = this.affiliates.filter(a => a.numero !== 'Temporal');
-        const temporaryAffiliates = this.affiliates.filter(a => a.numero === 'Temporal');
-
         // Ordenar permanentes por número (de menor a mayor) y luego por fecha (más reciente primero)
-        permanentAffiliates.sort((a, b) => {
+        this.filteredAffiliates.sort((a, b) => {
             const numA = parseInt(a.numero);
             const numB = parseInt(b.numero);
             if (numA === numB) {
@@ -151,10 +195,10 @@ class SalesDashboard {
         });
 
         // Ordenar temporales por fecha (más reciente primero)
-        temporaryAffiliates.sort((a, b) => b.fecha - a.fecha);
+        this.filteredTemporaryAffiliates.sort((a, b) => b.fecha - a.fecha);
 
-        this.renderAffiliatesList('affiliates-list', permanentAffiliates);
-        this.renderAffiliatesList('temporary-affiliates-list', temporaryAffiliates);
+        this.renderAffiliatesList('affiliates-list', this.filteredAffiliates);
+        this.renderAffiliatesList('temporary-affiliates-list', this.filteredTemporaryAffiliates);
     }
 
     renderAffiliatesList(containerId, affiliates) {
@@ -218,7 +262,7 @@ class SalesDashboard {
             userType: document.getElementById('filter-user-type').value
         };
 
-        const filtered = this.orders.filter(order => {
+        this.filteredOrders = this.orders.filter(order => {
             const orderDateStr = order.date.toISOString().split('T')[0];
             return (
                 (!filters.date || orderDateStr === filters.date) &&
@@ -228,11 +272,11 @@ class SalesDashboard {
             );
         });
 
-        this.updateStats(filtered);
-        this.renderGeneralSummary(filtered);
-        this.renderCountryDistribution(filtered);
-        this.renderTopProducts(filtered);
-        this.renderOrders(filtered);
+        this.updateStats(this.filteredOrders);
+        this.renderGeneralSummary(this.filteredOrders);
+        this.renderCountryDistribution(this.filteredOrders);
+        this.renderTopProducts(this.filteredOrders);
+        this.renderOrders(this.filteredOrders);
     }
 
     updateStats(data) {
