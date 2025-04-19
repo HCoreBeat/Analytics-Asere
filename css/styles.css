@@ -78,11 +78,47 @@ body.menu-open {
     color: var(--accent);
 }
 
+/* Menu Items */
+.menu-items {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.menu-item {
+    background: none;
+    border: none;
+    color: var(--text);
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    transition: var(--transition);
+}
+
+.menu-item:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.menu-item.active {
+    background: rgba(0, 255, 157, 0.1);
+    color: var(--accent);
+}
+
+.menu-item i {
+    width: 20px;
+    text-align: center;
+}
+
 /* Filtros */
 .filters {
     display: flex;
     flex-direction: column;
     gap: 1.25rem;
+    margin-top: 30px;
 }
 
 .filter-group label {
@@ -121,8 +157,21 @@ body.menu-open {
     flex-direction: column;
 }
 
+.view-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.view-content.hidden {
+    display: none;
+}
+
 .header {
     margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
 }
 
 .menu-toggle {
@@ -132,7 +181,6 @@ body.menu-open {
     padding: 0.75rem 1rem;
     border-radius: 8px;
     cursor: pointer;
-    margin-bottom: 1.5rem;
     transition: var(--transition);
     display: flex;
     gap: 0.5rem;
@@ -224,6 +272,14 @@ body.menu-open {
     grid-column: 1 / -1;
 }
 
+.card-title {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+    color: var(--accent);
+}
+
 .summary-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -262,6 +318,141 @@ body.menu-open {
     border-radius: 8px;
     border: 1px solid var(--border);
     font-size: 0.875rem;
+}
+
+/* Afiliados */
+.affiliates-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.affiliates-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.affiliates-actions {
+    display: flex;
+    gap: 1rem;
+}
+
+.btn {
+    padding: 0.75rem 1.25rem;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: var(--transition);
+}
+
+.btn-primary {
+    background: var(--accent);
+    color: var(--primary);
+}
+
+.btn-primary:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
+.affiliates-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.affiliate-card {
+    background: #25252d;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border);
+    padding: 1.25rem;
+    transition: var(--transition);
+}
+
+.affiliate-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--accent);
+}
+
+.affiliate-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.affiliate-name {
+    font-weight: 600;
+    color: var(--accent);
+    font-size: 1.1rem;
+}
+
+.affiliate-id {
+    background: var(--primary);
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-family: monospace;
+}
+
+.affiliate-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.affiliate-meta-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.affiliate-meta-item i {
+    width: 20px;
+    text-align: center;
+    color: var(--accent);
+}
+
+.affiliate-link {
+    display: flex;
+    align-items: center;
+    margin-top: 0.5rem;
+    padding: 0.5rem;
+    background: rgba(0, 255, 157, 0.1);
+    border-radius: 6px;
+    font-size: 0.8rem;
+    word-break: break-all;
+    color: var(--accent);
+    border: 1px dashed var(--accent);
+    gap: 0.5rem;
+}
+
+.affiliate-link-text {
+    flex: 1;
+    word-break: break-all;
+}
+
+.copy-link {
+    background: none;
+    border: none;
+    color: var(--accent);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.copy-link:hover {
+    opacity: 0.8;
 }
 
 /* Transacciones */
@@ -406,6 +597,20 @@ body.menu-open {
         width: 100%;
         justify-content: center;
     }
+
+    .affiliates-container {
+        grid-template-columns: 1fr;
+    }
+
+    .affiliates-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .affiliates-actions {
+        width: 100%;
+        justify-content: flex-end;
+    }
 }
 
 @media (max-width: 480px) {
@@ -423,5 +628,9 @@ body.menu-open {
     
     .meta-item {
         font-size: 0.7rem;
+    }
+
+    .affiliate-meta-item {
+        font-size: 0.8rem;
     }
 }
