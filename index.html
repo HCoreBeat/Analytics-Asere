@@ -22,13 +22,13 @@
                 <i class="fas fa-chart-pie"></i>
                 <span>Dashboard</span>
             </button>
-            <button class="menu-item" data-view="affiliates">
-                <i class="fas fa-handshake"></i>
-                <span>Afiliados Temporales</span>
-            </button>
             <button class="menu-item" data-view="temporary-affiliates">
-                <i class="fas fa-user-clock"></i>
+                <i class="fas fa-handshake"></i>
                 <span>Afiliados Permanentes</span>
+            </button>
+            <button class="menu-item" data-view="affiliates">
+                <i class="fas fa-user-clock"></i>
+                <span>Afiliados Temporales</span>
             </button>
         </div>
 
@@ -56,7 +56,13 @@
         <!-- Vista Dashboard -->
         <div id="dashboard-view" class="view-content">
             <header class="header">
-                <button class="menu-toggle"><i class="fas fa-bars"></i> Menú</button>
+                <div class="header-top">
+                    <button class="menu-toggle"><i class="fas fa-bars"></i> Menú</button>
+                    <div class="search-bar">
+                        <input type="text" id="search-orders" placeholder="Buscar en pedidos..." class="input-dark">
+                        <button class="search-btn"><i class="fas fa-search"></i></button>
+                    </div>
+                </div>
                 <div class="header-main">
                     <div class="header-stats">
                         <div class="stat-card primary">
@@ -109,11 +115,17 @@
             </section>
         </div>
 
-        <!-- Vista Afiliados Temporales -->
+        <!-- Vista Afiliados temporales -->
         <div id="affiliates-view" class="view-content hidden">
             <header class="header">
-                <button class="menu-toggle"><i class="fas fa-bars"></i> Menú</button>
-                <h2><i class="fas fa-handshake"></i> Afiliados Temporales</h2>
+                <div class="header-top">
+                    <button class="menu-toggle"><i class="fas fa-bars"></i> Menú</button>
+                    <div class="search-bar">
+                        <input type="text" id="search-affiliates" placeholder="Buscar afiliados..." class="input-dark">
+                        <button class="search-btn"><i class="fas fa-search"></i></button>
+                    </div>
+                </div>
+                <h2><i class="fas fa-handshake"></i> Afiliados temporales</h2>
             </header>
 
             <section class="affiliates-section">
@@ -134,14 +146,20 @@
         <!-- Vista Afiliados Permanentes -->
         <div id="temporary-affiliates-view" class="view-content hidden">
             <header class="header">
-                <button class="menu-toggle"><i class="fas fa-bars"></i> Menú</button>
+                <div class="header-top">
+                    <button class="menu-toggle"><i class="fas fa-bars"></i> Menú</button>
+                    <div class="search-bar">
+                        <input type="text" id="search-temporary-affiliates" placeholder="Buscar afiliados temporales..." class="input-dark">
+                        <button class="search-btn"><i class="fas fa-search"></i></button>
+                    </div>
+                </div>
                 <h2><i class="fas fa-user-clock"></i> Afiliados Permanentes</h2>
             </header>
 
             <section class="affiliates-section">
                 <div class="card full-width">
                     <div class="affiliates-header">
-                        <h3 class="card-title">Afiliados sin Número Asignado</h3>
+                        <h3 class="card-title">Afiliados de registro Permanente</h3>
                         <div class="affiliates-actions">
                             <button class="btn btn-primary" id="refresh-temporary-affiliates">
                                 <i class="fas fa-sync-alt"></i> Actualizar
@@ -155,7 +173,7 @@
 
         <footer class="footer">
             <div class="footer-content">
-                <span class="footer-text">© 2025 Analytics-Asere · v1.2.0</span>
+                <span class="footer-text">© 2025 Analytics-Asere · v1.3.0</span>
                 <div class="footer-links">
                     <a href="#"><i class="fas fa-book"></i> Creado por H.A</a>
                 </div>
