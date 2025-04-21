@@ -52,6 +52,39 @@
         </div>
     </nav>
 
+    <!-- Modal para el token -->
+    <div id="token-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <h3><i class="fas fa-key"></i> Autenticación requerida</h3>
+            <p>Para actualizar los afiliados, ingresa tu token de GitHub:</p>
+            
+            <div class="input-group">
+                <label for="github-token-input">Token de GitHub:</label>
+                <input type="password" id="github-token-input" class="input-dark" 
+                    placeholder="ghp_tuTokenAquí">
+            </div>
+            
+            <div class="modal-actions">
+                <button id="cancel-token-btn" class="btn cancel-btn">
+                    <i class="fas fa-times"></i> Cancelar
+                </button>
+                <button id="submit-token-btn" class="btn btn-primary">
+                    <i class="fas fa-check"></i> Guardar Token
+                </button>
+            </div>
+            
+            <div class="token-help">
+                <p><small>¿Cómo obtener un token?</small></p>
+                <ol>
+                    <li>Ve a <a href="https://github.com/settings/tokens" target="_blank">GitHub Tokens</a></li>
+                    <li>Crea un nuevo token con permisos <code>repo</code></li>
+                    <li>Cópialo y pégalo aquí</li>
+                </ol>
+                <p><small>El token se guarda solo en tu navegador y no en nuestros servidores.</small></p>
+            </div>
+        </div>
+    </div>
+
     <main class="content">
         <!-- Vista Dashboard -->
         <div id="dashboard-view" class="view-content">
@@ -66,8 +99,11 @@
                         <button class="btn btn-primary btn-export">
                             <i class="fas fa-download"></i> Exportar
                         </button>
-                        <button class="btn btn-primary">
+                        <button class="btn btn-primary" id="refresh-data">
                             <i class="fas fa-sync-alt"></i> Actualizar
+                        </button>
+                        <button class="btn btn-secondary" id="settings-btn">
+                            <i class="fas fa-cog"></i> Configuración
                         </button>
                     </div>
                 </div>
@@ -148,7 +184,7 @@
                     <div id="orders-list" class="orders-container"></div>
                 </div>
             </section>
-        </div>
+        </div>  
 
         <!-- Vista Afiliados temporales -->
         <div id="affiliates-view" class="view-content hidden">
@@ -277,9 +313,46 @@
                 </div>
             </div>
         </footer>
+
+        <!-- Modal de configuración -->
+        <div id="settings-modal" class="modal hidden">
+            <div class="modal-content">
+                <h3><i class="fas fa-cog"></i> Configuración</h3>
+                
+                <div class="settings-section">
+                    <h4><i class="fas fa-key"></i> Token de GitHub</h4>
+                    <p>Configura tu token de acceso personal de GitHub para actualizar los afiliados.</p>
+                    
+                    <div class="input-group">
+                        <label for="current-token">Token actual:</label>
+                        <input type="password" id="current-token" class="input-dark" 
+                            placeholder="ghp_tuTokenAquí" value="" readonly>
+                        <button id="show-token" class="btn small-btn">
+                            <i class="fas fa-eye"></i> Mostrar
+                        </button>
+                    </div>
+                    
+                    <div class="modal-actions">
+                        <button id="update-token-btn" class="btn btn-primary">
+                            <i class="fas fa-sync-alt"></i> Cambiar Token
+                        </button>
+                        <button id="test-token-btn" class="btn btn-secondary">
+                            <i class="fas fa-check"></i> Verificar Token
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="modal-actions">
+                    <button id="close-settings" class="btn cancel-btn">
+                        <i class="fas fa-times"></i> Cerrar
+                    </button>
+                </div>
+            </div>
+        </div>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+    <script src="Js/config.js" defer></script>
     <script src="Js/script.js" defer></script>
 </body>
 </html>
