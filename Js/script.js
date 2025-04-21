@@ -14,6 +14,8 @@ class SalesDashboard {
             salesTrend: null
         };
         this.initialize();
+        this.setupTokenModal();
+        this.tokenValid = false;
     }
 
     async initialize() {
@@ -417,7 +419,7 @@ class SalesDashboard {
                 
                 this.applyAffiliatesSorting();
                 this.renderAffiliatesList('affiliates-list', this.filteredAffiliates);
-                alert(`Afiliado agregado correctamente con el número #${nextNumber}`);
+                this.showAlert(`Afiliado agregado correctamente con el número #${nextNumber}`);
             }
         });
 
@@ -438,7 +440,7 @@ class SalesDashboard {
                 if (success) {
                     this.renderAffiliatesList('affiliates-list', this.filteredAffiliates);
                     this.renderAffiliatesList('temporary-affiliates-list', this.filteredTemporaryAffiliates);
-                    alert('Afiliado eliminado correctamente');
+                    this.showAlert('Afiliado eliminado correctamente');
                 }
             }
         });
@@ -509,6 +511,48 @@ class SalesDashboard {
             this.renderAllAffiliates();
         });
 
+         // Configuración
+        document.getElementById('settings-btn')?.addEventListener('click', () => {
+            document.getElementById('settings-modal').classList.remove('hidden');
+            const savedToken = localStorage.getItem('github_token') || '';
+            document.getElementById('current-token').value = savedToken;
+        });
+
+        document.getElementById('close-settings')?.addEventListener('click', () => {
+            document.getElementById('settings-modal').classList.add('hidden');
+        });
+
+        document.getElementById('show-token')?.addEventListener('click', (e) => {
+            const input = document.getElementById('current-token');
+            if (input.type === 'password') {
+                input.type = 'text';
+                e.target.innerHTML = '<i class="fas fa-eye-slash"></i> Ocultar';
+            } else {
+                input.type = 'password';
+                e.target.innerHTML = '<i class="fas fa-eye"></i> Mostrar';
+            }
+        });
+
+        document.getElementById('update-token-btn')?.addEventListener('click', () => {
+            document.getElementById('settings-modal').classList.add('hidden');
+            this.showTokenModal(true);
+        });
+
+        document.getElementById('test-token-btn')?.addEventListener('click', async () => {
+            const token = document.getElementById('current-token').value.trim();
+            if (!token) {
+                this.showAlert('No hay ningún token para verificar', 'error');
+                return;
+            }
+            
+            const isValid = await this.verifyGitHubToken(token);
+            if (isValid) {
+                this.showAlert('El token es válido y funciona correctamente', 'success');
+            } else {
+                this.showAlert('El token no es válido o no tiene los permisos necesarios', 'error');
+            }
+        });
+
         // Copiar enlace de afiliado
         document.addEventListener('click', (e) => {
             if (e.target.classList.contains('copy-link') || e.target.closest('.copy-link')) {
@@ -544,21 +588,126 @@ class SalesDashboard {
         });
     }
 
+    showTokenModal(show = true) {
+        const modal = document.getElementById('token-modal');
+        if (modal) {
+            modal.style.display = show ? 'flex' : 'none';
+        }
+    }
+    
+    setupTokenModal() {
+        const modal = document.getElementById('token-modal');
+        const tokenInput = document.getElementById('github-token-input');
+        const cancelBtn = document.getElementById('cancel-token-btn');
+        const submitBtn = document.getElementById('submit-token-btn');
+        
+        if (!modal || !tokenInput || !cancelBtn || !submitBtn) return;
+        
+        // Verificar token al cargar
+        this.checkTokenValidity().then(isValid => {
+            this.tokenValid = isValid;
+            if (!isValid) {
+                this.showTokenModal(true);
+            }
+        });
+        
+        // Manejar cancelar
+        cancelBtn.addEventListener('click', () => {
+            this.showTokenModal(false);
+        });
+        
+        // Manejar enviar
+        submitBtn.addEventListener('click', async () => {
+            const token = tokenInput.value.trim();
+            if (!token) {
+                this.showAlert('Por favor ingresa un token válido', 'error');
+                return;
+            }
+            
+            // Verificar el token antes de guardar
+            const isValid = await this.verifyGitHubToken(token);
+            if (!isValid) {
+                this.showAlert('El token no es válido. Por favor verifica que tenga los permisos correctos.', 'error');
+                return;
+            }
+            
+            // Guardar en localStorage (solo cliente)
+            localStorage.setItem('github_token', token);
+            this.tokenValid = true;
+            this.showTokenModal(false);
+            this.showAlert('Token guardado y verificado correctamente', 'success');
+        });
+    }
+
+    // Nuevo método para verificar token
+    async verifyGitHubToken(token) {
+        try {
+            const { REPO_OWNER, REPO_NAME } = CONFIG.GITHUB_API;
+            const response = await fetch(`https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}`, {
+                headers: {
+                    'Authorization': `token ${token}`,
+                    'Accept': 'application/vnd.github.v3+json'
+                }
+            });
+            return response.ok;
+        } catch (error) {
+            console.error('Error verifying token:', error);
+            return false;
+        }
+    }
+
+    // Nuevo método para verificar validez del token almacenado
+    async checkTokenValidity() {
+        const savedToken = localStorage.getItem('github_token');
+        if (!savedToken) return false;
+        return await this.verifyGitHubToken(savedToken);
+    }
+
+    // Método para mostrar notificaciones
+    showAlert(message, type = 'success') {
+        const alert = document.createElement('div');
+        alert.className = `alert ${type}`;
+        alert.innerHTML = `
+            <i class="fas ${type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle'}"></i>
+            <span>${message}</span>
+            <button class="close-alert"><i class="fas fa-times"></i></button>
+        `;
+        
+        document.body.appendChild(alert);
+        
+        setTimeout(() => {
+            alert.classList.add('show');
+        }, 10);
+        
+        // Auto-ocultar después de 5 segundos
+        setTimeout(() => {
+            alert.classList.remove('show');
+            setTimeout(() => {
+                alert.remove();
+            }, 300);
+        }, 5000);
+        
+        // Cerrar manualmente
+        alert.querySelector('.close-alert').addEventListener('click', () => {
+            alert.classList.remove('show');
+            setTimeout(() => {
+                alert.remove();
+            }, 300);
+        });
+    }
+
     async updateAffiliatesFile(newAffiliates) {
         try {
-            // Obtener el token de las variables de entorno
-            const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
-            console.log("github token: "+GITHUB_TOKEN);
-            
-            if (!GITHUB_TOKEN) {
-                throw new Error("No se configuró el token de GitHub");
+            // Obtener el token del input oculto o de la UI
+            const tokenInput = document.getElementById('github-token-input');
+            if (!tokenInput || !tokenInput.value) {
+                throw new Error("Por favor ingresa tu token de GitHub");
             }
-    
-            const REPO_OWNER = 'HCoreBeat';
-            const REPO_NAME = 'Asere';
-            const AFFILIATES_FILE_PATH = 'Json/afiliados.json';
-    
-            // 1. Obtener el SHA del archivo actual
+            const GITHUB_TOKEN = tokenInput.value;
+            
+            const { REPO_OWNER, REPO_NAME, AFFILIATES_FILE_PATH } = CONFIG.GITHUB_API;
+            
+            // Primero obtenemos el SHA del archivo actual
             const getUrl = `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${AFFILIATES_FILE_PATH}`;
             const getResponse = await fetch(getUrl, {
                 headers: {
@@ -573,12 +722,10 @@ class SalesDashboard {
             
             const fileData = await getResponse.json();
             const sha = fileData.sha;
-            
-            // 2. Preparar contenido nuevo
             const content = JSON.stringify(newAffiliates, null, 2);
             const encodedContent = btoa(unescape(encodeURIComponent(content)));
             
-            // 3. Actualizar el archivo
+            // Actualizamos el archivo
             const updateResponse = await fetch(getUrl, {
                 method: 'PUT',
                 headers: {
@@ -601,21 +748,8 @@ class SalesDashboard {
             return true;
         } catch (error) {
             console.error('Error updating affiliates file:', error);
-            
-            // Mensajes de error más descriptivos
-            let errorMessage;
-            if (error.message.includes('Failed to fetch')) {
-                errorMessage = 'Error de conexión. Verifica tu acceso a internet.';
-            } else if (error.message.includes('401')) {
-                errorMessage = 'Error de autenticación. El token de GitHub no es válido.';
-            } else if (error.message.includes('403')) {
-                errorMessage = 'Límite de API excedido. Intenta nuevamente más tarde.';
-            } else {
-                errorMessage = `Error: ${error.message}`;
-            }
-            
-            alert(errorMessage);
-            return false;
+            this.showTokenModal(false);
+            throw error;
         }
     }
 
