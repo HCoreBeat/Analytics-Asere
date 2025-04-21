@@ -62,6 +62,14 @@
                         <input type="text" id="search-orders" placeholder="Buscar en pedidos..." class="input-dark">
                         <button class="search-btn"><i class="fas fa-search"></i></button>
                     </div>
+                    <div class="header-actions">
+                        <button class="btn btn-primary btn-export">
+                            <i class="fas fa-download"></i> Exportar
+                        </button>
+                        <button class="btn btn-primary">
+                            <i class="fas fa-sync-alt"></i> Actualizar
+                        </button>
+                    </div>
                 </div>
                 <div class="header-main">
                     <div class="header-stats">
@@ -86,6 +94,13 @@
                                 <span class="stat-label">Productos Vendidos</span>
                             </div>
                         </div>
+                        <div class="stat-card">
+                            <i class="fas fa-users"></i>
+                            <div class="stat-content">
+                                <span class="stat-value" id="unique-customers">0</span>
+                                <span class="stat-label">Clientes Únicos</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </header>
@@ -99,17 +114,37 @@
                     
                     <div class="card">
                         <h3 class="card-title"><i class="fas fa-globe-americas"></i> Distribución por Países</h3>
+                        <div class="chart-container">
+                            <canvas id="country-chart" width="300" height="200"></canvas>
+                        </div>
                         <div class="ranking-list compact" id="country-distribution"></div>
                     </div>
 
                     <div class="card">
                         <h3 class="card-title"><i class="fas fa-star"></i> Top Productos</h3>
+                        <div class="chart-container">
+                            <canvas id="products-chart" width="300" height="200"></canvas>
+                        </div>
                         <div class="ranking-list compact" id="top-products"></div>
+                    </div>
+
+                    <div class="card">
+                        <h3 class="card-title"><i class="fas fa-chart-line"></i> Tendencias de Ventas</h3>
+                        <div class="chart-container">
+                            <canvas id="sales-trend-chart" width="300" height="200"></canvas>
+                        </div>
                     </div>
                 </div>
 
                 <div class="card full-width transactions-card">
-                    <h3 class="card-title"><i class="fas fa-exchange-alt"></i> Transacciones Recientes</h3>
+                    <div class="card-header-with-tabs">
+                        <h3 class="card-title"><i class="fas fa-exchange-alt"></i> Transacciones Recientes</h3>
+                        <div class="tabs">
+                            <button class="tab-btn active" data-tab="all">Todos</button>
+                            <button class="tab-btn" data-tab="affiliated">Con Afiliado</button>
+                            <button class="tab-btn" data-tab="direct">Directos</button>
+                        </div>
+                    </div>
                     <div id="orders-list" class="orders-container"></div>
                 </div>
             </section>
@@ -129,13 +164,65 @@
             </header>
 
             <section class="affiliates-section">
+                <div class="affiliates-actions-bar">
+                    <button class="btn btn-primary" id="show-add-affiliate-form">
+                        <i class="fas fa-plus"></i> Agregar Afiliado
+                    </button>
+                    <button class="btn btn-primary" id="refresh-affiliates">
+                        <i class="fas fa-sync-alt"></i> Actualizar
+                    </button>
+                </div>
+
+                <div id="add-affiliate-panel" class="card full-width" style="display: none;">
+                    <h3 class="card-title"><i class="fas fa-user-plus"></i> Nuevo Afiliado Temporal</h3>
+                    <form id="add-affiliate-form" class="affiliate-form">
+                        <div class="form-group">
+                            <label for="affiliate-name">Nombre Completo *</label>
+                            <input type="text" id="affiliate-name" class="input-dark" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="affiliate-phone">Teléfono (opcional)</label>
+                            <input type="text" id="affiliate-phone" class="input-dark">
+                        </div>
+                        <div class="form-group">
+                            <label>Información generada automáticamente</label>
+                            <div class="auto-generated-info">
+                                <div class="info-item">
+                                    <span>ID:</span>
+                                    <span id="generated-id">Se generará al guardar</span>
+                                </div>
+                                <div class="info-item">
+                                    <span>Fecha de Registro:</span>
+                                    <span id="generated-date">${new Date().toLocaleDateString('es-ES')}</span>
+                                </div>
+                                <div class="info-item">
+                                    <span>Enlace de Afiliado:</span>
+                                    <span id="generated-link">Se generará al guardar</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <button type="button" class="btn cancel-btn" id="cancel-add-affiliate">
+                                <i class="fas fa-times"></i> Cancelar
+                            </button>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-save"></i> Guardar Afiliado
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
                 <div class="card full-width">
                     <div class="affiliates-header">
                         <h3 class="card-title">Listado de Afiliados Registrados</h3>
-                        <div class="affiliates-actions">
-                            <button class="btn btn-primary" id="refresh-affiliates">
-                                <i class="fas fa-sync-alt"></i> Actualizar
-                            </button>
+                        <div class="sort-options">
+                            <span>Ordenar por:</span>
+                            <select id="sort-affiliates" class="select-dark">
+                                <option value="date-desc">Fecha (más reciente primero)</option>
+                                <option value="date-asc">Fecha (más antiguo primero)</option>
+                                <option value="name-asc">Nombre (A-Z)</option>
+                                <option value="name-desc">Nombre (Z-A)</option>
+                            </select>
                         </div>
                     </div>
                     <div id="affiliates-list" class="affiliates-container"></div>
@@ -160,6 +247,17 @@
                 <div class="card full-width">
                     <div class="affiliates-header">
                         <h3 class="card-title">Afiliados de registro Permanente</h3>
+                        <div class="sort-options">
+                            <span>Ordenar por:</span>
+                            <select id="sort-temporary-affiliates" class="select-dark">
+                                <option value="number-desc">Número (mayor a menor)</option>
+                                <option value="number-asc">Número (menor a mayor)</option>
+                                <option value="date-desc">Fecha (más reciente primero)</option>
+                                <option value="date-asc">Fecha (más antiguo primero)</option>
+                                <option value="name-asc">Nombre (A-Z)</option>
+                                <option value="name-desc">Nombre (Z-A)</option>
+                            </select>
+                        </div>
                         <div class="affiliates-actions">
                             <button class="btn btn-primary" id="refresh-temporary-affiliates">
                                 <i class="fas fa-sync-alt"></i> Actualizar
@@ -173,14 +271,15 @@
 
         <footer class="footer">
             <div class="footer-content">
-                <span class="footer-text">© 2025 Analytics-Asere · v1.3.0</span>
+                <span class="footer-text">© 2025 Analytics-Asere · v1.4.0</span>
                 <div class="footer-links">
                     <a href="#"><i class="fas fa-book"></i> Creado por H.A</a>
                 </div>
             </div>
         </footer>
     </main>
-
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
     <script src="Js/script.js" defer></script>
 </body>
 </html>
