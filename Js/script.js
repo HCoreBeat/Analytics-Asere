@@ -548,6 +548,7 @@ class SalesDashboard {
         try {
             // Obtener el token de las variables de entorno
             const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
+            console.log("github token: "+GITHUB_TOKEN);
             
             if (!GITHUB_TOKEN) {
                 throw new Error("No se configuró el token de GitHub");
