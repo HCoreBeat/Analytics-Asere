@@ -1,0 +1,34 @@
+[
+    {
+      "ip": "2607:fb91:c3a:380:868:8c7a:1320:3a33",
+      "pais": "United States",
+      "fecha_hora_entrada": "2025-04-19 13:04:51",
+      "origen": "Acceso directo",
+      "afiliado": "Natty",
+      "duracion_sesion_segundos": 447,
+      "tiempo_carga_pagina_ms": 698,
+      "nombre_comprador": "Nayelin Reyes",
+      "telefono_comprador": "7863002520",
+      "correo_comprador": "nileyan2018@gmail.com",
+      "compras": [
+        {
+          "producto": "Plátano macho x unidad",
+          "cantidad": 8,
+          "precio_unitario": 0.26,
+          "precio_total": 2.08
+        },
+        {
+          "producto": "Boniato x Lb",
+          "cantidad": 3,
+          "precio_unitario": 0.42,
+          "precio_total": 1.26
+        }
+      ],
+      "precio_compra_total": "29.22",
+      "navegador": "Safari",
+      "sistema_operativo": "iOS",
+      "tipo_usuario": "Recurrente",
+      "tiempo_promedio_pagina": 0,
+      "fuente_trafico": "Directo"
+    }
+  ]
