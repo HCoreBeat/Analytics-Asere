@@ -1,22 +1,23 @@
 class SalesDashboard {
     constructor() {
-    this.orders = [];
-    this.affiliates = [];
-    this.currentView = 'dashboard';
-    this.filteredOrders = [];
-    this.filteredAffiliates = [];
-    this.filteredTemporaryAffiliates = [];
-    this.sortAffiliatesBy = 'number-desc';
-    this.sortTemporaryAffiliatesBy = 'date-desc';
-    this.charts = {
-        country: null,
-        products: null,
-        salesTrend: null
-    };
-    this.initialize();
-    this.setupTokenModal();
-    this.tokenValid = false;
-}
+        this.orders = [];
+        this.affiliates = [];
+        this.currentView = 'dashboard';
+        this.filteredOrders = [];
+        this.filteredAffiliates = [];
+        this.filteredTemporaryAffiliates = [];
+        this.sortAffiliatesBy = 'number-desc';
+        this.sortTemporaryAffiliatesBy = 'date-desc';
+        this.charts = {
+            country: null,
+            products: null,
+            salesTrend: null
+        };
+        this.initialize();
+        this.setupTokenModal();
+        this.tokenValid = false;
+        
+    }
 
     async initialize() {
         await this.loadData();
@@ -73,22 +74,34 @@ class SalesDashboard {
             affiliate.link = `https://www.asereshops.com/?ref=${affiliate.id}`;
             affiliate.searchText = `${affiliate.nombre} ${affiliate.id} ${affiliate.numero} ${affiliate.telefono}`.toLowerCase();
             affiliate.numeroInt = affiliate.numero === 'Permanente' ? 0 : parseInt(affiliate.numero) || 0;
+            
+            // Asegurarse que la fecha es un objeto Date válido
+            if (!(affiliate.fecha instanceof Date) || isNaN(affiliate.fecha.getTime())) {
+                affiliate.fecha = new Date(); // Fecha actual como fallback
+            }
         });
         
         this.filteredAffiliates = [...this.affiliates.filter(a => a.numero !== 'Permanente')];
         this.filteredTemporaryAffiliates = [...this.affiliates.filter(a => a.numero === 'Permanente')];
     }
     
+    
     parseFecha(fechaString) {
-        if (!isNaN(Date.parse(fechaString))) return new Date(fechaString);
+        if (!fechaString) return new Date(); // Si no hay fecha, devolver fecha actual
         
+        // Intentar parsear como ISO
+        const isoDate = new Date(fechaString);
+        if (!isNaN(isoDate.getTime())) return isoDate;
+        
+        // Intentar parsear formato dd/mm/yyyy
         if (fechaString.includes('/')) {
             const [day, month, year] = fechaString.split('/');
-            return new Date(year, month - 1, day);
+            const parsedDate = new Date(year, month - 1, day);
+            if (!isNaN(parsedDate.getTime())) return parsedDate;
         }
         
         console.warn('Fecha inválida:', fechaString);
-        return new Date();
+        return new Date(); // Fecha actual como fallback
     }
 
     exportData() {
@@ -844,7 +857,18 @@ class SalesDashboard {
         const container = document.getElementById(containerId);
         if (!container) return;
 
-        container.innerHTML = affiliates.map(affiliate => `
+        container.innerHTML = affiliates.map(affiliate => {
+            
+            // Asegurarse que la fecha es válida antes de formatear
+        const fechaValida = affiliate.fecha instanceof Date && !isNaN(affiliate.fecha.getTime());
+        const fechaFormateada = fechaValida ? 
+            affiliate.fecha.toLocaleDateString('es-ES', { 
+                day: '2-digit', 
+                month: '2-digit', 
+                year: 'numeric' 
+            }) : 'Fecha inválida';
+
+            return`
             <div class="affiliate-card">
                 <div class="affiliate-header">
                     <div class="affiliate-name">${affiliate.nombre}</div>
@@ -857,11 +881,7 @@ class SalesDashboard {
                     </div>
                     <div class="affiliate-meta-item">
                         <i class="fas fa-calendar-day"></i>
-                    <span>Registro: ${affiliate.fecha.toLocaleDateString('es-ES', { 
-                        day: '2-digit', 
-                        month: '2-digit', 
-                        year: 'numeric' 
-                        })}</span>
+                            <span>Registro: ${fechaFormateada}</span>
                     </div>
                     ${affiliate.telefono && affiliate.telefono !== 'No especificado' ? `
                     <div class="affiliate-meta-item">
@@ -882,8 +902,10 @@ class SalesDashboard {
                     </button>
                 </div>
             </div>
-        `).join('');
+        `;
+        }).join('');
     }
+    
 
     initFilters() {
         const populateSelect = (selector, key) => {
