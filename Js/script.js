@@ -1,22 +1,22 @@
 class SalesDashboard {
     constructor() {
-        this.orders = [];
-        this.affiliates = [];
-        this.currentView = 'dashboard';
-        this.filteredOrders = [];
-        this.filteredAffiliates = [];
-        this.filteredTemporaryAffiliates = [];
-        this.sortAffiliatesBy = 'number-desc';
-        this.sortTemporaryAffiliatesBy = 'date-desc';
-        this.charts = {
-            country: null,
-            products: null,
-            salesTrend: null
-        };
-        this.initialize();
-        this.setupTokenModal();
-        this.tokenValid = false;
-    }
+    this.orders = [];
+    this.affiliates = [];
+    this.currentView = 'dashboard';
+    this.filteredOrders = [];
+    this.filteredAffiliates = [];
+    this.filteredTemporaryAffiliates = [];
+    this.sortAffiliatesBy = 'number-desc';
+    this.sortTemporaryAffiliatesBy = 'date-desc';
+    this.charts = {
+        country: null,
+        products: null,
+        salesTrend: null
+    };
+    this.initialize();
+    this.setupTokenModal();
+    this.tokenValid = false;
+}
 
     async initialize() {
         await this.loadData();
@@ -41,13 +41,14 @@ class SalesDashboard {
     }
 
     async loadAffiliates() {
-        try {
-            const response = await fetch('https://raw.githubusercontent.com/HCoreBeat/Asere/main/Json/afiliados.json');
-            this.affiliates = await response.json();
-            this.normalizeAffiliatesData();
-            this.applyAffiliatesSorting();
+    try {
+        // Modificación para evitar caché
+        const response = await fetch(`https://raw.githubusercontent.com/HCoreBeat/Asere/main/Json/afiliados.json?t=${Date.now()}`);
+        this.affiliates = await response.json();
+        this.normalizeAffiliatesData();
+        this.applyAffiliatesSorting();
         } catch (error) {
-            console.error('Error loading affiliates:', error);
+        console.error('Error loading affiliates:', error);
         }
     }
 
@@ -65,16 +66,29 @@ class SalesDashboard {
 
     normalizeAffiliatesData() {
         this.affiliates.forEach(affiliate => {
-            affiliate.fecha = new Date(affiliate.fecha);
+            // Convertir fecha a objeto Date válido
+            affiliate.fecha = this.parseFecha(affiliate.fecha);
             affiliate.telefono = affiliate.telefono || 'No especificado';
             affiliate.numero = affiliate.numero || 'Permanente';
             affiliate.link = `https://www.asereshops.com/?ref=${affiliate.id}`;
             affiliate.searchText = `${affiliate.nombre} ${affiliate.id} ${affiliate.numero} ${affiliate.telefono}`.toLowerCase();
             affiliate.numeroInt = affiliate.numero === 'Permanente' ? 0 : parseInt(affiliate.numero) || 0;
         });
-
+        
         this.filteredAffiliates = [...this.affiliates.filter(a => a.numero !== 'Permanente')];
         this.filteredTemporaryAffiliates = [...this.affiliates.filter(a => a.numero === 'Permanente')];
+    }
+    
+    parseFecha(fechaString) {
+        if (!isNaN(Date.parse(fechaString))) return new Date(fechaString);
+        
+        if (fechaString.includes('/')) {
+            const [day, month, year] = fechaString.split('/');
+            return new Date(year, month - 1, day);
+        }
+        
+        console.warn('Fecha inválida:', fechaString);
+        return new Date();
     }
 
     exportData() {
@@ -390,36 +404,48 @@ class SalesDashboard {
         // Formulario para agregar afiliados permanentes
         document.getElementById('add-affiliate-form')?.addEventListener('submit', async (e) => {
             e.preventDefault();
+            
+            if (!localStorage.getItem('github_token')) {
+                this.showTokenModal(true);
+                return;
+            }
+            
             const name = document.getElementById('affiliate-name').value.trim();
             const phone = document.getElementById('affiliate-phone').value.trim();
             
             if (!name) {
-                alert('El nombre es requerido');
+                this.showAlert('El nombre es requerido', 'error');
                 return;
             }
             
-            const nextNumber = this.getNextAffiliateNumber();
+            const loadingAlert = this.showAlert('Guardando nuevo afiliado...', 'loading');
             
-            const newAffiliate = {
-                id: document.getElementById('generated-id').textContent,
-                nombre: name,
-                fecha: new Date().toISOString(),
-                numero: nextNumber.toString(),
-                telefono: phone || undefined
-            };
-            
-            this.affiliates.push(newAffiliate);
-            this.filteredAffiliates.push(newAffiliate);
-            
-            const success = await this.updateAffiliatesFile(this.affiliates);
-            
-            if (success) {
-                document.getElementById('add-affiliate-form').reset();
-                document.getElementById('add-affiliate-panel').style.display = 'none';
+            try {
+                const nextNumber = this.getNextAffiliateNumber();
+                const newAffiliate = {
+                    id: document.getElementById('generated-id').textContent,
+                    nombre: name,
+                    fecha: new Date().toISOString(),
+                    numero: nextNumber.toString(),
+                    telefono: phone || undefined
+                };
                 
-                this.applyAffiliatesSorting();
-                this.renderAffiliatesList('affiliates-list', this.filteredAffiliates);
-                this.showAlert(`Afiliado agregado correctamente con el número #${nextNumber}`);
+                this.affiliates.push(newAffiliate);
+                this.filteredAffiliates.push(newAffiliate);
+                
+                const success = await this.updateAffiliatesFile(this.affiliates);
+                
+                if (success) {
+                    loadingAlert.remove();
+                    this.showAlert(`✅ Afiliado #${nextNumber} (${name}) guardado exitosamente! Los cambios pueden tardar hasta 5 minutos en aplicarse`, 'success');
+                    document.getElementById('add-affiliate-form').reset();
+                    document.getElementById('add-affiliate-panel').style.display = 'none';
+                    this.applyAffiliatesSorting();
+                    this.renderAffiliatesList('affiliates-list', this.filteredAffiliates);
+                }
+            } catch (error) {
+                loadingAlert.remove();
+                this.showAlert(`❌ Error al guardar afiliado: ${error.message}`, 'error');
             }
         });
 
@@ -502,13 +528,29 @@ class SalesDashboard {
 
         // Actualizar afiliados
         document.getElementById('refresh-affiliates')?.addEventListener('click', async () => {
-            await this.loadAffiliates();
-            this.renderAllAffiliates();
+            const loadingAlert = this.showAlert('Actualizando lista de afiliados...', 'loading');
+            try {
+                await this.loadAffiliates();
+                this.renderAllAffiliates();
+                loadingAlert.remove();
+                this.showAlert('✅ Lista de afiliados actualizada. Nota: Los cambios pueden tardar hasta 5 minutos en verse reflejados', 'success');
+            } catch (error) {
+                loadingAlert.remove();
+                this.showAlert(`❌ Error al actualizar: ${error.message}`, 'error');
+            }
         });
-
+        
         document.getElementById('refresh-temporary-affiliates')?.addEventListener('click', async () => {
-            await this.loadAffiliates();
-            this.renderAllAffiliates();
+            const loadingAlert = this.showAlert('Actualizando lista de afiliados temporales...', 'loading');
+            try {
+                await this.loadAffiliates();
+                this.renderAllAffiliates();
+                loadingAlert.remove();
+                this.showAlert('✅ Lista de afiliados temporales actualizada. Nota: Los cambios pueden tardar hasta 5 minutos en verse reflejados', 'success');
+            } catch (error) {
+                loadingAlert.remove();
+                this.showAlert(`❌ Error al actualizar: ${error.message}`, 'error');
+            }
         });
 
          // Configuración
@@ -601,6 +643,9 @@ class SalesDashboard {
         const cancelBtn = document.getElementById('cancel-token-btn');
         const submitBtn = document.getElementById('submit-token-btn');
         
+        // Precargar token existente
+        tokenInput.value = localStorage.getItem('github_token') || '';
+        
         if (!modal || !tokenInput || !cancelBtn || !submitBtn) return;
         
         // Verificar token al cargar
@@ -624,18 +669,16 @@ class SalesDashboard {
                 return;
             }
             
-            // Verificar el token antes de guardar
             const isValid = await this.verifyGitHubToken(token);
             if (!isValid) {
-                this.showAlert('El token no es válido. Por favor verifica que tenga los permisos correctos.', 'error');
+                this.showAlert('Token inválido o sin permisos', 'error');
                 return;
             }
             
-            // Guardar en localStorage (solo cliente)
             localStorage.setItem('github_token', token);
             this.tokenValid = true;
             this.showTokenModal(false);
-            this.showAlert('Token guardado y verificado correctamente', 'success');
+            this.showAlert('Token guardado exitosamente', 'success');
         });
     }
 
@@ -668,44 +711,49 @@ class SalesDashboard {
         const alert = document.createElement('div');
         alert.className = `alert ${type}`;
         alert.innerHTML = `
-            <i class="fas ${type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle'}"></i>
+            ${type === 'loading' ? 
+                '<i class="fas fa-spinner fa-spin"></i>' : 
+                type === 'success' ? 
+                '<i class="fas fa-check-circle"></i>' : 
+                '<i class="fas fa-exclamation-circle"></i>'}
             <span>${message}</span>
-            <button class="close-alert"><i class="fas fa-times"></i></button>
+            ${type !== 'loading' ? '<button class="close-alert"><i class="fas fa-times"></i></button>' : ''}
         `;
         
         document.body.appendChild(alert);
         
-        setTimeout(() => {
+        if (type !== 'loading') {
+            setTimeout(() => {
+                alert.classList.add('show');
+            }, 10);
+            
+            setTimeout(() => {
+                alert.classList.remove('show');
+                setTimeout(() => alert.remove(), 300);
+            }, 7000);
+        } else {
             alert.classList.add('show');
-        }, 10);
+        }
         
-        // Auto-ocultar después de 5 segundos
-        setTimeout(() => {
+        alert.querySelector('.close-alert')?.addEventListener('click', () => {
             alert.classList.remove('show');
-            setTimeout(() => {
-                alert.remove();
-            }, 300);
-        }, 5000);
-        
-        // Cerrar manualmente
-        alert.querySelector('.close-alert').addEventListener('click', () => {
-            alert.classList.remove('show');
-            setTimeout(() => {
-                alert.remove();
-            }, 300);
+            setTimeout(() => alert.remove(), 300);
         });
+        
+        return alert;
     }
 
     async updateAffiliatesFile(newAffiliates) {
         try {
-            // Obtener el token del input oculto o de la UI
-            const tokenInput = document.getElementById('github-token-input');
-            if (!tokenInput || !tokenInput.value) {
-                throw new Error("Por favor ingresa tu token de GitHub");
+             // Modificación clave: Obtener token de localStorage
+            const GITHUB_TOKEN = localStorage.getItem('github_token');
+            if (!GITHUB_TOKEN) {
+                this.showTokenModal(true);
+                throw new Error("Por favor autentícate primero");
             }
-            const GITHUB_TOKEN = tokenInput.value;
-            
+ 
             const { REPO_OWNER, REPO_NAME, AFFILIATES_FILE_PATH } = CONFIG.GITHUB_API;
+ 
             
             // Primero obtenemos el SHA del archivo actual
             const getUrl = `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${AFFILIATES_FILE_PATH}`;
@@ -747,8 +795,7 @@ class SalesDashboard {
             
             return true;
         } catch (error) {
-            console.error('Error updating affiliates file:', error);
-            this.showTokenModal(false);
+            this.showAlert(`Error: ${error.message}`, 'error');
             throw error;
         }
     }
@@ -810,10 +857,10 @@ class SalesDashboard {
                     </div>
                     <div class="affiliate-meta-item">
                         <i class="fas fa-calendar-day"></i>
-                        <span>Registro: ${affiliate.fecha.toLocaleDateString('es-ES', { 
-                            day: '2-digit', 
-                            month: '2-digit', 
-                            year: 'numeric' 
+                    <span>Registro: ${affiliate.fecha.toLocaleDateString('es-ES', { 
+                        day: '2-digit', 
+                        month: '2-digit', 
+                        year: 'numeric' 
                         })}</span>
                     </div>
                     ${affiliate.telefono && affiliate.telefono !== 'No especificado' ? `

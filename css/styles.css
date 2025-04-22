@@ -948,13 +948,15 @@ body.menu-open {
 
 /* Estilos para notificaciones */
 .alert {
+    max-width: 500px;
+    padding: 15px 20px;
+    font-size: 0.95rem;
     position: fixed;
     bottom: 20px;
     right: 20px;
     background: var(--secondary);
     border: 1px solid var(--border);
     border-radius: var(--border-radius);
-    padding: 1rem 1.5rem;
     display: flex;
     align-items: center;
     gap: 0.75rem;
@@ -963,20 +965,11 @@ body.menu-open {
     opacity: 0;
     transition: all 0.3s ease;
     z-index: 3000;
-    max-width: 400px;
 }
 
 .alert.show {
     transform: translateY(0);
     opacity: 1;
-}
-
-.alert.success {
-    border-left: 4px solid var(--accent);
-}
-
-.alert.error {
-    border-left: 4px solid #ff6b6b;
 }
 
 .alert i {
@@ -1065,4 +1058,35 @@ body.menu-open {
 
 .hidden {
     display: none !important;
+}
+
+
+/* styles.css - Añadir estas reglas */
+.alert.loading {
+    border-left: 4px solid var(--accent);
+    background-color: rgba(0, 255, 157, 0.05);
+}
+
+.alert.loading i {
+    color: var(--accent);
+    margin-right: 10px;
+}
+
+.fa-spinner {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Mejorar visibilidad de mensajes */
+
+.alert.success {
+    border-left: 4px solid var(--accent);
+}
+
+.alert.error {
+    border-left: 4px solid #ff6b6b;
 }
