@@ -16,18 +16,32 @@ class SalesDashboard {
         this.initialize();
         this.setupTokenModal();
         this.tokenValid = false;
+
+        // Add to constructor
+        this.products = [];
+        this.filteredProducts = [];
+        this.productChanges = {
+            modified: [],
+            new: [],
+            deleted: []
+        };
+        this.currentProduct = null;
+        this.mainImageFile = null;
+        this.additionalImageFiles = [];
         
     }
 
     async initialize() {
         await this.loadData();
         await this.loadAffiliates();
+        await this.loadProducts();
         this.setupEventListeners();
         this.initFilters();
         this.initCharts();
         this.applyFilters();
         this.renderAllAffiliates();
         this.setupView();
+        this.setupProductsView();
     }
 
     async loadData() {
@@ -831,19 +845,24 @@ class SalesDashboard {
         document.querySelectorAll('.menu-item').forEach(item => {
             item.classList.toggle('active', item.dataset.view === this.currentView);
         });
-
+    
         document.querySelectorAll('.view-content').forEach(view => {
             view.classList.toggle('hidden', view.id !== `${this.currentView}-view`);
         });
-
+    
         const filters = document.querySelector('.filters');
         if (filters) {
             filters.style.display = this.currentView === 'dashboard' ? 'flex' : 'none';
         }
-
+    
         const addPanel = document.getElementById('add-affiliate-panel');
         if (addPanel) {
             addPanel.style.display = 'none';
+        }
+        
+        // Reset product editor if open when switching views
+        if (this.currentView !== 'products') {
+            this.closeProductEditor();
         }
     }
 
@@ -1086,6 +1105,795 @@ class SalesDashboard {
                     </div>
                 </div>
             `).join('');
+    }
+
+    // Product Management
+    async loadProducts() {
+        try {
+            const response = await fetch(`https://raw.githubusercontent.com/${CONFIG.GITHUB_API.REPO_OWNER}/${CONFIG.GITHUB_API.REPO_NAME}/main/${CONFIG.GITHUB_API.PRODUCTS_FILE_PATH}?t=${Date.now()}`);
+            this.products = await response.json();
+            this.filteredProducts = [...this.products];
+            this.updateProductCount();
+            this.renderProductsList();
+            this.populateCategoryFilter();
+        } catch (error) {
+            console.error('Error loading products:', error);
+            this.showAlert('Error al cargar los productos', 'error');
+        }
+    }
+
+    updateProductCount() {
+        document.getElementById('total-products').textContent = this.filteredProducts.length;
+    }
+
+    populateCategoryFilter() {
+        const categorySelect = document.getElementById('filter-category');
+        if (!categorySelect) return;
+        
+        // Get all unique categories from products
+        const categories = [...new Set(this.products.map(p => p.categoria))].sort();
+        
+        categorySelect.innerHTML = '<option value="">Todas las categorías</option>' + 
+            categories.map(cat => `<option value="${cat}">${cat}</option>`).join('');
+    }
+
+    renderProductsList() {
+        const container = document.getElementById('products-list');
+        if (!container) return;
+    
+        container.innerHTML = this.filteredProducts.map(product => {
+            // Calculate final price (price * 1.05)
+            const finalPrice = product.precio * 1.05;
+            const hasDiscount = product.oferta && product.descuento > 0;
+            const originalPrice = finalPrice / (1 - product.descuento/100);
+            
+            // Get image URL from GitHub repository
+            const imageUrl = `https://raw.githubusercontent.com/${CONFIG.GITHUB_API.REPO_OWNER}/${CONFIG.GITHUB_API.REPO_NAME}/main/${product.imagen}?t=${Date.now()}`;
+            
+            return `
+            <div class="product-card" data-id="${this.sanitizeId(product.nombre)}">
+                <div class="product-image-container">
+                    <img class="product-image" src="${imageUrl}" alt="${product.nombre}" onerror="this.src='img/no-image.png'">
+                    <div class="product-badges">
+                        ${product.oferta ? '<span class="product-badge oferta">OFERTA</span>' : ''}
+                        ${product.mas_vendido ? '<span class="product-badge mas-vendido">TOP</span>' : ''}
+                        ${!product.disponible ? '<span class="product-badge no-disponible">AGOTADO</span>' : ''}
+                    </div>
+                </div>
+                <div class="product-info">
+                    <div class="product-name" title="${product.nombre}">${product.nombre}</div>
+                    <span class="product-category">${product.categoria}</span>
+                    <div class="product-price-container">
+                        ${hasDiscount ? `
+                            <span class="product-price original">$${originalPrice.toFixed(2)}</span>
+                            <span class="product-price discounted">$${finalPrice.toFixed(2)}</span>
+                        ` : `
+                            <span class="product-price">$${finalPrice.toFixed(2)}</span>
+                        `}
+                    </div>
+                    <div class="product-actions">
+                        <button class="btn btn-secondary edit-product" data-id="${this.sanitizeId(product.nombre)}">
+                            <i class="fas fa-edit"></i> Editar
+                        </button>
+                        <button class="btn cancel-btn delete-product" data-id="${this.sanitizeId(product.nombre)}">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            `;
+        }).join('');
+    
+        // Add event listeners
+        this.setupProductCardEvents();
+    }
+
+    setupProductCardEvents() {
+        document.querySelectorAll('.edit-product').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const productId = e.currentTarget.dataset.id;
+                const originalName = this.getOriginalNameFromId(productId);
+                const product = this.products.find(p => this.sanitizeId(p.nombre) === productId);
+                if (product) {
+                    this.editProduct(product);
+                }
+            });
+        });
+    
+        document.querySelectorAll('.delete-product').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const productId = e.currentTarget.dataset.id;
+                const originalName = this.getOriginalNameFromId(productId);
+                this.deleteProduct(originalName);
+            });
+        });
+    }
+
+    getOriginalNameFromId(id) {
+        const product = this.products.find(p => this.sanitizeId(p.nombre) === id);
+        return product ? product.nombre : id.replace(/_/g, ' ');
+    }
+    
+    sanitizeId(name) {
+        return name.replace(/[^a-zA-Z0-9]/g, '_');
+    }
+    
+    setupProductsView() {
+        // Search functionality
+        document.getElementById('search-products')?.addEventListener('input', (e) => {
+            this.applyProductFilters();
+        });
+    
+        // Filter functionality
+        document.getElementById('filter-category')?.addEventListener('change', () => {
+            this.applyProductFilters();
+        });
+    
+        document.getElementById('filter-availability')?.addEventListener('change', () => {
+            this.applyProductFilters();
+        });
+    
+        document.getElementById('filter-featured')?.addEventListener('change', () => {
+            this.applyProductFilters();
+        });
+    
+        // Add product button
+        document.getElementById('add-product-btn')?.addEventListener('click', () => {
+            this.openProductEditor();
+        });
+    
+        // Refresh products
+        document.getElementById('refresh-products')?.addEventListener('click', async () => {
+            const loadingAlert = this.showAlert('Actualizando lista de productos...', 'loading');
+            try {
+                await this.loadProducts();
+                loadingAlert.remove();
+                this.showAlert('✅ Lista de productos actualizada', 'success');
+            } catch (error) {
+                loadingAlert.remove();
+                this.showAlert(`❌ Error al actualizar: ${error.message}`, 'error');
+            }
+        });
+    
+        // Product form
+        document.getElementById('product-form')?.addEventListener('submit', (e) => {
+            e.preventDefault();
+            this.saveProduct();
+        });
+    
+        // Cancel edit
+        document.getElementById('cancel-product-edit')?.addEventListener('click', () => {
+            this.closeProductEditor();
+        });
+        document.getElementById('close-product-editor')?.addEventListener('click', () => {
+            this.closeProductEditor();
+        });
+    
+        // Image upload handlers
+        document.getElementById('select-main-image')?.addEventListener('click', () => {
+            document.getElementById('main-image-upload').click();
+        });
+    
+        document.getElementById('main-image-upload')?.addEventListener('change', (e) => {
+            if (e.target.files.length > 0) {
+                this.handleMainImageUpload(e.target.files[0]);
+            }
+        });
+    
+        document.getElementById('remove-main-image')?.addEventListener('click', () => {
+            this.removeMainImage();
+        });
+    
+        document.getElementById('add-additional-images')?.addEventListener('click', () => {
+            document.getElementById('additional-images-upload').click();
+        });
+    
+        document.getElementById('additional-images-upload')?.addEventListener('change', (e) => {
+            if (e.target.files.length > 0) {
+                this.handleAdditionalImagesUpload(Array.from(e.target.files));
+            }
+        });
+    
+        // Price calculation
+        document.getElementById('product-price')?.addEventListener('input', () => {
+            this.updatePriceHint();
+        });
+    
+        // Form field changes to update JSON preview
+        const formFields = ['product-name', 'product-category', 'product-price', 
+                           'product-discount', 'product-description'];
+        
+        formFields.forEach(fieldId => {
+            const element = document.getElementById(fieldId);
+            if (element) {
+                element.addEventListener('change', () => this.updateJsonPreview());
+                element.addEventListener('input', () => this.updateJsonPreview());
+            }
+        });
+    
+        // Checkbox changes
+        ['product-oferta', 'product-mas-vendido', 'product-disponible'].forEach(id => {
+            document.getElementById(id)?.addEventListener('change', () => this.updateJsonPreview());
+        });
+    }
+
+    updatePriceHint() {
+        const priceInput = document.getElementById('product-price');
+        const price = parseFloat(priceInput.value) || 0;
+        const finalPrice = price / 1.05;
+        document.getElementById('final-price-hint').textContent = `$${finalPrice.toFixed(3)}`;
+        this.updateJsonPreview();
+    }
+
+    applyProductFilters() {
+        const searchTerm = document.getElementById('search-products').value.toLowerCase();
+        const categoryFilter = document.getElementById('filter-category').value;
+        const availabilityFilter = document.getElementById('filter-availability').value;
+        const featuredFilter = document.getElementById('filter-featured').value;
+    
+        this.filteredProducts = this.products.filter(product => {
+            // Search term filter
+            const matchesSearch = product.nombre.toLowerCase().includes(searchTerm) ||
+                                 (product.descripcion && product.descripcion.toLowerCase().includes(searchTerm));
+            
+            // Category filter
+            const matchesCategory = !categoryFilter || product.categoria === categoryFilter;
+            
+            // Availability filter
+            let matchesAvailability = true;
+            if (availabilityFilter === 'available') {
+                matchesAvailability = product.disponible !== false;
+            } else if (availabilityFilter === 'unavailable') {
+                matchesAvailability = product.disponible === false;
+            }
+            
+            // Featured filter
+            let matchesFeatured = true;
+            if (featuredFilter === 'featured') {
+                matchesFeatured = product.mas_vendido === true;
+            } else if (featuredFilter === 'offer') {
+                matchesFeatured = product.oferta === true;
+            }
+            
+            return matchesSearch && matchesCategory && matchesAvailability && matchesFeatured;
+        });
+    
+        this.updateProductCount();
+        this.renderProductsList();
+    }
+    
+    openProductEditor(product = null) {
+        this.currentProduct = product;
+        this.mainImageFile = null;
+        this.additionalImageFiles = [];
+        
+        const modal = document.getElementById('product-editor-modal');
+        const title = document.getElementById('editor-title');
+        
+        if (product) {
+            title.textContent = `Editar ${product.nombre}`;
+            this.populateProductForm(product);
+        } else {
+            title.textContent = 'Nuevo Producto';
+            this.resetProductForm();
+        }
+        
+        modal.classList.remove('hidden');
+        this.updateJsonPreview();
+    }
+    
+    closeProductEditor() {
+        document.getElementById('product-editor-modal').classList.add('hidden');
+        this.currentProduct = null;
+        this.mainImageFile = null;
+        this.additionalImageFiles = [];
+    }
+    
+    populateProductForm(product) {
+        document.getElementById('product-name').value = product.nombre;
+        document.getElementById('product-category').value = product.categoria;
+        document.getElementById('product-price').value = (product.precio * 1.05).toFixed(2);
+        document.getElementById('product-discount').value = product.descuento || 0;
+        document.getElementById('product-oferta').checked = product.oferta || false;
+        document.getElementById('product-mas-vendido').checked = product.mas_vendido || false;
+        document.getElementById('product-disponible').checked = product.disponible !== false;
+        document.getElementById('product-description').value = product.descripcion || '';
+        this.updatePriceHint();
+        
+        // Populate categories dropdown
+        const categorySelect = document.getElementById('product-category');
+        categorySelect.innerHTML = '<option value="">Seleccionar categoría</option>' + 
+            CONFIG.PRODUCT_CATEGORIES.map(cat => 
+                `<option value="${cat}" ${cat === product.categoria ? 'selected' : ''}>${cat}</option>`
+            ).join('');
+        
+        // Show main image
+        const mainImageContainer = document.getElementById('main-image-container');
+        if (product.imagen) {
+            const imageUrl = `https://raw.githubusercontent.com/${CONFIG.GITHUB_API.REPO_OWNER}/${CONFIG.GITHUB_API.REPO_NAME}/main/${product.imagen}`;
+            mainImageContainer.innerHTML = `<img src="${imageUrl}" alt="${product.nombre}" onerror="this.parentElement.innerHTML='<span>Error al cargar imagen</span>'">`;
+            document.getElementById('remove-main-image').style.display = 'block';
+        } else {
+            mainImageContainer.innerHTML = '<span>No hay imagen seleccionada</span>';
+            document.getElementById('remove-main-image').style.display = 'none';
+        }
+        
+        // Show additional images
+        const additionalContainer = document.getElementById('additional-images-container');
+        if (product.imagenesAdicionales && product.imagenesAdicionales.length > 0) {
+            additionalContainer.innerHTML = product.imagenesAdicionales.map(img => {
+                const imageUrl = `https://raw.githubusercontent.com/${CONFIG.GITHUB_API.REPO_OWNER}/${CONFIG.GITHUB_API.REPO_NAME}/main/${img}`;
+                return `
+                    <div class="additional-image">
+                        <img src="${imageUrl}" alt="Imagen adicional" onerror="this.parentElement.remove()">
+                        <button class="remove-additional-image" data-src="${img}">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                `;
+            }).join('');
+            
+            // Add event listeners for remove buttons
+            document.querySelectorAll('.remove-additional-image').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const src = btn.dataset.src;
+                    this.removeAdditionalImage(src);
+                });
+            });
+        } else {
+            additionalContainer.innerHTML = '<div class="no-images-message">No hay imágenes adicionales</div>';
+        }
+    }
+    
+    resetProductForm() {
+        document.getElementById('product-form').reset();
+        document.getElementById('product-disponible').checked = true;
+        
+        // Reset categories dropdown
+        const categorySelect = document.getElementById('product-category');
+        categorySelect.innerHTML = '<option value="">Seleccionar categoría</option>' + 
+            CONFIG.PRODUCT_CATEGORIES.map(cat => 
+                `<option value="${cat}">${cat}</option>`
+            ).join('');
+        
+        // Reset images
+        document.getElementById('main-image-container').innerHTML = '<span>No hay imagen seleccionada</span>';
+        document.getElementById('remove-main-image').style.display = 'none';
+        document.getElementById('additional-images-container').innerHTML = '<div class="no-images-message">No hay imágenes adicionales</div>';
+    }
+    
+    handleMainImageUpload(file) {
+        this.mainImageFile = file;
+        
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            const container = document.getElementById('main-image-container');
+            container.innerHTML = `<img src="${e.target.result}" alt="Preview">`;
+            document.getElementById('remove-main-image').style.display = 'block';
+        };
+        reader.readAsDataURL(file);
+        
+        this.updateJsonPreview();
+    }
+    
+    removeMainImage() {
+        this.mainImageFile = null;
+        document.getElementById('main-image-container').innerHTML = '<span>No hay imagen seleccionada</span>';
+        document.getElementById('remove-main-image').style.display = 'none';
+        document.getElementById('main-image-upload').value = '';
+        this.updateJsonPreview();
+    }
+    
+    handleAdditionalImagesUpload(files) {
+        files.forEach(file => {
+            this.additionalImageFiles.push(file);
+            
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                const container = document.getElementById('additional-images-container');
+                
+                // Remove "no images" message if it's the first image
+                if (container.querySelector('.no-images-message')) {
+                    container.innerHTML = '';
+                }
+                
+                container.innerHTML += `
+                    <div class="additional-image">
+                        <img src="${e.target.result}" alt="Preview">
+                        <button class="remove-additional-image" data-file="${file.name}">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                `;
+                
+                // Add event listener for the new remove button
+                container.lastElementChild.querySelector('.remove-additional-image').addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    this.removeAdditionalImage(file.name, true);
+                });
+            };
+            reader.readAsDataURL(file);
+        });
+        
+        this.updateJsonPreview();
+    }
+    
+    removeAdditionalImage(identifier, isFile = false) {
+        if (isFile) {
+            // Remove by file name (for newly uploaded files)
+            this.additionalImageFiles = this.additionalImageFiles.filter(f => f.name !== identifier);
+        } else {
+            // Remove by image src (for existing images)
+            if (this.currentProduct && this.currentProduct.imagenesAdicionales) {
+                this.currentProduct.imagenesAdicionales = this.currentProduct.imagenesAdicionales.filter(img => img !== identifier);
+            }
+        }
+        
+        // Re-render additional images
+        const container = document.getElementById('additional-images-container');
+        if ((this.currentProduct?.imagenesAdicionales?.length || 0) + this.additionalImageFiles.length === 0) {
+            container.innerHTML = '<div class="no-images-message">No hay imágenes adicionales</div>';
+        } else {
+            container.innerHTML = '';
+            
+            // Add existing images
+            if (this.currentProduct?.imagenesAdicionales) {
+                this.currentProduct.imagenesAdicionales.forEach(img => {
+                    if (img !== identifier) { // Skip the removed image
+                        container.innerHTML += `
+                            <div class="additional-image">
+                                <img src="${img}" alt="Imagen adicional">
+                                <button class="remove-additional-image" data-src="${img}">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                        `;
+                    }
+                });
+            }
+            
+            // Add new images
+            this.additionalImageFiles.forEach(file => {
+                if (file.name !== identifier) { // Skip the removed file
+                    const reader = new FileReader();
+                    reader.onload = (e) => {
+                        container.innerHTML += `
+                            <div class="additional-image">
+                                <img src="${e.target.result}" alt="Preview">
+                                <button class="remove-additional-image" data-file="${file.name}">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                        `;
+                        
+                        // Add event listener for the new remove button
+                        container.lastElementChild.querySelector('.remove-additional-image').addEventListener('click', (e) => {
+                            e.stopPropagation();
+                            this.removeAdditionalImage(file.name, true);
+                        });
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
+        }
+        
+        this.updateJsonPreview();
+    }
+    
+    updateJsonPreview() {
+        const productData = this.getCurrentProductData();
+        document.getElementById('product-json-preview').textContent = JSON.stringify(productData, null, 2);
+    }
+    
+    getCurrentProductData() {
+        const name = document.getElementById('product-name').value.trim();
+        const category = document.getElementById('product-category').value;
+        const price = parseFloat(document.getElementById('product-price').value) || 0;
+        const discount = parseInt(document.getElementById('product-discount').value) || 0;
+        const oferta = document.getElementById('product-oferta').checked;
+        const mas_vendido = document.getElementById('product-mas-vendido').checked;
+        const disponible = document.getElementById('product-disponible').checked;
+        const descripcion = document.getElementById('product-description').value.trim();
+        
+        // Calculate final price (price / 1.05)
+        const finalPrice = price / 1.05;
+        
+        // Determine image paths
+        let imagen = '';
+        if (this.mainImageFile) {
+            imagen = `img/products/${this.mainImageFile.name}`;
+        } else if (this.currentProduct?.imagen) {
+            imagen = this.currentProduct.imagen;
+        }
+        
+        // Determine additional images
+        let imagenesAdicionales = [];
+        if (this.currentProduct?.imagenesAdicionales) {
+            imagenesAdicionales = [...this.currentProduct.imagenesAdicionales];
+        }
+        
+        // Add new additional images
+        this.additionalImageFiles.forEach(file => {
+            imagenesAdicionales.push(`img/products/${file.name}`);
+        });
+        
+        return {
+            nombre: name,
+            categoria: category,
+            precio: parseFloat(finalPrice.toFixed(3)),
+            descuento: discount,
+            oferta: oferta,
+            mas_vendido: mas_vendido,
+            disponible: disponible,
+            imagen: imagen,
+            descripcion: descripcion || undefined,
+            imagenesAdicionales: imagenesAdicionales.length > 0 ? imagenesAdicionales : undefined
+        };
+    }
+    
+    saveProduct() {
+        const productData = this.getCurrentProductData();
+        
+        // Validate required fields
+        if (!productData.nombre || !productData.categoria || !productData.precio) {
+            this.showAlert('Por favor complete todos los campos requeridos', 'error');
+            return;
+        }
+        
+        if (!productData.imagen) {
+            this.showAlert('Debe seleccionar una imagen principal', 'error');
+            return;
+        }
+        
+        // Check if this is a new product or an edit
+        const isNew = !this.currentProduct;
+        const existingIndex = this.products.findIndex(p => p.nombre === productData.nombre);
+        
+        if (isNew) {
+            if (existingIndex >= 0) {
+                this.showAlert('Ya existe un producto con este nombre', 'error');
+                return;
+            }
+            
+            // Add to new products list
+            this.productChanges.new.push(productData);
+            this.products.push(productData);
+        } else {
+            // Check if name was changed and new name already exists
+            if (productData.nombre !== this.currentProduct.nombre && existingIndex >= 0) {
+                this.showAlert('Ya existe un producto con este nombre', 'error');
+                return;
+            }
+            
+            // Add to modified products list if not already there
+            const existingModifiedIndex = this.productChanges.modified.findIndex(p => p.nombre === this.currentProduct.nombre);
+            if (existingModifiedIndex < 0) {
+                this.productChanges.modified.push(productData);
+            } else {
+                this.productChanges.modified[existingModifiedIndex] = productData;
+            }
+            
+            // Update in products array
+            const productIndex = this.products.findIndex(p => p.nombre === this.currentProduct.nombre);
+            if (productIndex >= 0) {
+                this.products[productIndex] = productData;
+            }
+        }
+        
+        // Update filtered products if needed
+        this.filteredProducts = [...this.products];
+        
+        this.showAlert(`Producto ${isNew ? 'agregado' : 'actualizado'} correctamente`, 'success');
+        this.renderProductsList();
+        this.closeProductEditor();
+        
+        // Show confirmation modal if there are changes
+        if (this.productChanges.modified.length > 0 || this.productChanges.new.length > 0 || this.productChanges.deleted.length > 0) {
+            this.showChangesConfirmation();
+        }
+    }
+    
+    deleteProduct(productName) {
+        if (!confirm(`¿Estás seguro de eliminar el producto "${productName}"?`)) {
+            return;
+        }
+        
+        const productIndex = this.products.findIndex(p => p.nombre === productName);
+        if (productIndex >= 0) {
+            const deletedProduct = this.products[productIndex];
+            this.products.splice(productIndex, 1);
+            this.filteredProducts = [...this.products];
+            
+            // Add to deleted products list if not a new product
+            const isNew = this.productChanges.new.some(p => p.nombre === productName);
+            if (!isNew) {
+                this.productChanges.deleted.push(deletedProduct);
+            } else {
+                // Remove from new products list if it was there
+                this.productChanges.new = this.productChanges.new.filter(p => p.nombre !== productName);
+            }
+            
+            // Remove from modified products list if it was there
+            this.productChanges.modified = this.productChanges.modified.filter(p => p.nombre !== productName);
+            
+            this.showAlert('Producto eliminado correctamente', 'success');
+            this.renderProductsList();
+            
+            // Show confirmation modal if there are changes
+            if (this.productChanges.modified.length > 0 || this.productChanges.new.length > 0 || this.productChanges.deleted.length > 0) {
+                this.showChangesConfirmation();
+            }
+        }
+    }
+    
+    showChangesConfirmation() {
+        const modal = document.getElementById('changes-confirmation-modal');
+        const modifiedList = document.getElementById('modified-products-list');
+        const newList = document.getElementById('new-products-list');
+        const deletedList = document.getElementById('deleted-products-list');
+        
+        modifiedList.innerHTML = this.productChanges.modified.map(p => 
+            `<li>${p.nombre} (${p.categoria})</li>`
+        ).join('') || '<li>No hay productos modificados</li>';
+        
+        newList.innerHTML = this.productChanges.new.map(p => 
+            `<li>${p.nombre} (${p.categoria})</li>`
+        ).join('') || '<li>No hay productos nuevos</li>';
+        
+        deletedList.innerHTML = this.productChanges.deleted.map(p => 
+            `<li>${p.nombre} (${p.categoria})</li>`
+        ).join('') || '<li>No hay productos eliminados</li>';
+        
+        modal.classList.remove('hidden');
+    }
+    
+    async saveProductChanges() {
+        if (!this.tokenValid) {
+            this.showTokenModal(true);
+            return;
+        }
+        
+        const loadingAlert = this.showAlert('Guardando cambios en el repositorio...', 'loading');
+        
+        try {
+            // First, upload any new images
+            await this.uploadProductImages();
+            
+            // Then update the products.json file
+            const success = await this.updateProductsFile(this.products);
+            
+            if (success) {
+                // Reset changes tracking
+                this.productChanges = {
+                    modified: [],
+                    new: [],
+                    deleted: []
+                };
+                
+                loadingAlert.remove();
+                this.showAlert('✅ Cambios guardados exitosamente en el repositorio', 'success');
+                document.getElementById('changes-confirmation-modal').classList.add('hidden');
+                
+                // Reload products to get any updates from GitHub
+                await this.loadProducts();
+            }
+        } catch (error) {
+            loadingAlert.remove();
+            this.showAlert(`❌ Error al guardar cambios: ${error.message}`, 'error');
+        }
+    }
+    
+    async uploadProductImages() {
+        const GITHUB_TOKEN = localStorage.getItem('github_token');
+        if (!GITHUB_TOKEN) {
+            throw new Error("No hay token de GitHub configurado");
+        }
+        
+        const { REPO_OWNER, REPO_NAME } = CONFIG.GITHUB_API;
+        
+        // Upload main image if there's a new one
+        if (this.mainImageFile) {
+            await this.uploadImageToRepo(this.mainImageFile);
+        }
+        
+        // Upload additional images
+        for (const file of this.additionalImageFiles) {
+            await this.uploadImageToRepo(file);
+        }
+    }
+    
+    async uploadImageToRepo(file) {
+        const GITHUB_TOKEN = localStorage.getItem('github_token');
+        const { REPO_OWNER, REPO_NAME } = CONFIG.GITHUB_API;
+        const path = `img/products/${file.name}`;
+        
+        const reader = new FileReader();
+        const fileContent = await new Promise((resolve) => {
+            reader.onload = (e) => resolve(e.target.result.split(',')[1]);
+            reader.readAsDataURL(file);
+        });
+        
+        const response = await fetch(`https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${path}`, {
+            method: 'PUT',
+            headers: {
+                'Authorization': `token ${GITHUB_TOKEN}`,
+                'Accept': 'application/vnd.github.v3+json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                message: `Subir imagen de producto: ${file.name}`,
+                content: fileContent,
+                branch: 'main'
+            })
+        });
+        
+        if (!response.ok) {
+            const errorData = await response.json().catch(() => ({}));
+            throw new Error(errorData.message || `Error al subir imagen: ${response.status}`);
+        }
+    }
+    
+    async updateProductsFile(newProducts) {
+        try {
+            const GITHUB_TOKEN = localStorage.getItem('github_token');
+            if (!GITHUB_TOKEN) {
+                this.showTokenModal(true);
+                throw new Error("Por favor autentícate primero");
+            }
+            
+            const { REPO_OWNER, REPO_NAME, PRODUCTS_FILE_PATH } = CONFIG.GITHUB_API;
+            
+            // First get the SHA of the current file
+            const getUrl = `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${PRODUCTS_FILE_PATH}`;
+            const getResponse = await fetch(getUrl, {
+                headers: {
+                    'Authorization': `token ${GITHUB_TOKEN}`,
+                    'Accept': 'application/vnd.github.v3+json'
+                }
+            });
+            
+            if (!getResponse.ok) {
+                throw new Error(`Error al obtener archivo: ${getResponse.status}`);
+            }
+            
+            const fileData = await getResponse.json();
+            const sha = fileData.sha;
+            const content = JSON.stringify(newProducts, null, 2);
+            const encodedContent = btoa(unescape(encodeURIComponent(content)));
+            
+            // Update the file
+            const updateResponse = await fetch(getUrl, {
+                method: 'PUT',
+                headers: {
+                    'Authorization': `token ${GITHUB_TOKEN}`,
+                    'Accept': 'application/vnd.github.v3+json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    message: 'Actualización de productos desde Analytics Asere',
+                    content: encodedContent,
+                    sha: sha
+                })
+            });
+            
+            if (!updateResponse.ok) {
+                const errorData = await updateResponse.json().catch(() => ({}));
+                throw new Error(errorData.message || `Error HTTP: ${updateResponse.status}`);
+            }
+            
+            return true;
+        } catch (error) {
+            this.showAlert(`Error: ${error.message}`, 'error');
+            throw error;
+        }
+    }
+    
+    editProduct(productName) {
+        const product = this.products.find(p => p.nombre === productName);
+        if (product) {
+            this.openProductEditor(product);
+        }
     }
 }
 
