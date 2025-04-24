@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <title>Analytics Asere</title>
+
+    <!-- Favicons -->
+    <link rel="icon" href="img/Asere Logo M.png" type="image/png">
+
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
@@ -22,6 +26,10 @@
                 <i class="fas fa-chart-pie"></i>
                 <span>Dashboard</span>
             </button>
+            <button class="menu-item" data-view="products">
+                <i class="fas fa-boxes"></i>
+                <span>Productos</span>
+            </button> 
             <button class="menu-item" data-view="temporary-affiliates">
                 <i class="fas fa-handshake"></i>
                 <span>Afiliados Permanentes</span>
@@ -304,9 +312,186 @@
             </section>
         </div>
 
+        <!-- Add this view content section -->
+        <div id="products-view" class="view-content hidden">
+            <header class="header">
+                <div class="header-top">
+                    <button class="menu-toggle"><i class="fas fa-bars"></i> Menú</button>
+                    <div class="search-filters">
+                        <div class="search-bar">
+                            <input type="text" id="search-products" placeholder="Buscar productos..." class="input-dark">
+                            <button class="search-btn"><i class="fas fa-search"></i></button>
+                        </div>
+                        <div class="product-filters">
+                            <select id="filter-category" class="select-dark">
+                                <option value="">Todas las categorías</option>
+                            </select>
+                            <select id="filter-availability" class="select-dark">
+                                <option value="">Todos</option>
+                                <option value="available">Disponibles</option>
+                                <option value="unavailable">Agotados</option>
+                            </select>
+                            <select id="filter-featured" class="select-dark">
+                                <option value="">Todos</option>
+                                <option value="featured">Destacados</option>
+                                <option value="offer">En oferta</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="header-actions">
+                        <button class="btn btn-primary" id="add-product-btn">
+                            <i class="fas fa-plus"></i> Nuevo
+                        </button>
+                        <button class="btn btn-primary" id="refresh-products">
+                            <i class="fas fa-sync-alt"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="header-stats">
+                    <div class="stat-card">
+                        <i class="fas fa-box-open"></i>
+                        <div class="stat-content">
+                            <span class="stat-value" id="total-products">0</span>
+                            <span class="stat-label">Productos Totales</span>
+                        </div>
+                    </div>
+                </div>
+            </header>
+        
+            <section class="products-section">
+                <div id="products-list" class="products-grid"></div>
+                
+                <!-- Product Editor Modal -->
+                <div id="product-editor-modal" class="modal hidden">
+                    <div class="modal-content large-modal">
+                        <div class="modal-header">
+                            <h3><i class="fas fa-edit"></i> <span id="editor-title">Editar Producto</span></h3>
+                            <button class="close-modal" id="close-product-editor">&times;</button>
+                        </div>
+                        
+                        <form id="product-form" class="product-form">
+                            <div class="form-columns">
+                                <div class="form-column">
+                                    <div class="form-group">
+                                        <label for="product-name">Nombre *</label>
+                                        <input type="text" id="product-name" class="input-dark" required>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="product-category">Categoría *</label>
+                                        <select id="product-category" class="select-dark" required>
+                                            <option value="">Seleccionar categoría</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="product-price">Precio de venta ($) *</label>
+                                        <input type="number" id="product-price" class="input-dark" step="0.01" min="0" required>
+                                        <div class="hint">Precio final: <span id="final-price-hint">$0.00</span></div>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="product-discount">Descuento (%)</label>
+                                        <input type="number" id="product-discount" class="input-dark" min="0" max="100" value="0">
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="product-description">Descripción</label>
+                                        <textarea id="product-description" class="input-dark" rows="3"></textarea>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-column">
+                                    <div style="display: flex; flex-wrap: wrap; gap: 1rem;">
+                                        <div class="form-group">
+                                            <label>Estado</label>
+                                            <div class="switch-group">
+                                                <label class="switch">
+                                                    <input type="checkbox" id="product-disponible" checked="">
+                                                    <span class="slider"></span>
+                                                    <span class="switch-label">Disponible</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label>Destacado</label>
+                                            <div class="switch-group">
+                                                <label class="switch">
+                                                    <input type="checkbox" id="product-mas-vendido">
+                                                    <span class="slider"></span>
+                                                    <span class="switch-label">Más vendido</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label>Oferta</label>
+                                            <div class="switch-group">
+                                                <label class="switch">
+                                                    <input type="checkbox" id="product-oferta">
+                                                    <span class="slider"></span>
+                                                    <span class="switch-label">En oferta</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                 
+                                    <div class="form-group">
+                                        <label>Imagen principal *</label>
+                                        <div class="image-upload-container">
+                                            <div class="current-image-container" id="main-image-container">
+                                                <span>No hay imagen seleccionada</span>
+                                            </div>
+                                            <div class="image-upload-actions">
+                                                <input type="file" id="main-image-upload" accept="image/*" style="display: none;">
+                                                <button type="button" class="btn btn-secondary" id="select-main-image">
+                                                    <i class="fas fa-image"></i> Seleccionar
+                                                </button>
+                                                <button type="button" class="btn cancel-btn" id="remove-main-image" style="display: none;">
+                                                    <i class="fas fa-trash"></i> Eliminar
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label>Imágenes adicionales</label>
+                                        <div class="additional-images-container" id="additional-images-container">
+                                            <div class="no-images-message">No hay imágenes adicionales</div>
+                                        </div>
+                                        <div class="image-upload-actions">
+                                            <input type="file" id="additional-images-upload" accept="image/*" multiple style="display: none;">
+                                            <button type="button" class="btn btn-secondary" id="add-additional-images">
+                                                <i class="fas fa-plus"></i> Agregar imágenes
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group full-width">
+                                <label>Vista previa del JSON</label>
+                                <pre id="product-json-preview" class="json-preview"></pre>
+                            </div>
+                            
+                            <div class="form-actions">
+                                <button type="button" id="cancel-product-edit" class="btn cancel-btn">
+                                    <i class="fas fa-times"></i> Cancelar
+                                </button>
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fas fa-save"></i> Guardar Cambios
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </div>
+
         <footer class="footer">
             <div class="footer-content">
-                <span class="footer-text">© 2025 Analytics-Asere · v1.5.0</span>
+                <span class="footer-text">© 2025 Analytics-Asere · v1.6.0</span>
                 <div class="footer-links">
                     <a href="#"><i class="fas fa-book"></i> Creado por H.A</a>
                 </div>
