@@ -28,6 +28,20 @@ class SalesDashboard {
         this.currentProduct = null;
         this.mainImageFile = null;
         this.additionalImageFiles = [];
+        this.connectionStatus = 'checking';
+        this.repoStatus = 'idle';
+
+        this.selectedImages = [];
+        this.imagesToDelete = [];
+        this.repoStatus = 'idle';
+        this.connectionStatus = 'checking';
+        
+        // Inicializar eventos
+        this.setupImageManagerEvents();
+        this.startStatusMonitoring();
+        
+        // Verificar conexión inicial
+        this.checkConnection(); 
         
     }
 
@@ -42,6 +56,67 @@ class SalesDashboard {
         this.renderAllAffiliates();
         this.setupView();
         this.setupProductsView();
+        this.startStatusMonitoring();
+    }
+
+    // Métodos para monitorear estado
+    startStatusMonitoring() {
+        this.checkConnection();
+        setInterval(() => this.checkConnection(), 30000); // Cada 30 segundos
+    }
+
+    async checkConnection() {
+        try {
+            const response = await fetch('https://api.github.com', { method: 'HEAD' });
+            this.connectionStatus = response.ok ? 'online' : 'offline';
+        } catch (error) {
+            this.connectionStatus = 'offline';
+        }
+        this.updateStatusUI();
+    }
+
+    updateStatusUI() {
+        const connectionEl = document.querySelector('.connection-status');
+        const repoEl = document.querySelector('.repo-status');
+        const repoTextEl = document.getElementById('repo-status-text');
+        const repoIconEl = repoEl?.querySelector('i');
+    
+        // Actualizar estado de conexión
+        if (connectionEl) {
+            connectionEl.className = 'connection-status ' + this.connectionStatus;
+            const statusText = this.connectionStatus === 'online' ? 'En línea' : 'Sin conexión';
+            connectionEl.querySelector('span').textContent = statusText;
+        }
+    
+        // Actualizar estado del repositorio
+        if (repoEl && repoTextEl && repoIconEl) {
+            repoEl.className = 'repo-status ' + this.repoStatus;
+            
+            switch (this.repoStatus) {
+                case 'idle':
+                    repoTextEl.textContent = 'Repositorio';
+                    repoIconEl.className = 'fas fa-code-branch';
+                    repoIconEl.style.animation = 'none';
+                    break;
+                    
+                case 'loading':
+                    repoTextEl.textContent = 'Sincronizando...';
+                    repoIconEl.className = 'fas fa-code-branch fa-spin';
+                    repoIconEl.style.animation = 'spin 1s linear infinite';
+                    break;
+                    
+                case 'error':
+                    repoTextEl.textContent = 'Error';
+                    repoIconEl.className = 'fas fa-exclamation-circle';
+                    repoIconEl.style.animation = 'none';
+                    break;
+            }
+        }
+    }
+
+    setRepoIdle() {
+        this.repoStatus = 'idle';
+        this.updateStatusUI();
     }
 
     async loadData() {
@@ -77,6 +152,102 @@ class SalesDashboard {
             order.country = order.pais || 'No especificado';
             order.searchText = `${order.nombre_comprador} ${order.country} ${order.userType} ${order.affiliate} ${order.telefono_comprador} ${order.correo_comprador}`.toLowerCase();
         });
+    }
+
+    showPendingChanges() {
+        // Verificar si hay cambios pendientes
+        const hasChanges = this.productChanges.new.length > 0 || 
+                          this.productChanges.modified.length > 0 || 
+                          this.productChanges.deleted.length > 0;
+        
+        if (!hasChanges) {
+            this.showAlert('No hay cambios pendientes', 'info');
+            return;
+        }
+    
+        const modal = document.getElementById('pending-changes-modal');
+        if (!modal) return;
+    
+        // Actualizar listas
+        this.updatePendingChangesLists();
+        
+        // Mostrar modal
+        modal.classList.remove('hidden');
+        
+        // Configurar eventos
+        document.getElementById('save-changes').onclick = async () => {
+            await this.saveAllPendingChanges();
+        };
+        
+        document.getElementById('cancel-changes').onclick = () => {
+            this.discardPendingChanges();
+        };
+    }
+
+    async saveAllPendingChanges() {
+        const loadingAlert = this.showAlert('Guardando todos los cambios...', 'loading');
+        this.repoStatus = 'loading';
+        this.updateStatusUI();
+    
+        try {
+            // 1. Eliminar imágenes de productos eliminados
+            for (const product of this.productChanges.deleted) {
+                await this.deleteProductImages(product);
+            }
+    
+            // 2. Actualizar el archivo JSON
+            await this.updateProductsFile(this.products);
+    
+            // 3. Limpiar cambios pendientes
+            this.productChanges = { modified: [], new: [], deleted: [] };
+    
+            loadingAlert.remove();
+            this.showAlert('✅ Todos los cambios fueron guardados', 'success');
+            document.getElementById('pending-changes-modal').classList.add('hidden');
+            
+            // 4. Recargar datos
+            await this.loadProducts();
+            await this.loadRepositoryImages();
+    
+        } catch (error) {
+            console.error('Error al guardar cambios:', error);
+            loadingAlert.remove();
+            this.showAlert(`❌ Error al guardar cambios: ${error.message}`, 'error');
+        } finally {
+            this.repoStatus = 'idle';
+            this.updateStatusUI();
+        }
+    }
+
+    discardPendingChanges() {
+        // Restaurar productos eliminados
+        this.products = [...this.products, ...this.productChanges.deleted];
+        
+        // Limpiar cambios
+        this.productChanges = { modified: [], new: [], deleted: [] };
+        
+        // Actualizar lista
+        this.filteredProducts = [...this.products];
+        this.renderProductsList();
+        
+        // Cerrar modal
+        document.getElementById('pending-changes-modal').classList.add('hidden');
+        this.showAlert('Cambios pendientes descartados', 'info');
+    }
+
+    updatePendingChangesLists() {
+        const renderList = (items, containerId, emptyMessage) => {
+            const container = document.getElementById(containerId);
+            if (!container) return;
+            
+            container.innerHTML = items.length > 0 
+                ? items.map(item => `<li>${item.nombre} (${item.categoria})</li>`).join('')
+                : `<li class="empty-message">${emptyMessage}</li>`;
+        };
+    
+        renderList(this.productChanges.new, 'new-products-list', 'No hay productos nuevos');
+        renderList(this.productChanges.modified, 'modified-products-list', 'No hay productos modificados');
+        renderList(this.productChanges.deleted, 'deleted-products-list', 'No hay productos eliminados');
     }
 
     normalizeAffiliatesData() {
@@ -655,6 +826,38 @@ class SalesDashboard {
                 this.renderOrders(filtered);
             });
         });
+
+        document.getElementById('open-image-manager')?.addEventListener('click', () => {
+            document.getElementById('image-manager-modal').classList.remove('hidden');
+            this.loadRepositoryImages();
+        });
+        
+        document.getElementById('close-image-manager')?.addEventListener('click', () => {
+            document.getElementById('image-manager-modal').classList.add('hidden');
+            this.resetImageManagerUI();
+        });
+        
+        document.getElementById('close-image-manager-btn')?.addEventListener('click', () => {
+            document.getElementById('image-manager-modal').classList.add('hidden');
+            this.resetImageManagerUI();
+        });
+        
+        document.getElementById('refresh-images')?.addEventListener('click', () => {
+            this.loadRepositoryImages();
+        });
+        
+        document.getElementById('delete-selected-images')?.addEventListener('click', () => {
+            this.deleteSelectedImages();
+        });
+        
+        document.getElementById('confirm-image-deletion')?.addEventListener('click', () => {
+            this.confirmImageDeletion();
+        });
+        
+        document.getElementById('cancel-image-deletion')?.addEventListener('click', () => {
+            this.imagesToDelete = [];
+            this.resetImageManagerUI();
+        });
     }
 
     showTokenModal(show = true) {
@@ -1123,7 +1326,12 @@ class SalesDashboard {
     }
 
     updateProductCount() {
-        document.getElementById('total-products').textContent = this.filteredProducts.length;
+        const totalProducts = this.products.length;
+        const filteredProducts = this.filteredProducts.length;
+        
+        document.querySelectorAll('#total-products').forEach(el => {
+            el.textContent = `${filteredProducts} de ${totalProducts}`;
+        });
     }
 
     populateCategoryFilter() {
@@ -1314,6 +1522,32 @@ class SalesDashboard {
         // Checkbox changes
         ['product-oferta', 'product-mas-vendido', 'product-disponible'].forEach(id => {
             document.getElementById(id)?.addEventListener('change', () => this.updateJsonPreview());
+        });
+
+        document.getElementById('show-pending-changes')?.addEventListener('click', () => {
+            this.showPendingChanges();
+        });
+        
+        document.getElementById('save-changes')?.addEventListener('click', async () => {
+            this.repoStatus = 'loading';
+            this.updateStatusUI();
+            
+            try {
+                await this.saveProductChanges();
+                document.getElementById('pending-changes-modal').classList.add('hidden');
+            } finally {
+                this.repoStatus = 'idle';
+                this.updateStatusUI();
+            }
+        });
+        
+        document.getElementById('cancel-changes')?.addEventListener('click', () => {
+            this.productChanges = { modified: [], new: [], deleted: [] };
+            document.getElementById('pending-changes-modal').classList.add('hidden');
+        });
+        
+        document.getElementById('close-pending-changes')?.addEventListener('click', () => {
+            document.getElementById('pending-changes-modal').classList.add('hidden');
         });
     }
 
@@ -1632,99 +1866,185 @@ class SalesDashboard {
         };
     }
     
-    saveProduct() {
-        const productData = this.getCurrentProductData();
-        
-        // Validate required fields
-        if (!productData.nombre || !productData.categoria || !productData.precio) {
-            this.showAlert('Por favor complete todos los campos requeridos', 'error');
+    async deleteProduct(productName) {
+        if (!confirm(`¿Estás seguro de eliminar el producto "${productName}"? Esta acción también eliminará sus imágenes asociadas.`)) {
             return;
         }
-        
-        if (!productData.imagen) {
-            this.showAlert('Debe seleccionar una imagen principal', 'error');
-            return;
-        }
-        
-        // Check if this is a new product or an edit
-        const isNew = !this.currentProduct;
-        const existingIndex = this.products.findIndex(p => p.nombre === productData.nombre);
-        
-        if (isNew) {
-            if (existingIndex >= 0) {
-                this.showAlert('Ya existe un producto con este nombre', 'error');
-                return;
+    
+        const loadingAlert = this.showAlert('Eliminando producto...', 'loading');
+        this.repoStatus = 'loading';
+        this.updateStatusUI();
+    
+        try {
+            const product = this.products.find(p => p.nombre === productName);
+            if (!product) {
+                throw new Error('Producto no encontrado');
             }
-            
-            // Add to new products list
-            this.productChanges.new.push(productData);
-            this.products.push(productData);
-        } else {
-            // Check if name was changed and new name already exists
-            if (productData.nombre !== this.currentProduct.nombre && existingIndex >= 0) {
-                this.showAlert('Ya existe un producto con este nombre', 'error');
-                return;
-            }
-            
-            // Add to modified products list if not already there
-            const existingModifiedIndex = this.productChanges.modified.findIndex(p => p.nombre === this.currentProduct.nombre);
-            if (existingModifiedIndex < 0) {
-                this.productChanges.modified.push(productData);
-            } else {
-                this.productChanges.modified[existingModifiedIndex] = productData;
-            }
-            
-            // Update in products array
-            const productIndex = this.products.findIndex(p => p.nombre === this.currentProduct.nombre);
-            if (productIndex >= 0) {
-                this.products[productIndex] = productData;
-            }
-        }
-        
-        // Update filtered products if needed
-        this.filteredProducts = [...this.products];
-        
-        this.showAlert(`Producto ${isNew ? 'agregado' : 'actualizado'} correctamente`, 'success');
-        this.renderProductsList();
-        this.closeProductEditor();
-        
-        // Show confirmation modal if there are changes
-        if (this.productChanges.modified.length > 0 || this.productChanges.new.length > 0 || this.productChanges.deleted.length > 0) {
-            this.showChangesConfirmation();
+    
+            // 1. Eliminar imágenes del producto
+            await this.deleteProductImages(product);
+    
+            // 2. Eliminar el producto del array
+            this.products = this.products.filter(p => p.nombre !== productName);
+            this.filteredProducts = this.filteredProducts.filter(p => p.nombre !== productName);
+    
+            // 3. Actualizar el archivo JSON
+            await this.updateProductsFile(this.products);
+    
+            loadingAlert.remove();
+            this.showAlert('✅ Producto eliminado correctamente', 'success');
+            this.renderProductsList();
+    
+        } catch (error) {
+            console.error('Error al eliminar producto:', error);
+            loadingAlert.remove();
+            this.showAlert(`❌ Error al eliminar: ${error.message}`, 'error');
+        } finally {
+            this.repoStatus = 'idle';
+            this.updateStatusUI();
         }
     }
+
+    async deleteProductImages(product) {
+        const GITHUB_TOKEN = localStorage.getItem('github_token');
+        if (!GITHUB_TOKEN) {
+            throw new Error("No hay token de GitHub configurado");
+        }
     
-    deleteProduct(productName) {
-        if (!confirm(`¿Estás seguro de eliminar el producto "${productName}"?`)) {
-            return;
+        const { REPO_OWNER, REPO_NAME } = CONFIG.GITHUB_API;
+        const imagesToDelete = [];
+    
+        // Agregar imagen principal
+        if (product.imagen) {
+            imagesToDelete.push(product.imagen);
+        }
+    
+        // Agregar imágenes adicionales
+        if (product.imagenesAdicionales && product.imagenesAdicionales.length > 0) {
+            imagesToDelete.push(...product.imagenesAdicionales);
+        }
+    
+        // Eliminar cada imagen
+        for (const imagePath of imagesToDelete) {
+            try {
+                // Obtener SHA de la imagen
+                const getResponse = await fetch(`https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${imagePath}`, {
+                    headers: {
+                        'Authorization': `token ${GITHUB_TOKEN}`,
+                        'Accept': 'application/vnd.github.v3+json'
+                    }
+                });
+    
+                if (!getResponse.ok) {
+                    console.warn(`No se pudo obtener información de ${imagePath}`);
+                    continue;
+                }
+    
+                const fileData = await getResponse.json();
+    
+                // Eliminar el archivo
+                const deleteResponse = await fetch(`https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${imagePath}`, {
+                    method: 'DELETE',
+                    headers: {
+                        'Authorization': `token ${GITHUB_TOKEN}`,
+                        'Accept': 'application/vnd.github.v3+json',
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        message: `Eliminar imagen de producto: ${product.nombre}`,
+                        sha: fileData.sha,
+                        branch: 'main'
+                    })
+                });
+    
+                if (!deleteResponse.ok) {
+                    console.warn(`No se pudo eliminar ${imagePath}`);
+                }
+    
+            } catch (error) {
+                console.error(`Error al eliminar ${imagePath}:`, error);
+            }
+        }
+    }
+
+    sanitizeFileName(name, index = null, isMain = false) {
+        // Reemplazar espacios y caracteres especiales
+        let cleanName = name.toLowerCase()
+            .replace(/\s+/g, '_')
+            .replace(/[^a-z0-9_\-.]/g, '')
+            .replace(/_+/g, '_')
+            .replace(/^_+|_+$/g, '');
+        
+        // Agregar índice si es necesario
+        if (index !== null) {
+            cleanName = `${cleanName}_${index}`;
         }
         
-        const productIndex = this.products.findIndex(p => p.nombre === productName);
-        if (productIndex >= 0) {
-            const deletedProduct = this.products[productIndex];
-            this.products.splice(productIndex, 1);
-            this.filteredProducts = [...this.products];
+        // Mantener la extensión si ya tenía
+        const extensionMatch = isMain ? 
+            this.mainImageFile?.name.match(/\.(jpg|jpeg|png|gif|webp)$/i) :
+            this.additionalImageFiles[index]?.name.match(/\.(jpg|jpeg|png|gif|webp)$/i);
+        
+        const extension = extensionMatch ? extensionMatch[0] : '.jpg';
+        
+        return `${cleanName}${extension}`;
+    }
+    async handleMainImageUpload(file) {
+        this.mainImageFile = file;
+        const newName = this.sanitizeFileName(
+            document.getElementById('product-name').value || 'producto',
+            null,
+            true
+        );
+        
+        // Renombrar el archivo
+        this.mainImageFile = new File([file], newName, { type: file.type });
+        
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            const container = document.getElementById('main-image-container');
+            container.innerHTML = `<img src="${e.target.result}" alt="Preview">`;
+            document.getElementById('remove-main-image').style.display = 'block';
+        };
+        reader.readAsDataURL(this.mainImageFile);
+        
+        this.updateJsonPreview();
+    }
+    
+    async handleAdditionalImagesUpload(files) {
+        const productName = document.getElementById('product-name').value || 'producto';
+        
+        for (let i = 0; i < files.length; i++) {
+            const newName = this.sanitizeFileName(productName, this.additionalImageFiles.length + i + 1);
+            const renamedFile = new File([files[i]], newName, { type: files[i].type });
+            this.additionalImageFiles.push(renamedFile);
             
-            // Add to deleted products list if not a new product
-            const isNew = this.productChanges.new.some(p => p.nombre === productName);
-            if (!isNew) {
-                this.productChanges.deleted.push(deletedProduct);
-            } else {
-                // Remove from new products list if it was there
-                this.productChanges.new = this.productChanges.new.filter(p => p.nombre !== productName);
-            }
-            
-            // Remove from modified products list if it was there
-            this.productChanges.modified = this.productChanges.modified.filter(p => p.nombre !== productName);
-            
-            this.showAlert('Producto eliminado correctamente', 'success');
-            this.renderProductsList();
-            
-            // Show confirmation modal if there are changes
-            if (this.productChanges.modified.length > 0 || this.productChanges.new.length > 0 || this.productChanges.deleted.length > 0) {
-                this.showChangesConfirmation();
-            }
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                const container = document.getElementById('additional-images-container');
+                
+                if (container.querySelector('.no-images-message')) {
+                    container.innerHTML = '';
+                }
+                
+                container.innerHTML += `
+                    <div class="additional-image">
+                        <img src="${e.target.result}" alt="Preview">
+                        <button class="remove-additional-image" data-file="${renamedFile.name}">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                `;
+                
+                container.lastElementChild.querySelector('.remove-additional-image').addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    this.removeAdditionalImage(renamedFile.name, true);
+                });
+            };
+            reader.readAsDataURL(renamedFile);
         }
+        
+        this.updateJsonPreview();
     }
     
     showChangesConfirmation() {
@@ -1748,39 +2068,60 @@ class SalesDashboard {
         modal.classList.remove('hidden');
     }
     
-    async saveProductChanges() {
-        if (!this.tokenValid) {
-            this.showTokenModal(true);
+    async saveProduct() {
+        const productData = this.getCurrentProductData();
+        
+        if (!productData.nombre || !productData.categoria || !productData.precio) {
+            this.showAlert('Por favor complete todos los campos requeridos', 'error');
             return;
         }
         
-        const loadingAlert = this.showAlert('Guardando cambios en el repositorio...', 'loading');
+        if (!productData.imagen) {
+            this.showAlert('Debe seleccionar una imagen principal', 'error');
+            return;
+        }
+        
+        const loadingAlert = this.showAlert('Guardando producto...', 'loading');
+        this.repoStatus = 'loading';
+        this.updateStatusUI();
         
         try {
-            // First, upload any new images
+            // 1. Subir imágenes primero
             await this.uploadProductImages();
             
-            // Then update the products.json file
-            const success = await this.updateProductsFile(this.products);
+            // 2. Actualizar la lista de productos
+            const isNew = !this.currentProduct;
             
-            if (success) {
-                // Reset changes tracking
-                this.productChanges = {
-                    modified: [],
-                    new: [],
-                    deleted: []
-                };
-                
-                loadingAlert.remove();
-                this.showAlert('✅ Cambios guardados exitosamente en el repositorio', 'success');
-                document.getElementById('changes-confirmation-modal').classList.add('hidden');
-                
-                // Reload products to get any updates from GitHub
-                await this.loadProducts();
+            if (isNew) {
+                // Verificar si el producto ya existe
+                const exists = this.products.some(p => p.nombre === productData.nombre);
+                if (exists) {
+                    throw new Error('Ya existe un producto con este nombre');
+                }
+                this.products.push(productData);
+            } else {
+                // Actualizar producto existente
+                const index = this.products.findIndex(p => p.nombre === this.currentProduct.nombre);
+                if (index >= 0) {
+                    this.products[index] = productData;
+                }
             }
-        } catch (error) {
+            
+            // 3. Actualizar el archivo JSON en el repositorio
+            await this.updateProductsFile(this.products);
+            
             loadingAlert.remove();
-            this.showAlert(`❌ Error al guardar cambios: ${error.message}`, 'error');
+            this.showAlert('✅ Producto guardado exitosamente', 'success');
+            this.closeProductEditor();
+            await this.loadProducts(); // Recargar los productos
+            
+        } catch (error) {
+            console.error('Error al guardar producto:', error);
+            loadingAlert.remove();
+            this.showAlert(`❌ Error al guardar: ${error.message}`, 'error');
+        } finally {
+            this.repoStatus = 'idle';
+            this.updateStatusUI();
         }
     }
     
@@ -1790,14 +2131,12 @@ class SalesDashboard {
             throw new Error("No hay token de GitHub configurado");
         }
         
-        const { REPO_OWNER, REPO_NAME } = CONFIG.GITHUB_API;
-        
-        // Upload main image if there's a new one
+        // Subir imagen principal si hay una nueva
         if (this.mainImageFile) {
             await this.uploadImageToRepo(this.mainImageFile);
         }
         
-        // Upload additional images
+        // Subir imágenes adicionales
         for (const file of this.additionalImageFiles) {
             await this.uploadImageToRepo(file);
         }
@@ -1807,6 +2146,24 @@ class SalesDashboard {
         const GITHUB_TOKEN = localStorage.getItem('github_token');
         const { REPO_OWNER, REPO_NAME } = CONFIG.GITHUB_API;
         const path = `img/products/${file.name}`;
+        
+        // Verificar si la imagen ya existe para obtener su SHA
+        let sha = null;
+        try {
+            const response = await fetch(`https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${path}`, {
+                headers: {
+                    'Authorization': `token ${GITHUB_TOKEN}`,
+                    'Accept': 'application/vnd.github.v3+json'
+                }
+            });
+            
+            if (response.ok) {
+                const data = await response.json();
+                sha = data.sha;
+            }
+        } catch (error) {
+            console.log('La imagen no existe, se creará nueva');
+        }
         
         const reader = new FileReader();
         const fileContent = await new Promise((resolve) => {
@@ -1824,6 +2181,7 @@ class SalesDashboard {
             body: JSON.stringify({
                 message: `Subir imagen de producto: ${file.name}`,
                 content: fileContent,
+                sha: sha,
                 branch: 'main'
             })
         });
@@ -1834,17 +2192,17 @@ class SalesDashboard {
         }
     }
     
-    async updateProductsFile(newProducts) {
+    async updateProductsFile(productsData) {
+        const GITHUB_TOKEN = localStorage.getItem('github_token');
+        if (!GITHUB_TOKEN) {
+            this.showTokenModal(true);
+            throw new Error("Por favor autentícate primero");
+        }
+        
+        const { REPO_OWNER, REPO_NAME, PRODUCTS_FILE_PATH } = CONFIG.GITHUB_API;
+        
         try {
-            const GITHUB_TOKEN = localStorage.getItem('github_token');
-            if (!GITHUB_TOKEN) {
-                this.showTokenModal(true);
-                throw new Error("Por favor autentícate primero");
-            }
-            
-            const { REPO_OWNER, REPO_NAME, PRODUCTS_FILE_PATH } = CONFIG.GITHUB_API;
-            
-            // First get the SHA of the current file
+            // 1. Obtener el SHA del archivo actual
             const getUrl = `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${PRODUCTS_FILE_PATH}`;
             const getResponse = await fetch(getUrl, {
                 headers: {
@@ -1853,27 +2211,33 @@ class SalesDashboard {
                 }
             });
             
-            if (!getResponse.ok) {
+            if (!getResponse.ok && getResponse.status !== 404) {
                 throw new Error(`Error al obtener archivo: ${getResponse.status}`);
             }
             
-            const fileData = await getResponse.json();
-            const sha = fileData.sha;
-            const content = JSON.stringify(newProducts, null, 2);
+            let sha = null;
+            if (getResponse.ok) {
+                const fileData = await getResponse.json();
+                sha = fileData.sha;
+            }
+            
+            // 2. Preparar contenido nuevo
+            const content = JSON.stringify(productsData, null, 2);
             const encodedContent = btoa(unescape(encodeURIComponent(content)));
             
-            // Update the file
+            // 3. Actualizar el archivo
             const updateResponse = await fetch(getUrl, {
-                method: 'PUT',
+                method: sha ? 'PUT' : 'POST',
                 headers: {
                     'Authorization': `token ${GITHUB_TOKEN}`,
                     'Accept': 'application/vnd.github.v3+json',
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                    message: 'Actualización de productos desde Analytics Asere',
+                    message: `Actualización de productos: ${new Date().toLocaleString()}`,
                     content: encodedContent,
-                    sha: sha
+                    sha: sha,
+                    branch: 'main'
                 })
             });
             
@@ -1884,15 +2248,351 @@ class SalesDashboard {
             
             return true;
         } catch (error) {
-            this.showAlert(`Error: ${error.message}`, 'error');
+            console.error('Error al actualizar productos:', error);
             throw error;
         }
     }
     
-    editProduct(productName) {
-        const product = this.products.find(p => p.nombre === productName);
-        if (product) {
-            this.openProductEditor(product);
+    editProduct(product) {
+        if (!product) return;
+        
+        this.currentProduct = product;
+        this.mainImageFile = null;
+        this.additionalImageFiles = [];
+        
+        const modal = document.getElementById('product-editor-modal');
+        const title = document.getElementById('editor-title');
+        
+        title.textContent = `Editar ${product.nombre}`;
+        this.populateProductForm(product);
+        
+        modal.classList.remove('hidden');
+        this.updateJsonPreview();
+    }
+
+    async loadRepositoryImages() {
+        const loadingAlert = this.showAlert('Cargando imágenes del repositorio...', 'loading');
+        this.repoStatus = 'loading';
+        this.updateStatusUI();
+        
+        try {
+            this.repoStatus = 'loading';
+            this.updateStatusUI();
+
+            const GITHUB_TOKEN = localStorage.getItem('github_token');
+            if (!GITHUB_TOKEN) {
+                throw new Error("No hay token de GitHub configurado");
+            }
+            
+            const { REPO_OWNER, REPO_NAME } = CONFIG.GITHUB_API;
+            const response = await fetch(`https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/img/products`, {
+                headers: {
+                    'Authorization': `token ${GITHUB_TOKEN}`,
+                    'Accept': 'application/vnd.github.v3+json'
+                }
+            });
+            
+            if (!response.ok) {
+                throw new Error(`Error al cargar imágenes: ${response.status}`);
+            }
+            
+            const data = await response.json();
+            this.renderRepositoryImages(data);
+            loadingAlert.remove();
+            
+        } catch (error) {
+            this.repoStatus = 'error';
+            console.error('Error al cargar imágenes:', error);
+            loadingAlert.remove();
+            this.showAlert(`❌ Error al cargar imágenes: ${error.message}`, 'error');
+        } finally {
+            setTimeout(() => this.setRepoIdle(), 1000); // Pequeño delay para feedback visual
+            this.repoStatus = 'idle';
+            this.updateStatusUI();
+        }
+    }
+    
+    async renderRepositoryImages(images) {
+        const container = document.getElementById('repository-images-grid');
+        if (!container) return;
+        
+        // Obtener imágenes en uso
+        const usedImages = await this.getUsedImages();
+        
+        container.innerHTML = images
+            .filter(img => img.type === 'file' && /\.(jpg|jpeg|png|gif|webp)$/i.test(img.name))
+            .map(img => {
+                const isUsed = usedImages.has(img.name);
+                return `
+                    <div class="image-item" data-name="${img.name}" data-path="${img.path}">
+                        <input type="checkbox" class="image-checkbox" id="img-${img.name}">
+                        <img src="${img.download_url}" alt="${img.name}" class="image-preview">
+                        <div class="image-name">${img.name}</div>
+                        <div class="image-badge ${isUsed ? 'badge-used' : 'badge-unused'}">
+                            ${isUsed ? 'En uso' : 'No usada'}
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        
+        // Agregar event listeners para selección
+        this.setupImageSelection();
+    }
+
+    async getUsedImages() {
+        const usedImages = new Set();
+        
+        this.products.forEach(product => {
+            if (product.imagen) {
+                const imgName = product.imagen.split('/').pop();
+                usedImages.add(imgName);
+            }
+            
+            if (product.imagenesAdicionales) {
+                product.imagenesAdicionales.forEach(img => {
+                    const imgName = img.split('/').pop();
+                    usedImages.add(imgName);
+                });
+            }
+        });
+        
+        return usedImages;
+    }
+
+    setupImageSelection() {
+        const updateSelectionCount = () => {
+            const count = this.selectedImages.length;
+            document.getElementById('selected-count').textContent = count;
+            document.getElementById('delete-selected-images').disabled = count === 0;
+        };
+    
+        document.querySelectorAll('.image-checkbox').forEach(checkbox => {
+            checkbox.addEventListener('change', (e) => {
+                const imageItem = e.target.closest('.image-item');
+                const imageName = imageItem.dataset.name;
+                const imagePath = imageItem.dataset.path;
+                
+                if (e.target.checked) {
+                    imageItem.classList.add('selected');
+                    this.selectedImages.push({ name: imageName, path: imagePath });
+                } else {
+                    imageItem.classList.remove('selected');
+                    this.selectedImages = this.selectedImages.filter(img => img.name !== imageName);
+                }
+                
+                updateSelectionCount();
+            });
+        });
+    
+        // Actualizar contador inicial
+        updateSelectionCount();
+    }
+
+    setupImageManagerEvents() {
+        document.getElementById('delete-selected-images').addEventListener('click', () => {
+            if (this.selectedImages.length === 0) return;
+            
+            document.getElementById('delete-count').textContent = this.selectedImages.length;
+            document.getElementById('confirm-image-deletion').classList.remove('hidden');
+            document.getElementById('cancel-image-deletion').classList.remove('hidden');
+            document.getElementById('close-image-manager-btn').classList.add('hidden');
+            
+            // Deshabilitar todos los checkboxes temporalmente
+            document.querySelectorAll('.image-checkbox').forEach(checkbox => {
+                checkbox.disabled = true;
+            });
+        });
+        
+        document.getElementById('confirm-image-deletion').addEventListener('click', async () => {
+            await this.confirmImageDeletion();
+        });
+        
+        document.getElementById('cancel-image-deletion').addEventListener('click', () => {
+            this.cancelImageDeletion();
+        });
+        
+        document.getElementById('filter-image-type').addEventListener('change', (e) => {
+            this.filterImagesByType(e.target.value);
+        });
+    }
+    filterImagesByType(filterType) {
+        const imageItems = document.querySelectorAll('.image-item');
+        const usedImages = this.getUsedImages();
+        
+        imageItems.forEach(item => {
+            const imageName = item.dataset.name;
+            const isUsed = usedImages.has(imageName);
+            
+            let shouldShow = true;
+            
+            switch (filterType) {
+                case 'used':
+                    shouldShow = isUsed;
+                    break;
+                case 'unused':
+                    shouldShow = !isUsed;
+                    break;
+                // 'all' no necesita filtro
+            }
+            
+            item.style.display = shouldShow ? 'block' : 'none';
+        });
+    }
+    
+    async deleteSelectedImages() {
+        if (this.selectedImages.length === 0) return;
+        
+        // Mostrar confirmación
+        document.getElementById('confirm-image-deletion').classList.remove('hidden');
+        document.getElementById('cancel-image-deletion').classList.remove('hidden');
+        document.getElementById('close-image-manager-btn').classList.add('hidden');
+        
+        // Guardar imágenes para eliminar
+        this.imagesToDelete = [...this.selectedImages];
+        this.selectedImages = [];
+        
+        // Deshabilitar checkboxes
+        document.querySelectorAll('.image-checkbox').forEach(checkbox => {
+            checkbox.disabled = true;
+        });
+    }
+    
+    async confirmImageDeletion() {
+        if (this.imagesToDelete.length === 0) return;
+        
+        const loadingAlert = this.showAlert('Eliminando imágenes...', 'loading');
+        this.repoStatus = 'loading';
+        this.updateStatusUI();
+        
+        try {
+            const GITHUB_TOKEN = localStorage.getItem('github_token');
+            if (!GITHUB_TOKEN) {
+                throw new Error("No hay token de GitHub configurado");
+            }
+            
+            const { REPO_OWNER, REPO_NAME } = CONFIG.GITHUB_API;
+            
+            // Eliminar cada imagen
+            for (const img of this.imagesToDelete) {
+                // Primero obtener el SHA de la imagen
+                const getResponse = await fetch(`https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${img.path}`, {
+                    headers: {
+                        'Authorization': `token ${GITHUB_TOKEN}`,
+                        'Accept': 'application/vnd.github.v3+json'
+                    }
+                });
+                
+                if (!getResponse.ok) {
+                    console.warn(`No se pudo obtener información de ${img.name}`);
+                    continue;
+                }
+                
+                const fileData = await getResponse.json();
+                
+                // Eliminar el archivo
+                const deleteResponse = await fetch(`https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${img.path}`, {
+                    method: 'DELETE',
+                    headers: {
+                        'Authorization': `token ${GITHUB_TOKEN}`,
+                        'Accept': 'application/vnd.github.v3+json',
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        message: `Eliminar imagen: ${img.name}`,
+                        sha: fileData.sha,
+                        branch: 'main'
+                    })
+                });
+                
+                if (!deleteResponse.ok) {
+                    console.warn(`No se pudo eliminar ${img.name}`);
+                }
+            }
+            
+            // Recargar imágenes
+            await this.loadRepositoryImages();
+            loadingAlert.remove();
+            this.showAlert('✅ Imágenes eliminadas correctamente', 'success');
+            
+        } catch (error) {
+            console.error('Error al eliminar imágenes:', error);
+            loadingAlert.remove();
+            this.showAlert(`❌ Error al eliminar imágenes: ${error.message}`, 'error');
+        } finally {
+            this.imagesToDelete = [];
+            this.repoStatus = 'idle';
+            this.updateStatusUI();
+            this.resetImageManagerUI();
+        }
+    }
+    
+    resetImageManagerUI() {
+        document.getElementById('confirm-image-deletion').classList.add('hidden');
+        document.getElementById('cancel-image-deletion').classList.add('hidden');
+        document.getElementById('close-image-manager-btn').classList.remove('hidden');
+        document.getElementById('delete-selected-images').disabled = true;
+        
+        document.querySelectorAll('.image-checkbox').forEach(checkbox => {
+            checkbox.disabled = false;
+            checkbox.checked = false;
+        });
+        
+        document.querySelectorAll('.image-item').forEach(item => {
+            item.classList.remove('selected');
+        });
+    }
+
+    async checkImageUsage() {
+        try {
+            // 1. Cargar productos
+            await this.loadProducts();
+            
+            // 2. Cargar imágenes del repositorio
+            const GITHUB_TOKEN = localStorage.getItem('github_token');
+            const { REPO_OWNER, REPO_NAME } = CONFIG.GITHUB_API;
+            const response = await fetch(`https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/img/products`, {
+                headers: {
+                    'Authorization': `token ${GITHUB_TOKEN}`,
+                    'Accept': 'application/vnd.github.v3+json'
+                }
+            });
+            
+            if (!response.ok) {
+                throw new Error(`Error al cargar imágenes: ${response.status}`);
+            }
+            
+            const images = await response.json();
+            
+            // 3. Crear lista de imágenes en uso
+            const usedImages = new Set();
+            this.products.forEach(product => {
+                if (product.imagen) {
+                    const imgName = product.imagen.split('/').pop();
+                    usedImages.add(imgName);
+                }
+                
+                if (product.imagenesAdicionales) {
+                    product.imagenesAdicionales.forEach(img => {
+                        const imgName = img.split('/').pop();
+                        usedImages.add(imgName);
+                    });
+                }
+            });
+            
+            // 4. Marcar imágenes no utilizadas
+            images.forEach(img => {
+                const imgItem = document.querySelector(`.image-item[data-name="${img.name}"]`);
+                if (imgItem) {
+                    if (!usedImages.has(img.name)) {
+                        imgItem.style.border = '2px solid #feca57';
+                        imgItem.insertAdjacentHTML('beforeend', 
+                            '<div class="unused-badge">No usada</div>');
+                    }
+                }
+            });
+            
+        } catch (error) {
+            console.error('Error al verificar uso de imágenes:', error);
         }
     }
 }
