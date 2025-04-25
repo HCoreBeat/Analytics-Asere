@@ -30,6 +30,9 @@
                 <i class="fas fa-boxes"></i>
                 <span>Productos</span>
             </button> 
+            <button class="btn btn-secondary" id="open-image-manager">
+                <i class="fas fa-images"></i> Gestor de Imágenes
+            </button>
             <button class="menu-item" data-view="temporary-affiliates">
                 <i class="fas fa-handshake"></i>
                 <span>Afiliados Permanentes</span>
@@ -102,6 +105,18 @@
                         <input type="text" id="search-orders" placeholder="Buscar en pedidos..." class="input-dark">
                         <button class="search-btn"><i class="fas fa-search"></i></button>
                     </div>
+                    
+                    <div class="status-indicator">
+                        <span class="connection-status">
+                            <i class="fas fa-circle"></i>
+                            <span id="connection-status-text">Verificando...</span>
+                        </span>
+                        <span class="repo-status">
+                            <i class="fas fa-code-branch"></i>
+                            <span id="repo-status-text">Repositorio</span>
+                        </span>
+                    </div>
+
                     <div class="header-actions">
                         <button class="btn btn-primary btn-export">
                             <i class="fas fa-download"></i> Exportar
@@ -146,6 +161,7 @@
                         </div>
                     </div>
                 </div>
+                                
             </header>
 
             <section class="dashboard-grid">
@@ -489,9 +505,94 @@
             </section>
         </div>
 
+        <div id="pending-changes-modal" class="modal hidden">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3><i class="fas fa-clock"></i> Cambios Pendientes</h3>
+                    <button class="close-modal" id="close-pending-changes">&times;</button>
+                </div>
+                
+                <div class="changes-sections">
+                    <div class="changes-section">
+                        <h4><i class="fas fa-plus-circle"></i> Nuevos Productos (<span id="new-count">0</span>)</h4>
+                        <ul id="new-products-list" class="changes-list"></ul>
+                    </div>
+                    
+                    <div class="changes-section">
+                        <h4><i class="fas fa-edit"></i> Productos Modificados (<span id="modified-count">0</span>)</h4>
+                        <ul id="modified-products-list" class="changes-list"></ul>
+                    </div>
+                    
+                    <div class="changes-section">
+                        <h4><i class="fas fa-trash"></i> Productos Eliminados (<span id="deleted-count">0</span>)</h4>
+                        <ul id="deleted-products-list" class="changes-list"></ul>
+                    </div>
+                </div>
+                
+                <div class="modal-actions">
+                    <button id="cancel-changes" class="btn cancel-btn">
+                        <i class="fas fa-times"></i> Descartar Cambios
+                    </button>
+                    <button id="save-changes" class="btn btn-primary">
+                        <i class="fas fa-save"></i> Guardar Todo
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal para gestión de imágenes -->
+        <div id="image-manager-modal" class="modal hidden">
+            <div class="modal-content large-modal">
+                <div class="modal-header">
+                    <h3><i class="fas fa-images"></i> Gestor de Imágenes</h3>
+                    <button class="close-modal" id="close-image-manager">&times;</button>
+                </div>
+                
+                <div class="image-manager-content">
+                    <div class="image-manager-actions">
+                        <button id="refresh-images" class="btn btn-primary">
+                            <i class="fas fa-sync-alt"></i> Actualizar Lista
+                        </button>
+                        <button id="delete-selected-images" class="btn btn-secondary" disabled>
+                            <i class="fas fa-trash"></i> Eliminar Seleccionadas
+                        </button>
+                        <div class="selection-counter">
+                            <span id="selected-count">0</span> seleccionadas
+                        </div>
+                    </div>
+                    
+                    <div class="image-manager-filters">
+                        <select id="filter-image-type" class="select-dark">
+                            <option value="all">Todas las imágenes</option>
+                            <option value="used">En uso</option>
+                            <option value="unused">No usadas</option>
+                        </select>
+                    </div>
+                    
+                    <div id="repository-images-grid" class="images-grid">
+                        <div class="loading-placeholder">
+                            <i class="fas fa-spinner fa-spin"></i> Cargando imágenes...
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="modal-actions">
+                    <button id="confirm-image-deletion" class="btn btn-primary hidden">
+                        <i class="fas fa-check"></i> Confirmar Eliminación (Eliminar <span id="delete-count">0</span>)
+                    </button>
+                    <button id="cancel-image-deletion" class="btn cancel-btn hidden">
+                        <i class="fas fa-times"></i> Cancelar
+                    </button>
+                    <button id="close-image-manager-btn" class="btn cancel-btn">
+                        <i class="fas fa-times"></i> Cerrar
+                    </button>
+                </div>
+            </div>
+        </div>
+
         <footer class="footer">
             <div class="footer-content">
-                <span class="footer-text">© 2025 Analytics-Asere · v1.6.0</span>
+                <span class="footer-text">© 2025 Analytics-Asere · v1.7.1</span>
                 <div class="footer-links">
                     <a href="#"><i class="fas fa-book"></i> Creado por H.A</a>
                 </div>
