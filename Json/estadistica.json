@@ -1955,5 +1955,97 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "www.asereshops.com"
+  },
+  {
+    "ip": "2607:fb91:c77:c641:d835:c3a5:766e:c398",
+    "pais": "United States",
+    "fecha_hora_entrada": "2025-04-25 14:46:32",
+    "origen": "Acceso directo",
+    "afiliado": "Natty",
+    "duracion_sesion_segundos": 548,
+    "tiempo_carga_pagina_ms": 34,
+    "nombre_comprador": "René Leyva Reyes",
+    "telefono_comprador": "7866008516",
+    "correo_comprador": "reyesrenecito@gmail.com",
+    "compras": [
+      {
+        "producto": "Pollo Golden Phoenix (2Kg)",
+        "cantidad": 1,
+        "precio_unitario": 7.46,
+        "precio_total": 7.46
+      },
+      {
+        "producto": "Pack de 4 Hamburguesas de pollo",
+        "cantidad": 2,
+        "precio_unitario": 1.89,
+        "precio_total": 3.78
+      },
+      {
+        "producto": "Salchicha de pollo y cerdo 10u (340g)",
+        "cantidad": 2,
+        "precio_unitario": 1.9,
+        "precio_total": 3.8
+      },
+      {
+        "producto": "Picadillo de pollo (1Kg)",
+        "cantidad": 2,
+        "precio_unitario": 2.97,
+        "precio_total": 5.94
+      },
+      {
+        "producto": "Mano de plátano burro",
+        "cantidad": 1,
+        "precio_unitario": 0.95,
+        "precio_total": 0.95
+      },
+      {
+        "producto": "Plátano macho x unidad",
+        "cantidad": 8,
+        "precio_unitario": 0.26,
+        "precio_total": 2.08
+      },
+      {
+        "producto": "Arroz Criollo 1Lb",
+        "cantidad": 5,
+        "precio_unitario": 0.95,
+        "precio_total": 4.75
+      },
+      {
+        "producto": "Frijol Negro x Lb",
+        "cantidad": 2,
+        "precio_unitario": 2.63,
+        "precio_total": 5.26
+      },
+      {
+        "producto": "Helado 4Lts",
+        "cantidad": 1,
+        "precio_unitario": 10.45,
+        "precio_total": 10.45
+      },
+      {
+        "producto": "Nutela",
+        "cantidad": 1,
+        "precio_unitario": 4.7,
+        "precio_total": 4.7
+      },
+      {
+        "producto": "Refresco Instantáneo (2Lt)",
+        "cantidad": 4,
+        "precio_unitario": 0.42,
+        "precio_total": 1.68
+      },
+      {
+        "producto": "Galletas Porleo (45g)",
+        "cantidad": 4,
+        "precio_unitario": 0.91,
+        "precio_total": 3.64
+      }
+    ],
+    "precio_compra_total": "54.49",
+    "navegador": "Safari",
+    "sistema_operativo": "iOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   }
 ]
