@@ -1,5 +1,85 @@
 [
-    {
+    
+  {
+    "ip": "2607:fb91:c77:c641:e9d1:404:d056:8e23",
+    "pais": "United States",
+    "fecha_hora_entrada": "2025-04-24 21:10:47",
+    "origen": "Acceso directo",
+    "afiliado": "Natty",
+    "duracion_sesion_segundos": 559,
+    "tiempo_carga_pagina_ms": 9,
+    "nombre_comprador": "Nayelin Reyes",
+    "telefono_comprador": "7863002520",
+    "correo_comprador": "nileyan2018@gmail.com",
+    "compras": [
+      {
+        "producto": "Pollo Golden Phoenix (2Kg)",
+        "cantidad": 1,
+        "precio_unitario": 7.46,
+        "precio_total": 7.46
+      },
+      {
+        "producto": "Maíz molido tierno x Lb",
+        "cantidad": 2,
+        "precio_unitario": 0.98,
+        "precio_total": 1.96
+      },
+      {
+        "producto": "Mazo de cebolla blanca",
+        "cantidad": 1,
+        "precio_unitario": 1.5,
+        "precio_total": 1.5
+      },
+      {
+        "producto": "Mano de plátano burro",
+        "cantidad": 1,
+        "precio_unitario": 0.95,
+        "precio_total": 0.95
+      },
+      {
+        "producto": "Plátano macho x unidad",
+        "cantidad": 5,
+        "precio_unitario": 0.26,
+        "precio_total": 1.3
+      },
+      {
+        "producto": "Frijol Negro x Lb",
+        "cantidad": 1,
+        "precio_unitario": 2.63,
+        "precio_total": 2.63
+      },
+      {
+        "producto": "Frijol Rojo x Lb",
+        "cantidad": 1,
+        "precio_unitario": 3.15,
+        "precio_total": 3.15
+      },
+      {
+        "producto": "Arroz Criollo 1Lb",
+        "cantidad": 6,
+        "precio_unitario": 0.95,
+        "precio_total": 5.7
+      },
+      {
+        "producto": "Espaguetis (500g)",
+        "cantidad": 1,
+        "precio_unitario": 1.89,
+        "precio_total": 1.89
+      },
+      {
+        "producto": "Cartón de Huevos",
+        "cantidad": 1,
+        "precio_unitario": 9.73,
+        "precio_total": 9.73
+      }
+    ],
+    "precio_compra_total": "36.27",
+    "navegador": "Safari",
+    "sistema_operativo": "iOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+  },{
       "ip": "2607:fb91:c3a:380:868:8c7a:1320:3a33",
       "pais": "United States",
       "fecha_hora_entrada": "2025-04-19 13:04:51",
