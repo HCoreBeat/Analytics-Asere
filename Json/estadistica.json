@@ -1673,5 +1673,109 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2607:fb91:c77:c641:e9d1:404:d056:8e23",
+    "pais": "United States",
+    "fecha_hora_entrada": "2025-04-24 21:47:46",
+    "origen": "https://www.asereshops.com/",
+    "afiliado": "Natty",
+    "duracion_sesion_segundos": 768,
+    "tiempo_carga_pagina_ms": 568,
+    "nombre_comprador": "Nayelin Reyes",
+    "telefono_comprador": "7863002520",
+    "correo_comprador": "nileyan2018@gmail.com",
+    "compras": [
+      {
+        "producto": "Pollo Golden Phoenix (2Kg)",
+        "cantidad": 1,
+        "precio_unitario": 7.46,
+        "precio_total": 7.46
+      },
+      {
+        "producto": "Mazo de cebolla blanca",
+        "cantidad": 3,
+        "precio_unitario": 1.5,
+        "precio_total": 4.5
+      },
+      {
+        "producto": "Mano de plátano burro",
+        "cantidad": 1,
+        "precio_unitario": 0.95,
+        "precio_total": 0.95
+      },
+      {
+        "producto": "Pepino x Lb",
+        "cantidad": 3,
+        "precio_unitario": 0.58,
+        "precio_total": 1.74
+      },
+      {
+        "producto": "Tomate x Lb",
+        "cantidad": 2,
+        "precio_unitario": 0.93,
+        "precio_total": 1.86
+      },
+      {
+        "producto": "Plátano macho x unidad",
+        "cantidad": 7,
+        "precio_unitario": 0.26,
+        "precio_total": 1.82
+      },
+      {
+        "producto": "Boniato x Lb",
+        "cantidad": 3,
+        "precio_unitario": 0.42,
+        "precio_total": 1.26
+      },
+      {
+        "producto": "Frijol Negro x Lb",
+        "cantidad": 1,
+        "precio_unitario": 2.63,
+        "precio_total": 2.63
+      },
+      {
+        "producto": "Frijol Rojo x Lb",
+        "cantidad": 1,
+        "precio_unitario": 3.15,
+        "precio_total": 3.15
+      },
+      {
+        "producto": "Queso criollo x Lb",
+        "cantidad": 3,
+        "precio_unitario": 2.4,
+        "precio_total": 7.2
+      },
+      {
+        "producto": "Paquete de pan de bola 10u",
+        "cantidad": 1,
+        "precio_unitario": 1.9,
+        "precio_total": 1.9
+      },
+      {
+        "producto": "Cartón de Huevos",
+        "cantidad": 1,
+        "precio_unitario": 9.73,
+        "precio_total": 9.73
+      },
+      {
+        "producto": "Limón x Lb",
+        "cantidad": 2,
+        "precio_unitario": 2.31,
+        "precio_total": 4.62
+      },
+      {
+        "producto": "Papas Prefritas Vima 1Kg",
+        "cantidad": 1,
+        "precio_unitario": 5.4,
+        "precio_total": 5.4
+      }
+    ],
+    "precio_compra_total": "54.22",
+    "navegador": "Safari",
+    "sistema_operativo": "iOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "www.asereshops.com"
   }
 ]
