@@ -2047,5 +2047,85 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2603:6011:1cf0:fc0:e1dd:abc5:9903:d66e",
+    "pais": "United States",
+    "fecha_hora_entrada": "2025-04-26 08:43:52",
+    "origen": "Acceso directo",
+    "afiliado": "Natty",
+    "duracion_sesion_segundos": 270,
+    "tiempo_carga_pagina_ms": 1197,
+    "nombre_comprador": "Eileen Cruz Peña",
+    "telefono_comprador": "5024387312",
+    "correo_comprador": "eileencruz8902@gmail.com",
+    "compras": [
+      {
+        "producto": "Manzanas Pack x6",
+        "cantidad": 1,
+        "precio_unitario": 9,
+        "precio_total": 9
+      },
+      {
+        "producto": "Nutela",
+        "cantidad": 1,
+        "precio_unitario": 4.7,
+        "precio_total": 4.7
+      },
+      {
+        "producto": "Espaguetis (500g)",
+        "cantidad": 1,
+        "precio_unitario": 1.89,
+        "precio_total": 1.89
+      },
+      {
+        "producto": "Galletas de Soda con Mantequilla Doricas",
+        "cantidad": 1,
+        "precio_unitario": 5.25,
+        "precio_total": 5.25
+      },
+      {
+        "producto": "Galletas Porleo (45g)",
+        "cantidad": 1,
+        "precio_unitario": 0.91,
+        "precio_total": 0.91
+      },
+      {
+        "producto": "Café Espresso «El Ricote»",
+        "cantidad": 1,
+        "precio_unitario": 6.87,
+        "precio_total": 6.87
+      },
+      {
+        "producto": "Pack Confituras",
+        "cantidad": 1,
+        "precio_unitario": 15,
+        "precio_total": 15
+      },
+      {
+        "producto": "Jamón de Pierna x Lb",
+        "cantidad": 1,
+        "precio_unitario": 5.04,
+        "precio_total": 5.04
+      },
+      {
+        "producto": "Leche entera en polvo (1kg)",
+        "cantidad": 1,
+        "precio_unitario": 11.97,
+        "precio_total": 11.97
+      },
+      {
+        "producto": "Cartón de Huevos",
+        "cantidad": 1,
+        "precio_unitario": 9.73,
+        "precio_total": 9.73
+      }
+    ],
+    "precio_compra_total": "70.36",
+    "navegador": "Safari",
+    "sistema_operativo": "iOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   }
 ]
