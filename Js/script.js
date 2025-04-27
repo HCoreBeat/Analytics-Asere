@@ -42,6 +42,8 @@ class SalesDashboard {
         
         // Verificar conexión inicial
         this.checkConnection(); 
+
+        this.todayOrders = []; // Inicializa el array
         
     }
 
@@ -61,57 +63,109 @@ class SalesDashboard {
 
     // Métodos para monitorear estado
     startStatusMonitoring() {
+        // Verificación inicial
         this.checkConnection();
-        setInterval(() => this.checkConnection(), 30000); // Cada 30 segundos
+        
+        // Verificar cada 2 minutos (reducir frecuencia)
+        this.connectionCheckInterval = setInterval(() => {
+            this.checkConnection();
+        }, 120000); // 120000 ms = 2 minutos
+        
+        // Verificar productos/afiliados cada 5 minutos
+        this.dataRefreshInterval = setInterval(async () => {
+            if (this.connectionStatus === 'online') {
+                await this.loadAffiliates();
+                await this.loadProducts();
+            }
+        }, 300000); // 300000 ms = 5 minutos
     }
 
     async checkConnection() {
         try {
-            const response = await fetch('https://api.github.com', { method: 'HEAD' });
-            this.connectionStatus = response.ok ? 'online' : 'offline';
+            // Verificar conexión general a internet primero
+            const online = await this.checkInternetConnection();
+            if (!online) {
+                this.connectionStatus = 'offline';
+                this.updateStatusUI();
+                return;
+            }
+    
+            // Verificar GitHub API con autenticación si existe
+            const GITHUB_TOKEN = localStorage.getItem('github_token');
+            const headers = GITHUB_TOKEN ? {
+                'Authorization': `token ${GITHUB_TOKEN}`
+            } : {};
+            
+            const response = await fetch('https://api.github.com/rate_limit', {
+                method: 'GET',
+                headers: headers
+            });
+            
+            if (response.status === 403) {
+                // Límite de tasa excedido
+                const rateLimitReset = response.headers.get('x-ratelimit-reset');
+                const resetTime = rateLimitReset ? new Date(rateLimitReset * 1000) : null;
+                
+                console.warn('Límite de tasa de GitHub alcanzado', {
+                    limit: response.headers.get('x-ratelimit-limit'),
+                    remaining: response.headers.get('x-ratelimit-remaining'),
+                    reset: resetTime?.toLocaleTimeString()
+                });
+                
+                this.connectionStatus = 'rate-limited';
+            } else if (response.ok) {
+                this.connectionStatus = 'online';
+            } else {
+                this.connectionStatus = 'offline';
+            }
         } catch (error) {
+            console.error('Error checking connection:', error);
             this.connectionStatus = 'offline';
         }
+        
         this.updateStatusUI();
+    }
+    
+    async checkInternetConnection() {
+        try {
+            // Usar un endpoint más ligero para verificar conexión general
+            const response = await fetch('https://httpbin.org/get', {
+                method: 'HEAD',
+                cache: 'no-store',
+                mode: 'no-cors'
+            });
+            return true;
+        } catch (error) {
+            return false;
+        }
     }
 
     updateStatusUI() {
-        const connectionEl = document.querySelector('.connection-status');
-        const repoEl = document.querySelector('.repo-status');
-        const repoTextEl = document.getElementById('repo-status-text');
-        const repoIconEl = repoEl?.querySelector('i');
-    
-        // Actualizar estado de conexión
-        if (connectionEl) {
-            connectionEl.className = 'connection-status ' + this.connectionStatus;
-            const statusText = this.connectionStatus === 'online' ? 'En línea' : 'Sin conexión';
-            connectionEl.querySelector('span').textContent = statusText;
-        }
-    
-        // Actualizar estado del repositorio
-        if (repoEl && repoTextEl && repoIconEl) {
-            repoEl.className = 'repo-status ' + this.repoStatus;
-            
-            switch (this.repoStatus) {
-                case 'idle':
-                    repoTextEl.textContent = 'Repositorio';
-                    repoIconEl.className = 'fas fa-code-branch';
-                    repoIconEl.style.animation = 'none';
-                    break;
-                    
-                case 'loading':
-                    repoTextEl.textContent = 'Sincronizando...';
-                    repoIconEl.className = 'fas fa-code-branch fa-spin';
-                    repoIconEl.style.animation = 'spin 1s linear infinite';
-                    break;
-                    
-                case 'error':
-                    repoTextEl.textContent = 'Error';
-                    repoIconEl.className = 'fas fa-exclamation-circle';
-                    repoIconEl.style.animation = 'none';
-                    break;
-            }
-        }
+        const statusTexts = {
+            'online': 'En línea',
+            'offline': 'Sin conexión',
+            'rate-limited': 'Límite de API alcanzado',
+            'checking': 'Verificando...'
+        };
+        
+        document.getElementById('connection-status-text').textContent = 
+            statusTexts[this.connectionStatus] || 'Desconocido';
+        
+        // Actualizar icono según estado
+        const icon = document.querySelector('.connection-status i');
+        icon.className = {
+            'online': 'fas fa-circle',
+            'offline': 'fas fa-circle',
+            'rate-limited': 'fas fa-exclamation-circle',
+            'checking': 'fas fa-circle-notch fa-spin'
+        }[this.connectionStatus] || 'fas fa-circle';
+        
+        icon.style.color = {
+            'online': '#00ff9d',
+            'offline': '#ff6b6b',
+            'rate-limited': '#feca57',
+            'checking': '#00b4ff'
+        }[this.connectionStatus] || '#f8f9fa';
     }
 
     setRepoIdle() {
@@ -122,11 +176,29 @@ class SalesDashboard {
     async loadData() {
         try {
             const response = await fetch('Json/estadistica.json');
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
             this.orders = await response.json();
+            
+            // Verificar si los datos son válidos
+            if (!Array.isArray(this.orders)) {
+                throw new Error('Datos inválidos: no es un array');
+            }
+            
             this.normalizeData();
             this.filteredOrders = [...this.orders];
         } catch (error) {
             console.error('Error loading data:', error);
+            this.showAlert('Error al cargar los datos. Intente recargar la página.', 'error');
+            
+            // Usar datos de respaldo si existen
+            if (localStorage.getItem('cached_orders')) {
+                this.orders = JSON.parse(localStorage.getItem('cached_orders'));
+                this.normalizeData();
+                this.filteredOrders = [...this.orders];
+                this.showAlert('Usando datos almacenados localmente', 'warning');
+            }
         }
     }
 
@@ -143,14 +215,30 @@ class SalesDashboard {
     }
 
     normalizeData() {
+        
         this.orders.forEach(order => {
             order.date = new Date(order.fecha_hora_entrada.replace(/\(.*?\)/, ''));
+            order.dateStr = order.date.toLocaleDateString('es-ES', {
+                day: '2-digit',
+                month: '2-digit',
+                year: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit'
+            });
             order.total = parseFloat(order.precio_compra_total) || 0;
             order.productsCount = order.compras.reduce((acc, curr) => acc + (curr.cantidad || 0), 0);
             order.userType = order.tipo_usuario || 'No especificado';
             order.affiliate = order.afiliado || 'Sin afiliado';
             order.country = order.pais || 'No especificado';
             order.searchText = `${order.nombre_comprador} ${order.country} ${order.userType} ${order.affiliate} ${order.telefono_comprador} ${order.correo_comprador}`.toLowerCase();
+            
+            // Verificar si es pedido de hoy
+            const today = new Date();
+            if (order.date.getDate() === today.getDate() && 
+                order.date.getMonth() === today.getMonth() && 
+                order.date.getFullYear() === today.getFullYear()) {
+                this.todayOrders.push(order);
+            }
         });
     }
 
@@ -355,52 +443,357 @@ class SalesDashboard {
     }
 
     initCharts() {
-        // Gráfica de países
+        // Configuración común para tooltips
+        const tooltipOptions = {
+            enabled: true,
+            mode: 'index',
+            intersect: false,
+            backgroundColor: 'rgba(0, 0, 0, 0.85)',
+            titleFont: { 
+                family: '"Roboto", sans-serif',
+                size: 18, 
+                weight: 'bold',
+                lineHeight: 1.2
+            },
+            bodyFont: { 
+                family: '"Roboto", sans-serif',
+                size: 16,
+                lineHeight: 1.3
+            },
+            footerFont: { 
+                family: '"Roboto", sans-serif',
+                size: 14,
+                style: 'italic'
+            },
+            padding: 20,
+            cornerRadius: 6,
+            displayColors: true,
+            usePointStyle: true,
+            boxWidth: 12,
+            boxHeight: 12,
+            borderColor: 'rgba(0, 255, 157, 0.5)',
+            borderWidth: 1,
+            callbacks: {
+                // Formatear título
+                title: function(context) {
+                    if (context[0].chart.id === 'country-chart') {
+                        return 'Distribución por País';
+                    } else if (context[0].chart.id === 'products-chart') {
+                        return 'Top Productos';
+                    } else if (context[0].chart.id === 'sales-trend-chart') {
+                        return 'Tendencia de Ventas';
+                    }
+                    return context[0].dataset.label || '';
+                },
+                
+                // Formatear etiquetas
+                label: function(context) {
+                    let label = context.dataset.label || '';
+                    if (label) label += ': ';
+                    
+                    if (context.parsed.y !== null) {
+                        if (context.chart.id === 'country-chart') {
+                            label += `$${context.parsed.toLocaleString('en-US', { 
+                                minimumFractionDigits: 2,
+                                maximumFractionDigits: 2
+                            })}`;
+                        } else if (context.chart.id === 'products-chart') {
+                            label += `${context.parsed.y} unidades`;
+                        } else {
+                            label += context.parsed.y.toLocaleString();
+                        }
+                    }
+                    return label;
+                },
+                
+                // Pie chart tooltip format
+                afterLabel: function(context) {
+                    if (context.chart.config.type === 'doughnut') {
+                        const dataset = context.dataset;
+                        const total = dataset.data.reduce((acc, data) => acc + data, 0);
+                        const currentValue = dataset.data[context.dataIndex];
+                        const percentage = Math.round((currentValue / total) * 100);
+                        return `Porcentaje: ${percentage}%`;
+                    }
+                },
+                
+                // Footer con información adicional
+                footer: function(context) {
+                    if (context[0].chart.id === 'sales-trend-chart') {
+                        const date = new Date(context[0].label);
+                        return `Fecha: ${date.toLocaleDateString('es-ES', { 
+                            weekday: 'long', 
+                            year: 'numeric', 
+                            month: 'long', 
+                            day: 'numeric' 
+                        })}`;
+                    }
+                    return null;
+                }
+            }
+        };
+
+        // Gráfica de países (doughnut)
         const countryCtx = document.getElementById('country-chart')?.getContext('2d');
         if (countryCtx) {
-            this.charts.country = this.createChart(countryCtx, 'doughnut', {
-                labels: [],
-                datasets: [{
-                    data: [],
-                    backgroundColor: [
-                        '#00ff9d', '#00b4ff', '#ff6b6b', '#feca57', '#5f27cd',
-                        '#1dd1a1', '#ff9ff3', '#f368e0', '#ff9f43', '#ee5253'
-                    ],
-                    borderWidth: 0
-                }]
+            this.charts.country = new Chart(countryCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: [],
+                    datasets: [{
+                        data: [],
+                        backgroundColor: [
+                            '#00ff9d', '#00b4ff', '#ff6b6b', '#feca57', '#5f27cd',
+                            '#1dd1a1', '#ff9ff3', '#f368e0', '#ff9f43', '#ee5253'
+                        ],
+                        borderWidth: 0,
+                        hoverBorderWidth: 2,
+                        hoverBorderColor: 'rgba(255, 255, 255, 0.8)'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    cutout: '60%',
+                    plugins: {
+                        legend: {
+                            display: true,
+                            position: 'bottom',
+                            labels: {
+                                color: '#f8f9fa',
+                                boxWidth: 10,
+                                padding: 15,
+                                font: {
+                                    family: '"Roboto", sans-serif',
+                                    size: 15
+                                },
+                                usePointStyle: true
+                            }
+                        },
+                        tooltip: tooltipOptions
+                    },
+                    animation: {
+                        animateScale: true,
+                        animateRotate: true
+                    },
+                    onHover: (event, chartElement) => {
+                        if (event.native) {
+                            event.native.target.style.cursor = chartElement[0] ? 'pointer' : 'default';
+                        }
+                    }
+                }
             });
         }
 
-        // Gráfica de productos
+        // Gráfica de productos (bar)
         const productsCtx = document.getElementById('products-chart')?.getContext('2d');
         if (productsCtx) {
-            this.charts.products = this.createChart(productsCtx, 'bar', {
-                labels: [],
-                datasets: [{
-                    label: 'Unidades Vendidas',
-                    data: [],
-                    backgroundColor: '#00ff9d',
-                    borderWidth: 0
-                }]
+            this.charts.products = new Chart(productsCtx, {
+                type: 'bar',
+                data: {
+                    labels: [],
+                    datasets: [{
+                        label: 'Unidades Vendidas',
+                        data: [],
+                        backgroundColor: '#00ff9d',
+                        borderWidth: 0,
+                        borderRadius: 4,
+                        hoverBackgroundColor: '#00e68a'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            ...tooltipOptions,
+                            callbacks: {
+                                ...tooltipOptions.callbacks,
+                                labelColor: function(context) {
+                                    return {
+                                        borderColor: '#00ff9d',
+                                        backgroundColor: '#00ff9d',
+                                        borderWidth: 2
+                                    };
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            grid: {
+                                color: 'rgba(139, 142, 148, 0.1)'
+                            },
+                            ticks: {
+                                color: '#f8f9fa',
+                                font: {
+                                    family: '"Roboto", sans-serif'
+                                }
+                            }
+                        },
+                        x: {
+                            grid: {
+                                display: false
+                            },
+                            ticks: {
+                                color: '#f8f9fa',
+                                font: {
+                                    family: '"Roboto", sans-serif'
+                                }
+                            }
+                        }
+                    },
+                    onHover: (event, chartElement) => {
+                        if (event.native) {
+                            event.native.target.style.cursor = chartElement[0] ? 'pointer' : 'default';
+                        }
+                    }
+                }
             });
         }
 
-        // Gráfica de tendencia de ventas
+        // Gráfica de tendencia de ventas (line)
         const trendCtx = document.getElementById('sales-trend-chart')?.getContext('2d');
         if (trendCtx) {
-            this.charts.salesTrend = this.createChart(trendCtx, 'line', {
-                labels: [],
-                datasets: [{
-                    label: 'Ventas ($)',
-                    data: [],
-                    borderColor: '#00ff9d',
-                    backgroundColor: 'rgba(0, 255, 157, 0.1)',
-                    borderWidth: 2,
-                    fill: true,
-                    tension: 0.4
-                }]
+            this.charts.salesTrend = new Chart(trendCtx, {
+                type: 'line',
+                data: {
+                    labels: [],
+                    datasets: [{
+                        label: 'Ventas ($)',
+                        data: [],
+                        borderColor: '#00ff9d',
+                        backgroundColor: 'rgba(0, 255, 157, 0.1)',
+                        borderWidth: 2,
+                        fill: true,
+                        tension: 0.5,
+                        pointBackgroundColor: 'rgba(180, 224, 207, 0.5)',
+                        pointBorderColor: '#00ff9d',
+                        pointBorderWidth: 2,
+                        pointRadius: 8,
+                        pointHoverRadius: 6
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            ...tooltipOptions,
+                            callbacks: {
+                                ...tooltipOptions.callbacks,
+                                labelColor: function(context) {
+                                    return {
+                                        borderColor: '#00ff9d',
+                                        backgroundColor: '#00ff9d',
+                                        borderWidth: 2
+                                    };
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            grid: {
+                                color: 'rgba(139, 142, 148, 0.1)'
+                            },
+                            ticks: {
+                                color: '#f8f9fa',
+                                callback: function(value) {
+                                    return '$' + value.toLocaleString();
+                                },
+                                font: {
+                                    family: '"Roboto", sans-serif'
+                                }
+                            }
+                        },
+                        x: {
+                            grid: {
+                                display: false
+                            },
+                            ticks: {
+                                color: '#f8f9fa',
+                                font: {
+                                    family: '"Roboto", sans-serif'
+                                }
+                            }
+                        }
+                    },
+                    interaction: {
+                        mode: 'index',
+                        intersect: false
+                    },
+                    onHover: (event, chartElement) => {
+                        if (event.native) {
+                            event.native.target.style.cursor = chartElement[0] ? 'pointer' : 'default';
+                        }
+                    }
+                }
             });
         }
+
+        // Añadir eventos personalizados para tooltips
+        this.addCustomTooltipEvents();
+    }
+
+    // Nuevo método para botones de reset
+    addZoomResetButtons() {
+        const resetZoom = (chartId) => {
+            if (this.charts[chartId]) {
+                this.charts[chartId].resetZoom();
+                this.charts[chartId].zoomLevel = 1;
+            }
+        };
+
+        // Añadir botones al DOM
+        const chartsContainer = document.querySelector('.insights-grid');
+        chartsContainer.querySelectorAll('.chart-container').forEach(container => {
+            const chartId = container.querySelector('canvas').id.replace('-chart', '');
+            const resetBtn = document.createElement('button');
+            resetBtn.className = 'reset-zoom-btn';
+            resetBtn.innerHTML = '<i class="fas fa-search-minus"></i> Reset Zoom';
+            resetBtn.onclick = () => resetZoom(chartId);
+            container.appendChild(resetBtn);
+        });
+    }
+
+    // Método para añadir eventos personalizados a los tooltips
+    addCustomTooltipEvents() {
+        Object.values(this.charts).forEach(chart => {
+            if (chart) {
+                // Mostrar tooltip al hacer hover en elementos relacionados
+                chart.canvas.addEventListener('mousemove', (e) => {
+                    const elements = chart.getElementsAtEventForMode(
+                        e, 
+                        'index', 
+                        { intersect: false }, 
+                        true
+                    );
+                    
+                    if (elements.length > 0) {
+                        chart.update();
+                    }
+                });
+
+                // Personalizar el estilo del tooltip
+                chart.options.plugins.tooltip.external = (context) => {
+                    // Tooltip es visible
+                    if (context.tooltip.opacity === 0) {
+                        return;
+                    }
+
+                    // Personalización adicional puede ir aquí
+                };
+            }
+        });
     }
 
     createChart(ctx, type, data) {
@@ -444,12 +837,22 @@ class SalesDashboard {
         });
     }
 
+    // Actualizar tooltips cuando se actualizan los datos
     updateCharts(data) {
         // Actualizar gráfica de países
         if (this.charts.country) {
             const countries = this.getCountryDistribution(data);
             this.charts.country.data.labels = countries.map(c => c.country);
             this.charts.country.data.datasets[0].data = countries.map(c => c.total);
+            
+            // Actualizar tooltip con nuevos datos
+            this.charts.country.options.plugins.tooltip.callbacks.afterBody = (context) => {
+                const index = context[0].dataIndex;
+                const country = countries[index].country;
+                const orders = data.filter(o => o.country === country).length;
+                return [`Pedidos: ${orders}`];
+            };
+            
             this.charts.country.update();
         }
 
@@ -458,6 +861,21 @@ class SalesDashboard {
             const products = this.getTopProducts(data, 5);
             this.charts.products.data.labels = products.map(p => p.product);
             this.charts.products.data.datasets[0].data = products.map(p => p.quantity);
+            
+            // Actualizar tooltip con nuevos datos
+            this.charts.products.options.plugins.tooltip.callbacks.afterBody = (context) => {
+                const index = context[0].dataIndex;
+                const product = products[index].product;
+                const revenue = data.reduce((total, order) => {
+                    const productOrders = order.compras.filter(p => p.producto === product);
+                    return total + productOrders.reduce((sum, p) => sum + p.precio_total, 0);
+                }, 0);
+                return [`Ingresos: $${revenue.toLocaleString('en-US', { 
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2
+                })}`];
+            };
+            
             this.charts.products.update();
         }
 
@@ -466,6 +884,17 @@ class SalesDashboard {
             const trendData = this.getSalesTrend(data);
             this.charts.salesTrend.data.labels = trendData.map(d => d.date);
             this.charts.salesTrend.data.datasets[0].data = trendData.map(d => d.total);
+            
+            // Actualizar tooltip con nuevos datos
+            this.charts.salesTrend.options.plugins.tooltip.callbacks.afterBody = (context) => {
+                const date = context[0].label;
+                const dailyOrders = data.filter(o => {
+                    const orderDate = o.date.toISOString().split('T')[0];
+                    return orderDate === date;
+                }).length;
+                return [`Pedidos: ${dailyOrders}`];
+            };
+            
             this.charts.salesTrend.update();
         }
     }
@@ -571,6 +1000,29 @@ class SalesDashboard {
                 details.classList.toggle('active');
             }
         });
+
+        // actualizar la lista de pedidos
+        document.getElementById('refresh-data')?.addEventListener('click', async () => {
+        const refreshBtn = document.getElementById('refresh-data');
+        const originalText = refreshBtn.innerHTML;
+        
+        refreshBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Actualizando...';
+        refreshBtn.disabled = true;
+        
+        try {
+            await this.loadData();
+            this.applyFilters();
+            this.showAlert('✅ Datos actualizados correctamente', 'success');
+        } catch (error) {
+            console.error('Error al actualizar datos:', error);
+            this.showAlert(`❌ Error al actualizar: ${error.message}`, 'error');
+        } finally {
+            setTimeout(() => {
+                refreshBtn.innerHTML = originalText;
+                refreshBtn.disabled = false;
+            }, 1000);
+        }
+    });
 
         // Cambio de vista
         document.querySelectorAll('.menu-item').forEach(item => {
@@ -1242,72 +1694,68 @@ class SalesDashboard {
     }
 
     renderOrders(data) {
-        const container = document.getElementById('orders-list');
-        if (!container) return;
+    const container = document.getElementById('orders-list');
+    if (!container) return;
 
-        container.innerHTML = data
-            .sort((a, b) => b.date - a.date)
-            .map(order => `
-                <div class="order-card">
-                    <div class="order-header">
-                        <div class="order-main-info">
-                            <h4>${order.nombre_comprador}</h4>
-                            <div class="order-meta">
-                                <span class="meta-item">
-                                    <i class="fas fa-globe"></i>
-                                    ${order.country}
-                                </span>
-                                <span class="meta-item">
-                                    <i class="fas fa-user-tag"></i>
-                                    ${order.userType}
-                                </span>
-                                <span class="meta-item">
-                                    <i class="fas fa-clock"></i>
-                                    ${order.duracion_sesion_segundos}s
-                                </span>
-                            </div>
-                            ${order.afiliado && order.afiliado !== 'Ninguno' ? `
-                            <div class="affiliate-info">
-                                <i class="fas fa-handshake"></i>
-                                <span>Afiliado: ${order.afiliado}</span>
-                            </div>
-                            ` : ''}
-                            <div class="traffic-source">
-                                <i class="fas fa-${order.origen.includes('asereshops.com') ? 'link' : 'direct'}"></i>
-                                <span>${order.origen.includes('asereshops.com') ? 'Enlace de afiliado' : 'Acceso directo'}</span>
-                            </div>
+    container.innerHTML = data
+        .sort((a, b) => b.date - a.date)
+        .map(order => `
+            <div class="order-card">
+                <div class="order-header">
+                    <div class="order-main-info">
+                        <h4>${order.nombre_comprador}</h4>
+                        <div class="order-meta">
+                            <span class="meta-item">
+                                <i class="fas fa-calendar"></i>
+                                ${order.dateStr}
+                            </span>
+                            <span class="meta-item">
+                                <i class="fas fa-globe"></i>
+                                ${order.country}
+                            </span>
+                            <span class="meta-item">
+                                <i class="fas fa-user-tag"></i>
+                                ${order.userType}
+                            </span>
                         </div>
-                        <div class="order-stats">
-                            <div class="stat-value">$${order.total.toFixed(2)}</div>
-                            <div class="stat-label">${order.productsCount} productos</div>
+                        ${order.afiliado && order.afiliado !== 'Ninguno' ? `
+                        <div class="affiliate-info">
+                            <i class="fas fa-handshake"></i>
+                            <span>Afiliado: ${order.afiliado}</span>
                         </div>
+                        ` : ''}
                     </div>
-                    <div class="order-details">
-                        <div class="products-list">
-                            ${order.compras.map(product => `
-                                <div class="product-item">
-                                    <span>${product.producto}</span>
-                                    <span>${product.cantidad} × $${product.precio_unitario}</span>
-                                </div>
-                            `).join('')}
+                    <div class="order-stats">
+                        <div class="stat-value">$${order.total.toFixed(2)}</div>
+                        <div class="stat-label">${order.productsCount} productos</div>
+                    </div>
+                </div>
+                <div class="order-details">
+                    <div class="products-list">
+                        ${order.compras.map(product => `
+                            <div class="product-item">
+                                <span>${product.producto}</span>
+                                <span>${product.cantidad} × $${product.precio_unitario}</span>
+                            </div>
+                        `).join('')}
+                    </div>
+                    <div class="order-footer">
+                        <div class="meta-item">
+                            <i class="fas fa-desktop"></i>
+                            ${order.navegador} / ${order.sistema_operativo}
                         </div>
-                        <div class="order-footer">
-                            <div class="meta-item">
-                                <i class="fas fa-desktop"></i>
-                                ${order.navegador} / ${order.sistema_operativo}
-                            </div>
-                            <div class="meta-item">
-                                <i class="fas fa-phone"></i>
-                                ${order.telefono_comprador}
-                            </div>
-                            <div class="meta-item">
-                                <i class="fas fa-envelope"></i>
-                                ${order.correo_comprador}
-                            </div>
+                        <div class="meta-item">
+                            <i class="fas fa-phone"></i>
+                            ${order.telefono_comprador}
+                        </div>
+                        <div class="meta-item">
+                            <i class="fas fa-envelope"></i>
+                            ${order.correo_comprador}
                         </div>
                     </div>
                 </div>
-            `).join('');
+            </div>
+        `).join('');
     }
 
     // Product Management
