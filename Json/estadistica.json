@@ -2227,5 +2227,55 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2601:346:d7c:15b0:717e:8934:46f7:b80d",
+    "pais": "United States",
+    "fecha_hora_entrada": "2025-04-27 14:16:58",
+    "origen": "Acceso directo",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 559,
+    "tiempo_carga_pagina_ms": 172,
+    "nombre_comprador": "Lisbet Mastrapa",
+    "telefono_comprador": "9042341476",
+    "correo_comprador": "lisbetmastrapa30@gmail.com",
+    "compras": [
+      {
+        "producto": "Picadillo de pollo (1Kg)",
+        "cantidad": 2,
+        "precio_unitario": 2.97,
+        "precio_total": 5.94
+      },
+      {
+        "producto": "Pollo Golden Phoenix (2Kg)",
+        "cantidad": 2,
+        "precio_unitario": 7.46,
+        "precio_total": 14.92
+      },
+      {
+        "producto": "Pack de 4 Hamburguesas de pollo",
+        "cantidad": 2,
+        "precio_unitario": 1.89,
+        "precio_total": 3.78
+      },
+      {
+        "producto": "Arroz Criollo 1Lb",
+        "cantidad": 5,
+        "precio_unitario": 0.95,
+        "precio_total": 4.75
+      },
+      {
+        "producto": "Refresco Instantáneo (2Lt)",
+        "cantidad": 2,
+        "precio_unitario": 0.42,
+        "precio_total": 0.84
+      }
+    ],
+    "precio_compra_total": "30.23",
+    "navegador": "Safari",
+    "sistema_operativo": "iOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   }
 ]
