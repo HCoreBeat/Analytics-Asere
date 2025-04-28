@@ -2277,5 +2277,43 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "66.176.75.117",
+    "pais": "United States",
+    "fecha_hora_entrada": "2025-04-28 14:28:18",
+    "origen": "Acceso directo",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 2782,
+    "tiempo_carga_pagina_ms": 798,
+    "nombre_comprador": "Humberto Gonzalez",
+    "telefono_comprador": "7128281340",
+    "correo_comprador": "pastorhumberto77@gmail.com",
+    "compras": [
+      {
+        "producto": "Pasta de tomate Vima (400g)",
+        "cantidad": 10,
+        "precio_unitario": 1.98,
+        "precio_total": 19.8
+      },
+      {
+        "producto": "Frazada de Piso",
+        "cantidad": 3,
+        "precio_unitario": 1.99,
+        "precio_total": 5.97
+      },
+      {
+        "producto": "Nutela",
+        "cantidad": 1,
+        "precio_unitario": 4.7,
+        "precio_total": 4.7
+      }
+    ],
+    "precio_compra_total": "30.47",
+    "navegador": "Safari",
+    "sistema_operativo": "MacOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   }
 ]
