@@ -323,7 +323,7 @@ body.menu-open {
 
 .summary-item {
     background: #25252d;
-    padding: 1rem;
+    padding: 5px;
     border-radius: 8px;
     border: 1px solid var(--border);
 }
@@ -1775,3 +1775,17 @@ input:checked + .slider:before {
         grid-template-columns: 1fr;
     }
 }
+
+.stat-change {
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.stat-change.positive {
+    color: #00ff9d;
+}
+
+.stat-change.negative {
+    color: #ff6b6b;
+}
+
