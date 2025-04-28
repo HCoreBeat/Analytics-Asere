@@ -2315,5 +2315,37 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2607:fb91:c77:c641:b4cd:5f6e:62a:6b33",
+    "pais": "United States",
+    "fecha_hora_entrada": "2025-04-28 17:07:23",
+    "origen": "Acceso directo",
+    "afiliado": "Natty",
+    "duracion_sesion_segundos": 144,
+    "tiempo_carga_pagina_ms": 678,
+    "nombre_comprador": "Nayelin Reyes",
+    "telefono_comprador": "78603002520",
+    "correo_comprador": "nileyan2018@gmail.com",
+    "compras": [
+      {
+        "producto": "Cartón de Huevos",
+        "cantidad": 1,
+        "precio_unitario": 9.73,
+        "precio_total": 9.73
+      },
+      {
+        "producto": "Arroz Criollo 1Lb",
+        "cantidad": 5,
+        "precio_unitario": 0.95,
+        "precio_total": 4.75
+      }
+    ],
+    "precio_compra_total": "14.48",
+    "navegador": "Safari",
+    "sistema_operativo": "iOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   }
 ]
