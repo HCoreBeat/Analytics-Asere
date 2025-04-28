@@ -242,86 +242,6 @@ class SalesDashboard {
         });
     }
 
-    showPendingChanges() {
-        // Verificar si hay cambios pendientes
-        const hasChanges = this.productChanges.new.length > 0 || 
-                          this.productChanges.modified.length > 0 || 
-                          this.productChanges.deleted.length > 0;
-        
-        if (!hasChanges) {
-            this.showAlert('No hay cambios pendientes', 'info');
-            return;
-        }
-    
-        const modal = document.getElementById('pending-changes-modal');
-        if (!modal) return;
-    
-        // Actualizar listas
-        this.updatePendingChangesLists();
-        
-        // Mostrar modal
-        modal.classList.remove('hidden');
-        
-        // Configurar eventos
-        document.getElementById('save-changes').onclick = async () => {
-            await this.saveAllPendingChanges();
-        };
-        
-        document.getElementById('cancel-changes').onclick = () => {
-            this.discardPendingChanges();
-        };
-    }
-
-    async saveAllPendingChanges() {
-        const loadingAlert = this.showAlert('Guardando todos los cambios...', 'loading');
-        this.repoStatus = 'loading';
-        this.updateStatusUI();
-    
-        try {
-            // 1. Eliminar imágenes de productos eliminados
-            for (const product of this.productChanges.deleted) {
-                await this.deleteProductImages(product);
-            }
-    
-            // 2. Actualizar el archivo JSON
-            await this.updateProductsFile(this.products);
-    
-            // 3. Limpiar cambios pendientes
-            this.productChanges = { modified: [], new: [], deleted: [] };
-    
-            loadingAlert.remove();
-            this.showAlert('✅ Todos los cambios fueron guardados', 'success');
-            document.getElementById('pending-changes-modal').classList.add('hidden');
-            
-            // 4. Recargar datos
-            await this.loadProducts();
-            await this.loadRepositoryImages();
-    
-        } catch (error) {
-            console.error('Error al guardar cambios:', error);
-            loadingAlert.remove();
-            this.showAlert(`❌ Error al guardar cambios: ${error.message}`, 'error');
-        } finally {
-            this.repoStatus = 'idle';
-            this.updateStatusUI();
-        }
-    }
-
-    discardPendingChanges() {
-        // Restaurar productos eliminados
-        this.products = [...this.products, ...this.productChanges.deleted];
-        
-        // Limpiar cambios
-        this.productChanges = { modified: [], new: [], deleted: [] };
-        
-        // Actualizar lista
-        this.filteredProducts = [...this.products];
-        this.renderProductsList();
-        
-        // Cerrar modal
-        document.getElementById('pending-changes-modal').classList.add('hidden');
-        this.showAlert('Cambios pendientes descartados', 'info');
-    }
 
     updatePendingChangesLists() {
         const renderList = (items, containerId, emptyMessage) => {
@@ -739,143 +659,33 @@ class SalesDashboard {
                 }
             });
         }
-
-        // Añadir eventos personalizados para tooltips
-        this.addCustomTooltipEvents();
-    }
-
-    // Nuevo método para botones de reset
-    addZoomResetButtons() {
-        const resetZoom = (chartId) => {
-            if (this.charts[chartId]) {
-                this.charts[chartId].resetZoom();
-                this.charts[chartId].zoomLevel = 1;
-            }
-        };
-
-        // Añadir botones al DOM
-        const chartsContainer = document.querySelector('.insights-grid');
-        chartsContainer.querySelectorAll('.chart-container').forEach(container => {
-            const chartId = container.querySelector('canvas').id.replace('-chart', '');
-            const resetBtn = document.createElement('button');
-            resetBtn.className = 'reset-zoom-btn';
-            resetBtn.innerHTML = '<i class="fas fa-search-minus"></i> Reset Zoom';
-            resetBtn.onclick = () => resetZoom(chartId);
-            container.appendChild(resetBtn);
-        });
-    }
-
-    // Método para añadir eventos personalizados a los tooltips
-    addCustomTooltipEvents() {
-        Object.values(this.charts).forEach(chart => {
-            if (chart) {
-                // Mostrar tooltip al hacer hover en elementos relacionados
-                chart.canvas.addEventListener('mousemove', (e) => {
-                    const elements = chart.getElementsAtEventForMode(
-                        e, 
-                        'index', 
-                        { intersect: false }, 
-                        true
-                    );
-                    
-                    if (elements.length > 0) {
-                        chart.update();
-                    }
-                });
-
-                // Personalizar el estilo del tooltip
-                chart.options.plugins.tooltip.external = (context) => {
-                    // Tooltip es visible
-                    if (context.tooltip.opacity === 0) {
-                        return;
-                    }
-
-                    // Personalización adicional puede ir aquí
-                };
-            }
-        });
-    }
-
-    createChart(ctx, type, data) {
-        return new Chart(ctx, {
-            type: type,
-            data: data,
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: {
-                        display: type === 'doughnut',
-                        position: 'bottom',
-                        labels: {
-                            color: '#f8f9fa',
-                            boxWidth: 12,
-                            padding: 20
-                        }
-                    }
-                },
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        grid: {
-                            color: 'rgba(139, 142, 148, 0.1)'
-                        },
-                        ticks: {
-                            color: '#f8f9fa'
-                        }
-                    },
-                    x: {
-                        grid: {
-                            display: false
-                        },
-                        ticks: {
-                            color: '#f8f9fa'
-                        }
-                    }
-                }
-            }
-        });
     }
 
     // Actualizar tooltips cuando se actualizan los datos
     updateCharts(data) {
-        // Actualizar gráfica de países
+        // Gráfica de países
         if (this.charts.country) {
             const countries = this.getCountryDistribution(data);
-            this.charts.country.data.labels = countries.map(c => c.country);
-            this.charts.country.data.datasets[0].data = countries.map(c => c.total);
+            this.charts.country.data.labels = countries.map(c => c.country || 'Sin país');
+            this.charts.country.data.datasets[0].data = countries.map(c => c.total || 0);
             
-            // Actualizar tooltip con nuevos datos
-            this.charts.country.options.plugins.tooltip.callbacks.afterBody = (context) => {
-                const index = context[0].dataIndex;
-                const country = countries[index].country;
-                const orders = data.filter(o => o.country === country).length;
-                return [`Pedidos: ${orders}`];
+            this.charts.country.options.plugins.tooltip.callbacks.label = (context) => {
+                const value = context.raw || 0;
+                return `$${value.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
             };
-            
             this.charts.country.update();
         }
 
-        // Actualizar gráfica de productos
+        // Gráfica de productos
         if (this.charts.products) {
             const products = this.getTopProducts(data, 5);
-            this.charts.products.data.labels = products.map(p => p.product);
-            this.charts.products.data.datasets[0].data = products.map(p => p.quantity);
+            this.charts.products.data.labels = products.map(p => p.product || 'Sin nombre');
+            this.charts.products.data.datasets[0].data = products.map(p => p.quantity || 0);
             
-            // Actualizar tooltip con nuevos datos
-            this.charts.products.options.plugins.tooltip.callbacks.afterBody = (context) => {
-                const index = context[0].dataIndex;
-                const product = products[index].product;
-                const revenue = data.reduce((total, order) => {
-                    const productOrders = order.compras.filter(p => p.producto === product);
-                    return total + productOrders.reduce((sum, p) => sum + p.precio_total, 0);
-                }, 0);
-                return [`Ingresos: $${revenue.toLocaleString('en-US', { 
-                    minimumFractionDigits: 2,
-                    maximumFractionDigits: 2
-                })}`];
+            this.charts.products.options.plugins.tooltip.callbacks.label = (context) => {
+                const value = context.raw || 0;
+                return `${value} unidades`;
             };
-            
             this.charts.products.update();
         }
 
@@ -1596,30 +1406,77 @@ class SalesDashboard {
 
     applyFilters() {
         if (this.currentView !== 'dashboard') return;
-
-        const filters = {
-            date: document.getElementById('filter-date').value,
-            country: document.getElementById('filter-country').value,
-            affiliate: document.getElementById('filter-affiliate').value,
-            userType: document.getElementById('filter-user-type').value
-        };
-
+    
+        const startDate = document.getElementById('filter-date-start').value;
+        const endDate = document.getElementById('filter-date-end').value;
+        const country = document.getElementById('filter-country').value;
+        const affiliate = document.getElementById('filter-affiliate').value;
+        const userType = document.getElementById('filter-user-type').value;
+    
         this.filteredOrders = this.orders.filter(order => {
             const orderDateStr = order.date.toISOString().split('T')[0];
+            const dateInRange = 
+                (!startDate || orderDateStr >= startDate) && 
+                (!endDate || orderDateStr <= endDate);
+            
             return (
-                (!filters.date || orderDateStr === filters.date) &&
-                (!filters.country || order.country === filters.country) &&
-                (!filters.affiliate || order.affiliate === filters.affiliate) &&
-                (!filters.userType || order.userType === filters.userType)
+                dateInRange &&
+                (!country || order.country === country) &&
+                (!affiliate || order.affiliate === affiliate) &&
+                (!userType || order.userType === userType)
             );
         });
-
+    
         this.updateStats(this.filteredOrders);
         this.renderGeneralSummary(this.filteredOrders);
-        this.renderCountryDistribution(this.filteredOrders);
-        this.renderTopProducts(this.filteredOrders);
+        this.renderWeeklySummary(); // Nueva función
         this.renderOrders(this.filteredOrders);
         this.updateCharts(this.filteredOrders);
+    }
+    
+    renderWeeklySummary() {
+        const now = new Date();
+        const today = new Date(now.getFullYear(), now.getMonth(), now.getDate()); // Fecha de hoy sin horas/minutos
+        const yesterday = new Date(today);
+        yesterday.setDate(yesterday.getDate() - 1); // Fecha de ayer
+    
+        // Filtrar pedidos de hoy y ayer
+        const todayOrders = this.orders.filter(order => {
+            const orderDate = new Date(order.date.getFullYear(), order.date.getMonth(), order.date.getDate());
+            return orderDate.getTime() === today.getTime();
+        });
+    
+        const yesterdayOrders = this.orders.filter(order => {
+            const orderDate = new Date(order.date.getFullYear(), order.date.getMonth(), order.date.getDate());
+            return orderDate.getTime() === yesterday.getTime();
+        });
+    
+        // Calcular totales
+        const todaySales = todayOrders.reduce((sum, order) => sum + order.total, 0);
+        const yesterdaySales = yesterdayOrders.reduce((sum, order) => sum + order.total, 0);
+    
+        // Calcular porcentaje de cambio (evitar división por cero)
+        let salesChange = "N/A";
+        if (yesterdaySales > 0) {
+            salesChange = ((todaySales - yesterdaySales) / yesterdaySales * 100).toFixed(1);
+        }
+    
+        // Actualizar HTML
+        const container = document.getElementById('weekly-summary');
+        container.innerHTML = `
+            <div class="summary-item">
+                <h4><i class="fas fa-sun"></i> Hoy</h4>
+                <div class="stat-value">$${todaySales.toFixed(2)}</div>
+                <div class="stat-label">${todayOrders.length} pedidos</div>
+            </div>
+            <div class="summary-item">
+                <h4><i class="fas fa-moon"></i> Ayer</h4>
+                <div class="stat-value">$${yesterdaySales.toFixed(2)}</div>
+                <div class="stat-change ${salesChange >= 0 ? 'positive' : 'negative'}">
+                    ${salesChange !== "N/A" ? `${salesChange}%` : 'Sin datos previos'}
+                </div>
+            </div>
+        `;
     }
 
     updateStats(data) {
@@ -1848,7 +1705,6 @@ class SalesDashboard {
         document.querySelectorAll('.edit-product').forEach(btn => {
             btn.addEventListener('click', (e) => {
                 const productId = e.currentTarget.dataset.id;
-                const originalName = this.getOriginalNameFromId(productId);
                 const product = this.products.find(p => this.sanitizeId(p.nombre) === productId);
                 if (product) {
                     this.editProduct(product);
@@ -1970,10 +1826,6 @@ class SalesDashboard {
         // Checkbox changes
         ['product-oferta', 'product-mas-vendido', 'product-disponible'].forEach(id => {
             document.getElementById(id)?.addEventListener('change', () => this.updateJsonPreview());
-        });
-
-        document.getElementById('show-pending-changes')?.addEventListener('click', () => {
-            this.showPendingChanges();
         });
         
         document.getElementById('save-changes')?.addEventListener('click', async () => {
@@ -2145,59 +1997,11 @@ class SalesDashboard {
         document.getElementById('additional-images-container').innerHTML = '<div class="no-images-message">No hay imágenes adicionales</div>';
     }
     
-    handleMainImageUpload(file) {
-        this.mainImageFile = file;
-        
-        const reader = new FileReader();
-        reader.onload = (e) => {
-            const container = document.getElementById('main-image-container');
-            container.innerHTML = `<img src="${e.target.result}" alt="Preview">`;
-            document.getElementById('remove-main-image').style.display = 'block';
-        };
-        reader.readAsDataURL(file);
-        
-        this.updateJsonPreview();
-    }
-    
     removeMainImage() {
         this.mainImageFile = null;
         document.getElementById('main-image-container').innerHTML = '<span>No hay imagen seleccionada</span>';
         document.getElementById('remove-main-image').style.display = 'none';
         document.getElementById('main-image-upload').value = '';
-        this.updateJsonPreview();
-    }
-    
-    handleAdditionalImagesUpload(files) {
-        files.forEach(file => {
-            this.additionalImageFiles.push(file);
-            
-            const reader = new FileReader();
-            reader.onload = (e) => {
-                const container = document.getElementById('additional-images-container');
-                
-                // Remove "no images" message if it's the first image
-                if (container.querySelector('.no-images-message')) {
-                    container.innerHTML = '';
-                }
-                
-                container.innerHTML += `
-                    <div class="additional-image">
-                        <img src="${e.target.result}" alt="Preview">
-                        <button class="remove-additional-image" data-file="${file.name}">
-                            <i class="fas fa-times"></i>
-                        </button>
-                    </div>
-                `;
-                
-                // Add event listener for the new remove button
-                container.lastElementChild.querySelector('.remove-additional-image').addEventListener('click', (e) => {
-                    e.stopPropagation();
-                    this.removeAdditionalImage(file.name, true);
-                });
-            };
-            reader.readAsDataURL(file);
-        });
-        
         this.updateJsonPreview();
     }
     
@@ -2493,27 +2297,6 @@ class SalesDashboard {
         }
         
         this.updateJsonPreview();
-    }
-    
-    showChangesConfirmation() {
-        const modal = document.getElementById('changes-confirmation-modal');
-        const modifiedList = document.getElementById('modified-products-list');
-        const newList = document.getElementById('new-products-list');
-        const deletedList = document.getElementById('deleted-products-list');
-        
-        modifiedList.innerHTML = this.productChanges.modified.map(p => 
-            `<li>${p.nombre} (${p.categoria})</li>`
-        ).join('') || '<li>No hay productos modificados</li>';
-        
-        newList.innerHTML = this.productChanges.new.map(p => 
-            `<li>${p.nombre} (${p.categoria})</li>`
-        ).join('') || '<li>No hay productos nuevos</li>';
-        
-        deletedList.innerHTML = this.productChanges.deleted.map(p => 
-            `<li>${p.nombre} (${p.categoria})</li>`
-        ).join('') || '<li>No hay productos eliminados</li>';
-        
-        modal.classList.remove('hidden');
     }
     
     async saveProduct() {
@@ -2988,60 +2771,6 @@ class SalesDashboard {
         document.querySelectorAll('.image-item').forEach(item => {
             item.classList.remove('selected');
         });
-    }
-
-    async checkImageUsage() {
-        try {
-            // 1. Cargar productos
-            await this.loadProducts();
-            
-            // 2. Cargar imágenes del repositorio
-            const GITHUB_TOKEN = localStorage.getItem('github_token');
-            const { REPO_OWNER, REPO_NAME } = CONFIG.GITHUB_API;
-            const response = await fetch(`https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/img/products`, {
-                headers: {
-                    'Authorization': `token ${GITHUB_TOKEN}`,
-                    'Accept': 'application/vnd.github.v3+json'
-                }
-            });
-            
-            if (!response.ok) {
-                throw new Error(`Error al cargar imágenes: ${response.status}`);
-            }
-            
-            const images = await response.json();
-            
-            // 3. Crear lista de imágenes en uso
-            const usedImages = new Set();
-            this.products.forEach(product => {
-                if (product.imagen) {
-                    const imgName = product.imagen.split('/').pop();
-                    usedImages.add(imgName);
-                }
-                
-                if (product.imagenesAdicionales) {
-                    product.imagenesAdicionales.forEach(img => {
-                        const imgName = img.split('/').pop();
-                        usedImages.add(imgName);
-                    });
-                }
-            });
-            
-            // 4. Marcar imágenes no utilizadas
-            images.forEach(img => {
-                const imgItem = document.querySelector(`.image-item[data-name="${img.name}"]`);
-                if (imgItem) {
-                    if (!usedImages.has(img.name)) {
-                        imgItem.style.border = '2px solid #feca57';
-                        imgItem.insertAdjacentHTML('beforeend', 
-                            '<div class="unused-badge">No usada</div>');
-                    }
-                }
-            });
-            
-        } catch (error) {
-            console.error('Error al verificar uso de imágenes:', error);
-        }
     }
 }
 
