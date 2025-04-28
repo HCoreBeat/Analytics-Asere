@@ -45,8 +45,12 @@
 
         <div class="filters">
             <div class="filter-group">
-                <label><i class="fas fa-calendar-day"></i> Fecha</label>
-                <input type="date" id="filter-date" class="input-dark">
+                <label><i class="fas fa-calendar-week"></i> Rango de Fechas</label>
+                <div class="date-range">
+                    <input type="date" id="filter-date-start" class="input-dark">
+                    <span>a</span>
+                    <input type="date" id="filter-date-end" class="input-dark">
+                </div>
             </div>
             <div class="filter-group">
                 <label><i class="fas fa-flag"></i> País</label>
@@ -169,6 +173,12 @@
                     <div class="card summary-card">
                         <h3 class="card-title"><i class="fas fa-chart-bar"></i> Resumen General</h3>
                         <div class="summary-grid" id="general-summary"></div>
+                    </div>
+
+                    <!-- Resumen diario/semanal -->
+                    <div class="card">
+                        <h3 class="card-title"><i class="fas fa-calendar-alt"></i> Resumen Semanal</h3>
+                        <div class="summary-grid" id="weekly-summary"></div>
                     </div>
                     
                     <div class="card">
@@ -504,42 +514,6 @@
                 </div>
             </section>
         </div>
-
-        <div id="pending-changes-modal" class="modal hidden">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h3><i class="fas fa-clock"></i> Cambios Pendientes</h3>
-                    <button class="close-modal" id="close-pending-changes">&times;</button>
-                </div>
-                
-                <div class="changes-sections">
-                    <div class="changes-section">
-                        <h4><i class="fas fa-plus-circle"></i> Nuevos Productos (<span id="new-count">0</span>)</h4>
-                        <ul id="new-products-list" class="changes-list"></ul>
-                    </div>
-                    
-                    <div class="changes-section">
-                        <h4><i class="fas fa-edit"></i> Productos Modificados (<span id="modified-count">0</span>)</h4>
-                        <ul id="modified-products-list" class="changes-list"></ul>
-                    </div>
-                    
-                    <div class="changes-section">
-                        <h4><i class="fas fa-trash"></i> Productos Eliminados (<span id="deleted-count">0</span>)</h4>
-                        <ul id="deleted-products-list" class="changes-list"></ul>
-                    </div>
-                </div>
-                
-                <div class="modal-actions">
-                    <button id="cancel-changes" class="btn cancel-btn">
-                        <i class="fas fa-times"></i> Descartar Cambios
-                    </button>
-                    <button id="save-changes" class="btn btn-primary">
-                        <i class="fas fa-save"></i> Guardar Todo
-                    </button>
-                </div>
-            </div>
-        </div>
-
         <!-- Modal para gestión de imágenes -->
         <div id="image-manager-modal" class="modal hidden">
             <div class="modal-content large-modal">
@@ -592,7 +566,7 @@
 
         <footer class="footer">
             <div class="footer-content">
-                <span class="footer-text">© 2025 Analytics-Asere · v1.8.0</span>
+                <span class="footer-text">© 2025 Analytics-Asere · v1.8.5</span>
                 <div class="footer-links">
                     <a href="#"><i class="fas fa-book"></i> Creado por H.A</a>
                 </div>
