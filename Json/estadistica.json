@@ -2347,5 +2347,91 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2603:6011:1cf0:fc0:f0d9:1244:1612:5d7",
+    "pais": "United States",
+    "fecha_hora_entrada": "2025-05-02 18:14:01",
+    "origen": "Acceso directo",
+    "afiliado": "Natty",
+    "duracion_sesion_segundos": 419,
+    "tiempo_carga_pagina_ms": 387,
+    "nombre_comprador": "Eileen Cruz",
+    "telefono_comprador": "5024387312",
+    "correo_comprador": "eileencruz8902@gmail.com",
+    "compras": [
+      {
+        "producto": "Helado 4Lts",
+        "cantidad": 1,
+        "precio_unitario": 10.45,
+        "precio_total": 10.45
+      },
+      {
+        "producto": "Gelatina Gely de Fresa (125ml)",
+        "cantidad": 2,
+        "precio_unitario": 1.99,
+        "precio_total": 3.98
+      },
+      {
+        "producto": "Frijoles Rojos (1kg)",
+        "cantidad": 1,
+        "precio_unitario": 4.8,
+        "precio_total": 4.8
+      },
+      {
+        "producto": "Frijol Rojo x Lb",
+        "cantidad": 2,
+        "precio_unitario": 3.15,
+        "precio_total": 6.3
+      },
+      {
+        "producto": "Frijol Negro x Lb",
+        "cantidad": 2,
+        "precio_unitario": 2.63,
+        "precio_total": 5.26
+      },
+      {
+        "producto": "Plátano macho x unidad",
+        "cantidad": 25,
+        "precio_unitario": 0.26,
+        "precio_total": 6.5
+      },
+      {
+        "producto": "Pack de 4 Hamburguesas de pollo",
+        "cantidad": 1,
+        "precio_unitario": 1.89,
+        "precio_total": 1.89
+      },
+      {
+        "producto": "Masa deshuesada de cerdo x Kg",
+        "cantidad": 1,
+        "precio_unitario": 11.5,
+        "precio_total": 11.5
+      },
+      {
+        "producto": "Pechuga de Pollo (1Kg)",
+        "cantidad": 1,
+        "precio_unitario": 11.9,
+        "precio_total": 11.9
+      },
+      {
+        "producto": "Pollo Golden Phoenix (2Kg)",
+        "cantidad": 1,
+        "precio_unitario": 7.46,
+        "precio_total": 7.46
+      },
+      {
+        "producto": "Leche entera en polvo (1kg)",
+        "cantidad": 1,
+        "precio_unitario": 11.97,
+        "precio_total": 11.97
+      }
+    ],
+    "precio_compra_total": "82.01",
+    "navegador": "Safari",
+    "sistema_operativo": "iOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   }
 ]
