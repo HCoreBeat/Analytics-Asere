@@ -2433,5 +2433,67 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "217.201.219.101",
+    "pais": "Italy",
+    "fecha_hora_entrada": "2025-05-04 13:05:04",
+    "origen": "Acceso directo",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 465,
+    "tiempo_carga_pagina_ms": 777,
+    "nombre_comprador": "Nailin contreras santiesteban",
+    "telefono_comprador": "3395327206",
+    "correo_comprador": "leonormax@gmail.com",
+    "compras": [
+      {
+        "producto": "Plátano macho x unidad",
+        "cantidad": 21,
+        "precio_unitario": 0.26,
+        "precio_total": 5.46
+      },
+      {
+        "producto": "Boniato x Lb",
+        "cantidad": 11,
+        "precio_unitario": 0.42,
+        "precio_total": 4.62
+      },
+      {
+        "producto": "Tomate x Lb",
+        "cantidad": 4,
+        "precio_unitario": 0.93,
+        "precio_total": 3.72
+      },
+      {
+        "producto": "Mano de plátano burro",
+        "cantidad": 4,
+        "precio_unitario": 0.95,
+        "precio_total": 3.8
+      },
+      {
+        "producto": "Pepino x Lb",
+        "cantidad": 5,
+        "precio_unitario": 0.58,
+        "precio_total": 2.9
+      },
+      {
+        "producto": "Sal x Lb",
+        "cantidad": 6,
+        "precio_unitario": 0.35,
+        "precio_total": 2.1
+      },
+      {
+        "producto": "Limón x Lb",
+        "cantidad": 1,
+        "precio_unitario": 2.31,
+        "precio_total": 2.31
+      }
+    ],
+    "precio_compra_total": "24.91",
+    "navegador": "Chrome",
+    "sistema_operativo": "Android",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   }
 ]
