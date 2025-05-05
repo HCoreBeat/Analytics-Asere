@@ -54,11 +54,207 @@ class SalesDashboard {
         this.setupEventListeners();
         this.initFilters();
         this.initCharts();
+
+        // Establecer el filtro de periodo a "Este Mes" por defecto
+        document.getElementById('filter-period').value = 'month';
+
         this.applyFilters();
         this.renderAllAffiliates();
         this.setupView();
         this.setupProductsView();
         this.startStatusMonitoring();
+    }
+
+    getMonthName(monthIndex) {
+        const months = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 
+                       'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
+        return months[monthIndex];
+    }
+
+    // En la clase SalesDashboard, añade este método:
+    getCurrencySymbol(country) {
+        const europeanCountries = ['Spain', 'France', 'Germany', 'Italy', 'Portugal', 'Netherlands', 'Belgium', 
+            'Austria', 'Switzerland', 'Andorra', 'Luxembourg', 'Monaco', 'Ireland', 'Finland', 
+            'Sweden', 'Denmark', 'Norway', 'Poland', 'Greece', 'Hungary', 'Romania', 
+            'Bulgaria', 'Croatia', 'Slovakia', 'Slovenia', 'Czech Republic', 'Estonia', 
+            'Latvia', 'Lithuania', 'Cyprus', 'Malta'];
+
+        
+        // Normalizar el nombre del país para comparación
+        if (!country) return '$';
+        const normalizedCountry = country.toLowerCase().trim();
+        const isEuropean = europeanCountries.some(c => c.toLowerCase() === normalizedCountry);
+        
+        return isEuropean ? '€' : '$';
+    }
+
+    getMonthlyComparison(data) {
+        const monthlyData = {};
+        const currentYear = new Date().getFullYear();
+        
+        // Inicializar todos los meses del año actual
+        for (let month = 0; month < 12; month++) {
+            const key = `${currentYear}-${month}`;
+            monthlyData[key] = {
+                month: this.getMonthName(month),
+                orders: 0,
+                sales: 0,
+                products: 0,
+                hasData: false
+            };
+        }
+        
+        // Procesar los datos reales
+        data.forEach(order => {
+            const orderDate = order.date;
+            const year = orderDate.getFullYear();
+            const month = orderDate.getMonth();
+            
+            if (year === currentYear) {
+                const key = `${year}-${month}`;
+                monthlyData[key].orders++;
+                monthlyData[key].sales += order.total || 0;
+                monthlyData[key].products += order.productsCount || 0;
+                monthlyData[key].hasData = true;
+            }
+        });
+        
+        return Object.values(monthlyData).sort((a, b) => {
+            const monthA = this.getMonthIndex(a.month);
+            const monthB = this.getMonthIndex(b.month);
+            return monthA - monthB;
+        });
+    }
+    
+    getMonthIndex(monthName) {
+        const months = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 
+                       'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
+        return months.indexOf(monthName);
+    }
+    
+    renderMonthlyComparison(data) {
+        const container = document.getElementById('general-summary');
+        if (!container) return;
+    
+        const now = new Date();
+        const currentMonth = now.getMonth();
+        const currentYear = now.getFullYear();
+        const period = document.getElementById('filter-period')?.value || 'month';
+    
+        // Obtener todos los datos mensuales
+        const monthlyData = this.getMonthlyComparison(this.orders); // Usamos this.orders para tener todos los datos
+        
+        // Determinar el mes de referencia según el periodo seleccionado
+        let referenceMonth = currentMonth;
+        if (period === 'last-month') {
+            referenceMonth = (currentMonth - 1 + 12) % 12;
+        } else if (period === 'year') {
+            referenceMonth = null; // Mostrará el año completo
+        }
+    
+        // Datos del mes de referencia
+        const referenceData = referenceMonth !== null ? 
+            monthlyData.find(m => this.getMonthIndex(m.month) === referenceMonth) || 
+            { month: this.getMonthName(referenceMonth), orders: 0, sales: 0, products: 0 }
+            : null;
+    
+        // Datos del mes anterior con datos (para comparativa)
+        let lastMonthWithData = null;
+        if (referenceMonth !== null) {
+            for (let i = 1; i <= 11; i++) { // Buscamos hasta 11 meses atrás
+                const checkMonth = (referenceMonth - i + 12) % 12;
+                const monthData = monthlyData.find(m => 
+                    this.getMonthIndex(m.month) === checkMonth && 
+                    (m.orders > 0 || m.sales > 0)
+                );
+                
+                if (monthData) {
+                    lastMonthWithData = monthData;
+                    break;
+                }
+            }
+        }
+    
+        // Calcular cambios porcentuales solo si hay datos del mes anterior
+        let salesChangeHtml = '';
+        let ordersChangeHtml = '';
+        
+        if (lastMonthWithData && referenceData) {
+            const salesChange = lastMonthWithData.sales > 0 ? 
+                ((referenceData.sales - lastMonthWithData.sales) / lastMonthWithData.sales * 100).toFixed(1) : 0;
+            const ordersChange = lastMonthWithData.orders > 0 ? 
+                ((referenceData.orders - lastMonthWithData.orders) / lastMonthWithData.orders * 100).toFixed(1) : 0;
+            
+            salesChangeHtml = `
+                <div class="stat-change ${salesChange >= 0 ? 'positive' : 'negative'}">
+                    ${salesChange >= 0 ? '↑' : '↓'} ${Math.abs(salesChange)}% 
+                    vs ${lastMonthWithData.month}
+                </div>
+            `;
+            
+            ordersChangeHtml = `
+                <div class="stat-change ${ordersChange >= 0 ? 'positive' : 'negative'}">
+                    ${ordersChange >= 0 ? '↑' : '↓'} ${Math.abs(ordersChange)}%
+                </div>
+            `;
+        }
+    
+        // Datos del año (siempre mostramos el total anual completo)
+        const yearlyData = {
+            sales: monthlyData.reduce((sum, month) => sum + month.sales, 0),
+            orders: monthlyData.reduce((sum, month) => sum + month.orders, 0),
+            products: monthlyData.reduce((sum, month) => sum + month.products, 0)
+        };
+    
+        // Determinar el título según el periodo
+        let title = `Resumen ${currentYear}`;
+        if (period === 'month') title = `Resumen ${this.getMonthName(currentMonth)}`;
+        if (period === 'last-month') title = `Resumen ${this.getMonthName((currentMonth - 1 + 12) % 12)}`;
+    
+        container.innerHTML = `
+            <div class="summary-card">
+                <div class="summary-header">
+                    <h3><i class="fas fa-chart-line"></i> ${title}</h3>
+                    ${referenceMonth !== null ? 
+                        `<span class="period-badge">${this.getMonthName(referenceMonth)}</span>` : 
+                        `<span class="period-badge">Anual</span>`}
+                </div>
+                
+                <div class="summary-grid">
+                    <div class="summary-item highlight">
+                        <div class="stat-value">$${referenceData ? 
+                            referenceData.sales.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2}) : 
+                            yearlyData.sales.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}
+                        </div>
+                        <div class="stat-label">${referenceMonth !== null ? 'Ventas del mes' : 'Ventas anuales'}</div>
+                        ${salesChangeHtml}
+                    </div>
+                    
+                    <div class="summary-item">
+                        <div class="stat-value">${referenceData ? 
+                            referenceData.orders.toLocaleString() : 
+                            yearlyData.orders.toLocaleString()}
+                        </div>
+                        <div class="stat-label">${referenceMonth !== null ? 'Pedidos' : 'Pedidos anuales'}</div>
+                        ${ordersChangeHtml}
+                    </div>
+                    
+                    <div class="summary-item">
+                        <div class="stat-value">${referenceData ? 
+                            referenceData.products.toLocaleString() : 
+                            yearlyData.products.toLocaleString()}
+                        </div>
+                        <div class="stat-label">Productos</div>
+                    </div>
+                    
+                    <div class="summary-item yearly">
+                        <div class="stat-value">$${yearlyData.sales.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</div>
+                        <div class="stat-label">Ventas anuales totales</div>
+                        <div class="stat-sub">${yearlyData.orders.toLocaleString()} pedidos, ${yearlyData.products.toLocaleString()} productos</div>
+                    </div>
+                </div>
+            </div>
+        `;
     }
 
     // Métodos para monitorear estado
@@ -362,150 +558,69 @@ class SalesDashboard {
         }
     }
 
+    // En el método initCharts(), actualiza las configuraciones:
     initCharts() {
-        // Configuración común para tooltips
-        const tooltipOptions = {
-            enabled: true,
-            mode: 'index',
-            intersect: false,
-            backgroundColor: 'rgba(0, 0, 0, 0.85)',
-            titleFont: { 
-                family: '"Roboto", sans-serif',
-                size: 18, 
-                weight: 'bold',
-                lineHeight: 1.2
-            },
-            bodyFont: { 
-                family: '"Roboto", sans-serif',
-                size: 16,
-                lineHeight: 1.3
-            },
-            footerFont: { 
-                family: '"Roboto", sans-serif',
-                size: 14,
-                style: 'italic'
-            },
-            padding: 20,
-            cornerRadius: 6,
-            displayColors: true,
-            usePointStyle: true,
-            boxWidth: 12,
-            boxHeight: 12,
-            borderColor: 'rgba(0, 255, 157, 0.5)',
-            borderWidth: 1,
-            callbacks: {
-                // Formatear título
-                title: function(context) {
-                    if (context[0].chart.id === 'country-chart') {
-                        return 'Distribución por País';
-                    } else if (context[0].chart.id === 'products-chart') {
-                        return 'Top Productos';
-                    } else if (context[0].chart.id === 'sales-trend-chart') {
-                        return 'Tendencia de Ventas';
-                    }
-                    return context[0].dataset.label || '';
-                },
-                
-                // Formatear etiquetas
-                label: function(context) {
-                    let label = context.dataset.label || '';
-                    if (label) label += ': ';
-                    
-                    if (context.parsed.y !== null) {
-                        if (context.chart.id === 'country-chart') {
-                            label += `$${context.parsed.toLocaleString('en-US', { 
-                                minimumFractionDigits: 2,
-                                maximumFractionDigits: 2
-                            })}`;
-                        } else if (context.chart.id === 'products-chart') {
-                            label += `${context.parsed.y} unidades`;
-                        } else {
-                            label += context.parsed.y.toLocaleString();
-                        }
-                    }
-                    return label;
-                },
-                
-                // Pie chart tooltip format
-                afterLabel: function(context) {
-                    if (context.chart.config.type === 'doughnut') {
-                        const dataset = context.dataset;
-                        const total = dataset.data.reduce((acc, data) => acc + data, 0);
-                        const currentValue = dataset.data[context.dataIndex];
-                        const percentage = Math.round((currentValue / total) * 100);
-                        return `Porcentaje: ${percentage}%`;
-                    }
-                },
-                
-                // Footer con información adicional
-                footer: function(context) {
-                    if (context[0].chart.id === 'sales-trend-chart') {
-                        const date = new Date(context[0].label);
-                        return `Fecha: ${date.toLocaleDateString('es-ES', { 
-                            weekday: 'long', 
-                            year: 'numeric', 
-                            month: 'long', 
-                            day: 'numeric' 
-                        })}`;
-                    }
-                    return null;
-                }
-            }
-        };
-
-        // Gráfica de países (doughnut)
+        // Configuración común mejorada
+        const gridColor = 'rgba(255, 255, 255, 0.1)';
+        const textColor = '#f8f9fa';
+        const tooltipBg = 'rgba(0, 0, 0, 0.9)';
+        
+        // Gráfica de países (doughnut) - Mejorada
         const countryCtx = document.getElementById('country-chart')?.getContext('2d');
         if (countryCtx) {
             this.charts.country = new Chart(countryCtx, {
                 type: 'doughnut',
-                data: {
-                    labels: [],
-                    datasets: [{
-                        data: [],
-                        backgroundColor: [
-                            '#00ff9d', '#00b4ff', '#ff6b6b', '#feca57', '#5f27cd',
-                            '#1dd1a1', '#ff9ff3', '#f368e0', '#ff9f43', '#ee5253'
-                        ],
-                        borderWidth: 0,
-                        hoverBorderWidth: 2,
-                        hoverBorderColor: 'rgba(255, 255, 255, 0.8)'
-                    }]
-                },
+                data: { labels: [], datasets: [{
+                    data: [],
+                    backgroundColor: [
+                        '#00ff9d', '#00b4ff', '#ff6b6b', '#feca57', '#5f27cd',
+                        '#1dd1a1', '#ff9ff3', '#f368e0', '#ff9f43', '#ee5253'
+                    ],
+                    borderWidth: 0,
+                    hoverBorderWidth: 2,
+                    hoverBorderColor: 'rgba(255, 255, 255, 0.8)'
+                }]},
                 options: {
                     responsive: true,
                     maintainAspectRatio: false,
-                    cutout: '60%',
+                    cutout: '65%',
                     plugins: {
                         legend: {
-                            display: true,
-                            position: 'bottom',
+                            position: 'right',
                             labels: {
-                                color: '#f8f9fa',
-                                boxWidth: 10,
-                                padding: 15,
-                                font: {
-                                    family: '"Roboto", sans-serif',
-                                    size: 15
-                                },
-                                usePointStyle: true
+                                color: textColor,
+                                font: { size: 12 },
+                                padding: 20,
+                                usePointStyle: true,
+                                pointStyle: 'circle'
                             }
                         },
-                        tooltip: tooltipOptions
+                        tooltip: {
+                            callbacks: {
+                                label: (context) => {
+                                    const label = context.label || '';
+                                    const value = context.raw || 0;
+                                    const total = context.dataset.data.reduce((a, b) => a + b, 0);
+                                    const percentage = Math.round((value / total) * 100);
+                                    return `${label}: $${value.toFixed(2)} (${percentage}%)`;
+                                }
+                            },
+                            backgroundColor: tooltipBg,
+                            titleColor: textColor,
+                            bodyColor: textColor,
+                            borderColor: '#00ff9d',
+                            borderWidth: 1
+                        }
                     },
                     animation: {
                         animateScale: true,
                         animateRotate: true
-                    },
-                    onHover: (event, chartElement) => {
-                        if (event.native) {
-                            event.native.target.style.cursor = chartElement[0] ? 'pointer' : 'default';
-                        }
                     }
                 }
             });
         }
 
-        // Gráfica de productos (bar)
+        // Gráfica de productos (bar) - Mejorada
         const productsCtx = document.getElementById('products-chart')?.getContext('2d');
         if (productsCtx) {
             this.charts.products = new Chart(productsCtx, {
@@ -516,8 +631,8 @@ class SalesDashboard {
                         label: 'Unidades Vendidas',
                         data: [],
                         backgroundColor: '#00ff9d',
+                        borderRadius: 6,
                         borderWidth: 0,
-                        borderRadius: 4,
                         hoverBackgroundColor: '#00e68a'
                     }]
                 },
@@ -525,58 +640,32 @@ class SalesDashboard {
                     responsive: true,
                     maintainAspectRatio: false,
                     plugins: {
-                        legend: {
-                            display: false
-                        },
+                        legend: { display: false },
                         tooltip: {
-                            ...tooltipOptions,
                             callbacks: {
-                                ...tooltipOptions.callbacks,
-                                labelColor: function(context) {
-                                    return {
-                                        borderColor: '#00ff9d',
-                                        backgroundColor: '#00ff9d',
-                                        borderWidth: 2
-                                    };
-                                }
-                            }
+                                label: (context) => `${context.raw} unidades vendidas`
+                            },
+                            backgroundColor: tooltipBg,
+                            titleColor: textColor,
+                            bodyColor: textColor
                         }
                     },
                     scales: {
                         y: {
                             beginAtZero: true,
-                            grid: {
-                                color: 'rgba(139, 142, 148, 0.1)'
-                            },
-                            ticks: {
-                                color: '#f8f9fa',
-                                font: {
-                                    family: '"Roboto", sans-serif'
-                                }
-                            }
+                            grid: { color: gridColor },
+                            ticks: { color: textColor }
                         },
                         x: {
-                            grid: {
-                                display: false
-                            },
-                            ticks: {
-                                color: '#f8f9fa',
-                                font: {
-                                    family: '"Roboto", sans-serif'
-                                }
-                            }
-                        }
-                    },
-                    onHover: (event, chartElement) => {
-                        if (event.native) {
-                            event.native.target.style.cursor = chartElement[0] ? 'pointer' : 'default';
+                            grid: { display: false },
+                            ticks: { color: textColor }
                         }
                     }
                 }
             });
         }
 
-        // Gráfica de tendencia de ventas (line)
+        // Gráfica de tendencia (line) - Mejorada
         const trendCtx = document.getElementById('sales-trend-chart')?.getContext('2d');
         if (trendCtx) {
             this.charts.salesTrend = new Chart(trendCtx, {
@@ -588,72 +677,42 @@ class SalesDashboard {
                         data: [],
                         borderColor: '#00ff9d',
                         backgroundColor: 'rgba(0, 255, 157, 0.1)',
-                        borderWidth: 2,
+                        borderWidth: 3,
                         fill: true,
-                        tension: 0.5,
-                        pointBackgroundColor: 'rgba(180, 224, 207, 0.5)',
-                        pointBorderColor: '#00ff9d',
+                        tension: 0.4,
+                        pointBackgroundColor: '#00ff9d',
+                        pointBorderColor: '#fff',
                         pointBorderWidth: 2,
                         pointRadius: 8,
-                        pointHoverRadius: 6
+                        pointHoverRadius: 5
                     }]
                 },
                 options: {
                     responsive: true,
                     maintainAspectRatio: false,
                     plugins: {
-                        legend: {
-                            display: false
-                        },
+                        legend: { display: false },
                         tooltip: {
-                            ...tooltipOptions,
                             callbacks: {
-                                ...tooltipOptions.callbacks,
-                                labelColor: function(context) {
-                                    return {
-                                        borderColor: '#00ff9d',
-                                        backgroundColor: '#00ff9d',
-                                        borderWidth: 2
-                                    };
-                                }
-                            }
+                                label: (context) => `$${context.raw.toFixed(2)}`
+                            },
+                            backgroundColor: tooltipBg,
+                            titleColor: textColor,
+                            bodyColor: textColor
                         }
                     },
                     scales: {
                         y: {
                             beginAtZero: true,
-                            grid: {
-                                color: 'rgba(139, 142, 148, 0.1)'
-                            },
-                            ticks: {
-                                color: '#f8f9fa',
-                                callback: function(value) {
-                                    return '$' + value.toLocaleString();
-                                },
-                                font: {
-                                    family: '"Roboto", sans-serif'
-                                }
+                            grid: { color: gridColor },
+                            ticks: { 
+                                color: textColor,
+                                callback: (value) => `$${value}`
                             }
                         },
                         x: {
-                            grid: {
-                                display: false
-                            },
-                            ticks: {
-                                color: '#f8f9fa',
-                                font: {
-                                    family: '"Roboto", sans-serif'
-                                }
-                            }
-                        }
-                    },
-                    interaction: {
-                        mode: 'index',
-                        intersect: false
-                    },
-                    onHover: (event, chartElement) => {
-                        if (event.native) {
-                            event.native.target.style.cursor = chartElement[0] ? 'pointer' : 'default';
+                            grid: { color: gridColor },
+                            ticks: { color: textColor }
                         }
                     }
                 }
@@ -1407,20 +1466,49 @@ class SalesDashboard {
     applyFilters() {
         if (this.currentView !== 'dashboard') return;
     
-        const startDate = document.getElementById('filter-date-start').value;
-        const endDate = document.getElementById('filter-date-end').value;
-        const country = document.getElementById('filter-country').value;
-        const affiliate = document.getElementById('filter-affiliate').value;
-        const userType = document.getElementById('filter-user-type').value;
+        const startDate = document.getElementById('filter-date-start')?.value;
+        const endDate = document.getElementById('filter-date-end')?.value;
+        const country = document.getElementById('filter-country')?.value;
+        const affiliate = document.getElementById('filter-affiliate')?.value;
+        const userType = document.getElementById('filter-user-type')?.value;
+        const period = document.getElementById('filter-period')?.value || 'month';
+    
+        const now = new Date();
+        let periodStart, periodEnd;
+        
+        switch (period) {
+            case 'month':
+                periodStart = new Date(now.getFullYear(), now.getMonth(), 1);
+                periodEnd = new Date(now.getFullYear(), now.getMonth() + 1, 0);
+                break;
+            case 'last-month':
+                periodStart = new Date(now.getFullYear(), now.getMonth() - 1, 1);
+                periodEnd = new Date(now.getFullYear(), now.getMonth(), 0);
+                break;
+            case 'year':
+                periodStart = new Date(now.getFullYear(), 0, 1);
+                periodEnd = new Date(now.getFullYear(), 11, 31);
+                break;
+            default: // 'all'
+                periodStart = null;
+                periodEnd = null;
+        }
     
         this.filteredOrders = this.orders.filter(order => {
-            const orderDateStr = order.date.toISOString().split('T')[0];
+            const orderDate = order.date;
+            const orderDateStr = orderDate.toISOString().split('T')[0];
+            
             const dateInRange = 
                 (!startDate || orderDateStr >= startDate) && 
                 (!endDate || orderDateStr <= endDate);
-            
+                
+            const periodInRange = 
+                !periodStart || 
+                (orderDate >= periodStart && orderDate <= periodEnd);
+                
             return (
                 dateInRange &&
+                periodInRange &&
                 (!country || order.country === country) &&
                 (!affiliate || order.affiliate === affiliate) &&
                 (!userType || order.userType === userType)
@@ -1428,8 +1516,8 @@ class SalesDashboard {
         });
     
         this.updateStats(this.filteredOrders);
-        this.renderGeneralSummary(this.filteredOrders);
-        this.renderWeeklySummary(); // Nueva función
+        this.renderMonthlyComparison(this.filteredOrders);
+        this.renderWeeklySummary();
         this.renderOrders(this.filteredOrders);
         this.updateCharts(this.filteredOrders);
     }
@@ -1480,16 +1568,40 @@ class SalesDashboard {
     }
 
     updateStats(data) {
-        document.getElementById('total-sales').textContent = 
-            `$${data.reduce((acc, order) => acc + order.total, 0).toLocaleString('en-US', { maximumFractionDigits: 2 })}`;
+        if (!data || !Array.isArray(data)) return;
         
-        document.getElementById('total-products').textContent = 
-            data.reduce((acc, order) => acc + order.productsCount, 0).toLocaleString();
-
-        document.getElementById('total-orders').textContent = data.length;
-
-        const uniqueCustomers = new Set(data.map(order => order.correo_comprador)).size;
-        document.getElementById('unique-customers').textContent = uniqueCustomers;
+        // Calcular totales en sus monedas originales
+        let totalSalesUSD = 0;
+        let totalSalesEUR = 0;
+        
+        data.forEach(order => {
+            const country = order.country || '';
+            if (this.getCurrencySymbol(country) === '€') {
+                totalSalesEUR += order.total || 0;
+            } else {
+                totalSalesUSD += order.total || 0;
+            }
+        });
+        
+        // Actualizar elementos del DOM
+        document.getElementById('total-sales-usd').textContent = 
+            `$${totalSalesUSD.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
+        
+        document.getElementById('total-sales-eur').textContent = 
+            `€${totalSalesEUR.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
+        
+        // Resto de las estadísticas
+        const totalProducts = data.reduce((acc, order) => acc + (order.productsCount || 0), 0);
+        const uniqueCustomers = new Set(data.map(order => order.correo_comprador).filter(Boolean)).size;
+        
+        document.getElementById('total-products').textContent = totalProducts.toLocaleString();
+        document.getElementById('total-orders').textContent = data.length.toLocaleString();
+        document.getElementById('unique-customers').textContent = uniqueCustomers.toLocaleString();
+    
+        // Para mostrar el total combinado (opcional)
+        const totalCombined = totalSalesUSD + totalSalesEUR;
+        document.getElementById('total-sales').textContent = 
+        `$${totalCombined.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
     }
 
     renderGeneralSummary(data) {
@@ -1848,6 +1960,14 @@ class SalesDashboard {
         
         document.getElementById('close-pending-changes')?.addEventListener('click', () => {
             document.getElementById('pending-changes-modal').classList.add('hidden');
+        });
+
+        document.getElementById('toggle-json-preview')?.addEventListener('click', (e) => {
+            const preview = document.getElementById('product-json-preview').parentElement;
+            preview.classList.toggle('hidden');
+            e.target.innerHTML = preview.classList.contains('hidden') ? 
+                '<i class="fas fa-eye"></i> Mostrar Vista Previa' : 
+                '<i class="fas fa-eye-slash"></i> Ocultar Vista Previa';
         });
     }
 
