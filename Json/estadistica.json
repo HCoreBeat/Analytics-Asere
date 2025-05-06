@@ -2655,5 +2655,61 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2603:6011:1cf0:fc0:74be:aea2:b2fe:c470",
+    "pais": "United States",
+    "fecha_hora_entrada": "2025-05-05 19:47:51",
+    "origen": "Acceso directo",
+    "afiliado": "Natty",
+    "duracion_sesion_segundos": 5273,
+    "tiempo_carga_pagina_ms": 534,
+    "nombre_comprador": "Eileen Cruz",
+    "telefono_comprador": "5024387312",
+    "correo_comprador": "eileencruz8902@gmail.com",
+    "compras": [
+      {
+        "producto": "Café Espresso «El Ricote»",
+        "cantidad": 1,
+        "precio_unitario": 6.87,
+        "precio_total": 6.87
+      },
+      {
+        "producto": "Pechuga de Pollo (1Kg)",
+        "cantidad": 2,
+        "precio_unitario": 11.9,
+        "precio_total": 23.8
+      },
+      {
+        "producto": "Frijoles Rojos (1kg)",
+        "cantidad": 1,
+        "precio_unitario": 4.8,
+        "precio_total": 4.8
+      },
+      {
+        "producto": "Frijol Negro x Lb",
+        "cantidad": 4,
+        "precio_unitario": 2.63,
+        "precio_total": 10.52
+      },
+      {
+        "producto": "Leche entera en polvo (1kg)",
+        "cantidad": 1,
+        "precio_unitario": 11.97,
+        "precio_total": 11.97
+      },
+      {
+        "producto": "Aceite Fritura 900ml",
+        "cantidad": 2,
+        "precio_unitario": 4.2,
+        "precio_total": 8.4
+      }
+    ],
+    "precio_compra_total": "66.36",
+    "navegador": "Safari",
+    "sistema_operativo": "iOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   }
 ]
