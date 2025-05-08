@@ -2711,5 +2711,67 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2607:fb91:c77:c641:c535:b61f:22:3",
+    "pais": "United States",
+    "fecha_hora_entrada": "2025-05-07 22:09:03",
+    "origen": "Acceso directo",
+    "afiliado": "Natty",
+    "duracion_sesion_segundos": 467,
+    "tiempo_carga_pagina_ms": 1021,
+    "nombre_comprador": "Miguel Ángel Polo Leyva",
+    "telefono_comprador": "7863229781",
+    "correo_comprador": "miguelpolocbpone2@gmail.com",
+    "compras": [
+      {
+        "producto": "Helado 4Lts",
+        "cantidad": 1,
+        "precio_unitario": 10.45,
+        "precio_total": 10.45
+      },
+      {
+        "producto": "Aceite Fritura 900ml",
+        "cantidad": 1,
+        "precio_unitario": 4.2,
+        "precio_total": 4.2
+      },
+      {
+        "producto": "Leche Condensada azucarada (390g)",
+        "cantidad": 2,
+        "precio_unitario": 2.89,
+        "precio_total": 5.78
+      },
+      {
+        "producto": "Mantequilla (250g)",
+        "cantidad": 1,
+        "precio_unitario": 2.42,
+        "precio_total": 2.42
+      },
+      {
+        "producto": "Whisky Chancelier",
+        "cantidad": 1,
+        "precio_unitario": 8,
+        "precio_total": 8
+      },
+      {
+        "producto": "Malta Bucanero",
+        "cantidad": 8,
+        "precio_unitario": 1.15,
+        "precio_total": 9.2
+      },
+      {
+        "producto": "Refresco Instantáneo (2Lt)",
+        "cantidad": 5,
+        "precio_unitario": 0.42,
+        "precio_total": 2.1
+      }
+    ],
+    "precio_compra_total": "42.15",
+    "navegador": "Safari",
+    "sistema_operativo": "iOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   }
 ]
