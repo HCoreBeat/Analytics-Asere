@@ -2773,5 +2773,117 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2600:1700:3d65:580:3066:3991:c585:ef82",
+    "pais": "United States",
+    "fecha_hora_entrada": "2025-05-09 12:20:12",
+    "origen": "Acceso directo",
+    "afiliado": "Juana",
+    "duracion_sesion_segundos": 238,
+    "tiempo_carga_pagina_ms": 1245,
+    "nombre_comprador": "Yoandra Martínez",
+    "telefono_comprador": "7863191466",
+    "correo_comprador": "yoa2002ye@gmail.com",
+    "compras": [
+      {
+        "producto": "Café Espresso «El Ricote»",
+        "cantidad": 2,
+        "precio_unitario": 6.87,
+        "precio_total": 13.74
+      },
+      {
+        "producto": "Galletas de Soda con Mantequilla Doricas",
+        "cantidad": 2,
+        "precio_unitario": 5.25,
+        "precio_total": 10.5
+      },
+      {
+        "producto": "Manzanas Pack x6",
+        "cantidad": 1,
+        "precio_unitario": 9,
+        "precio_total": 9
+      },
+      {
+        "producto": "Kg de Queso Gouda Premium",
+        "cantidad": 1,
+        "precio_unitario": 18.27,
+        "precio_total": 18.27
+      }
+    ],
+    "precio_compra_total": "51.51",
+    "navegador": "Safari",
+    "sistema_operativo": "iOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "47.195.228.133",
+    "pais": "United States",
+    "fecha_hora_entrada": "2025-05-09 12:34:03",
+    "origen": "Acceso directo",
+    "afiliado": "Juana",
+    "duracion_sesion_segundos": 450,
+    "tiempo_carga_pagina_ms": 296,
+    "nombre_comprador": "Ailen Vega mariño",
+    "telefono_comprador": "9413123962",
+    "correo_comprador": "ailen29101990@gmail.com",
+    "compras": [
+      {
+        "producto": "Helado 4Lts",
+        "cantidad": 2,
+        "precio_unitario": 10.45,
+        "precio_total": 20.9
+      },
+      {
+        "producto": "Maíz molido tierno x Lb",
+        "cantidad": 10,
+        "precio_unitario": 0.98,
+        "precio_total": 9.8
+      },
+      {
+        "producto": "Aceite Fritura 900ml",
+        "cantidad": 1,
+        "precio_unitario": 4.2,
+        "precio_total": 4.2
+      },
+      {
+        "producto": "Arroz grano largo Vima (1Kg)",
+        "cantidad": 1,
+        "precio_unitario": 3,
+        "precio_total": 3
+      },
+      {
+        "producto": "Paquete de pan de bola 10u",
+        "cantidad": 1,
+        "precio_unitario": 1.9,
+        "precio_total": 1.9
+      },
+      {
+        "producto": "Chocolate en Polvo «Rico» (500g)",
+        "cantidad": 1,
+        "precio_unitario": 4.2,
+        "precio_total": 4.2
+      },
+      {
+        "producto": "Cartón de Huevos",
+        "cantidad": 1,
+        "precio_unitario": 10,
+        "precio_total": 10
+      },
+      {
+        "producto": "Leche entera en polvo (1kg)",
+        "cantidad": 1,
+        "precio_unitario": 11.97,
+        "precio_total": 11.97
+      }
+    ],
+    "precio_compra_total": "65.97",
+    "navegador": "Chrome",
+    "sistema_operativo": "Android",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   }
 ]
