@@ -2923,5 +2923,78 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
+  },
+    {
+    "ip": "4e6a:182a:02aa:12f4:a5bf:f503:a14c:4228",
+    "pais": "United States",
+    "fecha_hora_entrada": "2025-05-13 07:38:40",
+    "origen": "https://www.asereshops.com/",
+    "afiliado": "Dalva 1",
+    "duracion_sesion_segundos": 946,
+    "tiempo_carga_pagina_ms": 1280,
+    "nombre_comprador": "Yanisleydis Cruz Hidalgo",
+    "telefono_comprador": "+19045044222",
+    "correo_comprador": "yanycruz36@icloud.com",
+    "compras": [
+        {
+            "producto": "Pasta de tomate Vima (400g)",
+            "cantidad": 1,
+            "precio_unitario": 1.98,
+            "precio_total": 1.98
+        },
+        {
+            "producto": "Refresco Instantáneo (2Lt)",
+            "cantidad": 1,
+            "precio_unitario": 0.42,
+            "precio_total": 0.42
+        },
+        {
+            "producto": "Espaguetis (500g)",
+            "cantidad": 2,
+            "precio_unitario": 1.89,
+            "precio_total": 3.78
+        },
+        {
+            "producto": "Mazo de cebolla blanca",
+            "cantidad": 1,
+            "precio_unitario": 1.50,
+            "precio_total": 1.50
+        },
+        {
+            "producto": "Pepino x Lb",
+            "cantidad": 1,
+            "precio_unitario": 0.58,
+            "precio_total": 0.58
+        },
+        {
+            "producto": "Salchicha de pollo y cerdo 10u (340g)",
+            "cantidad": 1,
+            "precio_unitario": 1.90,
+            "precio_total": 1.90
+        },
+        {
+            "producto": "Picadillo de pollo (1Kg)",
+            "cantidad": 1,
+            "precio_unitario": 2.97,
+            "precio_total": 2.97
+        },
+        {
+            "producto": "Pack de 4 Hamburguesas de pollo",
+            "cantidad": 1,
+            "precio_unitario": 1.89,
+            "precio_total": 1.89
+        }
+    ],
+    "precio_compra_total": 15.02,
+    "destinatario": {
+        "nombre_destinatario": "Lisbeth Roselló",
+        "telefono_destinatario": "+53 5 1514855",
+        "direccion_envio": "Calle primera s/n entre calle 82 y Hospital Guevara RPTO Las margaritas, Las Tunas, Las Tunas"
+    },
+    "navegador": "Safari",
+    "sistema_operativo": "iOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   }
 ]
