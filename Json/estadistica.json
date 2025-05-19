@@ -3082,5 +3082,127 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2607:fb91:c33:308:e07c:25f5:6d1:cbff",
+    "pais": "United States",
+    "fecha_hora_entrada": "2025-05-19 13:18:22",
+    "origen": "Acceso directo",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 1013,
+    "tiempo_carga_pagina_ms": 742,
+    "nombre_comprador": "Nayelin Reyes",
+    "telefono_comprador": "7863002520",
+    "correo_comprador": "nileyan2018@gmail.com",
+    "compras": [
+      {
+        "producto": "Pollo Golden Phoenix (2Kg)",
+        "cantidad": 2,
+        "precio_unitario": 7.5,
+        "precio_total": 15
+      },
+      {
+        "producto": "Pasta de tomate Vima (400g)",
+        "cantidad": 1,
+        "precio_unitario": 1.98,
+        "precio_total": 1.98
+      },
+      {
+        "producto": "Maíz molido tierno x Lb",
+        "cantidad": 2,
+        "precio_unitario": 0.98,
+        "precio_total": 1.96
+      },
+      {
+        "producto": "Mano de plátano burro",
+        "cantidad": 2,
+        "precio_unitario": 0.95,
+        "precio_total": 1.9
+      },
+      {
+        "producto": "Pepino x Lb",
+        "cantidad": 2,
+        "precio_unitario": 0.58,
+        "precio_total": 1.16
+      },
+      {
+        "producto": "Tomate x Lb",
+        "cantidad": 2,
+        "precio_unitario": 0.93,
+        "precio_total": 1.86
+      },
+      {
+        "producto": "Plátano macho x unidad",
+        "cantidad": 8,
+        "precio_unitario": 0.26,
+        "precio_total": 2.08
+      },
+      {
+        "producto": "Boniato x Lb",
+        "cantidad": 3,
+        "precio_unitario": 0.42,
+        "precio_total": 1.26
+      },
+      {
+        "producto": "Mazo de cebolla blanca",
+        "cantidad": 1,
+        "precio_unitario": 1.5,
+        "precio_total": 1.5
+      },
+      {
+        "producto": "Frijol Negro x Lb",
+        "cantidad": 1,
+        "precio_unitario": 2.63,
+        "precio_total": 2.63
+      },
+      {
+        "producto": "Frijol Rojo x Lb",
+        "cantidad": 1,
+        "precio_unitario": 3.15,
+        "precio_total": 3.15
+      },
+      {
+        "producto": "Espaguetis (500g)",
+        "cantidad": 1,
+        "precio_unitario": 1.89,
+        "precio_total": 1.89
+      },
+      {
+        "producto": "Arroz Criollo 1Lb",
+        "cantidad": 5,
+        "precio_unitario": 0.95,
+        "precio_total": 4.75
+      },
+      {
+        "producto": "Helado 4Lts",
+        "cantidad": 1,
+        "precio_unitario": 10.45,
+        "precio_total": 10.45
+      },
+      {
+        "producto": "Queso criollo x Lb",
+        "cantidad": 2,
+        "precio_unitario": 2.4,
+        "precio_total": 4.8
+      },
+      {
+        "producto": "Leche entera en polvo (1kg)",
+        "cantidad": 1,
+        "precio_unitario": 11.97,
+        "precio_total": 11.97
+      },
+      {
+        "producto": "Pack Confituras",
+        "cantidad": 1,
+        "precio_unitario": 15,
+        "precio_total": 15
+      }
+    ],
+    "precio_compra_total": "83.34",
+    "navegador": "Safari",
+    "sistema_operativo": "iOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   }
 ]
