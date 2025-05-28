@@ -3204,5 +3204,43 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "107.134.113.72",
+    "pais": "United States",
+    "fecha_hora_entrada": "2025-05-28 11:13:47",
+    "origen": "Acceso directo",
+    "afiliado": "Natty",
+    "duracion_sesion_segundos": 408,
+    "tiempo_carga_pagina_ms": 414,
+    "nombre_comprador": "Shakira Granda Rodriguez",
+    "telefono_comprador": "7866094405",
+    "correo_comprador": "h7707shaki@yahoo.com",
+    "compras": [
+      {
+        "producto": "Pack Confituras",
+        "cantidad": 1,
+        "precio_unitario": 15,
+        "precio_total": 15
+      },
+      {
+        "producto": "Helado 4Lts",
+        "cantidad": 1,
+        "precio_unitario": 10.45,
+        "precio_total": 10.45
+      },
+      {
+        "producto": "Queso criollo x Lb",
+        "cantidad": 7,
+        "precio_unitario": 2.4,
+        "precio_total": 16.8
+      }
+    ],
+    "precio_compra_total": "42.25",
+    "navegador": "Safari",
+    "sistema_operativo": "iOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   }
 ]
