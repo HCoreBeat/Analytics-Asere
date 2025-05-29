@@ -3206,6 +3206,81 @@
     "fuente_trafico": "Directo"
   },
   {
+    "ip": "b150:e50c:80b7:ed89:01e2:42d6:e123:5dce",
+    "pais": "United States",
+    "fecha_hora_entrada": "2025-05-27 14:41:05",
+    "origen": "https://www.asereshops.com/",
+    "afiliado": "Dalva 1",
+    "duracion_sesion_segundos": 946,
+    "tiempo_carga_pagina_ms": 1280,
+    "nombre_comprador": "Yanisleydis Cruz",
+    "telefono_comprador": "+19045044222",
+    "correo_comprador": "yanycruz36@icloud.com",
+    "compras": [
+        {
+            "producto": "Pack de 4 Hamburguesas de pollo",
+            "cantidad": 1,
+            "precio_unitario": 1.89,
+            "precio_total": 1.89
+        },
+        {
+            "producto": "Salchicha de pollo y cerdo 10u (340g)",
+            "cantidad": 1,
+            "precio_unitario": 1.90,
+            "precio_total": 1.90
+        },
+        {
+            "producto": "Picadillo de pollo (1Kg)",
+            "cantidad": 1,
+            "precio_unitario": 2.97,
+            "precio_total": 2.97
+        },
+        {
+            "producto": "Sal x Lb",
+            "cantidad": 1,
+            "precio_unitario": 0.35,
+            "precio_total": 0.35
+        },
+        {
+            "producto": "Espaguetis (500g)",
+            "cantidad": 1,
+            "precio_unitario": 1.89,
+            "precio_total": 1.89
+        },
+        {
+            "producto": "Pepino x Lb",
+            "cantidad": 1,
+            "precio_unitario": 0.58,
+            "precio_total": 0.58
+        },
+        {
+            "producto": "Azúcar blanca x lb",
+            "cantidad": 1,
+            "precio_unitario": 1.23,
+            "precio_total": 1.23
+        },
+        {
+            "producto": "Codito Badelli (350g)",
+            "cantidad": 1,
+            "precio_unitario": 1.89,
+            "precio_total": 1.89
+        }
+    ],
+    "precio_compra_total": 12.70,
+    "destinatario": {
+        "nombre_destinatario": "Lisbeth Roselló",
+        "telefono_destinatario": "+53 5 9606498",
+        "direccion_envio": "Calle primera entre calle 86 y Hospital Guevara sin #"
+    },
+    "navegador": "Safari",
+    "sistema_operativo": "iOS",
+    "plataforma_usuario": "iPhone",
+    "version_navegador": "18.3.1",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+   },
+  {
     "ip": "107.134.113.72",
     "pais": "United States",
     "fecha_hora_entrada": "2025-05-28 11:13:47",
@@ -3242,5 +3317,50 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
-  }
+  },
+   {
+    "ip": "ae76:e06b:cd3c:bc37:520f:1b0f:32e4:a160",
+    "pais": "United States",
+    "fecha_hora_entrada": "2025-05-29 12:23:41",
+    "origen": "https://www.asereshops.com/",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 946,
+    "tiempo_carga_pagina_ms": 1280,
+    "nombre_comprador": "Harol Rojas",
+    "telefono_comprador": "7866303006",
+    "correo_comprador": "harolrojas18783@yahoo.es",
+    "compras": [
+        {
+            "producto": "Carne de cerdo x Lb",
+            "cantidad": 14,
+            "precio_unitario": 2.90,
+            "precio_total": 40.60
+        },
+        {
+            "producto": "Manzanas Pack x6",
+            "cantidad": 1,
+            "precio_unitario": 9.00,
+            "precio_total": 9.00
+        },
+        {
+            "producto": "Refresco Instantáneo (2Lt)",
+            "cantidad": 5,
+            "precio_unitario": 0.42,
+            "precio_total": 2.10
+        }
+    ],
+    "precio_compra_total": 51.70,
+    "destinatario": {
+        "nombre_destinatario": "Isnayana Hernandez",
+        "telefono_destinatario": "+53 5 0047668",
+        "direccion_envio": "Fernando de la Cruz. Edificio #15. Apartamento A-3 entre Joaquin Agüero y 66. Reparto Velazquez"
+    },
+    "navegador": "Safari",
+    "sistema_operativo": "iOS",
+    "plataforma_usuario": "iPhone",
+    "version_navegador": "18.5",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+}
 ]
