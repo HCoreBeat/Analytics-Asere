@@ -3362,5 +3362,38 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
-}
+    },
+    {
+    "ip": "72e4:4067:f1b0:0e0f:a322:54eb:30e3:b838",
+    "pais": "Italy",
+    "fecha_hora_entrada": "2025-05-30 17:36:39",
+    "origen": "https://www.asereshops.com/",
+    "afiliado": "Amatiz guianza endulzarte",
+    "duracion_sesion_segundos": 946,
+    "tiempo_carga_pagina_ms": 1280,
+    "nombre_comprador": "Katia León Caraballe",
+    "telefono_comprador": "3385244360",
+    "correo_comprador": "katiacuba77@yahoo.it",
+    "compras": [
+        {
+            "producto": "Pack Dulce",
+            "cantidad": 1,
+            "precio_unitario": 35.00,
+            "precio_total": 35.00
+        }
+    ],
+    "precio_compra_total": 35.00,
+    "destinatario": {
+        "nombre_destinatario": "Blevins Leon Caraballe",
+        "telefono_destinatario": "5359206045",
+        "direccion_envio": "Calle 20 número 106 reparto aguilera"
+    },
+    "navegador": "Facebook",
+    "sistema_operativo": "Linux",
+    "plataforma_usuario": "Androide",
+    "version_navegador": "514.0.0.65.72",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+    }
 ]
