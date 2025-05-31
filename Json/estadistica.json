@@ -3395,5 +3395,314 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
+    },
+    {
+    "ip": "aa91:a441:aed9:39e2:a430:27a4:a634:19e3",
+    "pais": "United States",
+    "fecha_hora_entrada": "2025-05-30 23:57:13",
+    "origen": "https://www.asereshops.com/",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 946,
+    "tiempo_carga_pagina_ms": 1280,
+    "nombre_comprador": "Nayelin Reyes",
+    "telefono_comprador": "7863002520",
+    "correo_comprador": "nikeyan2018@gmail.com",
+    "compras": [
+        {
+            "producto": "Pack Confituras",
+            "cantidad": 1,
+            "precio_unitario": 15.00,
+            "precio_total": 15.00
+        },
+        {
+            "producto": "Maíz molido tierno x Lb",
+            "cantidad": 2,
+            "precio_unitario": 1.96,
+            "precio_total": 3.92
+        },
+        {
+            "producto": "Mano de plátano burro",
+            "cantidad": 2,
+            "precio_unitario": 1.90,
+            "precio_total": 3.80
+        },
+        {
+            "producto": "Plátano macho x unidad",
+            "cantidad": 10,
+            "precio_unitario": 0.26,
+            "precio_total": 2.60
+        },
+        {
+            "producto": "Boniato x Lb",
+            "cantidad": 3,
+            "precio_unitario": 1.26,
+            "precio_total": 3.78
+        },
+        {
+            "producto": "Frijol Negro x Lb",
+            "cantidad": 1,
+            "precio_unitario": 2.63,
+            "precio_total": 2.63
+        },
+        {
+            "producto": "Frijol Rojo x Lb",
+            "cantidad": 1,
+            "precio_unitario": 3.15,
+            "precio_total": 3.15
+        },
+        {
+            "producto": "Arroz Criollo 1Lb",
+            "cantidad": 6,
+            "precio_unitario": 0.95,
+            "precio_total": 5.70
+        }
+    ],
+    "precio_compra_total": 34.20,
+    "destinatario": {
+        "nombre_destinatario": "Alejandro Góngora",
+        "telefono_destinatario": "+53 5 2617642",
+        "direccion_envio": "24 de febrero #48, % Andrés Rodríguez y Aquiles Espinoza. Reparto Pena"
+    },
+    "navegador": "Safari",
+    "sistema_operativo": "iOS",
+    "plataforma_usuario": "iPhone",
+    "version_navegador": "18.5",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+    },
+    {
+    "ip": "e574:eca5:0d2e:0d87:f6ef:6668:9669:b20b",
+    "pais": "United States",
+    "fecha_hora_entrada": "2025-05-31 00:05:51",
+    "origen": "https://www.asereshops.com/",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 946,
+    "tiempo_carga_pagina_ms": 1280,
+    "nombre_comprador": "Nayelin Reyes",
+    "telefono_comprador": "7863002520",
+    "correo_comprador": "nileyan2018@gmail.com",
+    "compras": [
+        {
+            "producto": "Maíz molido tierno x Lb",
+            "cantidad": 2,
+            "precio_unitario": 1.96,
+            "precio_total": 3.92
+        },
+        {
+            "producto": "Mazo de cebolla blanca",
+            "cantidad": 1,
+            "precio_unitario": 1.50,
+            "precio_total": 1.50
+        },
+        {
+            "producto": "Mano de plátano burro",
+            "cantidad": 1,
+            "precio_unitario": 0.95,
+            "precio_total": 0.95
+        },
+        {
+            "producto": "Pepino x Lb",
+            "cantidad": 1,
+            "precio_unitario": 0.58,
+            "precio_total": 0.58
+        },
+        {
+            "producto": "Tomate x Lb",
+            "cantidad": 1,
+            "precio_unitario": 0.93,
+            "precio_total": 0.93
+        },
+        {
+            "producto": "Plátano macho x unidad",
+            "cantidad": 6,
+            "precio_unitario": 0.26,
+            "precio_total": 1.56
+        },
+        {
+            "producto": "Boniato x Lb",
+            "cantidad": 2,
+            "precio_unitario": 0.42,
+            "precio_total": 0.84
+        },
+        {
+            "producto": "Frijol Negro x Lb",
+            "cantidad": 1,
+            "precio_unitario": 2.63,
+            "precio_total": 2.63
+        },
+        {
+            "producto": "Espaguetis (500g)",
+            "cantidad": 1,
+            "precio_unitario": 1.89,
+            "precio_total": 1.89
+        },
+        {
+            "producto": "Frijol Rojo x Lb",
+            "cantidad": 1,
+            "precio_unitario": 3.15,
+            "precio_total": 3.15
+        },
+        {
+            "producto": "Arroz Criollo 1Lb",
+            "cantidad": 6,
+            "precio_unitario": 0.95,
+            "precio_total": 5.70
+        },
+        {
+            "producto": "Queso criollo x Lb",
+            "cantidad": 2,
+            "precio_unitario": 2.40,
+            "precio_total": 4.80
+        },
+        {
+            "producto": "Aceite Fritura 900ml",
+            "cantidad": 1,
+            "precio_unitario": 4.20,
+            "precio_total": 4.20
+        },
+        {
+            "producto": "Nutela",
+            "cantidad": 1,
+            "precio_unitario": 4.70,
+            "precio_total": 4.70
+        },
+        {
+            "producto": "Azúcar blanca x lb",
+            "cantidad": 1,
+            "precio_unitario": 1.23,
+            "precio_total": 1.23
+        },
+        {
+            "producto": "Cartón de Huevos",
+            "cantidad": 1,
+            "precio_unitario": 10.00,
+            "precio_total": 10.00
+        }
+    ],
+    "precio_compra_total": 46.62,
+    "destinatario": {
+        "nombre_destinatario": "Elina",
+        "telefono_destinatario": "537808640",
+        "direccion_envio": "Ave de la juventud edificio 16 apto 4"
+    },
+    "navegador": "Safari",
+    "sistema_operativo": "iOS",
+    "plataforma_usuario": "iPhone",
+    "version_navegador": "18.5",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+    },
+    {
+    "ip": "3ba0:2e53:d25d:a324:b673:8a0c:5c71:3232",
+    "pais": "United States",
+    "fecha_hora_entrada": "2025-05-31 09:05:16",
+    "origen": "https://www.asereshops.com/",
+    "afiliado": "Natty",
+    "duracion_sesion_segundos": 946,
+    "tiempo_carga_pagina_ms": 1280,
+    "nombre_comprador": "Eileen Cruz",
+    "telefono_comprador": "5024387312",
+    "correo_comprador": "eileencruz8902@gmail.com",
+    "compras": [
+        {
+            "producto": "Pack Dulce",
+            "cantidad": 1,
+            "precio_unitario": 35.00,
+            "precio_total": 35.00
+        },
+        {
+            "producto": "Croqueta Jamón (500g)",
+            "cantidad": 2,
+            "precio_unitario": 2.52,
+            "precio_total": 5.04
+        },
+        {
+            "producto": "Carne de cerdo x Lb",
+            "cantidad": 15,
+            "precio_unitario": 2.90,
+            "precio_total": 43.50
+        },
+        {
+            "producto": "Carne de Ovejo x Lb",
+            "cantidad": 15,
+            "precio_unitario": 2.36,
+            "precio_total": 35.40
+        },
+        {
+            "producto": "Pasta de tomate Vima (400g)",
+            "cantidad": 1,
+            "precio_unitario": 1.98,
+            "precio_total": 1.98
+        },
+        {
+            "producto": "Sazón Goya",
+            "cantidad": 10,
+            "precio_unitario": 0.63,
+            "precio_total": 6.30
+        },
+        {
+            "producto": "Frijol Rojo x Lb",
+            "cantidad": 5,
+            "precio_unitario": 3.15,
+            "precio_total": 15.75
+        },
+        {
+            "producto": "Frijol Negro x Lb",
+            "cantidad": 5,
+            "precio_unitario": 2.63,
+            "precio_total": 13.15
+        },
+        {
+            "producto": "Espaguetis (500g)",
+            "cantidad": 2,
+            "precio_unitario": 1.89,
+            "precio_total": 3.78
+        },
+        {
+            "producto": "Maíz molido tierno x Lb",
+            "cantidad": 5,
+            "precio_unitario": 0.98,
+            "precio_total": 4.90
+        },
+        {
+            "producto": "Plátano macho x unidad",
+            "cantidad": 20,
+            "precio_unitario": 0.26,
+            "precio_total": 5.20
+        },
+        {
+            "producto": "Tomate x Lb",
+            "cantidad": 8,
+            "precio_unitario": 0.93,
+            "precio_total": 7.44
+        },
+        {
+            "producto": "Limón x Lb",
+            "cantidad": 8,
+            "precio_unitario": 2.31,
+            "precio_total": 18.48
+        },
+        {
+            "producto": "Pack Estilizado",
+            "cantidad": 1,
+            "precio_unitario": 16.00,
+            "precio_total": 16.00
+        }
+    ],
+    "precio_compra_total": 211.92,
+    "destinatario": {
+        "nombre_destinatario": "Mara Nieves Peña González",
+        "telefono_destinatario": "+53 55887647",
+        "direccion_envio": "173 Francisco Vega entre Lora y Nicolas Heredia. Reparto primero Las Tunas"
+    },
+    "navegador": "Safari",
+    "sistema_operativo": "iOS",
+    "plataforma_usuario": "iPhone",
+    "version_navegador": "18.5",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
     }
 ]
