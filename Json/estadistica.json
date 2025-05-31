@@ -3457,7 +3457,7 @@
             "precio_total": 5.70
         }
     ],
-    "precio_compra_total": 34.20,
+    "precio_compra_total": "34.20",
     "destinatario": {
         "nombre_destinatario": "Alejandro Góngora",
         "telefono_destinatario": "+53 5 2617642",
@@ -3580,7 +3580,7 @@
             "precio_total": 10.00
         }
     ],
-    "precio_compra_total": 46.62,
+    "precio_compra_total": "46.62",
     "destinatario": {
         "nombre_destinatario": "Elina",
         "telefono_destinatario": "537808640",
@@ -3691,7 +3691,7 @@
             "precio_total": 16.00
         }
     ],
-    "precio_compra_total": 211.92,
+    "precio_compra_total": "211.92",
     "destinatario": {
         "nombre_destinatario": "Mara Nieves Peña González",
         "telefono_destinatario": "+53 55887647",
