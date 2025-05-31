@@ -3311,14 +3311,16 @@
         "precio_total": 16.8
       }
     ],
-    "precio_compra_total": "42.25",
+    "precio_compra_total": 42.25,
     "navegador": "Safari",
     "sistema_operativo": "iOS",
+    "plataforma_usuario": "iPhone",
+    "version_navegador": "18.5",
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
   },
-   {
+  {
     "ip": "ae76:e06b:cd3c:bc37:520f:1b0f:32e4:a160",
     "pais": "United States",
     "fecha_hora_entrada": "2025-05-29 12:23:41",
@@ -3330,30 +3332,30 @@
     "telefono_comprador": "7866303006",
     "correo_comprador": "harolrojas18783@yahoo.es",
     "compras": [
-        {
-            "producto": "Carne de cerdo x Lb",
-            "cantidad": 14,
-            "precio_unitario": 2.90,
-            "precio_total": 40.60
-        },
-        {
-            "producto": "Manzanas Pack x6",
-            "cantidad": 1,
-            "precio_unitario": 9.00,
-            "precio_total": 9.00
-        },
-        {
-            "producto": "Refresco Instantáneo (2Lt)",
-            "cantidad": 5,
-            "precio_unitario": 0.42,
-            "precio_total": 2.10
-        }
+      {
+        "producto": "Carne de cerdo x Lb",
+        "cantidad": 14,
+        "precio_unitario": 2.90,
+        "precio_total": 40.60
+      },
+      {
+        "producto": "Manzanas Pack x6",
+        "cantidad": 1,
+        "precio_unitario": 9.00,
+        "precio_total": 9.00
+      },
+      {
+        "producto": "Refresco Instantáneo (2Lt)",
+        "cantidad": 5,
+        "precio_unitario": 0.42,
+        "precio_total": 2.10
+      }
     ],
     "precio_compra_total": 51.70,
     "destinatario": {
-        "nombre_destinatario": "Isnayana Hernandez",
-        "telefono_destinatario": "+53 5 0047668",
-        "direccion_envio": "Fernando de la Cruz. Edificio #15. Apartamento A-3 entre Joaquin Agüero y 66. Reparto Velazquez"
+      "nombre_destinatario": "Isnayana Hernandez",
+      "telefono_destinatario": "+53 5 0047668",
+      "direccion_envio": "Fernando de la Cruz. Edificio #15. Apartamento A-3 entre Joaquin Agüero y 66. Reparto Velazquez"
     },
     "navegador": "Safari",
     "sistema_operativo": "iOS",
@@ -3362,8 +3364,8 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
-    },
-    {
+  },
+  {
     "ip": "72e4:4067:f1b0:0e0f:a322:54eb:30e3:b838",
     "pais": "Italy",
     "fecha_hora_entrada": "2025-05-30 17:36:39",
@@ -3375,28 +3377,28 @@
     "telefono_comprador": "3385244360",
     "correo_comprador": "katiacuba77@yahoo.it",
     "compras": [
-        {
-            "producto": "Pack Dulce",
-            "cantidad": 1,
-            "precio_unitario": 35.00,
-            "precio_total": 35.00
-        }
+      {
+        "producto": "Pack Dulce",
+        "cantidad": 1,
+        "precio_unitario": 35.00,
+        "precio_total": 35.00
+      }
     ],
     "precio_compra_total": 35.00,
     "destinatario": {
-        "nombre_destinatario": "Blevins Leon Caraballe",
-        "telefono_destinatario": "5359206045",
-        "direccion_envio": "Calle 20 número 106 reparto aguilera"
+      "nombre_destinatario": "Blevins Leon Caraballe",
+      "telefono_destinatario": "5359206045",
+      "direccion_envio": "Calle 20 número 106 reparto aguilera"
     },
     "navegador": "Facebook",
     "sistema_operativo": "Linux",
-    "plataforma_usuario": "Androide",
+    "plataforma_usuario": "Android",
     "version_navegador": "514.0.0.65.72",
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
-    },
-    {
+  },
+  {
     "ip": "aa91:a441:aed9:39e2:a430:27a4:a634:19e3",
     "pais": "United States",
     "fecha_hora_entrada": "2025-05-30 23:57:13",
@@ -3408,60 +3410,60 @@
     "telefono_comprador": "7863002520",
     "correo_comprador": "nikeyan2018@gmail.com",
     "compras": [
-        {
-            "producto": "Pack Confituras",
-            "cantidad": 1,
-            "precio_unitario": 15.00,
-            "precio_total": 15.00
-        },
-        {
-            "producto": "Maíz molido tierno x Lb",
-            "cantidad": 2,
-            "precio_unitario": 1.96,
-            "precio_total": 3.92
-        },
-        {
-            "producto": "Mano de plátano burro",
-            "cantidad": 2,
-            "precio_unitario": 1.90,
-            "precio_total": 3.80
-        },
-        {
-            "producto": "Plátano macho x unidad",
-            "cantidad": 10,
-            "precio_unitario": 0.26,
-            "precio_total": 2.60
-        },
-        {
-            "producto": "Boniato x Lb",
-            "cantidad": 3,
-            "precio_unitario": 1.26,
-            "precio_total": 3.78
-        },
-        {
-            "producto": "Frijol Negro x Lb",
-            "cantidad": 1,
-            "precio_unitario": 2.63,
-            "precio_total": 2.63
-        },
-        {
-            "producto": "Frijol Rojo x Lb",
-            "cantidad": 1,
-            "precio_unitario": 3.15,
-            "precio_total": 3.15
-        },
-        {
-            "producto": "Arroz Criollo 1Lb",
-            "cantidad": 6,
-            "precio_unitario": 0.95,
-            "precio_total": 5.70
-        }
+      {
+        "producto": "Pack Confituras",
+        "cantidad": 1,
+        "precio_unitario": 15.00,
+        "precio_total": 15.00
+      },
+      {
+        "producto": "Maíz molido tierno x Lb",
+        "cantidad": 2,
+        "precio_unitario": 1.96,
+        "precio_total": 3.92
+      },
+      {
+        "producto": "Mano de plátano burro",
+        "cantidad": 2,
+        "precio_unitario": 1.90,
+        "precio_total": 3.80
+      },
+      {
+        "producto": "Plátano macho x unidad",
+        "cantidad": 10,
+        "precio_unitario": 0.26,
+        "precio_total": 2.60
+      },
+      {
+        "producto": "Boniato x Lb",
+        "cantidad": 3,
+        "precio_unitario": 1.26,
+        "precio_total": 3.78
+      },
+      {
+        "producto": "Frijol Negro x Lb",
+        "cantidad": 1,
+        "precio_unitario": 2.63,
+        "precio_total": 2.63
+      },
+      {
+        "producto": "Frijol Rojo x Lb",
+        "cantidad": 1,
+        "precio_unitario": 3.15,
+        "precio_total": 3.15
+      },
+      {
+        "producto": "Arroz Criollo 1Lb",
+        "cantidad": 6,
+        "precio_unitario": 0.95,
+        "precio_total": 5.70
+      }
     ],
-    "precio_compra_total": "34.20",
+    "precio_compra_total": 34.20,
     "destinatario": {
-        "nombre_destinatario": "Alejandro Góngora",
-        "telefono_destinatario": "+53 5 2617642",
-        "direccion_envio": "24 de febrero #48, % Andrés Rodríguez y Aquiles Espinoza. Reparto Pena"
+      "nombre_destinatario": "Alejandro Góngora",
+      "telefono_destinatario": "+53 5 2617642",
+      "direccion_envio": "24 de febrero #48, % Andrés Rodríguez y Aquiles Espinoza. Reparto Pena"
     },
     "navegador": "Safari",
     "sistema_operativo": "iOS",
@@ -3470,8 +3472,8 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
-    },
-    {
+  },
+  {
     "ip": "e574:eca5:0d2e:0d87:f6ef:6668:9669:b20b",
     "pais": "United States",
     "fecha_hora_entrada": "2025-05-31 00:05:51",
@@ -3483,108 +3485,108 @@
     "telefono_comprador": "7863002520",
     "correo_comprador": "nileyan2018@gmail.com",
     "compras": [
-        {
-            "producto": "Maíz molido tierno x Lb",
-            "cantidad": 2,
-            "precio_unitario": 1.96,
-            "precio_total": 3.92
-        },
-        {
-            "producto": "Mazo de cebolla blanca",
-            "cantidad": 1,
-            "precio_unitario": 1.50,
-            "precio_total": 1.50
-        },
-        {
-            "producto": "Mano de plátano burro",
-            "cantidad": 1,
-            "precio_unitario": 0.95,
-            "precio_total": 0.95
-        },
-        {
-            "producto": "Pepino x Lb",
-            "cantidad": 1,
-            "precio_unitario": 0.58,
-            "precio_total": 0.58
-        },
-        {
-            "producto": "Tomate x Lb",
-            "cantidad": 1,
-            "precio_unitario": 0.93,
-            "precio_total": 0.93
-        },
-        {
-            "producto": "Plátano macho x unidad",
-            "cantidad": 6,
-            "precio_unitario": 0.26,
-            "precio_total": 1.56
-        },
-        {
-            "producto": "Boniato x Lb",
-            "cantidad": 2,
-            "precio_unitario": 0.42,
-            "precio_total": 0.84
-        },
-        {
-            "producto": "Frijol Negro x Lb",
-            "cantidad": 1,
-            "precio_unitario": 2.63,
-            "precio_total": 2.63
-        },
-        {
-            "producto": "Espaguetis (500g)",
-            "cantidad": 1,
-            "precio_unitario": 1.89,
-            "precio_total": 1.89
-        },
-        {
-            "producto": "Frijol Rojo x Lb",
-            "cantidad": 1,
-            "precio_unitario": 3.15,
-            "precio_total": 3.15
-        },
-        {
-            "producto": "Arroz Criollo 1Lb",
-            "cantidad": 6,
-            "precio_unitario": 0.95,
-            "precio_total": 5.70
-        },
-        {
-            "producto": "Queso criollo x Lb",
-            "cantidad": 2,
-            "precio_unitario": 2.40,
-            "precio_total": 4.80
-        },
-        {
-            "producto": "Aceite Fritura 900ml",
-            "cantidad": 1,
-            "precio_unitario": 4.20,
-            "precio_total": 4.20
-        },
-        {
-            "producto": "Nutela",
-            "cantidad": 1,
-            "precio_unitario": 4.70,
-            "precio_total": 4.70
-        },
-        {
-            "producto": "Azúcar blanca x lb",
-            "cantidad": 1,
-            "precio_unitario": 1.23,
-            "precio_total": 1.23
-        },
-        {
-            "producto": "Cartón de Huevos",
-            "cantidad": 1,
-            "precio_unitario": 10.00,
-            "precio_total": 10.00
-        }
+      {
+        "producto": "Maíz molido tierno x Lb",
+        "cantidad": 2,
+        "precio_unitario": 1.96,
+        "precio_total": 3.92
+      },
+      {
+        "producto": "Mazo de cebolla blanca",
+        "cantidad": 1,
+        "precio_unitario": 1.50,
+        "precio_total": 1.50
+      },
+      {
+        "producto": "Mano de plátano burro",
+        "cantidad": 1,
+        "precio_unitario": 0.95,
+        "precio_total": 0.95
+      },
+      {
+        "producto": "Pepino x Lb",
+        "cantidad": 1,
+        "precio_unitario": 0.58,
+        "precio_total": 0.58
+      },
+      {
+        "producto": "Tomate x Lb",
+        "cantidad": 1,
+        "precio_unitario": 0.93,
+        "precio_total": 0.93
+      },
+      {
+        "producto": "Plátano macho x unidad",
+        "cantidad": 6,
+        "precio_unitario": 0.26,
+        "precio_total": 1.56
+      },
+      {
+        "producto": "Boniato x Lb",
+        "cantidad": 2,
+        "precio_unitario": 0.42,
+        "precio_total": 0.84
+      },
+      {
+        "producto": "Frijol Negro x Lb",
+        "cantidad": 1,
+        "precio_unitario": 2.63,
+        "precio_total": 2.63
+      },
+      {
+        "producto": "Espaguetis (500g)",
+        "cantidad": 1,
+        "precio_unitario": 1.89,
+        "precio_total": 1.89
+      },
+      {
+        "producto": "Frijol Rojo x Lb",
+        "cantidad": 1,
+        "precio_unitario": 3.15,
+        "precio_total": 3.15
+      },
+      {
+        "producto": "Arroz Criollo 1Lb",
+        "cantidad": 6,
+        "precio_unitario": 0.95,
+        "precio_total": 5.70
+      },
+      {
+        "producto": "Queso criollo x Lb",
+        "cantidad": 2,
+        "precio_unitario": 2.40,
+        "precio_total": 4.80
+      },
+      {
+        "producto": "Aceite Fritura 900ml",
+        "cantidad": 1,
+        "precio_unitario": 4.20,
+        "precio_total": 4.20
+      },
+      {
+        "producto": "Nutela",
+        "cantidad": 1,
+        "precio_unitario": 4.70,
+        "precio_total": 4.70
+      },
+      {
+        "producto": "Azúcar blanca x lb",
+        "cantidad": 1,
+        "precio_unitario": 1.23,
+        "precio_total": 1.23
+      },
+      {
+        "producto": "Cartón de Huevos",
+        "cantidad": 1,
+        "precio_unitario": 10.00,
+        "precio_total": 10.00
+      }
     ],
-    "precio_compra_total": "46.62",
+    "precio_compra_total": 46.62,
     "destinatario": {
-        "nombre_destinatario": "Elina",
-        "telefono_destinatario": "537808640",
-        "direccion_envio": "Ave de la juventud edificio 16 apto 4"
+      "nombre_destinatario": "Elina",
+      "telefono_destinatario": "537808640",
+      "direccion_envio": "Ave de la juventud edificio 16 apto 4"
     },
     "navegador": "Safari",
     "sistema_operativo": "iOS",
@@ -3593,8 +3595,8 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
-    },
-    {
+  },
+  {
     "ip": "3ba0:2e53:d25d:a324:b673:8a0c:5c71:3232",
     "pais": "United States",
     "fecha_hora_entrada": "2025-05-31 09:05:16",
@@ -3606,96 +3608,96 @@
     "telefono_comprador": "5024387312",
     "correo_comprador": "eileencruz8902@gmail.com",
     "compras": [
-        {
-            "producto": "Pack Dulce",
-            "cantidad": 1,
-            "precio_unitario": 35.00,
-            "precio_total": 35.00
-        },
-        {
-            "producto": "Croqueta Jamón (500g)",
-            "cantidad": 2,
-            "precio_unitario": 2.52,
-            "precio_total": 5.04
-        },
-        {
-            "producto": "Carne de cerdo x Lb",
-            "cantidad": 15,
-            "precio_unitario": 2.90,
-            "precio_total": 43.50
-        },
-        {
-            "producto": "Carne de Ovejo x Lb",
-            "cantidad": 15,
-            "precio_unitario": 2.36,
-            "precio_total": 35.40
-        },
-        {
-            "producto": "Pasta de tomate Vima (400g)",
-            "cantidad": 1,
-            "precio_unitario": 1.98,
-            "precio_total": 1.98
-        },
-        {
-            "producto": "Sazón Goya",
-            "cantidad": 10,
-            "precio_unitario": 0.63,
-            "precio_total": 6.30
-        },
-        {
-            "producto": "Frijol Rojo x Lb",
-            "cantidad": 5,
-            "precio_unitario": 3.15,
-            "precio_total": 15.75
-        },
-        {
-            "producto": "Frijol Negro x Lb",
-            "cantidad": 5,
-            "precio_unitario": 2.63,
-            "precio_total": 13.15
-        },
-        {
-            "producto": "Espaguetis (500g)",
-            "cantidad": 2,
-            "precio_unitario": 1.89,
-            "precio_total": 3.78
-        },
-        {
-            "producto": "Maíz molido tierno x Lb",
-            "cantidad": 5,
-            "precio_unitario": 0.98,
-            "precio_total": 4.90
-        },
-        {
-            "producto": "Plátano macho x unidad",
-            "cantidad": 20,
-            "precio_unitario": 0.26,
-            "precio_total": 5.20
-        },
-        {
-            "producto": "Tomate x Lb",
-            "cantidad": 8,
-            "precio_unitario": 0.93,
-            "precio_total": 7.44
-        },
-        {
-            "producto": "Limón x Lb",
-            "cantidad": 8,
-            "precio_unitario": 2.31,
-            "precio_total": 18.48
-        },
-        {
-            "producto": "Pack Estilizado",
-            "cantidad": 1,
-            "precio_unitario": 16.00,
-            "precio_total": 16.00
-        }
+      {
+        "producto": "Pack Dulce",
+        "cantidad": 1,
+        "precio_unitario": 35.00,
+        "precio_total": 35.00
+      },
+      {
+        "producto": "Croqueta Jamón (500g)",
+        "cantidad": 2,
+        "precio_unitario": 2.52,
+        "precio_total": 5.04
+      },
+      {
+        "producto": "Carne de cerdo x Lb",
+        "cantidad": 15,
+        "precio_unitario": 2.90,
+        "precio_total": 43.50
+      },
+      {
+        "producto": "Carne de Ovejo x Lb",
+        "cantidad": 15,
+        "precio_unitario": 2.36,
+        "precio_total": 35.40
+      },
+      {
+        "producto": "Pasta de tomate Vima (400g)",
+        "cantidad": 1,
+        "precio_unitario": 1.98,
+        "precio_total": 1.98
+      },
+      {
+        "producto": "Sazón Goya",
+        "cantidad": 10,
+        "precio_unitario": 0.63,
+        "precio_total": 6.30
+      },
+      {
+        "producto": "Frijol Rojo x Lb",
+        "cantidad": 5,
+        "precio_unitario": 3.15,
+        "precio_total": 15.75
+      },
+      {
+        "producto": "Frijol Negro x Lb",
+        "cantidad": 5,
+        "precio_unitario": 2.63,
+        "precio_total": 13.15
+      },
+      {
+        "producto": "Espaguetis (500g)",
+        "cantidad": 2,
+        "precio_unitario": 1.89,
+        "precio_total": 3.78
+      },
+      {
+        "producto": "Maíz molido tierno x Lb",
+        "cantidad": 5,
+        "precio_unitario": 0.98,
+        "precio_total": 4.90
+      },
+      {
+        "producto": "Plátano macho x unidad",
+        "cantidad": 20,
+        "precio_unitario": 0.26,
+        "precio_total": 5.20
+      },
+      {
+        "producto": "Tomate x Lb",
+        "cantidad": 8,
+        "precio_unitario": 0.93,
+        "precio_total": 7.44
+      },
+      {
+        "producto": "Limón x Lb",
+        "cantidad": 8,
+        "precio_unitario": 2.31,
+        "precio_total": 18.48
+      },
+      {
+        "producto": "Pack Estilizado",
+        "cantidad": 1,
+        "precio_unitario": 16.00,
+        "precio_total": 16.00
+      }
     ],
-    "precio_compra_total": "211.92",
+    "precio_compra_total": 211.92,
     "destinatario": {
-        "nombre_destinatario": "Mara Nieves Peña González",
-        "telefono_destinatario": "+53 55887647",
-        "direccion_envio": "173 Francisco Vega entre Lora y Nicolas Heredia. Reparto primero Las Tunas"
+      "nombre_destinatario": "Mara Nieves Peña González",
+      "telefono_destinatario": "+53 55887647",
+      "direccion_envio": "173 Francisco Vega entre Lora y Nicolas Heredia. Reparto primero Las Tunas"
     },
     "navegador": "Safari",
     "sistema_operativo": "iOS",
@@ -3704,5 +3706,5 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
-    }
+  }
 ]
