@@ -3597,10 +3597,10 @@
     "fuente_trafico": "Directo"
   },
   {
-    "ip": "3ba0:2e53:d25d:a324:b673:8a0c:5c71:3232",
+    "ip": "107.134.113.72",
     "pais": "United States",
     "fecha_hora_entrada": "2025-05-31 09:05:16",
-    "origen": "https://www.asereshops.com/",
+    "origen": "Acceso directo",
     "afiliado": "Natty",
     "duracion_sesion_segundos": 946,
     "tiempo_carga_pagina_ms": 1280,
@@ -3694,11 +3694,6 @@
       }
     ],
     "precio_compra_total": 211.92,
-    "destinatario": {
-      "nombre_destinatario": "Mara Nieves Peña González",
-      "telefono_destinatario": "+53 55887647",
-      "direccion_envio": "173 Francisco Vega entre Lora y Nicolas Heredia. Reparto primero Las Tunas"
-    },
     "navegador": "Safari",
     "sistema_operativo": "iOS",
     "plataforma_usuario": "iPhone",
