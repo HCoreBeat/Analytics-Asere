@@ -594,6 +594,7 @@ body.menu-open {
 .footer-links {
     display: flex;
     gap: 1.5rem;
+    margin-right: 100px;
 }
 
 .footer-links a {
@@ -660,6 +661,13 @@ body.menu-open {
         max-width: 100%;
         width: 100%;
     }
+
+    .footer-links {
+        display: flex;
+        gap: 1.5rem;
+        margin-right: inherit;
+    }
+    
 }
 
 @media (max-width: 480px) {
