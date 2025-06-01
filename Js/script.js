@@ -44,8 +44,11 @@ class SalesDashboard {
         this.checkConnection(); 
 
         this.todayOrders = []; // Inicializa el array
+        window.salesDashboard = this;
         
     }
+
+    
 
     async initialize() {
         await this.loadData();
@@ -411,9 +414,17 @@ class SalesDashboard {
     }
 
     normalizeData() {
-        
         this.orders.forEach(order => {
-            order.date = new Date(order.fecha_hora_entrada.replace(/\(.*?\)/, ''));
+            // Asegurar que la fecha se parsea correctamente
+            const dateStr = order.fecha_hora_entrada.replace(/\(.*?\)/, '').trim();
+            order.date = new Date(dateStr);
+            
+            // Validar que la fecha sea válida
+            if (isNaN(order.date.getTime())) {
+                console.error('Fecha inválida:', order.fecha_hora_entrada);
+                order.date = new Date(); // Usar fecha actual como fallback
+            }
+            
             order.dateStr = order.date.toLocaleDateString('es-ES', {
                 day: '2-digit',
                 month: '2-digit',
@@ -421,6 +432,7 @@ class SalesDashboard {
                 hour: '2-digit',
                 minute: '2-digit'
             });
+            
             order.total = parseFloat(order.precio_compra_total) || 0;
             order.productsCount = order.compras.reduce((acc, curr) => acc + (curr.cantidad || 0), 0);
             order.userType = order.tipo_usuario || 'No especificado';
@@ -1465,42 +1477,43 @@ class SalesDashboard {
 
     applyFilters() {
         if (this.currentView !== 'dashboard') return;
-    
+
         const startDate = document.getElementById('filter-date-start')?.value;
         const endDate = document.getElementById('filter-date-end')?.value;
         const country = document.getElementById('filter-country')?.value;
         const affiliate = document.getElementById('filter-affiliate')?.value;
         const userType = document.getElementById('filter-user-type')?.value;
         const period = document.getElementById('filter-period')?.value || 'month';
-    
+
         const now = new Date();
         let periodStart, periodEnd;
         
         switch (period) {
             case 'month':
-                periodStart = new Date(now.getFullYear(), now.getMonth(), 1);
-                periodEnd = new Date(now.getFullYear(), now.getMonth() + 1, 0);
+                // Cambio clave: Asegurarse de incluir todo el mes
+                periodStart = new Date(now.getFullYear(), now.getMonth(), 1, 0, 0, 0);
+                periodEnd = new Date(now.getFullYear(), now.getMonth() + 1, 0, 23, 59, 59);
                 break;
             case 'last-month':
-                periodStart = new Date(now.getFullYear(), now.getMonth() - 1, 1);
-                periodEnd = new Date(now.getFullYear(), now.getMonth(), 0);
+                periodStart = new Date(now.getFullYear(), now.getMonth() - 1, 1, 0, 0, 0);
+                periodEnd = new Date(now.getFullYear(), now.getMonth(), 0, 23, 59, 59);
                 break;
             case 'year':
-                periodStart = new Date(now.getFullYear(), 0, 1);
-                periodEnd = new Date(now.getFullYear(), 11, 31);
+                periodStart = new Date(now.getFullYear(), 0, 1, 0, 0, 0);
+                periodEnd = new Date(now.getFullYear(), 11, 31, 23, 59, 59);
                 break;
             default: // 'all'
                 periodStart = null;
                 periodEnd = null;
         }
-    
+
         this.filteredOrders = this.orders.filter(order => {
             const orderDate = order.date;
-            const orderDateStr = orderDate.toISOString().split('T')[0];
             
+            // Cambio clave: Comparar objetos Date directamente en lugar de strings
             const dateInRange = 
-                (!startDate || orderDateStr >= startDate) && 
-                (!endDate || orderDateStr <= endDate);
+                (!startDate || orderDate >= new Date(startDate + 'T00:00:00')) && 
+                (!endDate || orderDate <= new Date(endDate + 'T23:59:59'));
                 
             const periodInRange = 
                 !periodStart || 
@@ -1514,7 +1527,7 @@ class SalesDashboard {
                 (!userType || order.userType === userType)
             );
         });
-    
+
         this.updateStats(this.filteredOrders);
         this.renderMonthlyComparison(this.filteredOrders);
         this.renderWeeklySummary();
@@ -1765,12 +1778,14 @@ class SalesDashboard {
     renderProductsList() {
         const container = document.getElementById('products-list');
         if (!container) return;
-    
+
         container.innerHTML = this.filteredProducts.map(product => {
-            // Calculate final price (price * 1.05)
+            // Calcular precios
             const finalPrice = product.precio * 1.05;
             const hasDiscount = product.oferta && product.descuento > 0;
-            const originalPrice = finalPrice / (1 - product.descuento/100);
+            const discountedPrice = hasDiscount ? 
+                finalPrice * (1 - product.descuento/100) : 
+                finalPrice;
             
             // Get image URL from GitHub repository
             const imageUrl = `https://raw.githubusercontent.com/${CONFIG.GITHUB_API.REPO_OWNER}/${CONFIG.GITHUB_API.REPO_NAME}/main/${product.imagen}?t=${Date.now()}`;
@@ -1790,8 +1805,8 @@ class SalesDashboard {
                     <span class="product-category">${product.categoria}</span>
                     <div class="product-price-container">
                         ${hasDiscount ? `
-                            <span class="product-price original">$${originalPrice.toFixed(2)}</span>
-                            <span class="product-price discounted">$${finalPrice.toFixed(2)}</span>
+                            <span class="product-price original">$${finalPrice.toFixed(2)}</span>
+                            <span class="product-price discounted">$${discountedPrice.toFixed(2)}</span>
                         ` : `
                             <span class="product-price">$${finalPrice.toFixed(2)}</span>
                         `}
@@ -1808,7 +1823,7 @@ class SalesDashboard {
             </div>
             `;
         }).join('');
-    
+
         // Add event listeners
         this.setupProductCardEvents();
     }
@@ -1922,6 +1937,11 @@ class SalesDashboard {
         document.getElementById('product-price')?.addEventListener('input', () => {
             this.updatePriceHint();
         });
+        
+        // Nuevo event listener para el campo de descuento
+        document.getElementById('product-discount')?.addEventListener('input', () => {
+            this.updatePriceHint();
+        });
     
         // Form field changes to update JSON preview
         const formFields = ['product-name', 'product-category', 'product-price', 
@@ -1974,8 +1994,18 @@ class SalesDashboard {
     updatePriceHint() {
         const priceInput = document.getElementById('product-price');
         const price = parseFloat(priceInput.value) || 0;
-        const finalPrice = price / 1.05;
-        document.getElementById('final-price-hint').textContent = `$${finalPrice.toFixed(3)}`;
+        const discountInput = document.getElementById('product-discount');
+        const discountPrice = parseFloat(discountInput.value) || 0;
+        
+        // Calcular el porcentaje de descuento basado en el precio final deseado
+        let discountPercentage = 0;
+        if (discountPrice > 0 && discountPrice < price) {
+            discountPercentage = ((price - discountPrice) / price * 100).toFixed(1);
+        }
+        
+        // Actualizar la etiqueta de ayuda
+        document.getElementById('final-price-hint').textContent = 
+            `Precio final: $${discountPrice.toFixed(2)} (${discountPercentage}% descuento)`;
         this.updateJsonPreview();
     }
 
@@ -2047,21 +2077,26 @@ class SalesDashboard {
         document.getElementById('product-name').value = product.nombre;
         document.getElementById('product-category').value = product.categoria;
         document.getElementById('product-price').value = (product.precio * 1.05).toFixed(2);
-        document.getElementById('product-discount').value = product.descuento || 0;
+        
+        // Calcular y mostrar el precio con descuento en lugar del porcentaje
+        const discountedPrice = product.oferta ? 
+            (product.precio * 1.05 * (1 - (product.descuento || 0)/100)).toFixed(2) : 
+            (product.precio * 1.05).toFixed(2);
+        document.getElementById('product-discount').value = discountedPrice;
+        
         document.getElementById('product-oferta').checked = product.oferta || false;
         document.getElementById('product-mas-vendido').checked = product.mas_vendido || false;
         document.getElementById('product-disponible').checked = product.disponible !== false;
         document.getElementById('product-description').value = product.descripcion || '';
         this.updatePriceHint();
         
-        // Populate categories dropdown
+        // Resto del código permanece igual...
         const categorySelect = document.getElementById('product-category');
         categorySelect.innerHTML = '<option value="">Seleccionar categoría</option>' + 
             CONFIG.PRODUCT_CATEGORIES.map(cat => 
                 `<option value="${cat}" ${cat === product.categoria ? 'selected' : ''}>${cat}</option>`
             ).join('');
         
-        // Show main image
         const mainImageContainer = document.getElementById('main-image-container');
         if (product.imagen) {
             const imageUrl = `https://raw.githubusercontent.com/${CONFIG.GITHUB_API.REPO_OWNER}/${CONFIG.GITHUB_API.REPO_NAME}/main/${product.imagen}`;
@@ -2072,7 +2107,6 @@ class SalesDashboard {
             document.getElementById('remove-main-image').style.display = 'none';
         }
         
-        // Show additional images
         const additionalContainer = document.getElementById('additional-images-container');
         if (product.imagenesAdicionales && product.imagenesAdicionales.length > 0) {
             additionalContainer.innerHTML = product.imagenesAdicionales.map(img => {
@@ -2087,7 +2121,6 @@ class SalesDashboard {
                 `;
             }).join('');
             
-            // Add event listeners for remove buttons
             document.querySelectorAll('.remove-additional-image').forEach(btn => {
                 btn.addEventListener('click', (e) => {
                     e.stopPropagation();
@@ -2104,14 +2137,17 @@ class SalesDashboard {
         document.getElementById('product-form').reset();
         document.getElementById('product-disponible').checked = true;
         
-        // Reset categories dropdown
+        // Inicializar el campo de descuento con el mismo valor que el precio
+        const price = document.getElementById('product-price').value || 0;
+        document.getElementById('product-discount').value = price;
+        
+        // Resto del código permanece igual...
         const categorySelect = document.getElementById('product-category');
         categorySelect.innerHTML = '<option value="">Seleccionar categoría</option>' + 
             CONFIG.PRODUCT_CATEGORIES.map(cat => 
                 `<option value="${cat}">${cat}</option>`
             ).join('');
         
-        // Reset images
         document.getElementById('main-image-container').innerHTML = '<span>No hay imagen seleccionada</span>';
         document.getElementById('remove-main-image').style.display = 'none';
         document.getElementById('additional-images-container').innerHTML = '<div class="no-images-message">No hay imágenes adicionales</div>';
@@ -2196,11 +2232,17 @@ class SalesDashboard {
         const name = document.getElementById('product-name').value.trim();
         const category = document.getElementById('product-category').value;
         const price = parseFloat(document.getElementById('product-price').value) || 0;
-        const discount = parseInt(document.getElementById('product-discount').value) || 0;
+        const discountPrice = parseFloat(document.getElementById('product-discount').value) || 0;
         const oferta = document.getElementById('product-oferta').checked;
         const mas_vendido = document.getElementById('product-mas-vendido').checked;
         const disponible = document.getElementById('product-disponible').checked;
         const descripcion = document.getElementById('product-description').value.trim();
+        
+        // Calcular el porcentaje de descuento basado en el precio final deseado
+        let discountPercentage = 0;
+        if (oferta && discountPrice > 0 && discountPrice < price) {
+            discountPercentage = ((price - discountPrice) / price * 100).toFixed(1);
+        }
         
         // Calculate final price (price / 1.05)
         const finalPrice = price / 1.05;
@@ -2228,7 +2270,7 @@ class SalesDashboard {
             nombre: name,
             categoria: category,
             precio: parseFloat(finalPrice.toFixed(3)),
-            descuento: discount,
+            descuento: oferta ? parseFloat(discountPercentage) : 0,
             oferta: oferta,
             mas_vendido: mas_vendido,
             disponible: disponible,
