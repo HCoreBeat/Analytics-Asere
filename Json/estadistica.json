@@ -3899,5 +3899,121 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2601:58a:8500:1110:ea8:3097:f01c:6f6b",
+    "pais": "United States",
+    "fecha_hora_entrada": "2025-06-08 19:27:40",
+    "origen": "Acceso directo",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 817,
+    "tiempo_carga_pagina_ms": 1066,
+    "nombre_comprador": "Mayelin Contrera",
+    "telefono_comprador": "7862568427",
+    "correo_comprador": "susanlaffita@gmail.com",
+    "compras": [
+      {
+        "producto": "Plátano macho x unidad",
+        "cantidad": 10,
+        "precio_unitario": 0.26,
+        "precio_total": 2.6
+      },
+      {
+        "producto": "Limón x Lb",
+        "cantidad": 1,
+        "precio_unitario": 1.26,
+        "precio_total": 1.26
+      },
+      {
+        "producto": "Tomate x Lb",
+        "cantidad": 4,
+        "precio_unitario": 0.93,
+        "precio_total": 3.72
+      },
+      {
+        "producto": "Pepino x Lb",
+        "cantidad": 2,
+        "precio_unitario": 0.58,
+        "precio_total": 1.16
+      },
+      {
+        "producto": "Boniato x Lb",
+        "cantidad": 3,
+        "precio_unitario": 0.42,
+        "precio_total": 1.26
+      },
+      {
+        "producto": "Carne de cerdo x Lb",
+        "cantidad": 5,
+        "precio_unitario": 2.9,
+        "precio_total": 14.5
+      },
+      {
+        "producto": "Mazo de cebolla blanca",
+        "cantidad": 1,
+        "precio_unitario": 1.5,
+        "precio_total": 1.5
+      },
+      {
+        "producto": "Mano de plátano burro",
+        "cantidad": 1,
+        "precio_unitario": 0.95,
+        "precio_total": 0.95
+      },
+      {
+        "producto": "Frijol Rojo x Lb",
+        "cantidad": 1,
+        "precio_unitario": 3.15,
+        "precio_total": 3.15
+      },
+      {
+        "producto": "Helado 4Lts",
+        "cantidad": 1,
+        "precio_unitario": 10.45,
+        "precio_total": 10.45
+      },
+      {
+        "producto": "Arroz Rainha Brasil (1Kg)",
+        "cantidad": 3,
+        "precio_unitario": 2.97,
+        "precio_total": 8.91
+      },
+      {
+        "producto": "Refresco Instantáneo (2Lt)",
+        "cantidad": 1,
+        "precio_unitario": 0.42,
+        "precio_total": 0.42
+      },
+      {
+        "producto": "Malta Bucanero",
+        "cantidad": 6,
+        "precio_unitario": 1.15,
+        "precio_total": 6.9
+      },
+      {
+        "producto": "Leche Condensada azucarada (390g)",
+        "cantidad": 1,
+        "precio_unitario": 2.89,
+        "precio_total": 2.89
+      },
+      {
+        "producto": "Colonia Bonabel de Violetas",
+        "cantidad": 1,
+        "precio_unitario": 5.25,
+        "precio_total": 5.25
+      },
+      {
+        "producto": "Jabón de Baño (100g)",
+        "cantidad": 3,
+        "precio_unitario": 1.05,
+        "precio_total": 3.15
+      }
+    ],
+    "precio_compra_total": "68.07",
+    "navegador": "Chrome",
+    "sistema_operativo": "Android",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   }
 ]
