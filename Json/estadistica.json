@@ -4015,5 +4015,67 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2607:fb90:be87:4538:d9dd:29a2:e9de:3fca",
+    "pais": "United States",
+    "fecha_hora_entrada": "2025-06-11 14:13:42",
+    "origen": "Acceso directo",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 593,
+    "tiempo_carga_pagina_ms": 513,
+    "nombre_comprador": "Lisbet mastrapa",
+    "telefono_comprador": "9042341476",
+    "correo_comprador": "lisbetmastrapa30@gmail.com",
+    "compras": [
+      {
+        "producto": "Leche entera en polvo (1kg)",
+        "cantidad": 1,
+        "precio_unitario": 11.97,
+        "precio_total": 11.97
+      },
+      {
+        "producto": "Aceite Fritura 900ml",
+        "cantidad": 1,
+        "precio_unitario": 4.2,
+        "precio_total": 4.2
+      },
+      {
+        "producto": "Codito Badelli (350g)",
+        "cantidad": 1,
+        "precio_unitario": 1.89,
+        "precio_total": 1.89
+      },
+      {
+        "producto": "Espaguetis (500g)",
+        "cantidad": 1,
+        "precio_unitario": 1.89,
+        "precio_total": 1.89
+      },
+      {
+        "producto": "Salchicha de pollo y cerdo 10u (340g)",
+        "cantidad": 4,
+        "precio_unitario": 1.9,
+        "precio_total": 7.6
+      },
+      {
+        "producto": "Picadillo de pollo (1Kg)",
+        "cantidad": 1,
+        "precio_unitario": 2.97,
+        "precio_total": 2.97
+      },
+      {
+        "producto": "Pack de 4 Hamburguesas de pollo",
+        "cantidad": 2,
+        "precio_unitario": 1.89,
+        "precio_total": 3.78
+      }
+    ],
+    "precio_compra_total": "34.30",
+    "navegador": "Safari",
+    "sistema_operativo": "iOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   }
 ]
