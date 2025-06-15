@@ -4169,5 +4169,204 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2607:fb90:912e:42ff:345e:de1c:3d14:3e1a",
+    "pais": "United States",
+    "fecha_hora_entrada": "2025-06-14 18:34:55",
+    "origen": "Acceso directo",
+    "afiliado": "Natty",
+    "duracion_sesion_segundos": 599,
+    "tiempo_carga_pagina_ms": 356,
+    "nombre_comprador": "Nayelin Reyes",
+    "telefono_comprador": "7863002520",
+    "correo_comprador": "nileyan2018@gnail.com",
+    "compras": [
+      {
+        "producto": "Salsa Cocktail Vima (225ml)",
+        "cantidad": 1,
+        "precio_unitario": 2.66,
+        "precio_total": 2.66
+      },
+      {
+        "producto": "Whisky Chancelier",
+        "cantidad": 2,
+        "precio_unitario": 8,
+        "precio_total": 16
+      },
+      {
+        "producto": "Carne de Ovejo x Lb",
+        "cantidad": 8,
+        "precio_unitario": 2.36,
+        "precio_total": 18.88
+      },
+      {
+        "producto": "Malta Bucanero",
+        "cantidad": 4,
+        "precio_unitario": 1.15,
+        "precio_total": 4.6
+      },
+      {
+        "producto": "Refresco Instantáneo (2Lt)",
+        "cantidad": 4,
+        "precio_unitario": 0.42,
+        "precio_total": 1.68
+      }
+    ],
+    "precio_compra_total": "43.82",
+    "navegador": "Safari",
+    "sistema_operativo": "iOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2607:fb90:912e:42ff:345e:de1c:3d14:3e1a",
+    "pais": "United States",
+    "fecha_hora_entrada": "2025-06-14 18:53:03",
+    "origen": "https://www.asereshops.com/",
+    "afiliado": "Natty",
+    "duracion_sesion_segundos": 1082,
+    "tiempo_carga_pagina_ms": 399,
+    "nombre_comprador": "Nayelin Reyes",
+    "telefono_comprador": "7863002520",
+    "correo_comprador": "nileyan2018@gmail.com",
+    "compras": [
+      {
+        "producto": "Pollo Country Pride",
+        "cantidad": 1,
+        "precio_unitario": 13.9,
+        "precio_total": 13.9
+      },
+      {
+        "producto": "Pasta de tomate Vima (400g)",
+        "cantidad": 1,
+        "precio_unitario": 1.98,
+        "precio_total": 1.98
+      },
+      {
+        "producto": "Salsa Cocktail Vima (225ml)",
+        "cantidad": 1,
+        "precio_unitario": 2.66,
+        "precio_total": 2.66
+      },
+      {
+        "producto": "Maíz molido tierno x Lb",
+        "cantidad": 2,
+        "precio_unitario": 0.98,
+        "precio_total": 1.96
+      },
+      {
+        "producto": "Mazo de cebolla blanca",
+        "cantidad": 1,
+        "precio_unitario": 1.5,
+        "precio_total": 1.5
+      },
+      {
+        "producto": "Mano de plátano burro",
+        "cantidad": 2,
+        "precio_unitario": 0.95,
+        "precio_total": 1.9
+      },
+      {
+        "producto": "Pepino x Lb",
+        "cantidad": 2,
+        "precio_unitario": 0.58,
+        "precio_total": 1.16
+      },
+      {
+        "producto": "Plátano macho x unidad",
+        "cantidad": 10,
+        "precio_unitario": 0.26,
+        "precio_total": 2.6
+      },
+      {
+        "producto": "Boniato x Lb",
+        "cantidad": 3,
+        "precio_unitario": 0.42,
+        "precio_total": 1.26
+      },
+      {
+        "producto": "Frijol Negro x Lb",
+        "cantidad": 2,
+        "precio_unitario": 2.63,
+        "precio_total": 5.26
+      },
+      {
+        "producto": "Frijol Rojo x Lb",
+        "cantidad": 1,
+        "precio_unitario": 3.15,
+        "precio_total": 3.15
+      },
+      {
+        "producto": "Arroz importado 1lb",
+        "cantidad": 5,
+        "precio_unitario": 1.15,
+        "precio_total": 5.75
+      },
+      {
+        "producto": "Queso criollo x Lb",
+        "cantidad": 2,
+        "precio_unitario": 2.4,
+        "precio_total": 4.8
+      }
+    ],
+    "precio_compra_total": "47.88",
+    "navegador": "Safari",
+    "sistema_operativo": "iOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "www.asereshops.com"
+  },
+  {
+    "ip": "2607:fb90:912e:42ff:345e:de1c:3d14:3e1a",
+    "pais": "United States",
+    "fecha_hora_entrada": "2025-06-14 18:57:26",
+    "origen": "https://www.asereshops.com/index.html",
+    "afiliado": "Natty",
+    "duracion_sesion_segundos": 121,
+    "tiempo_carga_pagina_ms": 416,
+    "nombre_comprador": "Nayelin Reyes",
+    "telefono_comprador": "7863002520",
+    "correo_comprador": "nileyan2018@gmail.com",
+    "compras": [
+      {
+        "producto": "Pack Dulce",
+        "cantidad": 1,
+        "precio_unitario": 35,
+        "precio_total": 35
+      },
+      {
+        "producto": "Whisky Chancelier",
+        "cantidad": 1,
+        "precio_unitario": 8,
+        "precio_total": 8
+      }
+    ],
+    "precio_compra_total": "43.00",
+    "navegador": "Safari",
+    "sistema_operativo": "iOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "www.asereshops.com"
+  },
+  {
+    "ip": "152.206.240.197",
+    "pais": "Cuba",
+    "fecha_hora_entrada": "2025-06-14 18:57:50",
+    "origen": "Acceso directo",
+    "afiliado": "Membrado",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "N/A",
+    "telefono_comprador": "N/A",
+    "correo_comprador": "N/A",
+    "compras": [],
+    "precio_compra_total": 0,
+    "navegador": "Chrome",
+    "sistema_operativo": "Android",
+    "tipo_usuario": "Único",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   }
 ]
