@@ -4349,24 +4349,5 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "www.asereshops.com"
-  },
-  {
-    "ip": "152.206.240.197",
-    "pais": "Cuba",
-    "fecha_hora_entrada": "2025-06-14 18:57:50",
-    "origen": "Acceso directo",
-    "afiliado": "Membrado",
-    "duracion_sesion_segundos": 0,
-    "tiempo_carga_pagina_ms": 0,
-    "nombre_comprador": "N/A",
-    "telefono_comprador": "N/A",
-    "correo_comprador": "N/A",
-    "compras": [],
-    "precio_compra_total": 0,
-    "navegador": "Chrome",
-    "sistema_operativo": "Android",
-    "tipo_usuario": "Único",
-    "tiempo_promedio_pagina": 0,
-    "fuente_trafico": "Directo"
   }
 ]
