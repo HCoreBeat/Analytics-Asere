@@ -4411,5 +4411,79 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2600:387:15:1911::7",
+    "pais": "United States",
+    "fecha_hora_entrada": "2025-06-19 14:52:55",
+    "origen": "Acceso directo",
+    "afiliado": "Juana",
+    "duracion_sesion_segundos": 442,
+    "tiempo_carga_pagina_ms": 887,
+    "nombre_comprador": "Yoandra Martinez",
+    "telefono_comprador": "7863191466",
+    "correo_comprador": "yoa2002ye@gmail.com",
+    "compras": [
+      {
+        "producto": "Aceite Fritura 900ml",
+        "cantidad": 1,
+        "precio_unitario": 4.2,
+        "precio_total": 4.2
+      },
+      {
+        "producto": "Cartón de Huevos",
+        "cantidad": 1,
+        "precio_unitario": 10,
+        "precio_total": 10
+      },
+      {
+        "producto": "Leche Condensada azucarada (390g)",
+        "cantidad": 4,
+        "precio_unitario": 2.89,
+        "precio_total": 11.56
+      },
+      {
+        "producto": "Arroz Rainha Brasil (1Kg)",
+        "cantidad": 2,
+        "precio_unitario": 2.97,
+        "precio_total": 5.94
+      },
+      {
+        "producto": "Paquete de pan de bola 10u",
+        "cantidad": 2,
+        "precio_unitario": 1.9,
+        "precio_total": 3.8
+      },
+      {
+        "producto": "Queso criollo x Lb",
+        "cantidad": 2,
+        "precio_unitario": 2.4,
+        "precio_total": 4.8
+      },
+      {
+        "producto": "Pollo Country Pride",
+        "cantidad": 1,
+        "precio_unitario": 13.9,
+        "precio_total": 13.9
+      },
+      {
+        "producto": "Malta Bucanero",
+        "cantidad": 4,
+        "precio_unitario": 1.15,
+        "precio_total": 4.6
+      },
+      {
+        "producto": "Refresco Naranja (330ml)",
+        "cantidad": 2,
+        "precio_unitario": 0.95,
+        "precio_total": 1.9
+      }
+    ],
+    "precio_compra_total": "60.70",
+    "navegador": "Safari",
+    "sistema_operativo": "iOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   }
 ]
