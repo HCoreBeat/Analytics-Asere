@@ -4651,5 +4651,32 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
+  },
+  {
+  "ip": "192.70.171.18",
+  "pais": "United States",
+  "fecha_hora_entrada": "2025-06-23 11:18:10",
+  "origen": "Acceso directo",
+  "afiliado": "Ninguno",
+  "duracion_sesion_segundos": 721,
+  "tiempo_carga_pagina_ms": 4280,
+  "nombre_comprador": "Yarianna Cepero",
+  "telefono_comprador": "7862602650",
+  "correo_comprador": "yariannacepero3@gmail.com",
+  "direccion_envio": "N/A",
+  "compras": [
+    {
+      "producto": "Leche entera en polvo (1kg)",
+      "cantidad": 2,
+      "precio_unitario": 11.97,
+      "precio_total": 23.94
+    }
+  ],
+  "precio_compra_total": "23.94",
+  "navegador": "Edge",
+  "sistema_operativo": "Android",
+  "tipo_usuario": "Recurrente",
+  "tiempo_promedio_pagina": 0,
+  "fuente_trafico": "Directo"
   }
 ]
