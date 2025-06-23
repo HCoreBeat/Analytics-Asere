@@ -4705,5 +4705,44 @@
   "tipo_usuario": "Recurrente",
   "tiempo_promedio_pagina": 0,
   "fuente_trafico": "Directo"
-}
+   },
+   {
+  "ip": "2601:44:401:aa38:a076:2b76:6d68:6e3c",
+  "pais": "United States",
+  "fecha_hora_entrada": "2025-06-23 16:32:06",
+  "origen": "Acceso directo",
+  "afiliado": "Juana",
+  "duracion_sesion_segundos": 1047,
+  "tiempo_carga_pagina_ms": 450,
+  "nombre_comprador": "Irina Escalante",
+  "telefono_comprador": "6402597824",
+  "correo_comprador": "escalanterojasirina765@gmail.com",
+  "direccion_envio": "N/A",
+  "compras": [
+    {
+      "producto": "Pollo Country Pride",
+      "cantidad": 1,
+      "precio_unitario": 13.9,
+      "precio_total": 13.9
+    },
+    {
+      "producto": "Arroz importado 1lb",
+      "cantidad": 5,
+      "precio_unitario": 1.15,
+      "precio_total": 5.75
+    },
+    {
+      "producto": "Aceite Fritura 900ml",
+      "cantidad": 1,
+      "precio_unitario": 4.2,
+      "precio_total": 4.2
+    }
+  ],
+  "precio_compra_total": "23.85",
+  "navegador": "Safari",
+  "sistema_operativo": "iOS",
+  "tipo_usuario": "Único",
+  "tiempo_promedio_pagina": 0,
+  "fuente_trafico": "Directo"
+   }
 ]
