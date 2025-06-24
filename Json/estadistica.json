@@ -4744,5 +4744,38 @@
   "tipo_usuario": "Único",
   "tiempo_promedio_pagina": 0,
   "fuente_trafico": "Directo"
+   },
+   {
+  "ip": "192.70.171.19",
+  "pais": "United States",
+  "fecha_hora_entrada": "2025-06-24 15:58:30",
+  "origen": "Acceso directo",
+  "afiliado": "Ninguno",
+  "duracion_sesion_segundos": 88,
+  "tiempo_carga_pagina_ms": 281,
+  "nombre_comprador": "Yarianna Cepero",
+  "telefono_comprador": "7862602650",
+  "correo_comprador": "yariannacepero3@gmail.com",
+  "direccion_envio": "N/A",
+  "compras": [
+    {
+      "producto": "Salchicha de pollo y cerdo 10u (340g)",
+      "cantidad": 1,
+      "precio_unitario": 1.9,
+      "precio_total": 1.9
+    },
+    {
+      "producto": "Pack Estilizado",
+      "cantidad": 1,
+      "precio_unitario": 21,
+      "precio_total": 21
+    }
+  ],
+  "precio_compra_total": "22.90",
+  "navegador": "Edge",
+  "sistema_operativo": "Android",
+  "tipo_usuario": "Recurrente",
+  "tiempo_promedio_pagina": 0,
+  "fuente_trafico": "Directo"
    }
 ]
