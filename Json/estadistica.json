@@ -4777,5 +4777,86 @@
   "tipo_usuario": "Recurrente",
   "tiempo_promedio_pagina": 0,
   "fuente_trafico": "Directo"
-   }
+   },
+  {
+  "ip": "47.195.228.133",
+  "pais": "United States",
+  "fecha_hora_entrada": "2025-06-30 18:42:35",
+  "origen": "Acceso directo",
+  "afiliado": "Juana",
+  "duracion_sesion_segundos": 699,
+  "tiempo_carga_pagina_ms": 392,
+  "nombre_comprador": "Ailen Vega mariño",
+  "telefono_comprador": "9413123962",
+  "correo_comprador": "ailen29101990@gmail.com",
+  "direccion_envio": "Reparto la loma eficio 6 apat 3",
+  "compras": [
+    {
+      "producto": "Espaguetis (500g)",
+      "cantidad": 3,
+      "precio_unitario": 1.89,
+      "precio_total": 5.67
+    },
+    {
+      "producto": "Codito Badelli (350g)",
+      "cantidad": 3,
+      "precio_unitario": 1.89,
+      "precio_total": 5.67
+    },
+    {
+      "producto": "Picadillo de pollo (1Kg)",
+      "cantidad": 3,
+      "precio_unitario": 2.97,
+      "precio_total": 8.91
+    },
+    {
+      "producto": "Salchicha de pollo y cerdo 10u (340g)",
+      "cantidad": 3,
+      "precio_unitario": 1.9,
+      "precio_total": 5.7
+    },
+    {
+      "producto": "Pack de 4 Hamburguesas de pollo",
+      "cantidad": 12,
+      "precio_unitario": 1.89,
+      "precio_total": 22.68
+    },
+    {
+      "producto": "Pollo Country Pride",
+      "cantidad": 3,
+      "precio_unitario": 14.7,
+      "precio_total": 44.1
+    },
+    {
+      "producto": "Carne de Ovejo x Lb",
+      "cantidad": 9,
+      "precio_unitario": 2.36,
+      "precio_total": 21.24
+    },
+    {
+      "producto": "Saco de arroz americano importado 50lb",
+      "cantidad": 1,
+      "precio_unitario": 47,
+      "precio_total": 47
+    },
+    {
+      "producto": "Aceite Fritura 900ml",
+      "cantidad": 3,
+      "precio_unitario": 4.2,
+      "precio_total": 12.6
+    },
+    {
+      "producto": "Cartón de Huevos",
+      "cantidad": 1,
+      "precio_unitario": 10,
+      "precio_total": 10
+    }
+  ],
+  "precio_compra_total": "183.57",
+  "navegador": "Chrome",
+  "sistema_operativo": "Android",
+  "tipo_usuario": "Recurrente",
+  "tiempo_promedio_pagina": 0,
+  "fuente_trafico": "Directo"
+}
 ]
