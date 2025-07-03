@@ -4819,7 +4819,7 @@
       "producto": "Pack de 4 Hamburguesas de pollo",
       "cantidad": 12,
       "precio_unitario": 1.89,
-      "precio_total": 22.68
+      "precio_total": 11.34
     },
     {
       "producto": "Pollo Country Pride",
@@ -4852,7 +4852,7 @@
       "precio_total": 10
     }
   ],
-  "precio_compra_total": "183.57",
+  "precio_compra_total": "172.23",
   "navegador": "Chrome",
   "sistema_operativo": "Android",
   "tipo_usuario": "Recurrente",
