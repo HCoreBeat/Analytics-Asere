@@ -5008,5 +5008,62 @@
   "tipo_usuario": "Recurrente",
   "tiempo_promedio_pagina": 0,
   "fuente_trafico": "Google"
+},
+{
+  "ip": "2607:fb90:917d:bfb:19fa:dd3f:a4f8:2c2c",
+  "pais": "United States",
+  "fecha_hora_entrada": "2025-07-10 17:27:46",
+  "origen": "Acceso directo",
+  "afiliado": "Ninguno",
+  "duracion_sesion_segundos": 370,
+  "tiempo_carga_pagina_ms": 901,
+  "nombre_comprador": "Nayelin Reyes",
+  "telefono_comprador": "7863002520",
+  "correo_comprador": "nileyan2018@gmail.com",
+  "direccion_envio": "Edificio 26 apto c5",
+  "compras": [
+    {
+      "producto": "Frijol Negro x Lb",
+      "cantidad": 1,
+      "precio_unitario": 2.63,
+      "precio_total": 2.63
+    },
+    {
+      "producto": "Frijol Rojo x Lb",
+      "cantidad": 1,
+      "precio_unitario": 3.15,
+      "precio_total": 3.15
+    },
+    {
+      "producto": "Arroz importado 1lb",
+      "cantidad": 5,
+      "precio_unitario": 1.15,
+      "precio_total": 5.75
+    },
+    {
+      "producto": "Aceite Fritura 900ml",
+      "cantidad": 1,
+      "precio_unitario": 4.2,
+      "precio_total": 4.2
+    },
+    {
+      "producto": "Azúcar blanca x lb",
+      "cantidad": 5,
+      "precio_unitario": 1.23,
+      "precio_total": 6.15
+    },
+    {
+      "producto": "Sal x Lb",
+      "cantidad": 2,
+      "precio_unitario": 0.35,
+      "precio_total": 0.7
+    }
+  ],
+  "precio_compra_total": "22.58",
+  "navegador": "Safari",
+  "sistema_operativo": "iOS",
+  "tipo_usuario": "Recurrente",
+  "tiempo_promedio_pagina": 0,
+  "fuente_trafico": "Directo"
 }
 ]
