@@ -5065,5 +5065,44 @@
   "tipo_usuario": "Recurrente",
   "tiempo_promedio_pagina": 0,
   "fuente_trafico": "Directo"
+},
+{
+  "ip": "2603:6011:1cf0:fc0:4d98:295:19ee:8b63",
+  "pais": "United States",
+  "fecha_hora_entrada": "2025-07-10 20:13:17",
+  "origen": "Acceso directo",
+  "afiliado": "Natty",
+  "duracion_sesion_segundos": 427,
+  "tiempo_carga_pagina_ms": 403,
+  "nombre_comprador": "Eileen Cruz Pena",
+  "telefono_comprador": "5024387312",
+  "correo_comprador": "eileencruz8902@gmail.com",
+  "direccion_envio": "Calle Agustín Cebereco. Edif 34 apt. D4. Buena vista",
+  "compras": [
+    {
+      "producto": "Café Espresso «El Ricote»",
+      "cantidad": 1,
+      "precio_unitario": 6.87,
+      "precio_total": 6.87
+    },
+    {
+      "producto": "Pollo Country Pride",
+      "cantidad": 1,
+      "precio_unitario": 14.7,
+      "precio_total": 14.7
+    },
+    {
+      "producto": "Leche entera en polvo (1kg)",
+      "cantidad": 1,
+      "precio_unitario": 11.97,
+      "precio_total": 11.97
+    }
+  ],
+  "precio_compra_total": "33.54",
+  "navegador": "Safari",
+  "sistema_operativo": "iOS",
+  "tipo_usuario": "Recurrente",
+  "tiempo_promedio_pagina": 0,
+  "fuente_trafico": "Directo"
 }
 ]
