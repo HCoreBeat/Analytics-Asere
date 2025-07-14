@@ -5104,5 +5104,86 @@
   "tipo_usuario": "Recurrente",
   "tiempo_promedio_pagina": 0,
   "fuente_trafico": "Directo"
+},
+{
+  "ip": "2600:1700:3961:1510:2143:9c75:ac1f:4e7b",
+  "pais": "United States",
+  "fecha_hora_entrada": "2025-07-13 17:18:02",
+  "origen": "Acceso directo",
+  "afiliado": "Ninguno",
+  "duracion_sesion_segundos": 971,
+  "tiempo_carga_pagina_ms": 1621,
+  "nombre_comprador": "Shakira Granda Rodriguez",
+  "telefono_comprador": "7866094405",
+  "correo_comprador": "shakiragranda@icloud.com",
+  "direccion_envio": "Lico Cruz #108 altos % Gonzalo D Quesada y Villalon",
+  "compras": [
+    {
+      "producto": "Helado 4Lts",
+      "cantidad": 2,
+      "precio_unitario": 10.45,
+      "precio_total": 20.9
+    },
+    {
+      "producto": "Queso criollo x Lb",
+      "cantidad": 5,
+      "precio_unitario": 2.4,
+      "precio_total": 12
+    },
+    {
+      "producto": "Menthoplus",
+      "cantidad": 1,
+      "precio_unitario": 0.63,
+      "precio_total": 0.63
+    },
+    {
+      "producto": "Caja de Malta Bucanero",
+      "cantidad": 1,
+      "precio_unitario": 25,
+      "precio_total": 25
+    },
+    {
+      "producto": "Jamón de Primera x Lb",
+      "cantidad": 3,
+      "precio_unitario": 5.04,
+      "precio_total": 15.120000000000001
+    },
+    {
+      "producto": "Manzanas Pack x6",
+      "cantidad": 1,
+      "precio_unitario": 9,
+      "precio_total": 9
+    },
+    {
+      "producto": "Mayonesa Vima (450ml)",
+      "cantidad": 1,
+      "precio_unitario": 4.17,
+      "precio_total": 4.17
+    },
+    {
+      "producto": "Limón x Lb",
+      "cantidad": 1,
+      "precio_unitario": 2.31,
+      "precio_total": 2.31
+    },
+    {
+      "producto": "Cartón de Huevos",
+      "cantidad": 1,
+      "precio_unitario": 10,
+      "precio_total": 10
+    },
+    {
+      "producto": "Paquete de pan de bola 10u",
+      "cantidad": 2,
+      "precio_unitario": 1.9,
+      "precio_total": 3.8
+    }
+  ],
+  "precio_compra_total": "102.93",
+  "navegador": "Safari",
+  "sistema_operativo": "iOS",
+  "tipo_usuario": "Recurrente",
+  "tiempo_promedio_pagina": 0,
+  "fuente_trafico": "Directo"
 }
 ]
