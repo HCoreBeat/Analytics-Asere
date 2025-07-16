@@ -5185,5 +5185,80 @@
   "tipo_usuario": "Recurrente",
   "tiempo_promedio_pagina": 0,
   "fuente_trafico": "Directo"
+},
+{
+  "ip": "2600:1700:3d65:580:dd75:2414:6f53:e3c0",
+  "pais": "United States",
+  "fecha_hora_entrada": "2025-07-16 09:47:41",
+  "origen": "Acceso directo",
+  "afiliado": "Juana",
+  "duracion_sesion_segundos": 584,
+  "tiempo_carga_pagina_ms": 482,
+  "nombre_comprador": "Yoandra Martínez",
+  "telefono_comprador": "7863191466",
+  "correo_comprador": "yoa2002ye@gmail.com",
+  "direccion_envio": "Calle 22 15 Alto % 43 Y 45\nReparto De Buena Vista",
+  "compras": [
+    {
+      "producto": "Paquete de pan de bola 10u",
+      "cantidad": 2,
+      "precio_unitario": 1.9,
+      "precio_total": 3.8
+    },
+    {
+      "producto": "Leche Condensada azucarada (390g)",
+      "cantidad": 4,
+      "precio_unitario": 2.89,
+      "precio_total": 11.56
+    },
+    {
+      "producto": "Jabón de Baño (100g)",
+      "cantidad": 2,
+      "precio_unitario": 1.05,
+      "precio_total": 2.1
+    },
+    {
+      "producto": "Colonia Bonabel de Violetas",
+      "cantidad": 2,
+      "precio_unitario": 5.25,
+      "precio_total": 10.5
+    },
+    {
+      "producto": "Aceite Fritura 900ml",
+      "cantidad": 1,
+      "precio_unitario": 4.2,
+      "precio_total": 4.2
+    },
+    {
+      "producto": "Carne de cerdo x Lb",
+      "cantidad": 5,
+      "precio_unitario": 2.9,
+      "precio_total": 14.5
+    },
+    {
+      "producto": "Salchicha de pollo y cerdo 10u (340g)",
+      "cantidad": 2,
+      "precio_unitario": 1.9,
+      "precio_total": 3.8
+    },
+    {
+      "producto": "Refresco Instantáneo (2Lt)",
+      "cantidad": 6,
+      "precio_unitario": 0.42,
+      "precio_total": 2.52
+    },
+    {
+      "producto": "Carne de Ovejo x Lb",
+      "cantidad": 5,
+      "precio_unitario": 2.36,
+      "precio_total": 11.799999999999999
+    }
+  ],
+  "precio_compra_total": "64.78",
+  "navegador": "Safari",
+  "sistema_operativo": "iOS",
+  "tipo_usuario": "Recurrente",
+  "tiempo_promedio_pagina": 0,
+  "fuente_trafico": "Directo"
 }
 ]
