@@ -5260,5 +5260,68 @@
   "tipo_usuario": "Recurrente",
   "tiempo_promedio_pagina": 0,
   "fuente_trafico": "Directo"
+},
+{
+  "ip": "2601:58a:8500:1110:6fe1:11bc:cbaf:3f6a",
+  "pais": "United States",
+  "fecha_hora_entrada": "2025-07-16 13:19:55",
+  "origen": "Acceso directo",
+  "afiliado": "Ninguno",
+  "duracion_sesion_segundos": 528,
+  "tiempo_carga_pagina_ms": 1276,
+  "nombre_comprador": "Mayelin Contrera",
+  "telefono_comprador": "7862568427",
+  "correo_comprador": "susanlaffita@gmail.com",
+  "direccion_envio": "Calle Cuba #32A e/ 31 y 33. Buena vista.",
+  "compras": [
+    {
+      "producto": "Picadillo de pollo (1Kg)",
+      "cantidad": 1,
+      "precio_unitario": 2.97,
+      "precio_total": 2.97
+    },
+    {
+      "producto": "Salchicha de pollo y cerdo 10u (340g)",
+      "cantidad": 2,
+      "precio_unitario": 1.9,
+      "precio_total": 3.8
+    },
+    {
+      "producto": "Arroz importado 1lb",
+      "cantidad": 5,
+      "precio_unitario": 1.15,
+      "precio_total": 5.75
+    },
+    {
+      "producto": "Frijol Rojo x Lb",
+      "cantidad": 2,
+      "precio_unitario": 2.9,
+      "precio_total": 5.8
+    },
+    {
+      "producto": "Codito Badelli (350g)",
+      "cantidad": 5,
+      "precio_unitario": 1.89,
+      "precio_total": 9.45
+    },
+    {
+      "producto": "Azúcar blanca x lb",
+      "cantidad": 2,
+      "precio_unitario": 1.23,
+      "precio_total": 2.46
+    },
+    {
+      "producto": "Carne de cerdo x Lb",
+      "cantidad": 3,
+      "precio_unitario": 2.9,
+      "precio_total": 8.7
+    }
+  ],
+  "precio_compra_total": "38.93",
+  "navegador": "Chrome",
+  "sistema_operativo": "Android",
+  "tipo_usuario": "Recurrente",
+  "tiempo_promedio_pagina": 0,
+  "fuente_trafico": "Directo"
 }
 ]
