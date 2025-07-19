@@ -5323,5 +5323,68 @@
   "tipo_usuario": "Recurrente",
   "tiempo_promedio_pagina": 0,
   "fuente_trafico": "Directo"
+},
+  {
+  "ip": "2607:fb91:cb1:c13:998f:a957:b297:a2df",
+  "pais": "United States",
+  "fecha_hora_entrada": "2025-07-19 17:42:44",
+  "origen": "Acceso directo",
+  "afiliado": "Ninguno",
+  "duracion_sesion_segundos": 336,
+  "tiempo_carga_pagina_ms": 822,
+  "nombre_comprador": "Nayelin",
+  "telefono_comprador": "7863002520",
+  "correo_comprador": "nileyan2018@gmail.com",
+  "direccion_envio": "Edificio 26 apto c5",
+  "compras": [
+    {
+      "producto": "Café Espresso «El Ricote»",
+      "cantidad": 1,
+      "precio_unitario": 6.87,
+      "precio_total": 6.87
+    },
+    {
+      "producto": "Frijol Negro x Lb",
+      "cantidad": 1,
+      "precio_unitario": 2.63,
+      "precio_total": 2.63
+    },
+    {
+      "producto": "Frijol Rojo x Lb",
+      "cantidad": 1,
+      "precio_unitario": 2.9,
+      "precio_total": 2.9
+    },
+    {
+      "producto": "Arroz importado 1lb",
+      "cantidad": 5,
+      "precio_unitario": 1.15,
+      "precio_total": 5.75
+    },
+    {
+      "producto": "Cartón de Huevos",
+      "cantidad": 1,
+      "precio_unitario": 10,
+      "precio_total": 10
+    },
+    {
+      "producto": "Azúcar blanca x lb",
+      "cantidad": 3,
+      "precio_unitario": 1.23,
+      "precio_total": 3.69
+    },
+    {
+      "producto": "Aceite Fritura 900ml",
+      "cantidad": 2,
+      "precio_unitario": 4.2,
+      "precio_total": 8.4
+    }
+  ],
+  "precio_compra_total": "40.24",
+  "navegador": "Safari",
+  "sistema_operativo": "iOS",
+  "tipo_usuario": "Recurrente",
+  "tiempo_promedio_pagina": 0,
+  "fuente_trafico": "Directo"
 }
 ]
