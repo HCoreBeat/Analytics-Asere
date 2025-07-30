@@ -5443,5 +5443,50 @@
   "tipo_usuario": "Recurrente",
   "tiempo_promedio_pagina": 0,
   "fuente_trafico": "Directo"
+},
+{
+  "ip": "2600:1700:3d65:580:a198:71c6:ca35:90c1",
+  "pais": "United States",
+  "fecha_hora_entrada": "2025-07-29 19:45:23",
+  "origen": "Acceso directo",
+  "afiliado": "Juana",
+  "duracion_sesion_segundos": 1397,
+  "tiempo_carga_pagina_ms": 21,
+  "nombre_comprador": "Ketileni Perez",
+  "telefono_comprador": "3056062122",
+  "correo_comprador": "ketilenip@gmail.com",
+  "direccion_envio": "Edif 22 apart f8 reparto Santos  Buena vista",
+  "compras": [
+    {
+      "producto": "Maíz Dulce en Grano Vima (425g)",
+      "cantidad": 2,
+      "precio_unitario": 1.9,
+      "precio_total": 3.8
+    },
+    {
+      "producto": "Mayonesa Vima (450ml)",
+      "cantidad": 1,
+      "precio_unitario": 4.17,
+      "precio_total": 4.17
+    },
+    {
+      "producto": "Paquete de Papel Sanitario",
+      "cantidad": 2,
+      "precio_unitario": 2.09,
+      "precio_total": 4.18
+    },
+    {
+      "producto": "Cocina Express",
+      "cantidad": 1,
+      "precio_unitario": 16,
+      "precio_total": 16
+    }
+  ],
+  "precio_compra_total": "28.15",
+  "navegador": "Safari",
+  "sistema_operativo": "iOS",
+  "tipo_usuario": "Recurrente",
+  "tiempo_promedio_pagina": 0,
+  "fuente_trafico": "Directo"
 }
 ]
