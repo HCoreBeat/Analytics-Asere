@@ -5488,5 +5488,56 @@
   "tipo_usuario": "Recurrente",
   "tiempo_promedio_pagina": 0,
   "fuente_trafico": "Directo"
+},
+{
+  "ip": "87.15.52.39",
+  "pais": "Italy",
+  "fecha_hora_entrada": "2025-07-31 08:28:54",
+  "origen": "Acceso directo",
+  "afiliado": "Ninguno",
+  "duracion_sesion_segundos": 135,
+  "tiempo_carga_pagina_ms": 517,
+  "nombre_comprador": "Nailin",
+  "telefono_comprador": "3395327206",
+  "correo_comprador": "leonormax@gmail.com",
+  "direccion_envio": "Calle colon 148A entre Ramon ortuño e 24febrero",
+  "compras": [
+    {
+      "producto": "Arroz importado 1lb",
+      "cantidad": 20,
+      "precio_unitario": 1.15,
+      "precio_total": 23
+    },
+    {
+      "producto": "Mano de plátano burro",
+      "cantidad": 3,
+      "precio_unitario": 0.95,
+      "precio_total": 2.8499999999999996
+    },
+    {
+      "producto": "Plátano macho x unidad",
+      "cantidad": 10,
+      "precio_unitario": 0.26,
+      "precio_total": 2.6
+    },
+    {
+      "producto": "Boniato x Lb",
+      "cantidad": 20,
+      "precio_unitario": 0.42,
+      "precio_total": 8.4
+    },
+    {
+      "producto": "Carne de cerdo x Lb",
+      "cantidad": 5,
+      "precio_unitario": 3.2,
+      "precio_total": 16
+    }
+  ],
+  "precio_compra_total": "52.85",
+  "navegador": "Chrome",
+  "sistema_operativo": "Android",
+  "tipo_usuario": "Recurrente",
+  "tiempo_promedio_pagina": 0,
+  "fuente_trafico": "Directo"
 }
 ]
