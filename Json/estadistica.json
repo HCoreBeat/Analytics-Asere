@@ -5539,5 +5539,62 @@
   "tipo_usuario": "Recurrente",
   "tiempo_promedio_pagina": 0,
   "fuente_trafico": "Directo"
+},
+{
+  "ip": "2607:fb90:7993:44d8:4d54:4daf:e006:3ed1",
+  "pais": "United States",
+  "fecha_hora_entrada": "2025-08-08 16:05:16",
+  "origen": "Acceso directo",
+  "afiliado": "Natty",
+  "duracion_sesion_segundos": 946,
+  "tiempo_carga_pagina_ms": 566,
+  "nombre_comprador": "Cheila Cordove Pupo",
+  "telefono_comprador": "7863220667",
+  "correo_comprador": "cordovesheila769@gmail.com",
+  "direccion_envio": "Juan Ramón Ochoa número 123 entre mariana Grajales y R Pupo",
+  "compras": [
+    {
+      "producto": "Lomo de cerdo deshuesado x Lb",
+      "cantidad": 6,
+      "precio_unitario": 2.95,
+      "precio_total": 17.700000000000003
+    },
+    {
+      "producto": "Picadillo de pollo (1Kg)",
+      "cantidad": 4,
+      "precio_unitario": 2.97,
+      "precio_total": 11.88
+    },
+    {
+      "producto": "Aceite Fritura 900ml",
+      "cantidad": 1,
+      "precio_unitario": 4.2,
+      "precio_total": 4.2
+    },
+    {
+      "producto": "Cartón de Huevos",
+      "cantidad": 1,
+      "precio_unitario": 10,
+      "precio_total": 10
+    },
+    {
+      "producto": "Toallas sanitarias Sueños Cómodos (30u)",
+      "cantidad": 1,
+      "precio_unitario": 2.6,
+      "precio_total": 2.6
+    },
+    {
+      "producto": "Mano de plátano burro",
+      "cantidad": 1,
+      "precio_unitario": 0.95,
+      "precio_total": 0.95
+    }
+  ],
+  "precio_compra_total": "47.33",
+  "navegador": "Safari",
+  "sistema_operativo": "iOS",
+  "tipo_usuario": "Recurrente",
+  "tiempo_promedio_pagina": 0,
+  "fuente_trafico": "Directo"
 }
 ]
