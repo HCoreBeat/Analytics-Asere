@@ -5647,5 +5647,32 @@
     "tipo_usuario": null,
     "tiempo_promedio_pagina": null,
     "fuente_trafico": "Referral"
-  }
+  },
+{
+  "ip": "87.5.214.135",
+  "pais": "Italy",
+  "fecha_hora_entrada": "2025-08-13 08:16:05",
+  "origen": "Acceso directo",
+  "afiliado": "Ninguno",
+  "duracion_sesion_segundos": 198,
+  "tiempo_carga_pagina_ms": 738,
+  "nombre_comprador": "Nailin contreras santiesteban",
+  "telefono_comprador": "3395327206",
+  "correo_comprador": "leonormax@gmail.com",
+  "direccion_envio": "Calle colon 148A entre Ramon ortuño e 24febrero",
+  "compras": [
+    {
+      "producto": "Arroz importado 1lb",
+      "cantidad": 30,
+      "precio_unitario": 1.15,
+      "precio_total": 34.5
+    }
+  ],
+  "precio_compra_total": "34.50",
+  "navegador": "Chrome",
+  "sistema_operativo": "Android",
+  "tipo_usuario": "Recurrente",
+  "tiempo_promedio_pagina": 0,
+  "fuente_trafico": "Directo"
+}
 ]
