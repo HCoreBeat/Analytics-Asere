@@ -13,11 +13,519 @@
     --bot-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --bot-border-radius: 16px;
     --bot-border-radius-small: 8px;
-    
     /* Efectos futuristas */
     --bot-glow: 0 0 10px rgba(0, 255, 157, 0.5);
     --bot-glow-hover: 0 0 15px rgba(0, 255, 157, 0.7);
     --bot-pulse: 0 0 0 0 rgba(0, 255, 157, 0.7);
+}
+
+/* Separador y animación para logros ocultos */
+.bot-achievement-separator {
+    margin: 18px 0 6px 0;
+    color: var(--text-secondary);
+    font-size: 0.98rem;
+    font-weight: 500;
+    text-align: left;
+    letter-spacing: 1px;
+    opacity: 0.7;
+}
+.bot-achievement-hidden {
+    opacity: 0.5;
+    filter: grayscale(0.7);
+    transition: opacity 0.3s, filter 0.3s;
+}
+.bot-achievement-blink {
+    animation: blink 1.2s infinite alternate;
+}
+@keyframes blink {
+    from { opacity: 0.5; }
+    to { opacity: 1; }
+}
+/* Panel flotante de logros */
+.bot-achievements-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    background: rgba(15, 15, 18, 0.7);
+    z-index: 10001;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+.bot-achievements-container {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: 420px;
+    height: 100%;
+    background: var(--bot-secondary);
+    border-left: 1px solid var(--border-color);
+    padding: 20px;
+    overflow-y: auto;
+    transform: translateX(0);
+    transition: transform 0.3s ease;
+    z-index: 1000;
+}
+
+.bot-achievements-progress {
+    background: var(--bot-bg);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 24px;
+    box-shadow: var(--bot-shadow);
+}
+
+.progress-bar {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    height: 12px;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    background: linear-gradient(90deg, var(--bot-accent) 0%, var(--bot-accent-light) 100%);
+    height: 100%;
+    transition: width 0.3s ease;
+}
+
+.progress-stats {
+    display: flex;
+    justify-content: space-between;
+    color: var(--bot-accent);
+    font-weight: 600;
+}
+
+.stats-number {
+    font-size: 1.1em;
+}
+
+.stats-percent {
+    color: var(--text-secondary);
+}
+
+.bot-achievements-categories {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.achievement-category {
+    background: var(--bot-bg-hover);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 16px;
+}
+
+.achievement-category h3 {
+    color: var(--bot-accent);
+    margin: 0 0 16px 0;
+    font-size: 1.1em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.category-achievements {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.bot-achievement-panel {
+    background: var(--bot-bg);
+    border-radius: 8px;
+    padding: 12px;
+    transition: transform 0.2s ease;
+}
+
+.bot-achievement-panel:hover {
+    transform: translateY(-2px);
+}
+
+.achievement-header {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 8px;
+}
+
+.achievement-icon {
+    font-size: 1.5em;
+    background: var(--bot-bg-hover);
+    padding: 8px;
+    border-radius: 6px;
+}
+
+.achievement-info {
+    flex: 1;
+}
+
+.achievement-title {
+    font-weight: 600;
+    color: var(--bot-accent);
+    margin-bottom: 4px;
+}
+
+.achievement-description {
+    font-size: 0.9em;
+    color: var(--text-secondary);
+}
+
+.achievement-progress {
+    margin-top: 8px;
+}
+
+.progress-bar {
+    height: 6px;
+    background: var(--bot-bg-hover);
+    border-radius: 3px;
+    overflow: hidden;
+    margin-bottom: 6px;
+}
+
+.progress-fill {
+    height: 100%;
+    background: var(--bot-accent);
+    transition: width 0.3s ease;
+}
+
+.progress-text {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9em;
+    color: var(--text-secondary);
+}
+
+.progress-current {
+    color: var(--bot-accent);
+    font-weight: 600;
+}
+
+.achievement-category h3 {
+    color: var(--bot-accent);
+    margin: 0 0 16px 0;
+    font-size: 1.1em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.bot-achievements-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 18px;
+}
+.bot-achievements-title {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: var(--bot-accent);
+    letter-spacing: 1px;
+}
+.bot-achievements-summary {
+    background: var(--bot-bg);
+    border-radius: 8px;
+    padding: 12px;
+    margin-bottom: 16px;
+    text-align: center;
+    color: var(--bot-accent);
+    font-weight: 600;
+    box-shadow: var(--bot-shadow);
+}
+.bot-achievements-close {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: var(--bot-accent);
+    cursor: pointer;
+    transition: color 0.2s;
+    line-height: 1;
+}
+.bot-achievements-close:hover {
+    color: var(--text-secondary);
+}
+.bot-achievements-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+.bot-achievement-panel {
+    background: var(--bot-bg);
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 16px;
+    box-shadow: var(--bot-shadow);
+    transition: all 0.3s ease;
+}
+
+.bot-achievement-panel.completed {
+    background: linear-gradient(90deg, var(--bot-bg) 0%, var(--bot-accent-light) 50%);
+}
+
+.achievement-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+    position: relative;
+}
+
+.achievement-icon {
+    font-size: 1.8em;
+    background: var(--bot-bg-hover);
+    padding: 8px;
+    border-radius: 8px;
+    box-shadow: var(--bot-shadow);
+}
+
+.achievement-info {
+    flex-grow: 1;
+}
+
+.achievement-title {
+    font-size: 1.1em;
+    font-weight: 600;
+    color: var(--bot-accent);
+    margin-bottom: 4px;
+}
+
+.achievement-description {
+    font-size: 0.9em;
+    color: var(--text-secondary);
+    opacity: 0.9;
+}
+
+.achievement-completed {
+    position: absolute;
+    right: 0;
+    top: 0;
+    color: var(--bot-accent);
+    font-size: 1.2em;
+}
+
+.achievement-progress {
+    margin-top: 8px;
+}
+
+.progress-bar {
+    background: rgba(255, 255, 255, 0.1);
+    height: 8px;
+    border-radius: 4px;
+    margin-bottom: 8px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    background: linear-gradient(90deg, var(--bot-accent) 0%, var(--bot-accent-light) 100%);
+    height: 100%;
+    transition: width 0.3s ease;
+}
+
+.progress-text {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    font-size: 0.9em;
+    color: var(--text-secondary);
+}
+
+.progress-current {
+    color: var(--bot-accent);
+    font-weight: 600;
+}
+
+.progress-goal {
+    opacity: 0.8;
+}
+
+.progress-percent {
+    margin-left: auto;
+    font-weight: 600;
+    color: var(--bot-accent);
+}
+
+.achievement-status {
+    position: absolute;
+    right: 15px;
+    font-size: 1.2em;
+}
+
+.bot-achievement-item.completed .achievement-status {
+    color: var(--bot-accent);
+}
+
+.bot-achievement-item.locked .achievement-status {
+    color: var(--text-secondary);
+    opacity: 0.7;
+}
+.bot-achievement-icon {
+    font-size: 1.5rem;
+    margin-right: 6px;
+}
+.bot-achievement-text {
+    color: var(--bot-accent);
+    font-weight: 600;
+}
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Botón de logros en el header del bot */
+.bot-achievements-btn {
+    background: linear-gradient(135deg, var(--bot-accent) 0%, var(--bot-primary) 100%);
+    border: none;
+    color: var(--bot-text);
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 10px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    box-shadow: var(--bot-shadow);
+    transition: background 0.2s, color 0.2s, transform 0.2s;
+}
+.bot-achievements-btn:hover {
+    background: linear-gradient(135deg, var(--bot-primary) 0%, var(--bot-accent) 100%);
+    color: var(--bot-text);
+    transform: scale(1.08);
+}
+/* Panel de historial de mejoras */
+/* Panel de historial de mejoras */
+.bot-changelog-history {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+.bot-changelog-version {
+    color: var(--accent);
+    background: rgba(255,255,255,0.07);
+    border-radius: 10px;
+    padding: 10px 16px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+.bot-changelog-list {
+    margin: 0;
+    padding-left: 18px;
+    color: var(--text-secondary);
+    font-size: 14px;
+    background: rgba(0,255,157,0.06);
+}
+.bot-changelog-list li {
+    margin-bottom: 2px;
+}
+/* Panel de actividad reciente */
+.bot-recent-activity {
+    margin: 18px 0 10px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.bot-activity-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--bot-bg-hover);
+    border-radius: 10px;
+    padding: 10px 16px;
+    font-size: 15px;
+    color: var(--bot-accent);
+    font-weight: bold;
+    box-shadow: var(--bot-shadow);
+    position: relative;
+}
+.bot-activity-icon {
+    font-size: 20px;
+    margin-right: 6px;
+}
+.bot-activity-text {
+    color: #7ec4cf;
+    font-weight: 600;
+}
+.bot-activity-date {
+    color: #b6b6b6;
+    font-size: 12px;
+    margin-left: auto;
+    font-weight: normal;
+}
+/* Logros destacados de estadistica.json */
+.bot-data-achievements {
+    margin: 18px 0 10px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.bot-data-achievement {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255,255,255,0.06);
+    border-radius: 10px;
+    padding: 10px 16px;
+    font-size: 15px;
+    color: #ffd700;
+    font-weight: bold;
+    box-shadow: 0 2px 8px rgba(255,215,0,0.08);
+}
+.bot-data-achievement-icon {
+    font-size: 22px;
+    margin-right: 6px;
+}
+.bot-data-achievement-text {
+    color: #ffd700;
+    font-weight: 600;
+}
+/* Confeti para panel de novedades */
+.bot-confetti-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 10000;
+}
+
+/* Logros y consejos en novedades */
+.bot-achievement {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(0,255,157,0.08);
+    border-radius: 10px;
+    padding: 10px 16px;
+    margin: 18px 0 10px 0;
+    font-size: 15px;
+    color: #00ff9d;
+    font-weight: bold;
+    box-shadow: 0 2px 8px rgba(0,255,157,0.08);
+}
+.bot-achievement-icon {
+    font-size: 22px;
+    margin-right: 6px;
+}
+.bot-achievement-text {
+    color: #00ff9d;
+    font-weight: 600;
+}
+.bot-tip {
+    background: rgba(0,204,255,0.08);
+    border-radius: 8px;
+    padding: 10px 14px;
+    color: #00ccff;
+    font-size: 14px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.bot-tip i {
+    color: #00ccff;
+    font-size: 16px;
 }
 
 .floating-bot-container {
@@ -644,13 +1152,13 @@
 }
 
 .bot-intro-container {
-    background: linear-gradient(145deg, #0f0f12, #1a1a1f);
+    background: linear-gradient(145deg, var(--bot-primary), var(--bot-secondary));
     border-radius: 16px;
     padding: 30px;
     max-width: 450px;
     width: 90%;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-    border: 1px solid #2a2a32;
+    box-shadow: var(--bot-shadow);
+    border: 1px solid var(--bot-border);
     text-align: center;
     position: relative;
     overflow: hidden;
@@ -663,7 +1171,7 @@
     left: 0;
     width: 100%;
     height: 4px;
-    background: linear-gradient(90deg, #00ff9d, #00ccff);
+    background: linear-gradient(90deg, var(--bot-accent), var(--bot-accent-dark));
 }
 
 .bot-intro-header {
@@ -1136,4 +1644,9 @@
 
 .btn-whatsnew-close i {
     font-size: 16px;
+}
+
+/* Prevent background scrolling when achievements panel is open */
+body.bot-achievements-open {
+    overflow: hidden;
 }

@@ -46,7 +46,7 @@
 
         <div class="filters">
             <div class="filter-group">
-                <label><i class="fas fa-calendar-alt"></i> Periodo</label>
+                <label for="filter-period"><i class="fas fa-calendar-alt"></i> Periodo</label>
                 <select id="filter-period" class="select-dark">
                     <option value="month">Este Mes</option>
                     <option value="last-month">Mes Pasado</option>
@@ -55,7 +55,7 @@
                 </select>
             </div>
             <div class="filter-group">
-                <label><i class="fas fa-calendar-week"></i> Rango de Fechas</label>
+                <label for="filter-date-start"><i class="fas fa-calendar-week"></i> Rango de Fechas</label>
                 <div class="date-range">
                     <input type="date" id="filter-date-start" class="input-dark">
                     <span>a</span>
@@ -63,15 +63,15 @@
                 </div>
             </div>
             <div class="filter-group">
-                <label><i class="fas fa-flag"></i> País</label>
+                <label for="filter-country"><i class="fas fa-flag"></i> País</label>
                 <select id="filter-country" class="select-dark"></select>
             </div>
             <div class="filter-group">
-                <label><i class="fas fa-handshake"></i> Afiliado</label>
+                <label for="filter-affiliate"><i class="fas fa-handshake"></i> Afiliado</label>
                 <select id="filter-affiliate" class="select-dark"></select>
             </div>
             <div class="filter-group">
-                <label><i class="fas fa-user-tie"></i> Tipo usuario</label>
+                <label for="filter-user-type"><i class="fas fa-user-tie"></i> Tipo usuario</label>
                 <select id="filter-user-type" class="select-dark"></select>
             </div>
         </div>
@@ -114,7 +114,10 @@
         <div id="dashboard-view" class="view-content">
             <header class="header">
                 <div class="header-top">
-                    <button class="menu-toggle"><i class="fas fa-bars"></i> Menú</button>
+                    <div class="menu-left">
+                        <button class="menu-toggle"><i class="fas fa-bars"></i> Menú</button>
+                        <img src="img/logo_2.png" alt="Logo" class="header-logo" />
+                    </div>
                     <div class="search-bar">
                         <input type="text" id="search-orders" placeholder="Buscar en pedidos..." class="input-dark">
                         <button class="search-btn"><i class="fas fa-search"></i></button>
@@ -264,7 +267,7 @@
                     </button>
                 </div>
 
-                <div id="add-affiliate-panel" class="card full-width" style="display: none;">
+                        <div id="add-affiliate-panel" class="card full-width" style="display: none;">
                     <h3 class="card-title"><i class="fas fa-user-plus"></i> Nuevo Afiliado Temporal</h3>
                     <form id="add-affiliate-form" class="affiliate-form">
                         <div class="form-group">
@@ -276,7 +279,7 @@
                             <input type="text" id="affiliate-phone" class="input-dark">
                         </div>
                         <div class="form-group">
-                            <label>Información generada automáticamente</label>
+                            <div class="field-label">Información generada automáticamente</div>
                             <div class="auto-generated-info">
                                 <div class="info-item">
                                     <span>ID:</span>
@@ -417,9 +420,10 @@
                             <button class="close-modal" id="close-product-editor">&times;</button>
                         </div>
                         
+                        <div class="modal-body">
                         <form id="product-form" class="product-form">
                             <div class="form-columns">
-                                <div class="form-column">
+                                <div class="form-column left">
                                     <div class="form-group">
                                         <label for="product-name">Nombre *</label>
                                         <input type="text" id="product-name" class="input-dark" required>
@@ -449,10 +453,10 @@
                                     </div>
                                 </div>
                                 
-                                <div class="form-column">
+                                <div class="form-column right">
                                     <div style="display: flex; flex-wrap: wrap; gap: 1rem;">
                                         <div class="form-group">
-                                            <label>Estado</label>
+                                            <div class="field-label">Estado</div>
                                             <div class="switch-group">
                                                 <label class="switch">
                                                     <input type="checkbox" id="product-disponible" checked="">
@@ -461,9 +465,20 @@
                                                 </label>
                                             </div>
                                         </div>
+
+                                        <div class="form-group">
+                                            <div class="field-label">Producto Nuevo</div>
+                                            <div class="switch-group">
+                                                <label class="switch">
+                                                    <input type="checkbox" id="product-nuevo" checked="">
+                                                    <span class="slider"></span>
+                                                    <span class="switch-label">Es Nuevo</span>
+                                                </label>
+                                            </div>
+                                        </div>
                                         
                                         <div class="form-group">
-                                            <label>Destacado</label>
+                                            <div class="field-label">Destacado</div>
                                             <div class="switch-group">
                                                 <label class="switch">
                                                     <input type="checkbox" id="product-mas-vendido">
@@ -474,7 +489,7 @@
                                         </div>
                                         
                                         <div class="form-group">
-                                            <label>Oferta</label>
+                                            <div class="field-label">Oferta</div>
                                             <div class="switch-group">
                                                 <label class="switch">
                                                     <input type="checkbox" id="product-oferta">
@@ -486,7 +501,7 @@
                                     </div>
                                  
                                     <div class="form-group">
-                                        <label>Imagen principal *</label>
+                                        <label for="main-image-upload">Imagen principal *</label>
                                         <div class="image-upload-container">
                                             <div class="current-image-container" id="main-image-container">
                                                 <span>No hay imagen seleccionada</span>
@@ -504,7 +519,7 @@
                                     </div>
                                     
                                     <div class="form-group">
-                                        <label>Imágenes adicionales</label>
+                                        <label for="additional-images-upload">Imágenes adicionales</label>
                                         <div class="additional-images-container" id="additional-images-container">
                                             <div class="no-images-message">No hay imágenes adicionales</div>
                                         </div>
@@ -518,13 +533,13 @@
                                 </div>
                             </div>
                             
-                            <div class="form-group full-width   " >
-                                <label>Vista previa del JSON</label>
+                            <div class="form-group full-width hidden" id="json-preview-container">
+                                <div class="field-label">Vista previa del JSON</div>
                                 <pre id="product-json-preview" class="json-preview"></pre>
                             </div>
                             
-                            <button id="toggle-json-preview" class="btn btn-secondary">
-                                <i class="fas fa-eye-slash"></i> Ocultar Vista Previa
+                            <button type="button" id="toggle-json-preview" class="btn btn-secondary">
+                                <i class="fas fa-eye"></i> Mostrar Vista Previa
                             </button>
 
                             <div class="form-actions">
@@ -536,6 +551,7 @@
                                 </button>
                             </div>
                         </form>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -592,9 +608,9 @@
 
         <footer class="footer">
             <div class="footer-content">
-                <span class="footer-text">© 2025 Analytics-Asere · v3.1.2</span>
+                <span class="footer-text">© 2025 Analytics-Asere · v3.5.1</span>
                 <div class="footer-links">
-                    <a href="#"><i class="fas fa-book"></i> Creado por H.A</a>
+                    <a href="#"><i class="fas fa-book"></i> Creado por HLab</a>
                 </div>
             </div>
         </footer>

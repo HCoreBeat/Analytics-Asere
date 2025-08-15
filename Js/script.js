@@ -1787,16 +1787,19 @@ class SalesDashboard {
                 finalPrice * (1 - product.descuento/100) : 
                 finalPrice;
             
-            // Get image URL from GitHub repository
-            const imageUrl = `https://raw.githubusercontent.com/${CONFIG.GITHUB_API.REPO_OWNER}/${CONFIG.GITHUB_API.REPO_NAME}/main/${product.imagen}?t=${Date.now()}`;
+            // Get image URL from GitHub repository (no timestamp to avoid redundant fetches)
+            const imageUrl = product.imagen ?
+                `https://raw.githubusercontent.com/${CONFIG.GITHUB_API.REPO_OWNER}/${CONFIG.GITHUB_API.REPO_NAME}/main/${product.imagen}` :
+                'img/no-image.png';
             
             return `
             <div class="product-card" data-id="${this.sanitizeId(product.nombre)}">
                 <div class="product-image-container">
-                    <img class="product-image" src="${imageUrl}" alt="${product.nombre}" onerror="this.src='img/no-image.png'">
+                    <img class="product-image" src="${imageUrl}" alt="${product.nombre}" loading="lazy" onerror="(function(i){i.onerror=null;i.src='img/no-image.png';})(this)" onload="this.classList.add('loaded')">
                     <div class="product-badges">
                         ${product.oferta ? '<span class="product-badge oferta">OFERTA</span>' : ''}
                         ${product.mas_vendido ? '<span class="product-badge mas-vendido">TOP</span>' : ''}
+                        ${product.nuevo ? '<span class="product-badge nuevo">NUEVO</span>' : ''}
                         ${!product.disponible ? '<span class="product-badge no-disponible">AGOTADO</span>' : ''}
                     </div>
                 </div>
@@ -1956,7 +1959,7 @@ class SalesDashboard {
         });
     
         // Checkbox changes
-        ['product-oferta', 'product-mas-vendido', 'product-disponible'].forEach(id => {
+        ['product-oferta', 'product-mas-vendido', 'product-disponible','product-nuevo'].forEach(id => {
             document.getElementById(id)?.addEventListener('change', () => this.updateJsonPreview());
         });
         
@@ -1983,11 +1986,20 @@ class SalesDashboard {
         });
 
         document.getElementById('toggle-json-preview')?.addEventListener('click', (e) => {
-            const preview = document.getElementById('product-json-preview').parentElement;
-            preview.classList.toggle('hidden');
-            e.target.innerHTML = preview.classList.contains('hidden') ? 
-                '<i class="fas fa-eye"></i> Mostrar Vista Previa' : 
-                '<i class="fas fa-eye-slash"></i> Ocultar Vista Previa';
+            // Prevent any default action or bubbling that could trigger a form submit
+            e.preventDefault();
+            e.stopPropagation();
+
+            const container = document.getElementById('json-preview-container');
+            if (!container) return;
+            container.classList.toggle('hidden');
+            const isHidden = container.classList.contains('hidden');
+
+            // Safely reference the button that received the event
+            const btn = e.currentTarget || e.target;
+            if (btn && btn instanceof Element) {
+                btn.innerHTML = isHidden ? '<i class="fas fa-eye"></i> Mostrar Vista Previa' : '<i class="fas fa-eye-slash"></i> Ocultar Vista Previa';
+            }
         });
     }
 
@@ -2063,11 +2075,45 @@ class SalesDashboard {
         }
         
         modal.classList.remove('hidden');
+        // Apply fullscreen panel styling
+        modal.classList.add('large-fullscreen');
+        const modalContent = modal.querySelector('.modal-content.large-modal');
+        if (modalContent) modalContent.classList.add('fullscreen');
+
+        // Prevent background from scrolling when modal is open.
+        // Save current scroll position and lock body without losing place.
+        try {
+            const scrollY = window.scrollY || document.documentElement.scrollTop || 0;
+            document.body.dataset.scrollY = String(scrollY);
+            document.body.classList.add('modal-open');
+            // Use fixed positioning to freeze background; set top to preserve scroll
+            document.body.style.position = 'fixed';
+            document.body.style.top = `-${scrollY}px`;
+            document.body.style.left = '0';
+            document.body.style.right = '0';
+        } catch (err) { /* non-browser env */ }
         this.updateJsonPreview();
     }
     
     closeProductEditor() {
-        document.getElementById('product-editor-modal').classList.add('hidden');
+        const modal = document.getElementById('product-editor-modal');
+        modal.classList.add('hidden');
+        modal.classList.remove('large-fullscreen');
+        const modalContent = modal.querySelector('.modal-content.large-modal');
+        if (modalContent) modalContent.classList.remove('fullscreen');
+        // Re-enable background scrolling and restore previous scroll position
+        try {
+            document.body.classList.remove('modal-open');
+            // remove fixed positioning and restore scroll
+            const prev = parseInt(document.body.dataset.scrollY || '0', 10) || 0;
+            document.body.style.position = '';
+            document.body.style.top = '';
+            document.body.style.left = '';
+            document.body.style.right = '';
+            // restore scroll
+            window.scrollTo(0, prev);
+            delete document.body.dataset.scrollY;
+        } catch (err) { /* non-browser env */ }
         this.currentProduct = null;
         this.mainImageFile = null;
         this.additionalImageFiles = [];
@@ -2087,6 +2133,7 @@ class SalesDashboard {
         document.getElementById('product-oferta').checked = product.oferta || false;
         document.getElementById('product-mas-vendido').checked = product.mas_vendido || false;
         document.getElementById('product-disponible').checked = product.disponible !== false;
+        document.getElementById('product-nuevo').checked = product.nuevo || false;
         document.getElementById('product-description').value = product.descripcion || '';
         this.updatePriceHint();
         
@@ -2136,6 +2183,7 @@ class SalesDashboard {
     resetProductForm() {
         document.getElementById('product-form').reset();
         document.getElementById('product-disponible').checked = true;
+        document.getElementById('product-nuevo').checked = true;
         
         // Inicializar el campo de descuento con el mismo valor que el precio
         const price = document.getElementById('product-price').value || 0;
@@ -2237,6 +2285,7 @@ class SalesDashboard {
         const mas_vendido = document.getElementById('product-mas-vendido').checked;
         const disponible = document.getElementById('product-disponible').checked;
         const descripcion = document.getElementById('product-description').value.trim();
+        const nuevo = document.getElementById('product-nuevo').checked;
         
         // Calcular el porcentaje de descuento basado en el precio final deseado
         let discountPercentage = 0;
@@ -2276,7 +2325,8 @@ class SalesDashboard {
             disponible: disponible,
             imagen: imagen,
             descripcion: descripcion || undefined,
-            imagenesAdicionales: imagenesAdicionales.length > 0 ? imagenesAdicionales : undefined
+            imagenesAdicionales: imagenesAdicionales.length > 0 ? imagenesAdicionales : undefined,
+            nuevo: nuevo
         };
     }
     
@@ -2350,8 +2400,7 @@ class SalesDashboard {
                 });
     
                 if (!getResponse.ok) {
-                    console.warn(`No se pudo obtener información de ${imagePath}`);
-                    continue;
+                    throw new Error(`Error al obtener archivo: ${getResponse.status}`);
                 }
     
                 const fileData = await getResponse.json();
@@ -2372,9 +2421,9 @@ class SalesDashboard {
                 });
     
                 if (!deleteResponse.ok) {
-                    console.warn(`No se pudo eliminar ${imagePath}`);
+                    const errorData = await deleteResponse.json().catch(() => ({}));
+                    throw new Error(errorData.message || `Error HTTP: ${deleteResponse.status}`);
                 }
-    
             } catch (error) {
                 console.error(`Error al eliminar ${imagePath}:`, error);
             }
@@ -2800,7 +2849,7 @@ class SalesDashboard {
             await this.confirmImageDeletion();
         });
         
-        document.getElementById('cancel-image-deletion').addEventListener('click', () => {
+        document.getElementById('cancel-image-deletion')?.addEventListener('click', () => {
             this.cancelImageDeletion();
         });
         
@@ -2876,12 +2925,11 @@ class SalesDashboard {
                 });
                 
                 if (!getResponse.ok) {
-                    console.warn(`No se pudo obtener información de ${img.name}`);
-                    continue;
+                    throw new Error(`Error al obtener archivo: ${getResponse.status}`);
                 }
                 
                 const fileData = await getResponse.json();
-                
+    
                 // Eliminar el archivo
                 const deleteResponse = await fetch(`https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${img.path}`, {
                     method: 'DELETE',
@@ -2898,7 +2946,8 @@ class SalesDashboard {
                 });
                 
                 if (!deleteResponse.ok) {
-                    console.warn(`No se pudo eliminar ${img.name}`);
+                    const errorData = await deleteResponse.json().catch(() => ({}));
+                    throw new Error(errorData.message || `Error HTTP: ${deleteResponse.status}`);
                 }
             }
             

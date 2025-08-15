@@ -7,7 +7,6 @@ const CONFIG = {
         PRODUCTS_FILE_PATH: 'Json/productos.json'
     },
     PRODUCT_CATEGORIES: [
-        'all',
         'frutas',
         'cafe',
         'carnes',
@@ -22,6 +21,9 @@ const CONFIG = {
         'cakes',
         'confituras',
         'otros',
-        'electrodomesticos'
+        'vehículos',
+        'electrodomesticos',
+        'aseo',
+        'fragancias'
     ]
 };
