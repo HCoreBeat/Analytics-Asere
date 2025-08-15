@@ -5674,5 +5674,80 @@
   "tipo_usuario": "Recurrente",
   "tiempo_promedio_pagina": 0,
   "fuente_trafico": "Directo"
+},
+{
+  "ip": "107.134.113.72",
+  "pais": "United States",
+  "fecha_hora_entrada": "2025-08-15 16:23:30",
+  "origen": "Acceso directo",
+  "afiliado": "Natty",
+  "duracion_sesion_segundos": 1131,
+  "tiempo_carga_pagina_ms": 126,
+  "nombre_comprador": "Shakira Granda Rodriguez",
+  "telefono_comprador": "7866094405",
+  "correo_comprador": "shakiragranda@icloud.com",
+  "direccion_envio": "Loco Cruz 108A % Gonzalo de Quesada y Villalon",
+  "compras": [
+    {
+      "producto": "Caja de Malta Bucanero",
+      "cantidad": 1,
+      "precio_unitario": 25,
+      "precio_total": 25
+    },
+    {
+      "producto": "Queso criollo x Lb",
+      "cantidad": 4,
+      "precio_unitario": 2.4,
+      "precio_total": 9.6
+    },
+    {
+      "producto": "Paquete de pan de bola 10u",
+      "cantidad": 3,
+      "precio_unitario": 1.9,
+      "precio_total": 5.699999999999999
+    },
+    {
+      "producto": "Cartón de Huevos",
+      "cantidad": 1,
+      "precio_unitario": 10,
+      "precio_total": 10
+    },
+    {
+      "producto": "Pack Caramelos de leche",
+      "cantidad": 1,
+      "precio_unitario": 4,
+      "precio_total": 4
+    },
+    {
+      "producto": "Melocotones en almíbar",
+      "cantidad": 1,
+      "precio_unitario": 3,
+      "precio_total": 3
+    },
+    {
+      "producto": "Peras en almíbar",
+      "cantidad": 1,
+      "precio_unitario": 3,
+      "precio_total": 3
+    },
+    {
+      "producto": "Mayonesa Celorrio",
+      "cantidad": 1,
+      "precio_unitario": 6.4,
+      "precio_total": 6.4
+    },
+    {
+      "producto": "Helado 4Lts",
+      "cantidad": 1,
+      "precio_unitario": 10.45,
+      "precio_total": 10.45
+    }
+  ],
+  "precio_compra_total": "77.15",
+  "navegador": "Safari",
+  "sistema_operativo": "iOS",
+  "tipo_usuario": "Recurrente",
+  "tiempo_promedio_pagina": 0,
+  "fuente_trafico": "Directo"
 }
 ]
