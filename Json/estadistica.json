@@ -5749,5 +5749,32 @@
   "tipo_usuario": "Recurrente",
   "tiempo_promedio_pagina": 0,
   "fuente_trafico": "Directo"
+},
+{
+  "ip": "2607:fb90:e291:dbf4:92a:f137:e8e2:6cac",
+  "pais": "United States",
+  "fecha_hora_entrada": "2025-08-17 15:52:24",
+  "origen": "Acceso directo",
+  "afiliado": "Pica",
+  "duracion_sesion_segundos": 528,
+  "tiempo_carga_pagina_ms": 1606,
+  "nombre_comprador": "Dixan Cruz",
+  "telefono_comprador": "8135858351",
+  "correo_comprador": "dixan.cr@gmail.com",
+  "direccion_envio": "Francisco Vega #175/lora y Nicolás Heredia reparto primera",
+  "compras": [
+    {
+      "producto": "Caja de Malta Bucanero",
+      "cantidad": 2,
+      "precio_unitario": 25,
+      "precio_total": 50
+    }
+  ],
+  "precio_compra_total": "50.00",
+  "navegador": "Safari",
+  "sistema_operativo": "iOS",
+  "tipo_usuario": "Recurrente",
+  "tiempo_promedio_pagina": 0,
+  "fuente_trafico": "Directo"
 }
 ]
