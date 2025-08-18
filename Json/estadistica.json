@@ -5776,5 +5776,44 @@
   "tipo_usuario": "Recurrente",
   "tiempo_promedio_pagina": 0,
   "fuente_trafico": "Directo"
+},
+{
+  "ip": "69.137.194.196",
+  "pais": "United States",
+  "fecha_hora_entrada": "2025-08-17 17:05:05",
+  "origen": "Acceso directo",
+  "afiliado": "Jennifer",
+  "duracion_sesion_segundos": 281,
+  "tiempo_carga_pagina_ms": 507,
+  "nombre_comprador": "Franklin Ruiz",
+  "telefono_comprador": "9088215298",
+  "correo_comprador": "franklin310426@gmail.com",
+  "direccion_envio": "4515 21st St SW",
+  "compras": [
+    {
+      "producto": "Pack de 4 Hamburguesas de cerdo",
+      "cantidad": 2,
+      "precio_unitario": 3.9,
+      "precio_total": 7.8
+    },
+    {
+      "producto": "Cartón de Huevos",
+      "cantidad": 1,
+      "precio_unitario": 10,
+      "precio_total": 10
+    },
+    {
+      "producto": "Carne de cerdo x Lb",
+      "cantidad": 1,
+      "precio_unitario": 3.2,
+      "precio_total": 3.2
+    }
+  ],
+  "precio_compra_total": "21.00",
+  "navegador": "Safari",
+  "sistema_operativo": "iOS",
+  "tipo_usuario": "Recurrente",
+  "tiempo_promedio_pagina": 0,
+  "fuente_trafico": "Directo"
 }
 ]
