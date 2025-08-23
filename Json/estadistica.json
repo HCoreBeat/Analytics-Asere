@@ -5815,5 +5815,44 @@
   "tipo_usuario": "Recurrente",
   "tiempo_promedio_pagina": 0,
   "fuente_trafico": "Directo"
+}, 
+{
+  "ip": "2601:80:477f:fcb0:297e:59c3:5844:66f2",
+  "pais": "United States",
+  "fecha_hora_entrada": "2025-08-23 18:20:31",
+  "origen": "Acceso directo",
+  "afiliado": "Ninguno",
+  "duracion_sesion_segundos": 601,
+  "tiempo_carga_pagina_ms": 671,
+  "nombre_comprador": "Irina Escalante",
+  "telefono_comprador": "6402597824",
+  "correo_comprador": "escalanterojasirina765@gmail.com",
+  "direccion_envio": "Edif 15 apto b8 avenida Carlos J Finlay entre Camilo Cienfuegos y 42 Reparto Militar Camilo Cienfuegos",
+  "compras": [
+    {
+      "producto": "Pollo Country Pride",
+      "cantidad": 1,
+      "precio_unitario": 14.7,
+      "precio_total": 14.7
+    },
+    {
+      "producto": "Arroz importado 1lb",
+      "cantidad": 5,
+      "precio_unitario": 1.15,
+      "precio_total": 5.75
+    },
+    {
+      "producto": "Colonia Bonabel de Violetas",
+      "cantidad": 1,
+      "precio_unitario": 5.25,
+      "precio_total": 5.25
+    }
+  ],
+  "precio_compra_total": "25.70",
+  "navegador": "Safari",
+  "sistema_operativo": "iOS",
+  "tipo_usuario": "Recurrente",
+  "tiempo_promedio_pagina": 0,
+  "fuente_trafico": "Directo"
 }
 ]
