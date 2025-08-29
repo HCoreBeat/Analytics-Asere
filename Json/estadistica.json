@@ -5959,5 +5959,92 @@
   "tipo_usuario": "Recurrente",
   "tiempo_promedio_pagina": 0,
   "fuente_trafico": "Directo"
+},
+{
+  "ip": "2600:387:15:6111::2",
+  "pais": "United States",
+  "fecha_hora_entrada": "2025-08-29 15:44:10",
+  "origen": "Acceso directo",
+  "afiliado": "Juana",
+  "duracion_sesion_segundos": 2260,
+  "tiempo_carga_pagina_ms": 706,
+  "nombre_comprador": "Yoandra Martinez",
+  "telefono_comprador": "7863191466",
+  "correo_comprador": "yoa2002ye@gmail.com",
+  "direccion_envio": "Calle 22 15 Alto % 43 Y 45\nReparto De Buena Vista",
+  "compras": [
+    {
+      "producto": "Pack Malta Guajira (6u)",
+      "cantidad": 2,
+      "precio_unitario": 6,
+      "precio_total": 12
+    },
+    {
+      "producto": "Paquete de pan de bola 10u",
+      "cantidad": 2,
+      "precio_unitario": 1.9,
+      "precio_total": 3.8
+    },
+    {
+      "producto": "Desodorante Keewell",
+      "cantidad": 3,
+      "precio_unitario": 3.01,
+      "precio_total": 9.03
+    },
+    {
+      "producto": "Kit de cuidado oral Bendfresh",
+      "cantidad": 2,
+      "precio_unitario": 3,
+      "precio_total": 6
+    },
+    {
+      "producto": "Jabones de baño Harmony",
+      "cantidad": 4,
+      "precio_unitario": 0.8,
+      "precio_total": 3.2
+    },
+    {
+      "producto": "Café Bryderk",
+      "cantidad": 2,
+      "precio_unitario": 6,
+      "precio_total": 12
+    },
+    {
+      "producto": "Leche Condensada azucarada (390g)",
+      "cantidad": 3,
+      "precio_unitario": 2.89,
+      "precio_total": 8.67
+    },
+    {
+      "producto": "Cartón de Huevos",
+      "cantidad": 1,
+      "precio_unitario": 10,
+      "precio_total": 10
+    },
+    {
+      "producto": "Aceite Fritura 900ml",
+      "cantidad": 1,
+      "precio_unitario": 2.9,
+      "precio_total": 2.9
+    },
+    {
+      "producto": "Aquarino",
+      "cantidad": 1,
+      "precio_unitario": 12,
+      "precio_total": 12
+    },
+    {
+      "producto": "Elements",
+      "cantidad": 1,
+      "precio_unitario": 14,
+      "precio_total": 14
+    }
+  ],
+  "precio_compra_total": "93.60",
+  "navegador": "Safari",
+  "sistema_operativo": "iOS",
+  "tipo_usuario": "Recurrente",
+  "tiempo_promedio_pagina": 0,
+  "fuente_trafico": "Directo"
 }
 ]
