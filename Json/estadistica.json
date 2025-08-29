@@ -5854,5 +5854,110 @@
   "tipo_usuario": "Recurrente",
   "tiempo_promedio_pagina": 0,
   "fuente_trafico": "Directo"
+},
+{
+  "ip": "47.201.241.143",
+  "pais": "United States",
+  "fecha_hora_entrada": "2025-08-28 19:38:19",
+  "origen": "Acceso directo",
+  "afiliado": "Juana",
+  "duracion_sesion_segundos": 462,
+  "tiempo_carga_pagina_ms": 821,
+  "nombre_comprador": "Ailen Vega mariño",
+  "telefono_comprador": "9413123962",
+  "correo_comprador": "ailen29101990@gmail.com",
+  "direccion_envio": "Josue paiz/Ramon ortuño y 24 de febrero # 61 fondo",
+  "compras": [
+    {
+      "producto": "Lomo de cerdo deshuesado x Lb",
+      "cantidad": 5,
+      "precio_unitario": 2.95,
+      "precio_total": 14.75
+    },
+    {
+      "producto": "Carne de Ovejo x Lb",
+      "cantidad": 5,
+      "precio_unitario": 2.36,
+      "precio_total": 11.799999999999999
+    },
+    {
+      "producto": "Salchicha de pollo y cerdo 10u (340g)",
+      "cantidad": 1,
+      "precio_unitario": 1.9,
+      "precio_total": 1.9
+    },
+    {
+      "producto": "Picadillo de pollo (1Kg)",
+      "cantidad": 3,
+      "precio_unitario": 2.97,
+      "precio_total": 8.91
+    },
+    {
+      "producto": "Rollito Carne de Cerdo x Lb",
+      "cantidad": 2,
+      "precio_unitario": 4.95,
+      "precio_total": 9.9
+    },
+    {
+      "producto": "Queso criollo x Lb",
+      "cantidad": 3,
+      "precio_unitario": 2.4,
+      "precio_total": 7.199999999999999
+    },
+    {
+      "producto": "Aceite Fritura 900ml",
+      "cantidad": 2,
+      "precio_unitario": 2.9,
+      "precio_total": 5.8
+    },
+    {
+      "producto": "Paquete de pan de bola 10u",
+      "cantidad": 2,
+      "precio_unitario": 1.9,
+      "precio_total": 3.8
+    },
+    {
+      "producto": "Frijol Rojo 500g",
+      "cantidad": 1,
+      "precio_unitario": 3.2,
+      "precio_total": 3.2
+    },
+    {
+      "producto": "Fideos de Ada",
+      "cantidad": 1,
+      "precio_unitario": 1.4,
+      "precio_total": 1.4
+    },
+    {
+      "producto": "Paquete de Papel Sanitario",
+      "cantidad": 1,
+      "precio_unitario": 2.09,
+      "precio_total": 2.09
+    },
+    {
+      "producto": "Galletas Renata",
+      "cantidad": 1,
+      "precio_unitario": 1.4,
+      "precio_total": 1.4
+    },
+    {
+      "producto": "Pelly Queso Cheerdar",
+      "cantidad": 1,
+      "precio_unitario": 0.98,
+      "precio_total": 0.98
+    },
+    {
+      "producto": "Jabones de baño Harmony",
+      "cantidad": 5,
+      "precio_unitario": 0.8,
+      "precio_total": 4
+    }
+  ],
+  "precio_compra_total": "77.13",
+  "navegador": "Chrome",
+  "sistema_operativo": "Android",
+  "tipo_usuario": "Recurrente",
+  "tiempo_promedio_pagina": 0,
+  "fuente_trafico": "Directo"
 }
 ]
