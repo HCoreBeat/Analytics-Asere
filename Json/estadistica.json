@@ -6046,5 +6046,56 @@
   "tipo_usuario": "Recurrente",
   "tiempo_promedio_pagina": 0,
   "fuente_trafico": "Directo"
+},
+{
+  "ip": "2601:80:477f:fcb0:2def:d321:d01a:a4b5",
+  "pais": "United States",
+  "fecha_hora_entrada": "2025-09-03 22:09:11",
+  "origen": "Acceso directo",
+  "afiliado": "Juana",
+  "duracion_sesion_segundos": 1577,
+  "tiempo_carga_pagina_ms": 606,
+  "nombre_comprador": "Irina Escalante",
+  "telefono_comprador": "6402597824",
+  "correo_comprador": "escalanterojasirina765@gmail.com",
+  "direccion_envio": "Julián Santana #194 , entre Marti y Lico Cruz",
+  "compras": [
+    {
+      "producto": "Café Bryderk",
+      "cantidad": 1,
+      "precio_unitario": 6,
+      "precio_total": 6
+    },
+    {
+      "producto": "Leche entera en polvo (1kg)",
+      "cantidad": 1,
+      "precio_unitario": 11.97,
+      "precio_total": 11.97
+    },
+    {
+      "producto": "Arroz Importado 1kg",
+      "cantidad": 1,
+      "precio_unitario": 2.9,
+      "precio_total": 2.9
+    },
+    {
+      "producto": "Pasta de tomate Vima (400g)",
+      "cantidad": 1,
+      "precio_unitario": 1.98,
+      "precio_total": 1.98
+    },
+    {
+      "producto": "Aceite Fritura 900ml",
+      "cantidad": 1,
+      "precio_unitario": 2.9,
+      "precio_total": 2.9
+    }
+  ],
+  "precio_compra_total": "25.75",
+  "navegador": "Safari",
+  "sistema_operativo": "iOS",
+  "tipo_usuario": "Recurrente",
+  "tiempo_promedio_pagina": 0,
+  "fuente_trafico": "Directo"
 }
 ]
