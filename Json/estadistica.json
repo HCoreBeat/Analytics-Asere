@@ -6097,5 +6097,92 @@
   "tipo_usuario": "Recurrente",
   "tiempo_promedio_pagina": 0,
   "fuente_trafico": "Directo"
+},
+{
+  "ip": "2607:fb91:c10:8262:6540:469d:4951:5fd0",
+  "pais": "United States",
+  "fecha_hora_entrada": "2025-09-12 21:45:00",
+  "origen": "Acceso directo",
+  "afiliado": "Ninguno",
+  "duracion_sesion_segundos": 435,
+  "tiempo_carga_pagina_ms": 2620,
+  "nombre_comprador": "Nayelin",
+  "telefono_comprador": "7863002550",
+  "correo_comprador": "nileyan2018@gmail.com",
+  "direccion_envio": "Lzo Ortiz #56  % Joaquín aguero y Nicolás Heredia",
+  "compras": [
+    {
+      "producto": "Helado 4Lts",
+      "cantidad": 1,
+      "precio_unitario": 10.45,
+      "precio_total": 10.45
+    },
+    {
+      "producto": "Leche entera en polvo (1kg)",
+      "cantidad": 1,
+      "precio_unitario": 11.97,
+      "precio_total": 11.97
+    },
+    {
+      "producto": "Sal x Lb",
+      "cantidad": 2,
+      "precio_unitario": 0.35,
+      "precio_total": 0.7
+    },
+    {
+      "producto": "Azúcar blanca x lb",
+      "cantidad": 2,
+      "precio_unitario": 1.23,
+      "precio_total": 2.46
+    },
+    {
+      "producto": "Aceite Fritura 900ml",
+      "cantidad": 1,
+      "precio_unitario": 2.9,
+      "precio_total": 2.9
+    },
+    {
+      "producto": "Arroz importado 1lb",
+      "cantidad": 5,
+      "precio_unitario": 1.15,
+      "precio_total": 5.75
+    },
+    {
+      "producto": "Esponjas para fregar",
+      "cantidad": 2,
+      "precio_unitario": 0.48,
+      "precio_total": 0.96
+    },
+    {
+      "producto": "Plátano macho x unidad",
+      "cantidad": 6,
+      "precio_unitario": 0.26,
+      "precio_total": 1.56
+    },
+    {
+      "producto": "Whisky Royal Blue",
+      "cantidad": 1,
+      "precio_unitario": 6,
+      "precio_total": 6
+    },
+    {
+      "producto": "Frijol Rojo x Lb",
+      "cantidad": 2,
+      "precio_unitario": 2.9,
+      "precio_total": 5.8
+    },
+    {
+      "producto": "Frijol Negro x Lb",
+      "cantidad": 2,
+      "precio_unitario": 2.63,
+      "precio_total": 5.26
+    }
+  ],
+  "precio_compra_total": "53.81",
+  "navegador": "Safari",
+  "sistema_operativo": "iOS",
+  "tipo_usuario": "Recurrente",
+  "tiempo_promedio_pagina": 0,
+  "fuente_trafico": "Directo"
 }
 ]
