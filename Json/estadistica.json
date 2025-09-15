@@ -6184,5 +6184,68 @@
   "tipo_usuario": "Recurrente",
   "tiempo_promedio_pagina": 0,
   "fuente_trafico": "Directo"
+},
+{
+  "ip": "2600:387:15:6819::a",
+  "pais": "United States",
+  "fecha_hora_entrada": "2025-09-15 10:01:50",
+  "origen": "Acceso directo",
+  "afiliado": "Ninguno",
+  "duracion_sesion_segundos": 1495,
+  "tiempo_carga_pagina_ms": -255706,
+  "nombre_comprador": "Yanisleydis cruz",
+  "telefono_comprador": "9045044222",
+  "correo_comprador": "yanycruz36@icloud.com",
+  "direccion_envio": "Calle 45 # 22 entre 18 y 20 altura de buena vista",
+  "compras": [
+    {
+      "producto": "Salchicha de pollo y cerdo 10u (340g)",
+      "cantidad": 1,
+      "precio_unitario": 1.9,
+      "precio_total": 1.9
+    },
+    {
+      "producto": "Espaguetis (500g)",
+      "cantidad": 1,
+      "precio_unitario": 1.89,
+      "precio_total": 1.89
+    },
+    {
+      "producto": "Codito Badelli (350g)",
+      "cantidad": 1,
+      "precio_unitario": 1.89,
+      "precio_total": 1.89
+    },
+    {
+      "producto": "Cervezas Bucanero (355ml)",
+      "cantidad": 2,
+      "precio_unitario": 1.1,
+      "precio_total": 2.2
+    },
+    {
+      "producto": "Arroz Importado 1kg",
+      "cantidad": 1,
+      "precio_unitario": 2.9,
+      "precio_total": 2.9
+    },
+    {
+      "producto": "Aceite Fritura 900ml",
+      "cantidad": 1,
+      "precio_unitario": 2.9,
+      "precio_total": 2.9
+    },
+    {
+      "producto": "Frijol Negro x Lb",
+      "cantidad": 1,
+      "precio_unitario": 2.63,
+      "precio_total": 2.63
+    }
+  ],
+  "precio_compra_total": "16.31",
+  "navegador": "Safari",
+  "sistema_operativo": "iOS",
+  "tipo_usuario": "Recurrente",
+  "tiempo_promedio_pagina": 0,
+  "fuente_trafico": "Directo"
 }
 ]
