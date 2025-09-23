@@ -6274,5 +6274,68 @@
   "tipo_usuario": "Recurrente",
   "tiempo_promedio_pagina": 0,
   "fuente_trafico": "Directo"
+},
+{
+  "ip": "2600:387:f:d19::2",
+  "pais": "United States",
+  "fecha_hora_entrada": "2025-09-23 11:45:43",
+  "origen": "Acceso directo",
+  "afiliado": "Juana",
+  "duracion_sesion_segundos": 740,
+  "tiempo_carga_pagina_ms": 820,
+  "nombre_comprador": "Yoandra Martinez",
+  "telefono_comprador": "7863191466",
+  "correo_comprador": "yoa2002ye@gmail.com",
+  "direccion_envio": "Calle 22 15 Alto % 43 Y 45\nReparto De Buena Vista",
+  "compras": [
+    {
+      "producto": "Carne de cerdo x Lb",
+      "cantidad": 6,
+      "precio_unitario": 3.2,
+      "precio_total": 19.200000000000003
+    },
+    {
+      "producto": "Aceite Fritura 900ml",
+      "cantidad": 2,
+      "precio_unitario": 2.9,
+      "precio_total": 5.8
+    },
+    {
+      "producto": "Paquete de pan de bola 10u",
+      "cantidad": 2,
+      "precio_unitario": 1.9,
+      "precio_total": 3.8
+    },
+    {
+      "producto": "Cartón de Huevos",
+      "cantidad": 1,
+      "precio_unitario": 10,
+      "precio_total": 10
+    },
+    {
+      "producto": "Galletas Renata",
+      "cantidad": 2,
+      "precio_unitario": 1.4,
+      "precio_total": 2.8
+    },
+    {
+      "producto": "Pollo Country Pride",
+      "cantidad": 1,
+      "precio_unitario": 11.5,
+      "precio_total": 11.5
+    },
+    {
+      "producto": "Refresco Instantáneo (2Lt)",
+      "cantidad": 5,
+      "precio_unitario": 0.42,
+      "precio_total": 2.1
+    }
+  ],
+  "precio_compra_total": "55.20",
+  "navegador": "Safari",
+  "sistema_operativo": "iOS",
+  "tipo_usuario": "Recurrente",
+  "tiempo_promedio_pagina": 0,
+  "fuente_trafico": "Directo"
 }
 ]
