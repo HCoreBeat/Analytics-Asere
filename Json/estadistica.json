@@ -6247,5 +6247,32 @@
   "tipo_usuario": "Recurrente",
   "tiempo_promedio_pagina": 0,
   "fuente_trafico": "Directo"
+},
+{
+  "ip": "2601:586:5601:bd50:909:37fa:accb:a70",
+  "pais": "United States",
+  "fecha_hora_entrada": "2025-09-22 20:52:25",
+  "origen": "Acceso directo",
+  "afiliado": "Ninguno",
+  "duracion_sesion_segundos": 625,
+  "tiempo_carga_pagina_ms": 679,
+  "nombre_comprador": "Rolando Gonzalez Verdecia",
+  "telefono_comprador": "7868057592",
+  "correo_comprador": "gonzalezrolando711@gmail.com",
+  "direccion_envio": "calle 17 s/n entre Calle luis molina y 14 reparto buena vista las tunas",
+  "compras": [
+    {
+      "producto": "El Banquete Familiar",
+      "cantidad": 1,
+      "precio_unitario": 99,
+      "precio_total": 99
+    }
+  ],
+  "precio_compra_total": "99.00",
+  "navegador": "Chrome",
+  "sistema_operativo": "Windows",
+  "tipo_usuario": "Recurrente",
+  "tiempo_promedio_pagina": 0,
+  "fuente_trafico": "Directo"
 }
 ]
