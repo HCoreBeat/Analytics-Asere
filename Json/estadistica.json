@@ -6337,5 +6337,38 @@
   "tipo_usuario": "Recurrente",
   "tiempo_promedio_pagina": 0,
   "fuente_trafico": "Directo"
+},
+{
+  "ip": "2607:fb91:ca4:44e8:1d6c:b95f:df2f:e648",
+  "pais": "United States",
+  "fecha_hora_entrada": "2025-09-24 02:03:00",
+  "origen": "Acceso directo",
+  "afiliado": "Natty",
+  "duracion_sesion_segundos": 329,
+  "tiempo_carga_pagina_ms": 635,
+  "nombre_comprador": "Cheila Cordove Pupo",
+  "telefono_comprador": "7863220667",
+  "correo_comprador": "cordovesheila769@gmail.com",
+  "direccion_envio": "Juan Ramón Ochoa #123 entre mariana Grajales y R Pupo",
+  "compras": [
+    {
+      "producto": "Manzanas Pack x6",
+      "cantidad": 1,
+      "precio_unitario": 9,
+      "precio_total": 9
+    },
+    {
+      "producto": "Manzana",
+      "cantidad": 1,
+      "precio_unitario": 1.7,
+      "precio_total": 1.7
+    }
+  ],
+  "precio_compra_total": "10.70",
+  "navegador": "Safari",
+  "sistema_operativo": "iOS",
+  "tipo_usuario": "Recurrente",
+  "tiempo_promedio_pagina": 0,
+  "fuente_trafico": "Directo"
 }
 ]
