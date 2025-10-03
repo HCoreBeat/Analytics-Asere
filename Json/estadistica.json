@@ -6439,5 +6439,32 @@
   "tipo_usuario": "Recurrente",
   "tiempo_promedio_pagina": 0,
   "fuente_trafico": "Directo"
+},
+{
+  "ip": "98.79.139.15",
+  "pais": "United States",
+  "fecha_hora_entrada": "2025-10-02 11:59:21",
+  "origen": "Acceso directo",
+  "afiliado": "Juana",
+  "duracion_sesion_segundos": 274,
+  "tiempo_carga_pagina_ms": 75,
+  "nombre_comprador": "Yoandra Martinez",
+  "telefono_comprador": "7863191466",
+  "correo_comprador": "yoa2002ye@gmail.com",
+  "direccion_envio": "Calle 22 15 Alto % 43 Y 45\nReparto De Buena Vista",
+  "compras": [
+    {
+      "producto": "Celebración Dulce",
+      "cantidad": 1,
+      "precio_unitario": 56,
+      "precio_total": 56
+    }
+  ],
+  "precio_compra_total": "56.00",
+  "navegador": "Safari",
+  "sistema_operativo": "iOS",
+  "tipo_usuario": "Recurrente",
+  "tiempo_promedio_pagina": 0,
+  "fuente_trafico": "Directo"
 }
 ]
