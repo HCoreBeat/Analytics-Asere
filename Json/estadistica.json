@@ -6466,5 +6466,122 @@
   "tipo_usuario": "Recurrente",
   "tiempo_promedio_pagina": 0,
   "fuente_trafico": "Directo"
-}
+},
+  {
+  "ip": "47.201.243.233",
+  "pais": "United States",
+  "fecha_hora_entrada": "2025-10-03 19:08:17",
+  "origen": "Acceso directo",
+  "afiliado": "Juana",
+  "duracion_sesion_segundos": 591,
+  "tiempo_carga_pagina_ms": 333,
+  "nombre_comprador": "Ailen Vega mariño",
+  "telefono_comprador": "9413123962",
+  "correo_comprador": "ailen29101990@gmail.com",
+  "direccion_envio": "Calle Josué paiz/Ramón ortuño y 24 de febrero # 61f",
+  "compras": [
+    {
+      "producto": "Pack Malta Guajira (6u)",
+      "cantidad": 1,
+      "precio_unitario": 6,
+      "precio_total": 6
+    },
+    {
+      "producto": "Refresco Gaseado",
+      "cantidad": 2,
+      "precio_unitario": 2.95,
+      "precio_total": 5.9
+    },
+    {
+      "producto": "Salchicha de pollo y cerdo 10u (340g)",
+      "cantidad": 3,
+      "precio_unitario": 1.9,
+      "precio_total": 5.699999999999999
+    },
+    {
+      "producto": "Lomo de cerdo deshuesado x Lb",
+      "cantidad": 5,
+      "precio_unitario": 3.5,
+      "precio_total": 17.5
+    },
+    {
+      "producto": "Leche entera en polvo (1kg)",
+      "cantidad": 1,
+      "precio_unitario": 11.97,
+      "precio_total": 11.97
+    },
+    {
+      "producto": "Pasta de Bocadito",
+      "cantidad": 1,
+      "precio_unitario": 7.2,
+      "precio_total": 7.2
+    },
+    {
+      "producto": "Aceite Fritura 900ml",
+      "cantidad": 3,
+      "precio_unitario": 2.9,
+      "precio_total": 8.7
+    },
+    {
+      "producto": "Paquete de pan de bola 10u",
+      "cantidad": 4,
+      "precio_unitario": 1.9,
+      "precio_total": 7.6
+    },
+    {
+      "producto": "Cartón de Huevos",
+      "cantidad": 1,
+      "precio_unitario": 10,
+      "precio_total": 10
+    },
+    {
+      "producto": "Leche Condensada azucarada (390g)",
+      "cantidad": 1,
+      "precio_unitario": 2.89,
+      "precio_total": 2.89
+    },
+    {
+      "producto": "Arroz Rainha Brasil (1Kg)",
+      "cantidad": 4,
+      "precio_unitario": 2.97,
+      "precio_total": 11.88
+    },
+    {
+      "producto": "Chocolate en Polvo «Rico» (500g)",
+      "cantidad": 1,
+      "precio_unitario": 4.2,
+      "precio_total": 4.2
+    },
+    {
+      "producto": "Menthoplus",
+      "cantidad": 2,
+      "precio_unitario": 0.63,
+      "precio_total": 1.26
+    },
+    {
+      "producto": "Frijoles negros 500g",
+      "cantidad": 1,
+      "precio_unitario": 3.2,
+      "precio_total": 3.2
+    },
+    {
+      "producto": "Fideos de Ada",
+      "cantidad": 1,
+      "precio_unitario": 1.4,
+      "precio_total": 1.4
+    },
+    {
+      "producto": "Espaguetis (500g)",
+      "cantidad": 3,
+      "precio_unitario": 1.89,
+      "precio_total": 5.67
+    }
+  ],
+  "precio_compra_total": "111.07",
+  "navegador": "Chrome",
+  "sistema_operativo": "Android",
+  "tipo_usuario": "Recurrente",
+  "tiempo_promedio_pagina": 0,
+  "fuente_trafico": "Directo"
+  }
 ]
