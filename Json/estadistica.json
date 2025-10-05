@@ -6670,5 +6670,44 @@
   "tipo_usuario": "Recurrente",
   "tiempo_promedio_pagina": 0,
   "fuente_trafico": "Directo"
-  }
+  },
+  {
+  "ip": "2600:387:15:611b::1",
+  "pais": "United States",
+  "fecha_hora_entrada": "2025-10-05 16:17:34",
+  "origen": "Acceso directo",
+  "afiliado": "Ninguno",
+  "duracion_sesion_segundos": 305,
+  "tiempo_carga_pagina_ms": 364,
+  "nombre_comprador": "Miguel A Polo",
+  "telefono_comprador": "+17863229781",
+  "correo_comprador": "miguelpolocbpone2@gmail.com",
+  "direccion_envio": "Lorenzo Ortiz # 56 entre Nicolás Heredia, y Juaquin Aguero reparto primero",
+  "compras": [
+    {
+      "producto": "Helado 4Lts",
+      "cantidad": 2,
+      "precio_unitario": 10.45,
+      "precio_total": 20.9
+    },
+    {
+      "producto": "Ketchup (320g)",
+      "cantidad": 1,
+      "precio_unitario": 3.1,
+      "precio_total": 3.1
+    },
+    {
+      "producto": "Refresco Fresko",
+      "cantidad": 8,
+      "precio_unitario": 0.9,
+      "precio_total": 7.2
+    }
+  ],
+  "precio_compra_total": "31.20",
+  "navegador": "Safari",
+  "sistema_operativo": "iOS",
+  "tipo_usuario": "Recurrente",
+  "tiempo_promedio_pagina": 0,
+  "fuente_trafico": "Directo"
+}
 ]
