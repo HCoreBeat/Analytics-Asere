@@ -6709,5 +6709,62 @@
   "tipo_usuario": "Recurrente",
   "tiempo_promedio_pagina": 0,
   "fuente_trafico": "Directo"
-}
+},
+  {
+  "ip": "2600:387:15:6812::3",
+  "pais": "United States",
+  "fecha_hora_entrada": "2025-10-08 16:17:42",
+  "origen": "Acceso directo",
+  "afiliado": "Dalva 1",
+  "duracion_sesion_segundos": 904,
+  "tiempo_carga_pagina_ms": 1180,
+  "nombre_comprador": "Yanisleydis cruz",
+  "telefono_comprador": "9045044222",
+  "correo_comprador": "yanycruz36@icloud.com",
+  "direccion_envio": "Calle 45 #22 entre 18 y 20 altura buena vista",
+  "compras": [
+    {
+      "producto": "Mantequilla (250g)",
+      "cantidad": 1,
+      "precio_unitario": 2.42,
+      "precio_total": 2.42
+    },
+    {
+      "producto": "Esponjas para fregar",
+      "cantidad": 1,
+      "precio_unitario": 0.48,
+      "precio_total": 0.48
+    },
+    {
+      "producto": "Pechuga de Pollo (1Kg)",
+      "cantidad": 1,
+      "precio_unitario": 8,
+      "precio_total": 8
+    },
+    {
+      "producto": "Pasta de tomate Vima (400g)",
+      "cantidad": 1,
+      "precio_unitario": 1.98,
+      "precio_total": 1.98
+    },
+    {
+      "producto": "Codito Badelli (350g)",
+      "cantidad": 1,
+      "precio_unitario": 1.89,
+      "precio_total": 1.89
+    },
+    {
+      "producto": "Fideos de Ada",
+      "cantidad": 1,
+      "precio_unitario": 1.4,
+      "precio_total": 1.4
+    }
+  ],
+  "precio_compra_total": "16.17",
+  "navegador": "Safari",
+  "sistema_operativo": "iOS",
+  "tipo_usuario": "Recurrente",
+  "tiempo_promedio_pagina": 0,
+  "fuente_trafico": "Directo"
+  }
 ]
