@@ -6889,5 +6889,56 @@
   "tipo_usuario": "Recurrente",
   "tiempo_promedio_pagina": 0,
   "fuente_trafico": "Directo"
-}
+},
+  {
+  "ip": "47.201.243.233",
+  "pais": "United States",
+  "fecha_hora_entrada": "2025-10-12 19:39:54",
+  "origen": "Acceso directo",
+  "afiliado": "Juana",
+  "duracion_sesion_segundos": 209,
+  "tiempo_carga_pagina_ms": 356,
+  "nombre_comprador": "Ailen Vega mariño",
+  "telefono_comprador": "9413123962",
+  "correo_comprador": "ailen29101990@gmail.com",
+  "direccion_envio": "Josue paiz/Ramon ortuño y 24 de febrero reparto santo domingo.#61 fondo.",
+  "compras": [
+    {
+      "producto": "Frijoles negros 500g",
+      "cantidad": 1,
+      "precio_unitario": 3.2,
+      "precio_total": 3.2
+    },
+    {
+      "producto": "Arroz Rainha Brasil (1Kg)",
+      "cantidad": 2,
+      "precio_unitario": 2.97,
+      "precio_total": 5.94
+    },
+    {
+      "producto": "Carne de cerdo x Lb",
+      "cantidad": 3,
+      "precio_unitario": 2.9,
+      "precio_total": 8.7
+    },
+    {
+      "producto": "Salchicha de pollo y cerdo 10u (340g)",
+      "cantidad": 1,
+      "precio_unitario": 1.9,
+      "precio_total": 1.9
+    },
+    {
+      "producto": "Paquete de pan de bola 10u",
+      "cantidad": 1,
+      "precio_unitario": 1.9,
+      "precio_total": 1.9
+    }
+  ],
+  "precio_compra_total": "21.64",
+  "navegador": "Chrome",
+  "sistema_operativo": "Android",
+  "tipo_usuario": "Recurrente",
+  "tiempo_promedio_pagina": 0,
+  "fuente_trafico": "Directo"
+  }
 ]
