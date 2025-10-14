@@ -6940,5 +6940,44 @@
   "tipo_usuario": "Recurrente",
   "tiempo_promedio_pagina": 0,
   "fuente_trafico": "Directo"
+  },
+  {
+  "ip": "2607:fb92:907:9282:756d:7873:8e86:591d",
+  "pais": "United States",
+  "fecha_hora_entrada": "2025-10-14 13:53:08",
+  "origen": "Acceso directo",
+  "afiliado": "Ninguno",
+  "duracion_sesion_segundos": 235,
+  "tiempo_carga_pagina_ms": 570,
+  "nombre_comprador": "Nayelin Reyes",
+  "telefono_comprador": "7863002520",
+  "correo_comprador": "nileyan2018@gmail.con",
+  "direccion_envio": "Nicolás Heredia #51 Fco Vega y Lzo Ortiz reparto primero",
+  "compras": [
+    {
+      "producto": "Frijol Rojo x Lb",
+      "cantidad": 3,
+      "precio_unitario": 2.9,
+      "precio_total": 8.7
+    },
+    {
+      "producto": "Frijol Negro x Lb",
+      "cantidad": 2,
+      "precio_unitario": 2.63,
+      "precio_total": 5.26
+    },
+    {
+      "producto": "Arroz importado 1lb",
+      "cantidad": 5,
+      "precio_unitario": 1.15,
+      "precio_total": 5.75
+    }
+  ],
+  "precio_compra_total": "19.71",
+  "navegador": "Safari",
+  "sistema_operativo": "iOS",
+  "tipo_usuario": "Recurrente",
+  "tiempo_promedio_pagina": 0,
+  "fuente_trafico": "Directo"
   }
 ]
