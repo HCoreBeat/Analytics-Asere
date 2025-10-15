@@ -6979,5 +6979,71 @@
   "tipo_usuario": "Recurrente",
   "tiempo_promedio_pagina": 0,
   "fuente_trafico": "Directo"
-  }
+  },
+  {
+  "ip": "2600:387:15:6812::3",
+  "pais": "United States",
+  "fecha_hora_entrada": "2025-10-15 07:19:40",
+  "origen": "Acceso directo",
+  "afiliado": "Dalva 1",
+  "duracion_sesion_segundos": 970,
+  "tiempo_carga_pagina_ms": 1237,
+  "nombre_comprador": "Yanisleydis cruz",
+  "telefono_comprador": "9045044222",
+  "correo_comprador": "yanycruz36@icloud.com",
+  "direccion_envio": "Calle 45 # 22 / 18 y 20 altura de buena vista",
+  "compras": [
+    {
+      "producto": "Chuletas de cerdo x Lb",
+      "cantidad": 2,
+      "precio_unitario": 2.9,
+      "precio_total": 5.8
+    },
+    {
+      "producto": "Cartón de Huevos",
+      "cantidad": 1,
+      "precio_unitario": 10,
+      "precio_total": 10
+    }
+  ],
+  "precio_compra_total": "15.80",
+  "navegador": "Safari",
+  "sistema_operativo": "iOS",
+  "tipo_usuario": "Recurrente",
+  "tiempo_promedio_pagina": 0,
+  "fuente_trafico": "Directo"
+},
+  {
+  "ip": "2601:80:477c:8890:a827:8a96:6405:4988",
+  "pais": "United States",
+  "fecha_hora_entrada": "2025-10-15 13:28:56",
+  "origen": "Acceso directo",
+  "afiliado": "Juana",
+  "duracion_sesion_segundos": 1391,
+  "tiempo_carga_pagina_ms": 958,
+  "nombre_comprador": "Irina Escalante",
+  "telefono_comprador": "6402597824",
+  "correo_comprador": "escalanterojasirina765@gmail.com",
+  "direccion_envio": "Edif 15 apto b8 avenida Carlos J Finlay entre Camilo Cienfuegos y 42 Reparto Militar Camilo Cienfuegos",
+  "compras": [
+    {
+      "producto": "Pack Estilizado",
+      "cantidad": 1,
+      "precio_unitario": 21,
+      "precio_total": 21
+    },
+    {
+      "producto": "Arroz importado 1lb",
+      "cantidad": 3,
+      "precio_unitario": 1.15,
+      "precio_total": 3.4499999999999997
+    }
+  ],
+  "precio_compra_total": "24.45",
+  "navegador": "Safari",
+  "sistema_operativo": "iOS",
+  "tipo_usuario": "Recurrente",
+  "tiempo_promedio_pagina": 0,
+  "fuente_trafico": "Directo"
+}
 ]
