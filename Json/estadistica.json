@@ -7138,5 +7138,74 @@
   "tipo_usuario": "Recurrente",
   "tiempo_promedio_pagina": 0,
   "fuente_trafico": "Directo"
-  }
+  },
+  {
+  "ip": "2607:fb92:982:fde3:48a1:4e75:b491:5987",
+  "pais": "United States",
+  "fecha_hora_entrada": "2025-10-24 21:40:13",
+  "origen": "Acceso directo",
+  "afiliado": "Eddy",
+  "duracion_sesion_segundos": 1228,
+  "tiempo_carga_pagina_ms": 702,
+  "nombre_comprador": "Rene  Leyva Reyes",
+  "telefono_comprador": "7866008516",
+  "correo_comprador": "reyesrenecito@gmail.com",
+  "direccion_envio": "Francisco Varona # 330  entre Lucas Ortiz y ángel guardia",
+  "compras": [
+    {
+      "producto": "Helado 4Lts",
+      "cantidad": 1,
+      "precio_unitario": 10.45,
+      "precio_total": 10.45
+    },
+    {
+      "producto": "Mano de plátano burro",
+      "cantidad": 5,
+      "precio_unitario": 0.95,
+      "precio_total": 4.75
+    },
+    {
+      "producto": "Carne de cerdo x Lb",
+      "cantidad": 10,
+      "precio_unitario": 2.9,
+      "precio_total": 29
+    },
+    {
+      "producto": "Picadillo de pollo (1Kg)",
+      "cantidad": 5,
+      "precio_unitario": 2.97,
+      "precio_total": 14.850000000000001
+    },
+    {
+      "producto": "Queso criollo x Lb",
+      "cantidad": 5,
+      "precio_unitario": 2.4,
+      "precio_total": 12
+    },
+    {
+      "producto": "Paquete de pan de bola 10u",
+      "cantidad": 2,
+      "precio_unitario": 1.9,
+      "precio_total": 3.8
+    },
+    {
+      "producto": "Cartón de Huevos",
+      "cantidad": 1,
+      "precio_unitario": 10,
+      "precio_total": 10
+    },
+    {
+      "producto": "Café Bryderk",
+      "cantidad": 2,
+      "precio_unitario": 6,
+      "precio_total": 12
+    }
+  ],
+  "precio_compra_total": "96.85",
+  "navegador": "Safari",
+  "sistema_operativo": "iOS",
+  "tipo_usuario": "Recurrente",
+  "tiempo_promedio_pagina": 0,
+  "fuente_trafico": "Directo"
+}
 ]
