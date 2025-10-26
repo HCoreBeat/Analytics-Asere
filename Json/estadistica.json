@@ -7300,5 +7300,74 @@
   "tipo_usuario": "Recurrente",
   "tiempo_promedio_pagina": 0,
   "fuente_trafico": "Google"
+},
+  {
+  "ip": "2600:1700:3d65:580:8199:6083:adc9:c29f",
+  "pais": "United States",
+  "fecha_hora_entrada": "2025-10-26 17:03:32",
+  "origen": "Acceso directo",
+  "afiliado": "Juana",
+  "duracion_sesion_segundos": 281,
+  "tiempo_carga_pagina_ms": 445,
+  "nombre_comprador": "Yoandra Martinez",
+  "telefono_comprador": "7863191466",
+  "correo_comprador": "yoa2002ye@gmail.com",
+  "direccion_envio": "Calle 22 , # 15 Alto % 43 Y 45\nReparto De Buena Vista",
+  "compras": [
+    {
+      "producto": "Paquete de pan de bola 10u",
+      "cantidad": 2,
+      "precio_unitario": 1.9,
+      "precio_total": 3.8
+    },
+    {
+      "producto": "Cartón de Huevos",
+      "cantidad": 1,
+      "precio_unitario": 10,
+      "precio_total": 10
+    },
+    {
+      "producto": "Café Bryderk",
+      "cantidad": 2,
+      "precio_unitario": 6,
+      "precio_total": 12
+    },
+    {
+      "producto": "Carne de cerdo x Lb",
+      "cantidad": 6,
+      "precio_unitario": 2.9,
+      "precio_total": 17.4
+    },
+    {
+      "producto": "Pollo Country Pride",
+      "cantidad": 1,
+      "precio_unitario": 12,
+      "precio_total": 12
+    },
+    {
+      "producto": "Refresco Gaseado",
+      "cantidad": 3,
+      "precio_unitario": 2.95,
+      "precio_total": 8.850000000000001
+    },
+    {
+      "producto": "Aceite Fritura 900ml",
+      "cantidad": 2,
+      "precio_unitario": 2.9,
+      "precio_total": 5.8
+    },
+    {
+      "producto": "Leche entera en polvo (1kg)",
+      "cantidad": 1,
+      "precio_unitario": 8.9,
+      "precio_total": 8.9
+    }
+  ],
+  "precio_compra_total": "78.75",
+  "navegador": "Safari",
+  "sistema_operativo": "iOS",
+  "tipo_usuario": "Único",
+  "tiempo_promedio_pagina": 0,
+  "fuente_trafico": "Directo"
 }
 ]
