@@ -7207,5 +7207,98 @@
   "tipo_usuario": "Recurrente",
   "tiempo_promedio_pagina": 0,
   "fuente_trafico": "Directo"
+},
+  {
+  "ip": "2a09:bac2:6b43:290f::417:28",
+  "pais": "United States",
+  "fecha_hora_entrada": "2025-10-26 16:19:51",
+  "origen": "https://www.google.com/",
+  "afiliado": "Ninguno",
+  "duracion_sesion_segundos": 575,
+  "tiempo_carga_pagina_ms": 1086,
+  "nombre_comprador": "Harol Rojas",
+  "telefono_comprador": "7866303006",
+  "correo_comprador": "harolrojas18783@yahoo.es",
+  "direccion_envio": "Lico cruz 108 A % Gonzalo de Quezada y Vallalon Rpto 1",
+  "compras": [
+    {
+      "producto": "Leche entera en polvo (1kg)",
+      "cantidad": 2,
+      "precio_unitario": 8.9,
+      "precio_total": 17.8
+    },
+    {
+      "producto": "Cartón de Huevos",
+      "cantidad": 2,
+      "precio_unitario": 10,
+      "precio_total": 20
+    },
+    {
+      "producto": "Paquete de pan de bola 10u",
+      "cantidad": 3,
+      "precio_unitario": 1.9,
+      "precio_total": 5.699999999999999
+    },
+    {
+      "producto": "Jugo Tropical",
+      "cantidad": 1,
+      "precio_unitario": 3,
+      "precio_total": 3
+    },
+    {
+      "producto": "Jugo de Piña",
+      "cantidad": 1,
+      "precio_unitario": 3,
+      "precio_total": 3
+    },
+    {
+      "producto": "Jugo de Mango",
+      "cantidad": 1,
+      "precio_unitario": 3,
+      "precio_total": 3
+    },
+    {
+      "producto": "Refresco Instantáneo (2Lt)",
+      "cantidad": 5,
+      "precio_unitario": 0.42,
+      "precio_total": 2.1
+    },
+    {
+      "producto": "Cóctel de frutas en almíbar",
+      "cantidad": 1,
+      "precio_unitario": 3,
+      "precio_total": 3
+    },
+    {
+      "producto": "Peras en almíbar",
+      "cantidad": 1,
+      "precio_unitario": 3,
+      "precio_total": 3
+    },
+    {
+      "producto": "Melocotones en almíbar",
+      "cantidad": 1,
+      "precio_unitario": 3,
+      "precio_total": 3
+    },
+    {
+      "producto": "Ketchup (320g)",
+      "cantidad": 1,
+      "precio_unitario": 3.1,
+      "precio_total": 3.1
+    },
+    {
+      "producto": "Mayonesa Celorrio",
+      "cantidad": 1,
+      "precio_unitario": 6.4,
+      "precio_total": 6.4
+    }
+  ],
+  "precio_compra_total": "73.10",
+  "navegador": "Safari",
+  "sistema_operativo": "iOS",
+  "tipo_usuario": "Recurrente",
+  "tiempo_promedio_pagina": 0,
+  "fuente_trafico": "Google"
 }
 ]
