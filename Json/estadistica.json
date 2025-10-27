@@ -7369,5 +7369,50 @@
   "tipo_usuario": "Único",
   "tiempo_promedio_pagina": 0,
   "fuente_trafico": "Directo"
-}
+},
+  {
+  "ip": "2600:387:15:6817::3",
+  "pais": "United States",
+  "fecha_hora_entrada": "2025-10-27 07:14:55",
+  "origen": "Acceso directo",
+  "afiliado": "Ninguno",
+  "duracion_sesion_segundos": 749,
+  "tiempo_carga_pagina_ms": 1031,
+  "nombre_comprador": "Yanisleydis cruz",
+  "telefono_comprador": "9045044222",
+  "correo_comprador": "yanycruz36@icloud.com",
+  "direccion_envio": "Calle 45 #22 / 18 y 20 altura de buena vista",
+  "compras": [
+    {
+      "producto": "Fideos de Ada",
+      "cantidad": 1,
+      "precio_unitario": 1.4,
+      "precio_total": 1.4
+    },
+    {
+      "producto": "Arroz Importado 1kg",
+      "cantidad": 1,
+      "precio_unitario": 2.9,
+      "precio_total": 2.9
+    },
+    {
+      "producto": "Picadillo de pollo (1Kg)",
+      "cantidad": 1,
+      "precio_unitario": 2.97,
+      "precio_total": 2.97
+    },
+    {
+      "producto": "Pollo Country Pride",
+      "cantidad": 1,
+      "precio_unitario": 12,
+      "precio_total": 12
+    }
+  ],
+  "precio_compra_total": "19.27",
+  "navegador": "Safari",
+  "sistema_operativo": "iOS",
+  "tipo_usuario": "Recurrente",
+  "tiempo_promedio_pagina": 0,
+  "fuente_trafico": "Directo"
+  }
 ]
