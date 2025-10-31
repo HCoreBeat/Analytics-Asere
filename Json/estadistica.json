@@ -7447,5 +7447,98 @@
   "tipo_usuario": "Recurrente",
   "tiempo_promedio_pagina": 0,
   "fuente_trafico": "Directo"
-}
+},
+  {
+  "ip": "2607:fb92:981:9824:dc24:2a0c:4ea7:610f",
+  "pais": "United States",
+  "fecha_hora_entrada": "2025-10-31 15:19:47",
+  "origen": "Acceso directo",
+  "afiliado": "Eddy",
+  "duracion_sesion_segundos": 653,
+  "tiempo_carga_pagina_ms": 826,
+  "nombre_comprador": "Rene Leyva reyes",
+  "telefono_comprador": "7866008516",
+  "correo_comprador": "reyesrenecito@gmail.com",
+  "direccion_envio": "Calle 5 sin número entre Camilo Cienfuego y J Espinosa Reparto Buena Vista.",
+  "compras": [
+    {
+      "producto": "Galletas Porleo (45g)",
+      "cantidad": 5,
+      "precio_unitario": 0.91,
+      "precio_total": 4.55
+    },
+    {
+      "producto": "Pack Caramelos de leche",
+      "cantidad": 1,
+      "precio_unitario": 4,
+      "precio_total": 4
+    },
+    {
+      "producto": "Marshmallows Recubiertos de chocolate",
+      "cantidad": 5,
+      "precio_unitario": 0.48,
+      "precio_total": 2.4
+    },
+    {
+      "producto": "Galletas Lora",
+      "cantidad": 6,
+      "precio_unitario": 1.4,
+      "precio_total": 8.399999999999999
+    },
+    {
+      "producto": "Nutella con crema de avellana  Rayan",
+      "cantidad": 1,
+      "precio_unitario": 4.8,
+      "precio_total": 4.8
+    },
+    {
+      "producto": "Sorbeto Lorena",
+      "cantidad": 5,
+      "precio_unitario": 0.8,
+      "precio_total": 4
+    },
+    {
+      "producto": "Nutela",
+      "cantidad": 2,
+      "precio_unitario": 4.7,
+      "precio_total": 9.4
+    },
+    {
+      "producto": "Leche Condensada azucarada (390g)",
+      "cantidad": 2,
+      "precio_unitario": 1.9,
+      "precio_total": 3.8
+    },
+    {
+      "producto": "Leche entera en polvo (1kg)",
+      "cantidad": 1,
+      "precio_unitario": 8.9,
+      "precio_total": 8.9
+    },
+    {
+      "producto": "Palito Relleno de Leche",
+      "cantidad": 5,
+      "precio_unitario": 0.96,
+      "precio_total": 4.8
+    },
+    {
+      "producto": "Refresco Fresko",
+      "cantidad": 10,
+      "precio_unitario": 0.9,
+      "precio_total": 9
+    },
+    {
+      "producto": "Pack Dulce",
+      "cantidad": 1,
+      "precio_unitario": 35,
+      "precio_total": 35
+    }
+  ],
+  "precio_compra_total": "99.05",
+  "navegador": "Safari",
+  "sistema_operativo": "iOS",
+  "tipo_usuario": "Recurrente",
+  "tiempo_promedio_pagina": 0,
+  "fuente_trafico": "Directo"
+  }
 ]
