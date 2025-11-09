@@ -7720,5 +7720,62 @@
   "tipo_usuario": "Recurrente",
   "tiempo_promedio_pagina": 0,
   "fuente_trafico": "Directo"
+},
+  {
+  "ip": "3fdb:cec9:8f6b:18aa:36a2:c958:75b0:f35a",
+  "pais": "Estados Unidos",
+  "fecha_hora_entrada": "2025-11-08 13:15:00",
+  "origen": "https://www.asereshops.com/",
+  "afiliado": "Ninguno",
+  "duracion_sesion_segundos": 0,
+  "tiempo_carga_pagina_ms": 967,
+  "nombre_comprador": "René Leyva Reyes",
+  "telefono_comprador": "7866008516",
+  "correo_comprador": "reyesrenecito@gmail.com",
+  "direccion_envio": "Juan Ramón Ochoa #123 entre R Pupo y mariana Grajales",
+  "compras": [
+    {
+      "producto": "Cesto para ropa",
+      "cantidad": 1,
+      "precio_unitario": 10.00,
+      "precio_total": 10.00
+    },
+    {
+      "producto": "Pollo Country Pride",
+      "cantidad": 1,
+      "precio_unitario": 12.00,
+      "precio_total": 12.00
+    },
+    {
+      "producto": "Carne de cerdo x Lb",
+      "cantidad": 5,
+      "precio_unitario": 2.90,
+      "precio_total": 14.50
+    },
+    {
+      "producto": "Picadillo de pollo (1Kg)",
+      "cantidad": 5,
+      "precio_unitario": 2.97,
+      "precio_total": 14.85
+    },
+    {
+      "producto": "Toallas sanitarias Sueños Cómodos (30u)",
+      "cantidad": 1,
+      "precio_unitario": 2.60,
+      "precio_total": 2.60
+    },
+    {
+      "producto": "Salchicha de pollo y cerdo 10u (340g)",
+      "cantidad": 1,
+      "precio_unitario": 1.90,
+      "precio_total": 1.90
+    }
+  ],
+  "precio_compra_total": "55.85",
+  "navegador": "Safari",
+  "sistema_operativo": "OS X",
+  "tipo_usuario": "",
+  "tiempo_promedio_pagina": 0,
+  "fuente_trafico": ""
 }
 ]
