@@ -1377,6 +1377,39 @@ class SalesDashboard {
         return id;
     }
 
+    // Generar ID único para productos (uso interno)
+    generateProductId() {
+        const prefix = 'p';
+        const rand = Math.random().toString(36).slice(2, 9);
+        return `${prefix}_${Date.now().toString(36)}_${rand}`;
+    }
+
+    // UI helpers para mostrar estado de operaciones en repo (reintentos/conflictos)
+    showRepoActionStatus(message, attempt = null) {
+        let el = document.getElementById('repo-action-status');
+        if (!el) {
+            el = document.createElement('div');
+            el.id = 'repo-action-status';
+            el.style.position = 'fixed';
+            el.style.right = '16px';
+            el.style.top = '16px';
+            el.style.padding = '8px 12px';
+            el.style.background = 'rgba(0,0,0,0.75)';
+            el.style.color = '#fff';
+            el.style.borderRadius = '6px';
+            el.style.zIndex = '9999';
+            el.style.fontSize = '13px';
+            document.body.appendChild(el);
+        }
+
+        el.textContent = attempt ? `${message} (intento ${attempt})` : message;
+    }
+
+    clearRepoActionStatus() {
+        const el = document.getElementById('repo-action-status');
+        if (el) el.remove();
+    }
+
     setupView() {
         document.querySelectorAll('.menu-item').forEach(item => {
             item.classList.toggle('active', item.dataset.view === this.currentView);
@@ -1745,6 +1778,31 @@ class SalesDashboard {
         try {
             const response = await fetch(`https://raw.githubusercontent.com/${CONFIG.GITHUB_API.REPO_OWNER}/${CONFIG.GITHUB_API.REPO_NAME}/main/${CONFIG.GITHUB_API.PRODUCTS_FILE_PATH}?t=${Date.now()}`);
             this.products = await response.json();
+            // Asegurarse de que cada producto tenga un id único para gestión interna
+            let addedIds = false;
+            for (let i = 0; i < this.products.length; i++) {
+                const p = this.products[i];
+                if (!p.id) {
+                    p.id = this.generateProductId();
+                    addedIds = true;
+                }
+            }
+            // Si generamos ids y hay token disponible intentamos persistirlos en el repo
+            if (addedIds) {
+                const token = localStorage.getItem('github_token');
+                if (token) {
+                    try {
+                        const savingAlert = this.showAlert('Guardando IDs generados en el repositorio...', 'loading');
+                        await this.updateProductsFile(this.products);
+                        savingAlert.remove();
+                        this.showAlert('IDs guardados en el repositorio', 'success');
+                    } catch (err) {
+                        this.showAlert('No se pudo guardar IDs en el repo: guarda un token válido', 'error');
+                    }
+                } else {
+                    this.showAlert('Se generaron IDs localmente para gestión. Proporciona un token para persistirlos en el repo', 'warning');
+                }
+            }
             this.filteredProducts = [...this.products];
             this.updateProductCount();
             this.renderProductsList();
@@ -1793,7 +1851,7 @@ class SalesDashboard {
                 'img/no-image.png';
             
             return `
-            <div class="product-card" data-id="${this.sanitizeId(product.nombre)}">
+            <div class="product-card" data-id="${product.id || this.sanitizeId(product.nombre)}">
                 <div class="product-image-container">
                     <img class="product-image" src="${imageUrl}" alt="${product.nombre}" loading="lazy" onerror="(function(i){i.onerror=null;i.src='img/no-image.png';})(this)" onload="this.classList.add('loaded')">
                     <div class="product-badges">
@@ -1815,10 +1873,10 @@ class SalesDashboard {
                         `}
                     </div>
                     <div class="product-actions">
-                        <button class="btn btn-secondary edit-product" data-id="${this.sanitizeId(product.nombre)}">
+                        <button class="btn btn-secondary edit-product" data-id="${product.id || this.sanitizeId(product.nombre)}">
                             <i class="fas fa-edit"></i> Editar
                         </button>
-                        <button class="btn cancel-btn delete-product" data-id="${this.sanitizeId(product.nombre)}">
+                        <button class="btn cancel-btn delete-product" data-id="${product.id || this.sanitizeId(product.nombre)}">
                             <i class="fas fa-trash"></i>
                         </button>
                     </div>
@@ -1835,7 +1893,8 @@ class SalesDashboard {
         document.querySelectorAll('.edit-product').forEach(btn => {
             btn.addEventListener('click', (e) => {
                 const productId = e.currentTarget.dataset.id;
-                const product = this.products.find(p => this.sanitizeId(p.nombre) === productId);
+                let product = this.products.find(p => p.id === productId);
+                if (!product) product = this.products.find(p => this.sanitizeId(p.nombre) === productId);
                 if (product) {
                     this.editProduct(product);
                 }
@@ -1845,14 +1904,16 @@ class SalesDashboard {
         document.querySelectorAll('.delete-product').forEach(btn => {
             btn.addEventListener('click', (e) => {
                 const productId = e.currentTarget.dataset.id;
-                const originalName = this.getOriginalNameFromId(productId);
+                // Buscar por id primero
+                const prod = this.products.find(p => p.id === productId) || this.products.find(p => this.sanitizeId(p.nombre) === productId);
+                const originalName = prod ? prod.nombre : productId.replace(/_/g, ' ');
                 this.deleteProduct(originalName);
             });
         });
     }
 
     getOriginalNameFromId(id) {
-        const product = this.products.find(p => this.sanitizeId(p.nombre) === id);
+        const product = this.products.find(p => p.id === id) || this.products.find(p => this.sanitizeId(p.nombre) === id);
         return product ? product.nombre : id.replace(/_/g, ' ');
     }
     
@@ -2316,6 +2377,7 @@ class SalesDashboard {
         });
         
         return {
+            id: this.currentProduct?.id || undefined,
             nombre: name,
             categoria: category,
             precio: parseFloat(finalPrice.toFixed(3)),
@@ -2533,18 +2595,23 @@ class SalesDashboard {
             
             // 2. Actualizar la lista de productos
             const isNew = !this.currentProduct;
-            
+
             if (isNew) {
-                // Verificar si el producto ya existe
+                // Generar id para producto nuevo si no viene
+                if (!productData.id) productData.id = this.generateProductId();
+
+                // Verificar si el producto ya existe por nombre
                 const exists = this.products.some(p => p.nombre === productData.nombre);
                 if (exists) {
                     throw new Error('Ya existe un producto con este nombre');
                 }
                 this.products.push(productData);
             } else {
-                // Actualizar producto existente
-                const index = this.products.findIndex(p => p.nombre === this.currentProduct.nombre);
+                // Actualizar producto existente por id preferentemente
+                const index = this.products.findIndex(p => p.id === this.currentProduct.id) || this.products.findIndex(p => p.nombre === this.currentProduct.nombre);
                 if (index >= 0) {
+                    // Mantener el id original
+                    productData.id = this.products[index].id || productData.id;
                     this.products[index] = productData;
                 }
             }
@@ -2644,7 +2711,7 @@ class SalesDashboard {
         const { REPO_OWNER, REPO_NAME, PRODUCTS_FILE_PATH } = CONFIG.GITHUB_API;
         
         try {
-            // 1. Obtener el SHA del archivo actual
+            // 1. Obtener el SHA y el contenido remoto actual
             const getUrl = `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${PRODUCTS_FILE_PATH}`;
             const getResponse = await fetch(getUrl, {
                 headers: {
@@ -2652,43 +2719,152 @@ class SalesDashboard {
                     'Accept': 'application/vnd.github.v3+json'
                 }
             });
-            
+
             if (!getResponse.ok && getResponse.status !== 404) {
                 throw new Error(`Error al obtener archivo: ${getResponse.status}`);
             }
-            
+
             let sha = null;
+            let remoteProducts = [];
             if (getResponse.ok) {
                 const fileData = await getResponse.json();
                 sha = fileData.sha;
+
+                // Decodificar contenido remoto (manejar unicode)
+                try {
+                    const decoded = decodeURIComponent(escape(atob(fileData.content)));
+                    remoteProducts = JSON.parse(decoded);
+                } catch (err) {
+                    console.warn('No se pudo parsear el JSON remoto, se usará contenido local directamente', err);
+                    remoteProducts = Array.isArray(productsData) ? [] : {};
+                }
             }
-            
-            // 2. Preparar contenido nuevo
-            const content = JSON.stringify(productsData, null, 2);
-            const encodedContent = btoa(unescape(encodeURIComponent(content)));
-            
-            // 3. Actualizar el archivo
-            const updateResponse = await fetch(getUrl, {
-                method: sha ? 'PUT' : 'POST',
-                headers: {
-                    'Authorization': `token ${GITHUB_TOKEN}`,
-                    'Accept': 'application/vnd.github.v3+json',
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    message: `Actualización de productos: ${new Date().toLocaleString()}`,
-                    content: encodedContent,
-                    sha: sha,
-                    branch: 'main'
-                })
-            });
-            
-            if (!updateResponse.ok) {
+
+            // 2. Hacer un merge seguro: mantener cambios remotos para productos que no hemos modificado,
+            // y aplicar los productos que vienen en productsData (por nombre). Esto evita sobrescribir
+            // cambios hechos por otra sesión si se guardan concurrentemente.
+            const mergedProducts = [];
+
+            if (Array.isArray(remoteProducts) && remoteProducts.length > 0) {
+                // Reemplazar remote por local cuando haya coincidencia por nombre
+                remoteProducts.forEach(rp => {
+                    const local = productsData.find(p => p.nombre === rp.nombre);
+                    mergedProducts.push(local ? local : rp);
+                });
+
+                // Añadir locales nuevos que no existían en remoto
+                productsData.forEach(lp => {
+                    if (!mergedProducts.some(mp => mp.nombre === lp.nombre)) {
+                        mergedProducts.push(lp);
+                    }
+                });
+            } else {
+                // Si no hay remoto (404) o no se pudo parsear, usar productsData tal cual
+                if (Array.isArray(productsData)) {
+                    mergedProducts.push(...productsData);
+                } else {
+                    throw new Error('Datos de productos inválidos');
+                }
+            }
+
+            // 3. Preparar contenido nuevo a partir del merge
+            const content = JSON.stringify(mergedProducts, null, 2);
+            let encodedContent = btoa(unescape(encodeURIComponent(content)));
+
+            // 4. Intentar actualizar el archivo con manejo de conflictos (reintentos)
+            const maxAttempts = 3;
+            let attempt = 0;
+            while (attempt < maxAttempts) {
+                attempt++;
+                // Mostrar estado de repo (intento)
+                this.showRepoActionStatus('Guardando productos en el repositorio... reintentando por conflicto', attempt);
+
+                const updateResponse = await fetch(getUrl, {
+                    method: 'PUT',
+                    headers: {
+                        'Authorization': `token ${GITHUB_TOKEN}`,
+                        'Accept': 'application/vnd.github.v3+json',
+                        'Content-Type': 'application/json',
+                        'Cache-Control': 'no-cache'
+                    },
+                    body: JSON.stringify({
+                        message: `Actualización de productos: ${new Date().toLocaleString()}`,
+                        content: encodedContent,
+                        sha: sha,
+                        branch: 'main'
+                    })
+                });
+
+                if (updateResponse.ok) {
+                    this.clearRepoActionStatus();
+                    return true;
+                }
+
+                // Si hay conflicto de SHA (otra actualización ocurrió), reintentar: obtener SHA nuevo y merge de nuevo
                 const errorData = await updateResponse.json().catch(() => ({}));
-                throw new Error(errorData.message || `Error HTTP: ${updateResponse.status}`);
+                const status = updateResponse.status;
+                const message = errorData.message || '';
+
+                // Detectar conflicto/sha mismatch
+                if (status === 409 || /sha/i.test(message) || /merge/i.test(message) || /does not match/i.test(message)) {
+                    // Re-obtener remoto y recomponer mergedProducts y encodedContent
+                    const freshResp = await fetch(getUrl, {
+                        headers: {
+                            'Authorization': `token ${GITHUB_TOKEN}`,
+                            'Accept': 'application/vnd.github.v3+json',
+                            'Cache-Control': 'no-cache'
+                        }
+                    });
+
+                    if (!freshResp.ok) {
+                        // No podemos recuperar el remoto: romper y devolver error
+                        const freshErr = await freshResp.text().catch(() => '');
+                        throw new Error(`Error al re-obtener archivo remoto: ${freshResp.status} ${freshErr}`);
+                    }
+
+                    const freshData = await freshResp.json();
+                    sha = freshData.sha;
+
+                    try {
+                        const decoded = decodeURIComponent(escape(atob(freshData.content)));
+                        remoteProducts = JSON.parse(decoded);
+                    } catch (err) {
+                        remoteProducts = Array.isArray(productsData) ? [] : {};
+                    }
+
+                    // Re-merge
+                    const newMerged = [];
+                    if (Array.isArray(remoteProducts) && remoteProducts.length > 0) {
+                        remoteProducts.forEach(rp => {
+                            const local = productsData.find(p => p.nombre === rp.nombre);
+                            newMerged.push(local ? local : rp);
+                        });
+
+                        productsData.forEach(lp => {
+                            if (!newMerged.some(mp => mp.nombre === lp.nombre)) {
+                                newMerged.push(lp);
+                            }
+                        });
+                    } else {
+                        newMerged.push(...productsData);
+                    }
+
+                    const newContent = JSON.stringify(newMerged, null, 2);
+                    const newEncoded = btoa(unescape(encodeURIComponent(newContent)));
+                    // actualizar encodedContent para el siguiente intento
+                    encodedContent = newEncoded;
+                    // actualizar encodedContent para el siguiente intento
+                    encodedContent = newEncoded;
+                    // loop para reintentar
+                    continue;
+                }
+
+                // Otro tipo de error: fallar inmediatamente con el mensaje recibido
+                throw new Error(message || `Error HTTP: ${status}`);
             }
-            
-            return true;
+
+            this.clearRepoActionStatus();
+            throw new Error('No se pudo actualizar el archivo después de varios intentos por conflicto');
         } catch (error) {
             console.error('Error al actualizar productos:', error);
             throw error;
