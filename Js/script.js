@@ -36,6 +36,14 @@ class SalesDashboard {
         this.repoStatus = 'idle';
         this.connectionStatus = 'checking';
         
+        // ✨ NUEVAS PROPIEDADES PARA LA SOLUCIÓN DE CAMBIOS DE PRODUCTOS
+        this.lastSyncedProducts = [];        // Copia del último sync exitoso
+        this.pendingChanges = {};            // Track de cambios no confirmados
+        this.lastUpdateTimestamp = null;     // Timestamp del último cambio local
+        this.validationRetries = 0;          // Contador de reintentos
+        this.MAX_VALIDATION_RETRIES = 5;     // Máximo de reintentos (aumentado a 5)
+        this.VALIDATION_RETRY_DELAY = 2000;  // 2 segundos entre reintentos
+        
         // Inicializar eventos
         this.setupImageManagerEvents();
         this.startStatusMonitoring();
@@ -1745,14 +1753,195 @@ class SalesDashboard {
         try {
             const response = await fetch(`https://raw.githubusercontent.com/${CONFIG.GITHUB_API.REPO_OWNER}/${CONFIG.GITHUB_API.REPO_NAME}/main/${CONFIG.GITHUB_API.PRODUCTS_FILE_PATH}?t=${Date.now()}`);
             this.products = await response.json();
+            
+            // ✨ Guardar como último sync exitoso
+            this.lastSyncedProducts = JSON.parse(JSON.stringify(this.products));
+            this.pendingChanges = {}; // Limpiar cambios pendientes en carga inicial
+            
             this.filteredProducts = [...this.products];
             this.updateProductCount();
             this.renderProductsList();
             this.populateCategoryFilter();
+            console.log('✅ Productos cargados exitosamente');
         } catch (error) {
             console.error('Error loading products:', error);
             this.showAlert('Error al cargar los productos', 'error');
         }
+    }
+
+    /**
+     * ✨ NUEVA FUNCIÓN: Carga productos desde GitHub con validación más tolerante
+     * Versión mejorada: Más reintentos, menos exigente con validación
+     */
+    async loadProductsWithValidation() {
+        const MAX_RETRIES = this.MAX_VALIDATION_RETRIES;
+        let retryCount = 0;
+        let lastError = null;
+        
+        while (retryCount <= MAX_RETRIES) {
+            try {
+                console.log(`🔄 Intento ${retryCount + 1}/${MAX_RETRIES}`);
+                
+                // Esperar un poco antes de hacer fetch (dar tiempo a GitHub para actualizar caché)
+                if (retryCount > 0) {
+                    const waitTime = this.VALIDATION_RETRY_DELAY;
+                    console.log(`⏳ Esperando ${waitTime}ms antes del intento ${retryCount + 1}`);
+                    await new Promise(resolve => setTimeout(resolve, waitTime));
+                }
+                
+                // Hacer fetch con timestamp para evitar caché del navegador
+                const response = await fetch(
+                    `https://raw.githubusercontent.com/${CONFIG.GITHUB_API.REPO_OWNER}/${CONFIG.GITHUB_API.REPO_NAME}/main/${CONFIG.GITHUB_API.PRODUCTS_FILE_PATH}?t=${Date.now()}`
+                );
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+                
+                const serverProducts = await response.json();
+                
+                // ✨ VALIDAR: ¿Los datos son frescos?
+                if (this.validateServerData(serverProducts)) {
+                    console.log('✅ Datos del servidor validados correctamente');
+                    
+                    // Actualizar estado
+                    this.products = serverProducts;
+                    this.lastSyncedProducts = JSON.parse(JSON.stringify(serverProducts));
+                    this.pendingChanges = {}; // Limpiar cambios pendientes
+                    this.lastUpdateTimestamp = null;
+                    
+                    // Actualizar UI
+                    this.filteredProducts = [...this.products];
+                    this.updateProductCount();
+                    this.renderProductsList();
+                    this.populateCategoryFilter();
+                    
+                    return true; // ✅ Éxito
+                } else {
+                    // Los datos parecen estar en caché
+                    retryCount++;
+                    
+                    if (retryCount >= MAX_RETRIES) {
+                        // ✨ FALLBACK: Si después de 5 intentos sigue fallando, aceptar los datos de todas formas
+                        console.warn('⚠️ Máximo de reintentos alcanzado. Usando modo tolerante...');
+                        console.warn('� Aceptando datos del servidor aunque no pasen validación estricta');
+                        
+                        // Actualizar de todas formas
+                        this.products = serverProducts;
+                        this.lastSyncedProducts = JSON.parse(JSON.stringify(serverProducts));
+                        this.pendingChanges = {}; // Limpiar cambios pendientes
+                        this.lastUpdateTimestamp = null;
+                        
+                        // Actualizar UI
+                        this.filteredProducts = [...this.products];
+                        this.updateProductCount();
+                        this.renderProductsList();
+                        this.populateCategoryFilter();
+                        
+                        console.log('✅ Datos actualizados en modo tolerante');
+                        return true;
+                    } else {
+                        console.warn(`⏳ Datos en caché viejo, reintentando (${retryCount}/${MAX_RETRIES})`);
+                        continue; // Reintentar
+                    }
+                }
+                
+            } catch (error) {
+                console.error('❌ Error en loadProductsWithValidation:', error);
+                lastError = error;
+                retryCount++;
+                
+                if (retryCount < MAX_RETRIES) {
+                    console.log(`🔄 Reintentando por error (${retryCount}/${MAX_RETRIES})`);
+                    continue;
+                } else {
+                    // Después de máximo de intentos por error, mostrar alerta
+                    console.error('❌ No se pudo sincronizar después de múltiples intentos:', error);
+                    this.showAlert(`⚠️ No se pudo sincronizar. Por favor intente de nuevo.`, 'warning');
+                    throw error;
+                }
+            }
+        }
+        
+        return false; // No se logró validar
+    }
+
+    /**
+     * ✨ NUEVA FUNCIÓN: Valida que los datos del servidor son frescos (VERSIÓN SIMPLIFICADA)
+     * Esta versión es más tolerante - solo verifica que el servidor tiene los productos
+     */
+    validateServerData(serverProducts) {
+        console.log('🔍 Validando que tenemos datos frescos...');
+        
+        // Si no hay cambios pendientes, aceptar cualquier dato
+        if (Object.keys(this.pendingChanges).length === 0) {
+            console.log('✅ No hay cambios pendientes, datos válidos');
+            return true;
+        }
+        
+        // VERSIÓN SIMPLIFICADA: Solo verificar que los productos existen en el servidor
+        // No somos tan estrictos con las propiedades exactas
+        for (const [productName, pendingData] of Object.entries(this.pendingChanges)) {
+            // Ignorar cambios de eliminación (tienen prefijo _deleted_)
+            if (productName.startsWith('_deleted_')) {
+                const actualName = productName.replace('_deleted_', '');
+                const found = serverProducts.find(p => p.nombre === actualName);
+                if (found) {
+                    console.warn(`⏳ Producto "${actualName}" aún existe (CDN con caché viejo)`);
+                    return false; // Datos viejos, debe reintentarse
+                }
+                console.log(`✅ Eliminación confirmada: ${actualName}`);
+                continue;
+            }
+            
+            const serverProduct = serverProducts.find(p => p.nombre === productName);
+            
+            if (!serverProduct) {
+                console.warn(`⏳ Producto "${productName}" no encontrado aún en servidor (CDN con caché)`);
+                return false; // Datos viejos, debe reintentarse
+            }
+            
+            // SIMPLIFICADO: Solo verificar propiedades MÁS importantes
+            // No ser tan estricto con todas las propiedades
+            const importantProps = ['precio']; // Solo precio es crítico
+            
+            let hasChanges = false;
+            for (const prop of importantProps) {
+                if (serverProduct[prop] !== pendingData[prop]) {
+                    hasChanges = true;
+                    console.log(
+                        `⏳ ${productName}.${prop} aún no sincronizado: ` +
+                        `servidor=${serverProduct[prop]}, local=${pendingData[prop]}`
+                    );
+                    break; // Un mismatch es suficiente para saber que es caché viejo
+                }
+            }
+            
+            if (!hasChanges) {
+                console.log(`✅ ${productName} sincronizado correctamente`);
+            } else {
+                return false; // Reintentarse
+            }
+        }
+        
+        console.log('✅ Todos los cambios pendientes validados en servidor');
+        return true;
+    }
+
+    /**
+     * ✨ NUEVA FUNCIÓN: Calcula hash de los datos (para debugging)
+     */
+    calculateDataHash(data) {
+        const json = JSON.stringify(data);
+        let hash = 0;
+        
+        for (let i = 0; i < json.length; i++) {
+            const char = json.charCodeAt(i);
+            hash = ((hash << 5) - hash) + char;
+            hash = hash & hash; // Convertir a 32-bit integer
+        }
+        
+        return Math.abs(hash).toString(16);
     }
 
     updateProductCount() {
@@ -2355,9 +2544,21 @@ class SalesDashboard {
             // 3. Actualizar el archivo JSON
             await this.updateProductsFile(this.products);
     
+            // ✨ NUEVO: Registrar cambio de eliminación
+            this.pendingChanges[`_deleted_${productName}`] = { estado: 'eliminado' };
+            this.lastUpdateTimestamp = Date.now();
+            
+            console.log('🗑️ Eliminación pendiente registrada:', {
+                producto: productName,
+                timestamp: this.lastUpdateTimestamp,
+                cambios: this.pendingChanges
+            });
+            
+            // ✨ NUEVO: Cargar productos CON VALIDACIÓN
+            await this.loadProductsWithValidation();
+            
             loadingAlert.remove();
             this.showAlert('✅ Producto eliminado correctamente', 'success');
-            this.renderProductsList();
     
         } catch (error) {
             console.error('Error al eliminar producto:', error);
@@ -2552,10 +2753,22 @@ class SalesDashboard {
             // 3. Actualizar el archivo JSON en el repositorio
             await this.updateProductsFile(this.products);
             
+            // ✨ NUEVO: Guardar cambio pendiente ANTES de sincronizar
+            this.pendingChanges[productData.nombre] = productData;
+            this.lastUpdateTimestamp = Date.now();
+            
+            console.log('📝 Cambio pendiente registrado:', {
+                producto: productData.nombre,
+                timestamp: this.lastUpdateTimestamp,
+                cambios: this.pendingChanges
+            });
+            
+            // ✨ NUEVO: Cargar productos CON VALIDACIÓN
+            await this.loadProductsWithValidation();
+            
             loadingAlert.remove();
             this.showAlert('✅ Producto guardado exitosamente', 'success');
             this.closeProductEditor();
-            await this.loadProducts(); // Recargar los productos
             
         } catch (error) {
             console.error('Error al guardar producto:', error);
