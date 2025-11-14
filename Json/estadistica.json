@@ -7939,5 +7939,98 @@
   "tipo_usuario": "Recurrente",
   "tiempo_promedio_pagina": 0,
   "fuente_trafico": "Directo"
+  }, 
+  {
+  "ip": "109.54.119.232",
+  "pais": "Italy",
+  "fecha_hora_entrada": "2025-11-14 14:51:21",
+  "origen": "Acceso directo",
+  "afiliado": "Ninguno",
+  "duracion_sesion_segundos": 605,
+  "tiempo_carga_pagina_ms": 2520,
+  "nombre_comprador": "Nailin contreras santiesteban",
+  "telefono_comprador": "335327206",
+  "correo_comprador": "leonormax@gmail.com",
+  "direccion_envio": "Calle colon 148A entre Ramon ortuño e 24febrero",
+  "compras": [
+    {
+      "producto": "Galletas Renata",
+      "cantidad": 1,
+      "precio_unitario": 1.4,
+      "precio_total": 1.4
+    },
+    {
+      "producto": "Pack galletas Delechitas (18u de paquetes)",
+      "cantidad": 1,
+      "precio_unitario": 2.88,
+      "precio_total": 2.88
+    },
+    {
+      "producto": "Pack Golozetas (12u de paquetes)",
+      "cantidad": 1,
+      "precio_unitario": 3.12,
+      "precio_total": 3.12
+    },
+    {
+      "producto": "Galletas Lora",
+      "cantidad": 1,
+      "precio_unitario": 1.4,
+      "precio_total": 1.4
+    },
+    {
+      "producto": "Sorbeto Lorena",
+      "cantidad": 3,
+      "precio_unitario": 0.8,
+      "precio_total": 2.4000000000000004
+    },
+    {
+      "producto": "Pata de cerdo x Lb",
+      "cantidad": 6,
+      "precio_unitario": 1.5,
+      "precio_total": 9
+    },
+    {
+      "producto": "Garbanzos Extra (500g)",
+      "cantidad": 2,
+      "precio_unitario": 1.87,
+      "precio_total": 3.74
+    },
+    {
+      "producto": "Frijol Negro x Lb",
+      "cantidad": 5,
+      "precio_unitario": 1.75,
+      "precio_total": 8.75
+    },
+    {
+      "producto": "Frijol Rojo x Lb",
+      "cantidad": 5,
+      "precio_unitario": 1.8,
+      "precio_total": 9
+    },
+    {
+      "producto": "Mazo de cebolla blanca",
+      "cantidad": 1,
+      "precio_unitario": 1.5,
+      "precio_total": 1.5
+    },
+    {
+      "producto": "Limón x Lb",
+      "cantidad": 1,
+      "precio_unitario": 1.5,
+      "precio_total": 1.5
+    },
+    {
+      "producto": "Plátano macho x unidad",
+      "cantidad": 10,
+      "precio_unitario": 0.26,
+      "precio_total": 2.6
+    }
+  ],
+  "precio_compra_total": "47.29",
+  "navegador": "Chrome",
+  "sistema_operativo": "Android",
+  "tipo_usuario": "Recurrente",
+  "tiempo_promedio_pagina": 0,
+  "fuente_trafico": "Directo"
   }
 ]
