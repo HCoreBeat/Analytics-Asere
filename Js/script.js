@@ -43,6 +43,10 @@ class SalesDashboard {
         this.validationRetries = 0;          // Contador de reintentos
         this.MAX_VALIDATION_RETRIES = 5;     // Máximo de reintentos (aumentado a 5)
         this.VALIDATION_RETRY_DELAY = 2000;  // 2 segundos entre reintentos
+    // Staging local de cambios (persistente en localStorage)
+    this.stagedChanges = []; // { type: 'modify'|'new'|'delete', id, originalName?, data, mainImageKey?, additionalImageKeys:[] }
+    // Inicializar IndexedDB para imágenes de staging
+    this.initStagingDB().catch(err => console.warn('IDB init failed', err));
         
         // Inicializar eventos
         this.setupImageManagerEvents();
@@ -54,6 +58,51 @@ class SalesDashboard {
         this.todayOrders = []; // Inicializa el array
         window.salesDashboard = this;
         
+    }
+
+    // Actualiza el badge que muestra la cuenta de staged en el toggle button
+    updateStagedCountBadge() {
+        const badge = document.getElementById('staged-count-badge');
+        if (!badge) return;
+        const count = this.stagedChanges ? this.stagedChanges.length : 0;
+        badge.textContent = String(count);
+        badge.style.display = count > 0 ? 'inline-block' : 'none';
+    }
+
+    // Inicializa el comportamiento de alternar paneles (staged-column vs products-column)
+    initProductsPanelToggle() {
+        const stagedCol = document.querySelector('.staged-column');
+        const productsCol = document.querySelector('.products-column');
+        const toggleBtn = document.getElementById('toggle-panel-btn');
+        if (!stagedCol || !productsCol || !toggleBtn) return;
+
+        const setActivePanel = (panelName) => {
+            const badge = document.getElementById('staged-count-badge');
+            if (panelName === 'staged') {
+                stagedCol.classList.remove('hidden');
+                productsCol.classList.add('hidden');
+                toggleBtn.querySelector('.toggle-label').textContent = 'Ver Productos';
+            } else {
+                productsCol.classList.remove('hidden');
+                stagedCol.classList.add('hidden');
+                toggleBtn.querySelector('.toggle-label').textContent = 'Ver Cambios';
+            }
+            // update badge if exists
+            if (badge) badge.textContent = (this.stagedChanges && this.stagedChanges.length) ? String(this.stagedChanges.length) : '0';
+            localStorage.setItem('active_products_panel', panelName);
+        };
+
+        // Toggle handler
+        toggleBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const current = localStorage.getItem('active_products_panel') || 'products';
+            const next = current === 'products' ? 'staged' : 'products';
+            setActivePanel(next);
+        });
+
+        // Inicializar estado según storage (por defecto mostrar products)
+        const initial = localStorage.getItem('active_products_panel') || 'products';
+        setActivePanel(initial);
     }
 
     
@@ -72,7 +121,9 @@ class SalesDashboard {
         this.applyFilters();
         this.renderAllAffiliates();
         this.setupView();
-        this.setupProductsView();
+    this.setupProductsView();
+    // Inicializar el toggle de paneles (staged/products)
+    try { this.initProductsPanelToggle(); } catch (err) { console.warn('initProductsPanelToggle failed', err); }
         this.startStatusMonitoring();
     }
 
@@ -345,6 +396,12 @@ class SalesDashboard {
         } catch (error) {
             return false;
         }
+        // Inicializar staged UI y contador al finalizar setupProductsView
+        try {
+            this.loadStagedChangesFromStorage();
+            this.renderStagedChangesUI();
+            this.updateStagedCountBadge();
+        } catch (err) { /* ignore */ }
     }
 
     updateStatusUI() {
@@ -472,6 +529,380 @@ class SalesDashboard {
         renderList(this.productChanges.new, 'new-products-list', 'No hay productos nuevos');
         renderList(this.productChanges.modified, 'modified-products-list', 'No hay productos modificados');
         renderList(this.productChanges.deleted, 'deleted-products-list', 'No hay productos eliminados');
+        // Adicional: renderizar staged changes (UI propia)
+        this.loadStagedChangesFromStorage();
+        this.renderStagedChangesUI();
+    }
+
+    /***********************
+     * Staging (guardado local)
+     ***********************/
+    loadStagedChangesFromStorage() {
+        try {
+            const raw = localStorage.getItem('staged_changes');
+            this.stagedChanges = raw ? JSON.parse(raw) : [];
+        } catch (err) {
+            console.error('Error leyendo staged_changes:', err);
+            this.stagedChanges = [];
+        }
+    }
+
+    /* IndexedDB helpers para almacenar imágenes grandes en staging */
+    async initStagingDB() {
+        if (this._stagingDB) return this._stagingDB;
+        return new Promise((resolve, reject) => {
+            const req = indexedDB.open('analytics-asere-staging', 1);
+            req.onupgradeneeded = (e) => {
+                const db = e.target.result;
+                if (!db.objectStoreNames.contains('staged_images')) {
+                    db.createObjectStore('staged_images');
+                }
+            };
+            req.onsuccess = (e) => {
+                this._stagingDB = e.target.result;
+                resolve(this._stagingDB);
+            };
+            req.onerror = (e) => reject(e.target.error);
+        });
+    }
+
+    async saveImageToIDB(key, base64) {
+        try {
+            const db = await this.initStagingDB();
+            return new Promise((resolve, reject) => {
+                const tx = db.transaction('staged_images', 'readwrite');
+                const store = tx.objectStore('staged_images');
+                const req = store.put(base64, key);
+                req.onsuccess = () => resolve(true);
+                req.onerror = (e) => reject(e.target.error);
+            });
+        } catch (err) {
+            console.error('Error saving image to IDB', err);
+            throw err;
+        }
+    }
+
+    async getImageFromIDB(key) {
+        try {
+            const db = await this.initStagingDB();
+            return new Promise((resolve, reject) => {
+                const tx = db.transaction('staged_images', 'readonly');
+                const store = tx.objectStore('staged_images');
+                const req = store.get(key);
+                req.onsuccess = () => resolve(req.result);
+                req.onerror = (e) => reject(e.target.error);
+            });
+        } catch (err) {
+            console.error('Error reading image from IDB', err);
+            return null;
+        }
+    }
+
+    async deleteImageFromIDB(key) {
+        try {
+            const db = await this.initStagingDB();
+            return new Promise((resolve, reject) => {
+                const tx = db.transaction('staged_images', 'readwrite');
+                const store = tx.objectStore('staged_images');
+                const req = store.delete(key);
+                req.onsuccess = () => resolve(true);
+                req.onerror = (e) => reject(e.target.error);
+            });
+        } catch (err) {
+            console.error('Error deleting image from IDB', err);
+            return false;
+        }
+    }
+
+    saveStagedChangesToStorage() {
+        try {
+            localStorage.setItem('staged_changes', JSON.stringify(this.stagedChanges));
+        } catch (err) {
+            console.error('Error guardando staged_changes:', err);
+        }
+    }
+
+    async renderStagedChangesUI() {
+        const container = document.getElementById('staged-changes-list');
+        if (!container) return;
+
+        if (!this.stagedChanges || this.stagedChanges.length === 0) {
+            container.innerHTML = '<div class="empty-message">No hay cambios en staging</div>';
+            this.updateStagedCountBadge();
+            return;
+        }
+
+        // Render staged items as cards (preview similar to products list)
+        let html = '<div class="staged-grid">';
+        for (let idx = 0; idx < this.stagedChanges.length; idx++) {
+            const s = this.stagedChanges[idx];
+            const name = s.data?.nombre || s.originalName || s.id || 'Sin nombre';
+            const typeBadge = s.type === 'new' ? '<span class="badge new">Nuevo</span>' : s.type === 'delete' ? '<span class="badge deleted">Eliminado</span>' : '<span class="badge modified">Mod</span>';
+
+            // obtener imagen de IDB si existe
+            // usar logo_2.png como fallback (existe en repo)
+            let imgSrc = 'img/no_image.jpg';
+            try {
+                if (s.mainImageKey) {
+                    const b64 = await this.getImageFromIDB(s.mainImageKey).catch(() => null);
+                    if (b64) {
+                        const ext = (s.mainImageName || 'jpg').split('.').pop();
+                        imgSrc = `data:image/${ext};base64,${b64}`;
+                    }
+                } else if (s.data && s.data.imagen) {
+                    imgSrc = s.data.imagen.startsWith('http') ? s.data.imagen : `https://raw.githubusercontent.com/${CONFIG.GITHUB_API.REPO_OWNER}/${CONFIG.GITHUB_API.REPO_NAME}/main/${s.data.imagen}`;
+                }
+            } catch (err) {
+                console.warn('No se pudo obtener imagen staged', err);
+            }
+
+            const precioRaw = s.data?.precio || 0;
+            // precio mostrado en UI (aplicar factor si tu sistema lo usa)
+            const displayPrice = `$${(precioRaw * 1.05).toFixed(2)}`;
+            const hasDiscount = s.data?.oferta && s.data?.descuento > 0;
+            const discountedPrice = hasDiscount ? `$${((precioRaw * 1.05) * (1 - (s.data.descuento || 0)/100)).toFixed(2)}` : null;
+
+            // Determine index in the main products JSON (if exists)
+            const jsonIndex = this.getProductIndexByName(name);
+            const indexBadge = jsonIndex > -1 ? `<span class="product-index">#${jsonIndex}</span>` : `<span class="product-index staged">S</span>`;
+
+            html += `
+                <div class="product-card staged-card" data-idx="${idx}">
+                    <div class="product-image-container">
+                        <img class="product-image" src="${imgSrc}" alt="${name}" loading="lazy" onerror="(function(i){i.onerror=null;i.src='img/no_image.jpg';})(this)">
+                        <div class="product-badges">
+                            ${typeBadge}
+                        </div>
+                        ${indexBadge}
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name" title="${name}">${name}</div>
+                        <span class="product-category">${s.data?.categoria || ''}</span>
+                        <div class="product-price-container">
+                            <div class="product-price">${displayPrice} ${discountedPrice ? `<span class="product-discount">${discountedPrice}</span>` : ''}</div>
+                        </div>
+                        <div class="product-desc">${s.data?.descripcion ? (s.data.descripcion.length > 140 ? s.data.descripcion.slice(0,140) + '…' : s.data.descripcion) : ''}</div>
+                        <div class="product-actions">
+                            <button class="btn btn-secondary edit-staged" data-idx="${idx}"><i class="fas fa-edit"></i> Editar</button>
+                            <button class="btn cancel-btn cancel-staged" data-idx="${idx}"><i class="fas fa-trash"></i> Cancelar</button>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+        html += '</div>';
+        container.innerHTML = html;
+
+        this.updateStagedCountBadge();
+    }
+
+    // Devuelve el índice (1-based) del producto en this.products según nombre, o -1 si no existe
+    getProductIndexByName(name) {
+        if (!name || !Array.isArray(this.products)) return -1;
+        const idx = this.products.findIndex(p => p && p.nombre === name);
+        return idx >= 0 ? (idx + 1) : -1;
+    }
+
+    async fileToDataURL(file) {
+        return await new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.onload = (e) => resolve(e.target.result.split(',')[1]);
+            reader.onerror = (e) => reject(e);
+            reader.readAsDataURL(file);
+        });
+    }
+
+    // Stage a change locally (no hace push a GitHub)
+    async stageChange(type, productData, options = {}) {
+        // options may include originalName, mainImageFile, additionalImageFiles
+        const id = productData.nombre || options.originalName || (`staged_${Date.now()}`);
+
+        const staged = {
+            type,
+            id: this.sanitizeId(id),
+            originalName: options.originalName || null,
+            data: productData,
+            mainImageKey: null,
+            mainImageName: null,
+            additionalImageKeys: [] // { name, key }
+        };
+
+        // Convert files to base64 and save to IndexedDB if provided
+        if (options.mainImageFile) {
+            try {
+                const b64 = await this.fileToDataURL(options.mainImageFile).catch(() => null);
+                if (b64) {
+                    const key = `${staged.id}:main:${options.mainImageFile.name}:${Date.now()}`;
+                    await this.saveImageToIDB(key, b64);
+                    staged.mainImageKey = key;
+                    staged.mainImageName = options.mainImageFile.name;
+                }
+            } catch (err) { console.warn('No se pudo guardar main image en IDB', err); }
+        }
+
+        if (options.additionalImageFiles && options.additionalImageFiles.length) {
+            for (const f of options.additionalImageFiles) {
+                try {
+                    const b64 = await this.fileToDataURL(f).catch(() => null);
+                    if (b64) {
+                        const key = `${staged.id}:add:${f.name}:${Date.now()}`;
+                        await this.saveImageToIDB(key, b64);
+                        staged.additionalImageKeys.push({ name: f.name, key });
+                    }
+                } catch (err) {
+                    console.warn('No se pudo convertir/guardar additional image', f.name, err);
+                }
+            }
+        }
+
+        // Reemplazar si ya hay un staged para el mismo id/originalName
+        const existingIdx = this.stagedChanges.findIndex(s => s.id === staged.id || s.originalName === staged.originalName);
+        if (existingIdx >= 0) {
+            this.stagedChanges[existingIdx] = staged;
+        } else {
+            this.stagedChanges.push(staged);
+        }
+
+        this.saveStagedChangesToStorage();
+        this.renderStagedChangesUI();
+    }
+
+    clearStagedChanges() {
+        // eliminar imagenes en IndexedDB asociadas
+        (async () => {
+            for (const s of this.stagedChanges || []) {
+                if (s.mainImageKey) await this.deleteImageFromIDB(s.mainImageKey).catch(() => null);
+                if (s.additionalImageKeys && s.additionalImageKeys.length) {
+                    for (const ai of s.additionalImageKeys) await this.deleteImageFromIDB(ai.key).catch(() => null);
+                }
+            }
+            this.stagedChanges = [];
+            this.saveStagedChangesToStorage();
+            this.renderStagedChangesUI();
+            this.updateStagedCountBadge();
+        })();
+    }
+
+    // Subir un contenido base64 al repo (úsalo para imágenes desde staging)
+    async uploadBase64ToRepo(base64Content, path, message) {
+        const GITHUB_TOKEN = localStorage.getItem('github_token');
+        if (!GITHUB_TOKEN) throw new Error('No hay token de GitHub configurado');
+
+        const { REPO_OWNER, REPO_NAME } = CONFIG.GITHUB_API;
+        const getUrl = `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${path}`;
+
+        // Intentar obtener SHA (si existe)
+        let sha = null;
+        try {
+            const getResp = await fetch(getUrl, { headers: { 'Authorization': `token ${GITHUB_TOKEN}`, 'Accept': 'application/vnd.github.v3+json' } });
+            if (getResp.ok) {
+                const fileData = await getResp.json();
+                sha = fileData.sha;
+            }
+        } catch (err) { /* ignore */ }
+
+        const resp = await fetch(getUrl, {
+            method: 'PUT',
+            headers: {
+                'Authorization': `token ${GITHUB_TOKEN}`,
+                'Accept': 'application/vnd.github.v3+json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ message: message || `Subir ${path}`, content: base64Content, sha: sha, branch: 'main' })
+        });
+
+        if (!resp.ok) {
+            const err = await resp.json().catch(() => ({}));
+            throw new Error(err.message || `Error HTTP: ${resp.status}`);
+        }
+        return true;
+    }
+
+    // Guardar en repo todos los cambios staged (operación única)
+    async saveAllStagedChanges() {
+        if (!this.stagedChanges || this.stagedChanges.length === 0) return;
+
+        const loadingAlert = this.showAlert('Guardando cambios al repositorio...', 'loading');
+        this.repoStatus = 'loading';
+        this.updateStatusUI();
+
+        try {
+            // Procesar los cambios y actualizar this.products local
+            for (const s of this.stagedChanges) {
+                if (s.type === 'delete') {
+                    const name = s.originalName || s.data?.nombre;
+                    // eliminar imágenes si hay snapshot
+                    try { await this.deleteProductImages(s.data || { nombre: name }); } catch (err) { console.warn(err); }
+                    // remover del listado
+                    this.products = this.products.filter(p => p.nombre !== name);
+                } else if (s.type === 'new' || s.type === 'modify') {
+                    const productData = s.data;
+
+                    // Subir imágenes desde IndexedDB si existen (o desde s.mainImageBase64 por compatibilidad)
+                    let mainB64 = null;
+                    if (s.mainImageKey) {
+                        mainB64 = await this.getImageFromIDB(s.mainImageKey).catch(() => null);
+                    } else if (s.mainImageBase64) {
+                        mainB64 = s.mainImageBase64;
+                    }
+
+                    if (mainB64 && s.mainImageName) {
+                        const path = `img/products/${s.mainImageName}`;
+                        await this.uploadBase64ToRepo(mainB64, path, `Subir imagen principal: ${s.mainImageName}`);
+                        productData.imagen = path;
+                    }
+
+                    if ((s.additionalImageKeys && s.additionalImageKeys.length) || (s.additionalImagesBase64 && s.additionalImagesBase64 && s.additionalImagesBase64.length)) {
+                        productData.imagenesAdicionales = productData.imagenesAdicionales || [];
+
+                        // From keys
+                        if (s.additionalImageKeys && s.additionalImageKeys.length) {
+                            for (const ai of s.additionalImageKeys) {
+                                const b64 = await this.getImageFromIDB(ai.key).catch(() => null);
+                                if (b64) {
+                                    const path = `img/products/${ai.name}`;
+                                    await this.uploadBase64ToRepo(b64, path, `Subir imagen adicional: ${ai.name}`);
+                                    productData.imagenesAdicionales.push(path);
+                                }
+                            }
+                        }
+
+                        // Backward compatibility: from base64 array
+                        if (s.additionalImagesBase64 && s.additionalImagesBase64.length) {
+                            for (const ai of s.additionalImagesBase64) {
+                                const path = `img/products/${ai.name}`;
+                                await this.uploadBase64ToRepo(ai.b64, path, `Subir imagen adicional: ${ai.name}`);
+                                productData.imagenesAdicionales.push(path);
+                            }
+                        }
+                    }
+
+                    if (s.type === 'new') {
+                        // Evitar duplicados
+                        if (!this.products.some(p => p.nombre === productData.nombre)) this.products.push(productData);
+                    } else {
+                        const idx = this.products.findIndex(p => p.nombre === (s.originalName || productData.nombre));
+                        if (idx >= 0) this.products[idx] = productData;
+                        else this.products.push(productData);
+                    }
+                }
+            }
+
+            // Actualizar una sola vez el archivo de productos
+            await this.updateProductsFile(this.products);
+
+            loadingAlert.remove();
+            this.showAlert('✅ Cambios guardados en el repositorio', 'success');
+            this.clearStagedChanges();
+            await this.loadProductsWithValidation();
+        } catch (error) {
+            console.error('Error al guardar staged changes:', error);
+            loadingAlert.remove();
+            this.showAlert(`❌ Error al guardar cambios: ${error.message}`, 'error');
+        } finally {
+            this.repoStatus = 'idle';
+            this.updateStatusUI();
+        }
     }
 
     normalizeAffiliatesData() {
@@ -1979,18 +2410,26 @@ class SalesDashboard {
             // Get image URL from GitHub repository (no timestamp to avoid redundant fetches)
             const imageUrl = product.imagen ?
                 `https://raw.githubusercontent.com/${CONFIG.GITHUB_API.REPO_OWNER}/${CONFIG.GITHUB_API.REPO_NAME}/main/${product.imagen}` :
-                'img/no-image.png';
+                'img/no_image.jpg';
             
+            const jsonIndex = this.getProductIndexByName(product.nombre);
+            const indexBadge = jsonIndex > -1 ? `<span class="product-index">#${jsonIndex}</span>` : '';
+
             return `
             <div class="product-card" data-id="${this.sanitizeId(product.nombre)}">
                 <div class="product-image-container">
-                    <img class="product-image" src="${imageUrl}" alt="${product.nombre}" loading="lazy" onerror="(function(i){i.onerror=null;i.src='img/no-image.png';})(this)" onload="this.classList.add('loaded')">
+                    <img class="product-image" src="${imageUrl}" alt="${product.nombre}" loading="lazy" onerror="(function(i){i.onerror=null;i.src='img/no_image.jpg';})(this)" onload="this.classList.add('loaded')">
                     <div class="product-badges">
                         ${product.oferta ? '<span class="product-badge oferta">OFERTA</span>' : ''}
                         ${product.mas_vendido ? '<span class="product-badge mas-vendido">TOP</span>' : ''}
                         ${product.nuevo ? '<span class="product-badge nuevo">NUEVO</span>' : ''}
                         ${!product.disponible ? '<span class="product-badge no-disponible">AGOTADO</span>' : ''}
+                        ${(() => {
+                            const staged = this.stagedChanges && this.stagedChanges.find(s => (s.data && s.data.nombre === product.nombre) || s.originalName === product.nombre);
+                            return staged ? '<span class="product-badge staged">MOD</span>' : '';
+                        })()}
                     </div>
+                    ${indexBadge}
                 </div>
                 <div class="product-info">
                     <div class="product-name" title="${product.nombre}">${product.nombre}</div>
@@ -2190,6 +2629,82 @@ class SalesDashboard {
                 btn.innerHTML = isHidden ? '<i class="fas fa-eye"></i> Mostrar Vista Previa' : '<i class="fas fa-eye-slash"></i> Ocultar Vista Previa';
             }
         });
+
+        // --- Staging panel actions ---
+        document.getElementById('save-all-staged')?.addEventListener('click', async () => {
+            if (!confirm('¿Deseas realizar el guardado general de todos los cambios locales al repositorio? Esta acción aplicará los cambios y subirá las imágenes.')) return;
+            await this.saveAllStagedChanges();
+        });
+
+        document.getElementById('cancel-all-staged')?.addEventListener('click', () => {
+            if (!confirm('¿Cancelar todos los cambios en staging? Esta acción descartará los cambios locales.')) return;
+            this.clearStagedChanges();
+            // Recargar productos desde último sync para revertir visualmente
+            this.loadProducts();
+        });
+
+        // Delegación para editar o cancelar un staged item
+        const stagedListEl = document.getElementById('staged-changes-list');
+        if (stagedListEl) {
+            stagedListEl.addEventListener('click', async (e) => {
+                const btn = e.target.closest('button');
+                if (!btn) return;
+                const idx = parseInt(btn.dataset.idx, 10);
+                if (isNaN(idx)) return;
+                const staged = this.stagedChanges[idx];
+                if (!staged) return;
+
+                if (btn.classList.contains('edit-staged')) {
+                    // Abrir modal para editar el staged item
+                    this.currentProduct = staged.data ? JSON.parse(JSON.stringify(staged.data)) : null;
+                    this.mainImageFile = null;
+                    this.additionalImageFiles = [];
+
+                    // Si hay imagen principal en base64, mostrar preview
+                    const mainImgContainer = document.getElementById('main-image-container');
+                    if (staged.mainImageKey) {
+                        const b64 = await this.getImageFromIDB(staged.mainImageKey).catch(() => null);
+                        if (b64) {
+                            const ext = (staged.mainImageName || 'jpg').split('.').pop();
+                            mainImgContainer.innerHTML = `<img src="data:image/${ext};base64,${b64}" alt="Preview">`;
+                            document.getElementById('remove-main-image').style.display = 'block';
+                        } else {
+                            mainImgContainer.innerHTML = '<span>No hay imagen seleccionada</span>';
+                            document.getElementById('remove-main-image').style.display = 'none';
+                        }
+                    } else if (staged.data && staged.data.imagen) {
+                        const imageUrl = staged.data.imagen.startsWith('http') ? staged.data.imagen : `https://raw.githubusercontent.com/${CONFIG.GITHUB_API.REPO_OWNER}/${CONFIG.GITHUB_API.REPO_NAME}/main/${staged.data.imagen}`;
+                        mainImgContainer.innerHTML = `<img src="${imageUrl}" alt="Preview">`;
+                        document.getElementById('remove-main-image').style.display = 'block';
+                    } else {
+                        mainImgContainer.innerHTML = '<span>No hay imagen seleccionada</span>';
+                        document.getElementById('remove-main-image').style.display = 'none';
+                    }
+
+                    // Populate and open editor
+                    if (staged.data) this.populateProductForm(this.currentProduct);
+                    this.openProductEditor(this.currentProduct);
+                }
+
+                if (btn.classList.contains('cancel-staged')) {
+                    if (!confirm('¿Descartar este cambio local?')) return;
+                    // eliminar imagenes asociadas en IDB si existen
+                    if (staged.mainImageKey) {
+                        await this.deleteImageFromIDB(staged.mainImageKey).catch(() => null);
+                    }
+                    if (staged.additionalImageKeys && staged.additionalImageKeys.length) {
+                        for (const ai of staged.additionalImageKeys) {
+                            await this.deleteImageFromIDB(ai.key).catch(() => null);
+                        }
+                    }
+                    this.stagedChanges.splice(idx, 1);
+                    this.saveStagedChangesToStorage();
+                    this.renderStagedChangesUI();
+                    // Refresh products (if was a deletion we should reload)
+                    this.loadProducts();
+                }
+            });
+        }
     }
 
     updatePriceHint() {
@@ -2336,7 +2851,9 @@ class SalesDashboard {
         const mainImageContainer = document.getElementById('main-image-container');
         if (product.imagen) {
             const imageUrl = `https://raw.githubusercontent.com/${CONFIG.GITHUB_API.REPO_OWNER}/${CONFIG.GITHUB_API.REPO_NAME}/main/${product.imagen}`;
-            mainImageContainer.innerHTML = `<img src="${imageUrl}" alt="${product.nombre}" onerror="this.parentElement.innerHTML='<span>Error al cargar imagen</span>'">`;
+            // onerror handler protegido: comprobamos parentElement antes de tocar innerHTML,
+            // y como fallback alternativo cambiamos a logo local existente.
+            mainImageContainer.innerHTML = `<img src="${imageUrl}" alt="${product.nombre}" onerror="if(this.parentElement){this.parentElement.innerHTML='<span>Error al cargar imagen</span>'}else{this.src='img/no_image.jpg'}">`;
             document.getElementById('remove-main-image').style.display = 'block';
         } else {
             mainImageContainer.innerHTML = '<span>No hay imagen seleccionada</span>';
@@ -2349,7 +2866,7 @@ class SalesDashboard {
                 const imageUrl = `https://raw.githubusercontent.com/${CONFIG.GITHUB_API.REPO_OWNER}/${CONFIG.GITHUB_API.REPO_NAME}/main/${img}`;
                 return `
                     <div class="additional-image">
-                        <img src="${imageUrl}" alt="Imagen adicional" onerror="this.parentElement.remove()">
+                        <img src="${imageUrl}" alt="Imagen adicional" onerror="if(this.parentElement){this.parentElement.remove()}else{this.src='img/no_image.jpg'}">
                         <button class="remove-additional-image" data-src="${img}">
                             <i class="fas fa-times"></i>
                         </button>
@@ -2520,53 +3037,30 @@ class SalesDashboard {
     }
     
     async deleteProduct(productName) {
-        if (!confirm(`¿Estás seguro de eliminar el producto "${productName}"? Esta acción también eliminará sus imágenes asociadas.`)) {
+        if (!confirm(`¿Estás seguro de eliminar el producto "${productName}"? Esta acción se guardará localmente y podrá confirmarse en "Productos modificados".`)) {
             return;
         }
-    
-        const loadingAlert = this.showAlert('Eliminando producto...', 'loading');
-        this.repoStatus = 'loading';
-        this.updateStatusUI();
-    
+
+        const product = this.products.find(p => p.nombre === productName);
+        if (!product) {
+            this.showAlert('Producto no encontrado', 'error');
+            return;
+        }
+
         try {
-            const product = this.products.find(p => p.nombre === productName);
-            if (!product) {
-                throw new Error('Producto no encontrado');
-            }
-    
-            // 1. Eliminar imágenes del producto
-            await this.deleteProductImages(product);
-    
-            // 2. Eliminar el producto del array
+            // Stage deletion locally (guardar snapshot para poder cancelar o confirmar)
+            await this.stageChange('delete', product, { originalName: productName });
+
+            // Remover del listado local para reflejar la acción en UI (sin tocar el repo aún)
             this.products = this.products.filter(p => p.nombre !== productName);
             this.filteredProducts = this.filteredProducts.filter(p => p.nombre !== productName);
-    
-            // 3. Actualizar el archivo JSON
-            await this.updateProductsFile(this.products);
-    
-            // ✨ NUEVO: Registrar cambio de eliminación
-            this.pendingChanges[`_deleted_${productName}`] = { estado: 'eliminado' };
-            this.lastUpdateTimestamp = Date.now();
-            
-            console.log('🗑️ Eliminación pendiente registrada:', {
-                producto: productName,
-                timestamp: this.lastUpdateTimestamp,
-                cambios: this.pendingChanges
-            });
-            
-            // ✨ NUEVO: Cargar productos CON VALIDACIÓN
-            await this.loadProductsWithValidation();
-            
-            loadingAlert.remove();
-            this.showAlert('✅ Producto eliminado correctamente', 'success');
-    
+            this.updateProductCount();
+            this.renderProductsList();
+
+            this.showAlert('✅ Eliminación guardada localmente. Revisa "Productos modificados" para confirmar o cancelar.', 'success');
         } catch (error) {
-            console.error('Error al eliminar producto:', error);
-            loadingAlert.remove();
-            this.showAlert(`❌ Error al eliminar: ${error.message}`, 'error');
-        } finally {
-            this.repoStatus = 'idle';
-            this.updateStatusUI();
+            console.error('Error al stagear eliminación:', error);
+            this.showAlert(`❌ Error al procesar eliminación: ${error.message}`, 'error');
         }
     }
 
@@ -2713,70 +3207,49 @@ class SalesDashboard {
     
     async saveProduct() {
         const productData = this.getCurrentProductData();
-        
+
         if (!productData.nombre || !productData.categoria || !productData.precio) {
             this.showAlert('Por favor complete todos los campos requeridos', 'error');
             return;
         }
-        
-        if (!productData.imagen) {
-            this.showAlert('Debe seleccionar una imagen principal', 'error');
-            return;
-        }
-        
-        const loadingAlert = this.showAlert('Guardando producto...', 'loading');
-        this.repoStatus = 'loading';
-        this.updateStatusUI();
-        
+
+        // No forzamos imagen en staging: se puede guardar sin subir aún (imagen puede agregarse antes del guardado general)
+        const loadingAlert = this.showAlert('Guardando cambios localmente...', 'loading');
         try {
-            // 1. Subir imágenes primero
-            await this.uploadProductImages();
-            
-            // 2. Actualizar la lista de productos
             const isNew = !this.currentProduct;
-            
             if (isNew) {
-                // Verificar si el producto ya existe
+                // Evitar nombre duplicado en productos actuales
                 const exists = this.products.some(p => p.nombre === productData.nombre);
                 if (exists) {
-                    throw new Error('Ya existe un producto con este nombre');
+                    loadingAlert.remove();
+                    this.showAlert('Ya existe un producto con este nombre', 'error');
+                    return;
                 }
+                // Stage as new
+                await this.stageChange('new', productData, { mainImageFile: this.mainImageFile, additionalImageFiles: this.additionalImageFiles });
+
+                // Mostrar en UI como agregado (local)
                 this.products.push(productData);
             } else {
-                // Actualizar producto existente
-                const index = this.products.findIndex(p => p.nombre === this.currentProduct.nombre);
-                if (index >= 0) {
-                    this.products[index] = productData;
-                }
+                // Stage modification
+                await this.stageChange('modify', productData, { originalName: this.currentProduct.nombre, mainImageFile: this.mainImageFile, additionalImageFiles: this.additionalImageFiles });
+
+                // Actualizar vista localmente
+                const idx = this.products.findIndex(p => p.nombre === this.currentProduct.nombre);
+                if (idx >= 0) this.products[idx] = productData;
             }
-            
-            // 3. Actualizar el archivo JSON en el repositorio
-            await this.updateProductsFile(this.products);
-            
-            // ✨ NUEVO: Guardar cambio pendiente ANTES de sincronizar
-            this.pendingChanges[productData.nombre] = productData;
-            this.lastUpdateTimestamp = Date.now();
-            
-            console.log('📝 Cambio pendiente registrado:', {
-                producto: productData.nombre,
-                timestamp: this.lastUpdateTimestamp,
-                cambios: this.pendingChanges
-            });
-            
-            // ✨ NUEVO: Cargar productos CON VALIDACIÓN
-            await this.loadProductsWithValidation();
-            
+
+            this.filteredProducts = [...this.products];
+            this.updateProductCount();
+            this.renderProductsList();
+
             loadingAlert.remove();
-            this.showAlert('✅ Producto guardado exitosamente', 'success');
+            this.showAlert('✅ Cambios guardados localmente en “Productos modificados”', 'success');
             this.closeProductEditor();
-            
         } catch (error) {
-            console.error('Error al guardar producto:', error);
+            console.error('Error al stagear producto:', error);
             loadingAlert.remove();
-            this.showAlert(`❌ Error al guardar: ${error.message}`, 'error');
-        } finally {
-            this.repoStatus = 'idle';
-            this.updateStatusUI();
+            this.showAlert(`❌ Error al guardar localmente: ${error.message}`, 'error');
         }
     }
     

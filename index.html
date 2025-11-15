@@ -396,6 +396,11 @@
                         <button class="btn btn-primary" id="refresh-products">
                             <i class="fas fa-sync-alt"></i>
                         </button>
+                        <!-- Botón para alternar entre panel de Productos y Productos modificados -->
+                        <button class="btn btn-secondary" id="toggle-panel-btn">
+                            <i class="fas fa-columns"></i> <span class="toggle-label">Cambiar Panel</span>
+                            <span id="staged-count-badge" class="panel-badge" style="display: none;">0</span>
+                        </button>
                     </div>
                 </div>
                 <div class="header-stats">
@@ -410,7 +415,32 @@
             </header>
         
             <section class="products-section">
-                <div id="products-list" class="products-grid"></div>
+                <div class="products-layout">
+                    <div class="staged-column">
+                        <!-- Segmento: Productos modificados (staging local) -->
+                        <div id="staged-changes-panel" class="card staged-panel">
+                            <div class="card-header-with-tabs">
+                                <h3 class="card-title"><i class="fas fa-save"></i> Productos modificados (Guardado local)</h3>
+                                <div class="staged-actions">
+                                    <button id="save-all-staged" class="btn btn-primary">
+                                        <i class="fas fa-check"></i> Guardar general
+                                    </button>
+                                    <button id="cancel-all-staged" class="btn cancel-btn">
+                                        <i class="fas fa-times"></i> Cancelar todos
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="staged-body">
+                                <p class="muted">Aquí aparecen las modificaciones que guardes localmente. Puedes editar o descartar antes de realizar el guardado general a la base de datos.</p>
+                                <ul id="staged-changes-list" class="staged-list"></ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="products-column">
+                        <div id="products-list" class="products-grid"></div>
+                    </div>
+                </div>
                 
                 <!-- Product Editor Modal -->
                 <div id="product-editor-modal" class="modal hidden">
@@ -547,7 +577,7 @@
                                     <i class="fas fa-times"></i> Cancelar
                                 </button>
                                 <button type="submit" class="btn btn-primary">
-                                    <i class="fas fa-save"></i> Guardar Cambios
+                                    <i class="fas fa-save"></i> Aceptar Cambios
                                 </button>
                             </div>
                         </form>
