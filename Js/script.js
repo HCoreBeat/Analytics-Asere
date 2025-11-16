@@ -76,16 +76,20 @@ class SalesDashboard {
         const toggleBtn = document.getElementById('toggle-panel-btn');
         if (!stagedCol || !productsCol || !toggleBtn) return;
 
+        const layout = document.querySelector('.products-layout');
         const setActivePanel = (panelName) => {
             const badge = document.getElementById('staged-count-badge');
             if (panelName === 'staged') {
                 stagedCol.classList.remove('hidden');
                 productsCol.classList.add('hidden');
                 toggleBtn.querySelector('.toggle-label').textContent = 'Ver Productos';
+                // mark layout so CSS can expand staged-column to full width
+                if (layout) layout.classList.add('active-panel-staged');
             } else {
                 productsCol.classList.remove('hidden');
                 stagedCol.classList.add('hidden');
                 toggleBtn.querySelector('.toggle-label').textContent = 'Ver Cambios';
+                if (layout) layout.classList.remove('active-panel-staged');
             }
             // update badge if exists
             if (badge) badge.textContent = (this.stagedChanges && this.stagedChanges.length) ? String(this.stagedChanges.length) : '0';
@@ -627,13 +631,15 @@ class SalesDashboard {
         if (!container) return;
 
         if (!this.stagedChanges || this.stagedChanges.length === 0) {
-            container.innerHTML = '<div class="empty-message">No hay cambios en staging</div>';
+            container.innerHTML = '<li class="empty-message">No hay cambios en staging</li>';
             this.updateStagedCountBadge();
             return;
         }
 
         // Render staged items as cards (preview similar to products list)
-        let html = '<div class="staged-grid">';
+        // Use <li> children (valid inside the existing <ul>) so the browser
+        // layout stays consistent with other lists and doesn't create odd overlays.
+        let html = '';
         for (let idx = 0; idx < this.stagedChanges.length; idx++) {
             const s = this.stagedChanges[idx];
             const name = s.data?.nombre || s.originalName || s.id || 'Sin nombre';
@@ -641,7 +647,7 @@ class SalesDashboard {
 
             // obtener imagen de IDB si existe
             // usar logo_2.png como fallback (existe en repo)
-            let imgSrc = 'img/no_image.jpg';
+            let imgSrc = 'img/logo_2.png';
             try {
                 if (s.mainImageKey) {
                     const b64 = await this.getImageFromIDB(s.mainImageKey).catch(() => null);
@@ -666,10 +672,12 @@ class SalesDashboard {
             const jsonIndex = this.getProductIndexByName(name);
             const indexBadge = jsonIndex > -1 ? `<span class="product-index">#${jsonIndex}</span>` : `<span class="product-index staged">S</span>`;
 
+            // Build a list item that contains a product-card so markup stays valid
             html += `
-                <div class="product-card staged-card" data-idx="${idx}">
+                <li class="staged-item" data-idx="${idx}">
+                  <div class="product-card staged-card">
                     <div class="product-image-container">
-                        <img class="product-image" src="${imgSrc}" alt="${name}" loading="lazy" onerror="(function(i){i.onerror=null;i.src='img/no_image.jpg';})(this)">
+                        <img class="product-image" src="${imgSrc}" alt="${name}" loading="lazy" onerror="(function(i){i.onerror=null;i.src='img/logo_2.png';})(this)">
                         <div class="product-badges">
                             ${typeBadge}
                         </div>
@@ -687,10 +695,10 @@ class SalesDashboard {
                             <button class="btn cancel-btn cancel-staged" data-idx="${idx}"><i class="fas fa-trash"></i> Cancelar</button>
                         </div>
                     </div>
-                </div>
+                  </div>
+                </li>
             `;
         }
-        html += '</div>';
         container.innerHTML = html;
 
         this.updateStagedCountBadge();
@@ -714,8 +722,13 @@ class SalesDashboard {
 
     // Stage a change locally (no hace push a GitHub)
     async stageChange(type, productData, options = {}) {
-        // options may include originalName, mainImageFile, additionalImageFiles
-        const id = productData.nombre || options.originalName || (`staged_${Date.now()}`);
+        // options may include originalName, mainImageFile, additionalImageFiles, stagedId
+        // Allow caller to pass a specific stagedId when updating an existing staged entry (useful when editing staged items)
+        const providedStagedId = options.stagedId ? String(options.stagedId) : null;
+        // For new items always generate a unique staged id so multiple 'new' items don't collide even if names are empty or equal.
+        const baseId = (type === 'new') ? null : (productData && productData.nombre ? String(productData.nombre) : (options.originalName ? String(options.originalName) : null));
+        const uniqueSuffix = Math.random().toString(36).slice(2, 8);
+        const id = providedStagedId || (baseId ? baseId : `staged_${Date.now()}_${uniqueSuffix}`);
 
         const staged = {
             type,
@@ -755,8 +768,14 @@ class SalesDashboard {
             }
         }
 
-        // Reemplazar si ya hay un staged para el mismo id/originalName
-        const existingIdx = this.stagedChanges.findIndex(s => s.id === staged.id || s.originalName === staged.originalName);
+        // Reemplazar si ya hay un staged para el mismo id o (si existe) para la misma originalName.
+        // Evitar comparar originalName cuando es null/undefined (evita sobreescritura de nuevos sin originalName).
+        const existingIdx = this.stagedChanges.findIndex(s => {
+            if (!s) return false;
+            if (s.id === staged.id) return true;
+            if (staged.originalName && s.originalName && s.originalName === staged.originalName) return true;
+            return false;
+        });
         if (existingIdx >= 0) {
             this.stagedChanges[existingIdx] = staged;
         } else {
@@ -765,6 +784,8 @@ class SalesDashboard {
 
         this.saveStagedChangesToStorage();
         this.renderStagedChangesUI();
+        // actualizar contador visual
+        this.updateStagedCountBadge();
     }
 
     clearStagedChanges() {
@@ -2410,7 +2431,7 @@ class SalesDashboard {
             // Get image URL from GitHub repository (no timestamp to avoid redundant fetches)
             const imageUrl = product.imagen ?
                 `https://raw.githubusercontent.com/${CONFIG.GITHUB_API.REPO_OWNER}/${CONFIG.GITHUB_API.REPO_NAME}/main/${product.imagen}` :
-                'img/no_image.jpg';
+                'img/logo_2.png';
             
             const jsonIndex = this.getProductIndexByName(product.nombre);
             const indexBadge = jsonIndex > -1 ? `<span class="product-index">#${jsonIndex}</span>` : '';
@@ -2418,7 +2439,7 @@ class SalesDashboard {
             return `
             <div class="product-card" data-id="${this.sanitizeId(product.nombre)}">
                 <div class="product-image-container">
-                    <img class="product-image" src="${imageUrl}" alt="${product.nombre}" loading="lazy" onerror="(function(i){i.onerror=null;i.src='img/no_image.jpg';})(this)" onload="this.classList.add('loaded')">
+                    <img class="product-image" src="${imageUrl}" alt="${product.nombre}" loading="lazy" onerror="(function(i){i.onerror=null;i.src='img/logo_2.png';})(this)" onload="this.classList.add('loaded')">
                     <div class="product-badges">
                         ${product.oferta ? '<span class="product-badge oferta">OFERTA</span>' : ''}
                         ${product.mas_vendido ? '<span class="product-badge mas-vendido">TOP</span>' : ''}
@@ -2654,11 +2675,19 @@ class SalesDashboard {
                 const staged = this.stagedChanges[idx];
                 if (!staged) return;
 
-                if (btn.classList.contains('edit-staged')) {
+                    if (btn.classList.contains('edit-staged')) {
                     // Abrir modal para editar el staged item
                     this.currentProduct = staged.data ? JSON.parse(JSON.stringify(staged.data)) : null;
                     this.mainImageFile = null;
                     this.additionalImageFiles = [];
+
+                        // Marcar que estamos editando este staged item (para que saveProduct lo actualice en vez de crear uno nuevo)
+                        this.editingStaged = {
+                            idx,
+                            id: staged.id,
+                            type: staged.type,
+                            originalName: staged.data?.nombre || staged.originalName || null
+                        };
 
                     // Si hay imagen principal en base64, mostrar preview
                     const mainImgContainer = document.getElementById('main-image-container');
@@ -2766,6 +2795,8 @@ class SalesDashboard {
         this.currentProduct = product;
         this.mainImageFile = null;
         this.additionalImageFiles = [];
+    // Clear the editingStaged marker when opening the editor for a NEW product (no product passed)
+    if (!product) this.editingStaged = null;
         
         const modal = document.getElementById('product-editor-modal');
         const title = document.getElementById('editor-title');
@@ -2853,7 +2884,7 @@ class SalesDashboard {
             const imageUrl = `https://raw.githubusercontent.com/${CONFIG.GITHUB_API.REPO_OWNER}/${CONFIG.GITHUB_API.REPO_NAME}/main/${product.imagen}`;
             // onerror handler protegido: comprobamos parentElement antes de tocar innerHTML,
             // y como fallback alternativo cambiamos a logo local existente.
-            mainImageContainer.innerHTML = `<img src="${imageUrl}" alt="${product.nombre}" onerror="if(this.parentElement){this.parentElement.innerHTML='<span>Error al cargar imagen</span>'}else{this.src='img/no_image.jpg'}">`;
+            mainImageContainer.innerHTML = `<img src="${imageUrl}" alt="${product.nombre}" onerror="(function(i){i.onerror=null; if(i.parentElement){ i.parentElement.innerHTML='<span>Error al cargar imagen</span>'; } else { i.src='img/logo_2.png'; } })(this)">`;
             document.getElementById('remove-main-image').style.display = 'block';
         } else {
             mainImageContainer.innerHTML = '<span>No hay imagen seleccionada</span>';
@@ -2866,7 +2897,7 @@ class SalesDashboard {
                 const imageUrl = `https://raw.githubusercontent.com/${CONFIG.GITHUB_API.REPO_OWNER}/${CONFIG.GITHUB_API.REPO_NAME}/main/${img}`;
                 return `
                     <div class="additional-image">
-                        <img src="${imageUrl}" alt="Imagen adicional" onerror="if(this.parentElement){this.parentElement.remove()}else{this.src='img/no_image.jpg'}">
+                        <img src="${imageUrl}" alt="Imagen adicional" onerror="(function(i){i.onerror=null; if(i.parentElement){ i.parentElement.remove(); } else { i.src='img/logo_2.png'; } })(this)">
                         <button class="remove-additional-image" data-src="${img}">
                             <i class="fas fa-times"></i>
                         </button>
@@ -3216,27 +3247,50 @@ class SalesDashboard {
         // No forzamos imagen en staging: se puede guardar sin subir aún (imagen puede agregarse antes del guardado general)
         const loadingAlert = this.showAlert('Guardando cambios localmente...', 'loading');
         try {
-            const isNew = !this.currentProduct;
-            if (isNew) {
-                // Evitar nombre duplicado en productos actuales
-                const exists = this.products.some(p => p.nombre === productData.nombre);
-                if (exists) {
-                    loadingAlert.remove();
-                    this.showAlert('Ya existe un producto con este nombre', 'error');
-                    return;
+            // If we are editing a staged item (from staged panel), update that staged entry preserving its staged id
+            if (this.editingStaged) {
+                const es = this.editingStaged;
+                await this.stageChange(es.type, productData, { stagedId: es.id, originalName: es.originalName || undefined, mainImageFile: this.mainImageFile, additionalImageFiles: this.additionalImageFiles });
+
+                // Update products array: try to find by originalName first, then by product name; if new and not found, push
+                let updated = false;
+                if (es.originalName) {
+                    const idx = this.products.findIndex(p => p.nombre === es.originalName);
+                    if (idx >= 0) { this.products[idx] = productData; updated = true; }
                 }
-                // Stage as new
-                await this.stageChange('new', productData, { mainImageFile: this.mainImageFile, additionalImageFiles: this.additionalImageFiles });
+                if (!updated) {
+                    const idx2 = this.products.findIndex(p => p.nombre === productData.nombre);
+                    if (idx2 >= 0) { this.products[idx2] = productData; updated = true; }
+                }
+                if (!updated && es.type === 'new') {
+                    this.products.push(productData);
+                }
 
-                // Mostrar en UI como agregado (local)
-                this.products.push(productData);
+                // Clear editing staged marker
+                this.editingStaged = null;
             } else {
-                // Stage modification
-                await this.stageChange('modify', productData, { originalName: this.currentProduct.nombre, mainImageFile: this.mainImageFile, additionalImageFiles: this.additionalImageFiles });
+                const isNew = !this.currentProduct;
+                if (isNew) {
+                    // Evitar nombre duplicado en productos actuales
+                    const exists = this.products.some(p => p.nombre === productData.nombre);
+                    if (exists) {
+                        loadingAlert.remove();
+                        this.showAlert('Ya existe un producto con este nombre', 'error');
+                        return;
+                    }
+                    // Stage as new
+                    await this.stageChange('new', productData, { mainImageFile: this.mainImageFile, additionalImageFiles: this.additionalImageFiles });
 
-                // Actualizar vista localmente
-                const idx = this.products.findIndex(p => p.nombre === this.currentProduct.nombre);
-                if (idx >= 0) this.products[idx] = productData;
+                    // Mostrar en UI como agregado (local)
+                    this.products.push(productData);
+                } else {
+                    // Stage modification
+                    await this.stageChange('modify', productData, { originalName: this.currentProduct.nombre, mainImageFile: this.mainImageFile, additionalImageFiles: this.additionalImageFiles });
+
+                    // Actualizar vista localmente
+                    const idx = this.products.findIndex(p => p.nombre === this.currentProduct.nombre);
+                    if (idx >= 0) this.products[idx] = productData;
+                }
             }
 
             this.filteredProducts = [...this.products];

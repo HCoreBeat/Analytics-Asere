@@ -1014,7 +1014,7 @@ body.menu-open {
   padding: 15px 20px;
   font-size: 0.95rem;
   position: fixed;
-  top: 20px;
+  bottom: 100px;
   right: 20px;
   background: var(--secondary);
   border: 1px solid var(--border);
@@ -2105,18 +2105,13 @@ input:checked + .slider:before {
    Staged changes panel & badges
    ======================= */
 .staged-panel {
-  position: sticky;
-  top: 1rem;
-  z-index: 800;
+  /* Flow normally within its column (not sticky) so it behaves like the products column */
+  position: static;
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
-  background: linear-gradient(
-    180deg,
-    rgba(34, 34, 38, 0.98),
-    rgba(24, 24, 28, 0.98)
-  );
-  border: 1px solid rgba(255, 255, 255, 0.04);
+  background: linear-gradient(180deg, rgba(34,34,38,0.98), rgba(24,24,28,0.98));
+  border: 1px solid rgba(255,255,255,0.04);
   padding: 1rem;
   border-radius: 12px;
 }
@@ -2140,6 +2135,7 @@ input:checked + .slider:before {
   max-height: 100%;
   overflow: auto;
   padding: 0.25rem;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
 }
 
 .staged-thumb {
@@ -2178,6 +2174,8 @@ input:checked + .slider:before {
 
 .staged-item {
   display: flex;
+  flex-direction: column;
+  align-items: stretch;
   justify-content: space-between;
   align-items: center;
   padding: 0.5rem;
@@ -2229,24 +2227,30 @@ input:checked + .slider:before {
 /* Two-column layout for products view */
 .products-layout {
   display: grid;
-  grid-template-columns: 420px 1fr;
+  /* Make products list the primary wide column and staged the narrower right column */
+  grid-template-columns: 1fr minmax(320px, 420px);
   gap: 1rem;
   align-items: start;
+  grid-template-areas: "products staged";
 }
-.staged-column {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-}
-.products-column {
-  display: flex;
-  flex-direction: column;
-}
+.products-column { grid-area: products; display: flex; flex-direction: column; }
+.staged-column { grid-area: staged; display: flex; flex-direction: column; gap: 0.75rem; }
 
 @media (max-width: 900px) {
-  .products-layout {
-    grid-template-columns: 1fr;
-  }
+  .products-layout { grid-template-columns: 1fr; grid-template-areas: "products" "staged"; }
+  /* On small screens, staged-panel should behave like a stacked card, not sticky overlay */
+  .staged-column { min-height: auto; }
+}
+
+/* When staged panel is the active panel (toggled), make it occupy the whole content area so
+   it behaves visually like the products segment (single-column layout). This allows staged
+   items to use the same grid / widths as the products list. */
+.products-layout.active-panel-staged {
+  grid-template-columns: 1fr;
+  grid-template-areas: "staged";
+}
+.products-layout.active-panel-staged .staged-column {
+  grid-column: 1 / -1;
 }
 
 /* Cuando el panel staged esté oculto, permitir que products-column ocupe todo el ancho */
@@ -2352,9 +2356,12 @@ input:checked + .slider:before {
 /* Improve staged panel spacing */
 .staged-panel {
   padding: 1rem;
+  width: 100%;
+  box-sizing: border-box;
 }
 .staged-panel .staged-body {
-  max-height: 60vh;
+  /* Keep the staged list scrollable but sized relative to viewport and header space */
+  max-height: calc(100vh - 260px);
   overflow: auto;
 }
 
