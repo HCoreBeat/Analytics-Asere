@@ -8191,5 +8191,74 @@
     "tipo_usuario": "Único",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2600:387:15:1a1a::4",
+    "pais": "United States",
+    "fecha_hora_entrada": "2025-11-17 14:48:52",
+    "origen": "Acceso directo",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 566,
+    "tiempo_carga_pagina_ms": 860,
+    "nombre_comprador": "Lianet Milanes",
+    "telefono_comprador": "5613296717",
+    "correo_comprador": "milaneslianet9@gmail.com",
+    "direccion_envio": "Calle 19 #64 entre Cuba y J. Mayedo Reparto Buena Vista Las tunas",
+    "compras": [
+      {
+        "producto": "Gelatina Boom 40g",
+        "cantidad": 4,
+        "precio_unitario": 1.6,
+        "precio_total": 6.4
+      },
+      {
+        "producto": "Sopa instantánea sabor Pollo (85g)",
+        "cantidad": 6,
+        "precio_unitario": 0.95,
+        "precio_total": 5.699999999999999
+      },
+      {
+        "producto": "Refresco Instantáneo (3Lt)",
+        "cantidad": 7,
+        "precio_unitario": 0.42,
+        "precio_total": 2.94
+      },
+      {
+        "producto": "Leche entera en polvo (1kg)",
+        "cantidad": 2,
+        "precio_unitario": 8.9,
+        "precio_total": 17.8
+      },
+      {
+        "producto": "Limón x Lb",
+        "cantidad": 2,
+        "precio_unitario": 2.31,
+        "precio_total": 4.62
+      },
+      {
+        "producto": "Galletas Renata",
+        "cantidad": 1,
+        "precio_unitario": 1.4,
+        "precio_total": 1.4
+      },
+      {
+        "producto": "Galletas Lora",
+        "cantidad": 1,
+        "precio_unitario": 1.4,
+        "precio_total": 1.4
+      },
+      {
+        "producto": "Marshmallows Recubiertos de chocolate",
+        "cantidad": 2,
+        "precio_unitario": 0.48,
+        "precio_total": 0.96
+      }
+    ],
+    "precio_compra_total": "41.22",
+    "navegador": "Safari",
+    "sistema_operativo": "iOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   }
 ]
