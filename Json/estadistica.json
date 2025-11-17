@@ -3341,8 +3341,8 @@
       {
         "producto": "Manzanas Pack x6",
         "cantidad": 1,
-        "precio_unitario": 9.0,
-        "precio_total": 9.0
+        "precio_unitario": 9,
+        "precio_total": 9
       },
       {
         "producto": "Refresco Instantáneo (2Lt)",
@@ -3380,11 +3380,11 @@
       {
         "producto": "Pack Dulce",
         "cantidad": 1,
-        "precio_unitario": 35.0,
-        "precio_total": 35.0
+        "precio_unitario": 35,
+        "precio_total": 35
       }
     ],
-    "precio_compra_total": 35.0,
+    "precio_compra_total": 35,
     "destinatario": {
       "nombre_destinatario": "Blevins Leon Caraballe",
       "telefono_destinatario": "5359206045",
@@ -3413,8 +3413,8 @@
       {
         "producto": "Pack Confituras",
         "cantidad": 1,
-        "precio_unitario": 15.0,
-        "precio_total": 15.0
+        "precio_unitario": 15,
+        "precio_total": 15
       },
       {
         "producto": "Maíz molido tierno x Lb",
@@ -3578,8 +3578,8 @@
       {
         "producto": "Cartón de Huevos",
         "cantidad": 1,
-        "precio_unitario": 10.0,
-        "precio_total": 10.0
+        "precio_unitario": 10,
+        "precio_total": 10
       }
     ],
     "precio_compra_total": 46.62,
@@ -3611,8 +3611,8 @@
       {
         "producto": "Pack Dulce",
         "cantidad": 1,
-        "precio_unitario": 35.0,
-        "precio_total": 35.0
+        "precio_unitario": 35,
+        "precio_total": 35
       },
       {
         "producto": "Croqueta Jamón (500g)",
@@ -3689,8 +3689,8 @@
       {
         "producto": "Pack Estilizado",
         "cantidad": 1,
-        "precio_unitario": 16.0,
-        "precio_total": 16.0
+        "precio_unitario": 16,
+        "precio_total": 16
       }
     ],
     "precio_compra_total": 211.92,
@@ -5619,8 +5619,8 @@
       {
         "producto": "Café Bryderk",
         "cantidad": 2,
-        "precio_unitario": 6.0,
-        "precio_total": 12.0
+        "precio_unitario": 6,
+        "precio_total": 12
       },
       {
         "producto": "Pollo Country Pride",
@@ -5641,2396 +5641,2453 @@
         "precio_total": 6.9
       }
     ],
-    "precio_compra_total": 49.0,
+    "precio_compra_total": 49,
     "navegador": "Safari",
     "sistema_operativo": "OS X",
     "tipo_usuario": null,
     "tiempo_promedio_pagina": null,
     "fuente_trafico": "Referral"
   },
-{
-  "ip": "87.5.214.135",
-  "pais": "Italy",
-  "fecha_hora_entrada": "2025-08-13 08:16:05",
-  "origen": "Acceso directo",
-  "afiliado": "Ninguno",
-  "duracion_sesion_segundos": 198,
-  "tiempo_carga_pagina_ms": 738,
-  "nombre_comprador": "Nailin contreras santiesteban",
-  "telefono_comprador": "3395327206",
-  "correo_comprador": "leonormax@gmail.com",
-  "direccion_envio": "Calle colon 148A entre Ramon ortuño e 24febrero",
-  "compras": [
-    {
-      "producto": "Arroz importado 1lb",
-      "cantidad": 30,
-      "precio_unitario": 1.15,
-      "precio_total": 34.5
-    }
-  ],
-  "precio_compra_total": "34.50",
-  "navegador": "Chrome",
-  "sistema_operativo": "Android",
-  "tipo_usuario": "Recurrente",
-  "tiempo_promedio_pagina": 0,
-  "fuente_trafico": "Directo"
-},
-{
-  "ip": "107.134.113.72",
-  "pais": "United States",
-  "fecha_hora_entrada": "2025-08-15 16:23:30",
-  "origen": "Acceso directo",
-  "afiliado": "Natty",
-  "duracion_sesion_segundos": 1131,
-  "tiempo_carga_pagina_ms": 126,
-  "nombre_comprador": "Shakira Granda Rodriguez",
-  "telefono_comprador": "7866094405",
-  "correo_comprador": "shakiragranda@icloud.com",
-  "direccion_envio": "Loco Cruz 108A % Gonzalo de Quesada y Villalon",
-  "compras": [
-    {
-      "producto": "Caja de Malta Bucanero",
-      "cantidad": 1,
-      "precio_unitario": 25,
-      "precio_total": 25
-    },
-    {
-      "producto": "Queso criollo x Lb",
-      "cantidad": 4,
-      "precio_unitario": 2.4,
-      "precio_total": 9.6
-    },
-    {
-      "producto": "Paquete de pan de bola 10u",
-      "cantidad": 3,
-      "precio_unitario": 1.9,
-      "precio_total": 5.699999999999999
-    },
-    {
-      "producto": "Cartón de Huevos",
-      "cantidad": 1,
-      "precio_unitario": 10,
-      "precio_total": 10
-    },
-    {
-      "producto": "Pack Caramelos de leche",
-      "cantidad": 1,
-      "precio_unitario": 4,
-      "precio_total": 4
-    },
-    {
-      "producto": "Melocotones en almíbar",
-      "cantidad": 1,
-      "precio_unitario": 3,
-      "precio_total": 3
-    },
-    {
-      "producto": "Peras en almíbar",
-      "cantidad": 1,
-      "precio_unitario": 3,
-      "precio_total": 3
-    },
-    {
-      "producto": "Mayonesa Celorrio",
-      "cantidad": 1,
-      "precio_unitario": 6.4,
-      "precio_total": 6.4
-    },
-    {
-      "producto": "Helado 4Lts",
-      "cantidad": 1,
-      "precio_unitario": 10.45,
-      "precio_total": 10.45
-    }
-  ],
-  "precio_compra_total": "77.15",
-  "navegador": "Safari",
-  "sistema_operativo": "iOS",
-  "tipo_usuario": "Recurrente",
-  "tiempo_promedio_pagina": 0,
-  "fuente_trafico": "Directo"
-},
-{
-  "ip": "2607:fb90:e291:dbf4:92a:f137:e8e2:6cac",
-  "pais": "United States",
-  "fecha_hora_entrada": "2025-08-17 15:52:24",
-  "origen": "Acceso directo",
-  "afiliado": "Pica",
-  "duracion_sesion_segundos": 528,
-  "tiempo_carga_pagina_ms": 1606,
-  "nombre_comprador": "Dixan Cruz",
-  "telefono_comprador": "8135858351",
-  "correo_comprador": "dixan.cr@gmail.com",
-  "direccion_envio": "Francisco Vega #175/lora y Nicolás Heredia reparto primera",
-  "compras": [
-    {
-      "producto": "Caja de Malta Bucanero",
-      "cantidad": 2,
-      "precio_unitario": 25,
-      "precio_total": 50
-    }
-  ],
-  "precio_compra_total": "50.00",
-  "navegador": "Safari",
-  "sistema_operativo": "iOS",
-  "tipo_usuario": "Recurrente",
-  "tiempo_promedio_pagina": 0,
-  "fuente_trafico": "Directo"
-},
-{
-  "ip": "69.137.194.196",
-  "pais": "United States",
-  "fecha_hora_entrada": "2025-08-17 17:05:05",
-  "origen": "Acceso directo",
-  "afiliado": "Jennifer",
-  "duracion_sesion_segundos": 281,
-  "tiempo_carga_pagina_ms": 507,
-  "nombre_comprador": "Franklin Ruiz",
-  "telefono_comprador": "9088215298",
-  "correo_comprador": "franklin310426@gmail.com",
-  "direccion_envio": "4515 21st St SW",
-  "compras": [
-    {
-      "producto": "Pack de 4 Hamburguesas de cerdo",
-      "cantidad": 2,
-      "precio_unitario": 3.9,
-      "precio_total": 7.8
-    },
-    {
-      "producto": "Cartón de Huevos",
-      "cantidad": 1,
-      "precio_unitario": 10,
-      "precio_total": 10
-    },
-    {
-      "producto": "Carne de cerdo x Lb",
-      "cantidad": 1,
-      "precio_unitario": 3.2,
-      "precio_total": 3.2
-    }
-  ],
-  "precio_compra_total": "21.00",
-  "navegador": "Safari",
-  "sistema_operativo": "iOS",
-  "tipo_usuario": "Recurrente",
-  "tiempo_promedio_pagina": 0,
-  "fuente_trafico": "Directo"
-}, 
-{
-  "ip": "2601:80:477f:fcb0:297e:59c3:5844:66f2",
-  "pais": "United States",
-  "fecha_hora_entrada": "2025-08-23 18:20:31",
-  "origen": "Acceso directo",
-  "afiliado": "Ninguno",
-  "duracion_sesion_segundos": 601,
-  "tiempo_carga_pagina_ms": 671,
-  "nombre_comprador": "Irina Escalante",
-  "telefono_comprador": "6402597824",
-  "correo_comprador": "escalanterojasirina765@gmail.com",
-  "direccion_envio": "Edif 15 apto b8 avenida Carlos J Finlay entre Camilo Cienfuegos y 42 Reparto Militar Camilo Cienfuegos",
-  "compras": [
-    {
-      "producto": "Pollo Country Pride",
-      "cantidad": 1,
-      "precio_unitario": 14.7,
-      "precio_total": 14.7
-    },
-    {
-      "producto": "Arroz importado 1lb",
-      "cantidad": 5,
-      "precio_unitario": 1.15,
-      "precio_total": 5.75
-    },
-    {
-      "producto": "Colonia Bonabel de Violetas",
-      "cantidad": 1,
-      "precio_unitario": 5.25,
-      "precio_total": 5.25
-    }
-  ],
-  "precio_compra_total": "25.70",
-  "navegador": "Safari",
-  "sistema_operativo": "iOS",
-  "tipo_usuario": "Recurrente",
-  "tiempo_promedio_pagina": 0,
-  "fuente_trafico": "Directo"
-},
-{
-  "ip": "47.201.241.143",
-  "pais": "United States",
-  "fecha_hora_entrada": "2025-08-28 19:38:19",
-  "origen": "Acceso directo",
-  "afiliado": "Juana",
-  "duracion_sesion_segundos": 462,
-  "tiempo_carga_pagina_ms": 821,
-  "nombre_comprador": "Ailen Vega mariño",
-  "telefono_comprador": "9413123962",
-  "correo_comprador": "ailen29101990@gmail.com",
-  "direccion_envio": "Josue paiz/Ramon ortuño y 24 de febrero # 61 fondo",
-  "compras": [
-    {
-      "producto": "Lomo de cerdo deshuesado x Lb",
-      "cantidad": 5,
-      "precio_unitario": 2.95,
-      "precio_total": 14.75
-    },
-    {
-      "producto": "Carne de Ovejo x Lb",
-      "cantidad": 5,
-      "precio_unitario": 2.36,
-      "precio_total": 11.799999999999999
-    },
-    {
-      "producto": "Salchicha de pollo y cerdo 10u (340g)",
-      "cantidad": 1,
-      "precio_unitario": 1.9,
-      "precio_total": 1.9
-    },
-    {
-      "producto": "Picadillo de pollo (1Kg)",
-      "cantidad": 3,
-      "precio_unitario": 2.97,
-      "precio_total": 8.91
-    },
-    {
-      "producto": "Rollito Carne de Cerdo x Lb",
-      "cantidad": 2,
-      "precio_unitario": 4.95,
-      "precio_total": 9.9
-    },
-    {
-      "producto": "Queso criollo x Lb",
-      "cantidad": 3,
-      "precio_unitario": 2.4,
-      "precio_total": 7.199999999999999
-    },
-    {
-      "producto": "Aceite Fritura 900ml",
-      "cantidad": 2,
-      "precio_unitario": 2.9,
-      "precio_total": 5.8
-    },
-    {
-      "producto": "Paquete de pan de bola 10u",
-      "cantidad": 2,
-      "precio_unitario": 1.9,
-      "precio_total": 3.8
-    },
-    {
-      "producto": "Frijol Rojo 500g",
-      "cantidad": 1,
-      "precio_unitario": 3.2,
-      "precio_total": 3.2
-    },
-    {
-      "producto": "Fideos de Ada",
-      "cantidad": 1,
-      "precio_unitario": 1.4,
-      "precio_total": 1.4
-    },
-    {
-      "producto": "Paquete de Papel Sanitario",
-      "cantidad": 1,
-      "precio_unitario": 2.09,
-      "precio_total": 2.09
-    },
-    {
-      "producto": "Galletas Renata",
-      "cantidad": 1,
-      "precio_unitario": 1.4,
-      "precio_total": 1.4
-    },
-    {
-      "producto": "Pelly Queso Cheerdar",
-      "cantidad": 1,
-      "precio_unitario": 0.98,
-      "precio_total": 0.98
-    },
-    {
-      "producto": "Jabones de baño Harmony",
-      "cantidad": 5,
-      "precio_unitario": 0.8,
-      "precio_total": 4
-    }
-  ],
-  "precio_compra_total": "77.13",
-  "navegador": "Chrome",
-  "sistema_operativo": "Android",
-  "tipo_usuario": "Recurrente",
-  "tiempo_promedio_pagina": 0,
-  "fuente_trafico": "Directo"
-},
-{
-  "ip": "2600:387:15:6111::2",
-  "pais": "United States",
-  "fecha_hora_entrada": "2025-08-29 15:44:10",
-  "origen": "Acceso directo",
-  "afiliado": "Juana",
-  "duracion_sesion_segundos": 2260,
-  "tiempo_carga_pagina_ms": 706,
-  "nombre_comprador": "Yoandra Martinez",
-  "telefono_comprador": "7863191466",
-  "correo_comprador": "yoa2002ye@gmail.com",
-  "direccion_envio": "Calle 22 15 Alto % 43 Y 45\nReparto De Buena Vista",
-  "compras": [
-    {
-      "producto": "Pack Malta Guajira (6u)",
-      "cantidad": 2,
-      "precio_unitario": 6,
-      "precio_total": 12
-    },
-    {
-      "producto": "Paquete de pan de bola 10u",
-      "cantidad": 2,
-      "precio_unitario": 1.9,
-      "precio_total": 3.8
-    },
-    {
-      "producto": "Desodorante Keewell",
-      "cantidad": 3,
-      "precio_unitario": 3.01,
-      "precio_total": 9.03
-    },
-    {
-      "producto": "Kit de cuidado oral Bendfresh",
-      "cantidad": 2,
-      "precio_unitario": 3,
-      "precio_total": 6
-    },
-    {
-      "producto": "Jabones de baño Harmony",
-      "cantidad": 4,
-      "precio_unitario": 0.8,
-      "precio_total": 3.2
-    },
-    {
-      "producto": "Café Bryderk",
-      "cantidad": 2,
-      "precio_unitario": 6,
-      "precio_total": 12
-    },
-    {
-      "producto": "Leche Condensada azucarada (390g)",
-      "cantidad": 3,
-      "precio_unitario": 2.89,
-      "precio_total": 8.67
-    },
-    {
-      "producto": "Cartón de Huevos",
-      "cantidad": 1,
-      "precio_unitario": 10,
-      "precio_total": 10
-    },
-    {
-      "producto": "Aceite Fritura 900ml",
-      "cantidad": 1,
-      "precio_unitario": 2.9,
-      "precio_total": 2.9
-    },
-    {
-      "producto": "Aquarino",
-      "cantidad": 1,
-      "precio_unitario": 12,
-      "precio_total": 12
-    },
-    {
-      "producto": "Elements",
-      "cantidad": 1,
-      "precio_unitario": 14,
-      "precio_total": 14
-    }
-  ],
-  "precio_compra_total": "93.60",
-  "navegador": "Safari",
-  "sistema_operativo": "iOS",
-  "tipo_usuario": "Recurrente",
-  "tiempo_promedio_pagina": 0,
-  "fuente_trafico": "Directo"
-},
-{
-  "ip": "2601:80:477f:fcb0:2def:d321:d01a:a4b5",
-  "pais": "United States",
-  "fecha_hora_entrada": "2025-09-03 22:09:11",
-  "origen": "Acceso directo",
-  "afiliado": "Juana",
-  "duracion_sesion_segundos": 1577,
-  "tiempo_carga_pagina_ms": 606,
-  "nombre_comprador": "Irina Escalante",
-  "telefono_comprador": "6402597824",
-  "correo_comprador": "escalanterojasirina765@gmail.com",
-  "direccion_envio": "Julián Santana #194 , entre Marti y Lico Cruz",
-  "compras": [
-    {
-      "producto": "Café Bryderk",
-      "cantidad": 1,
-      "precio_unitario": 6,
-      "precio_total": 6
-    },
-    {
-      "producto": "Leche entera en polvo (1kg)",
-      "cantidad": 1,
-      "precio_unitario": 11.97,
-      "precio_total": 11.97
-    },
-    {
-      "producto": "Arroz Importado 1kg",
-      "cantidad": 1,
-      "precio_unitario": 2.9,
-      "precio_total": 2.9
-    },
-    {
-      "producto": "Pasta de tomate Vima (400g)",
-      "cantidad": 1,
-      "precio_unitario": 1.98,
-      "precio_total": 1.98
-    },
-    {
-      "producto": "Aceite Fritura 900ml",
-      "cantidad": 1,
-      "precio_unitario": 2.9,
-      "precio_total": 2.9
-    }
-  ],
-  "precio_compra_total": "25.75",
-  "navegador": "Safari",
-  "sistema_operativo": "iOS",
-  "tipo_usuario": "Recurrente",
-  "tiempo_promedio_pagina": 0,
-  "fuente_trafico": "Directo"
-},
-{
-  "ip": "2607:fb91:c10:8262:6540:469d:4951:5fd0",
-  "pais": "United States",
-  "fecha_hora_entrada": "2025-09-12 21:45:00",
-  "origen": "Acceso directo",
-  "afiliado": "Ninguno",
-  "duracion_sesion_segundos": 435,
-  "tiempo_carga_pagina_ms": 2620,
-  "nombre_comprador": "Nayelin",
-  "telefono_comprador": "7863002550",
-  "correo_comprador": "nileyan2018@gmail.com",
-  "direccion_envio": "Lzo Ortiz #56  % Joaquín aguero y Nicolás Heredia",
-  "compras": [
-    {
-      "producto": "Helado 4Lts",
-      "cantidad": 1,
-      "precio_unitario": 10.45,
-      "precio_total": 10.45
-    },
-    {
-      "producto": "Leche entera en polvo (1kg)",
-      "cantidad": 1,
-      "precio_unitario": 11.97,
-      "precio_total": 11.97
-    },
-    {
-      "producto": "Sal x Lb",
-      "cantidad": 2,
-      "precio_unitario": 0.35,
-      "precio_total": 0.7
-    },
-    {
-      "producto": "Azúcar blanca x lb",
-      "cantidad": 2,
-      "precio_unitario": 1.23,
-      "precio_total": 2.46
-    },
-    {
-      "producto": "Aceite Fritura 900ml",
-      "cantidad": 1,
-      "precio_unitario": 2.9,
-      "precio_total": 2.9
-    },
-    {
-      "producto": "Arroz importado 1lb",
-      "cantidad": 5,
-      "precio_unitario": 1.15,
-      "precio_total": 5.75
-    },
-    {
-      "producto": "Esponjas para fregar",
-      "cantidad": 2,
-      "precio_unitario": 0.48,
-      "precio_total": 0.96
-    },
-    {
-      "producto": "Plátano macho x unidad",
-      "cantidad": 6,
-      "precio_unitario": 0.26,
-      "precio_total": 1.56
-    },
-    {
-      "producto": "Whisky Royal Blue",
-      "cantidad": 1,
-      "precio_unitario": 6,
-      "precio_total": 6
-    },
-    {
-      "producto": "Frijol Rojo x Lb",
-      "cantidad": 2,
-      "precio_unitario": 2.9,
-      "precio_total": 5.8
-    },
-    {
-      "producto": "Frijol Negro x Lb",
-      "cantidad": 2,
-      "precio_unitario": 2.63,
-      "precio_total": 5.26
-    }
-  ],
-  "precio_compra_total": "53.81",
-  "navegador": "Safari",
-  "sistema_operativo": "iOS",
-  "tipo_usuario": "Recurrente",
-  "tiempo_promedio_pagina": 0,
-  "fuente_trafico": "Directo"
-},
-{
-  "ip": "2600:387:15:6819::a",
-  "pais": "United States",
-  "fecha_hora_entrada": "2025-09-15 10:01:50",
-  "origen": "Acceso directo",
-  "afiliado": "Ninguno",
-  "duracion_sesion_segundos": 1495,
-  "tiempo_carga_pagina_ms": -255706,
-  "nombre_comprador": "Yanisleydis cruz",
-  "telefono_comprador": "9045044222",
-  "correo_comprador": "yanycruz36@icloud.com",
-  "direccion_envio": "Calle 45 # 22 entre 18 y 20 altura de buena vista",
-  "compras": [
-    {
-      "producto": "Salchicha de pollo y cerdo 10u (340g)",
-      "cantidad": 1,
-      "precio_unitario": 1.9,
-      "precio_total": 1.9
-    },
-    {
-      "producto": "Espaguetis (500g)",
-      "cantidad": 1,
-      "precio_unitario": 1.89,
-      "precio_total": 1.89
-    },
-    {
-      "producto": "Codito Badelli (350g)",
-      "cantidad": 1,
-      "precio_unitario": 1.89,
-      "precio_total": 1.89
-    },
-    {
-      "producto": "Cervezas Bucanero (355ml)",
-      "cantidad": 2,
-      "precio_unitario": 1.1,
-      "precio_total": 2.2
-    },
-    {
-      "producto": "Arroz Importado 1kg",
-      "cantidad": 1,
-      "precio_unitario": 2.9,
-      "precio_total": 2.9
-    },
-    {
-      "producto": "Aceite Fritura 900ml",
-      "cantidad": 1,
-      "precio_unitario": 2.9,
-      "precio_total": 2.9
-    },
-    {
-      "producto": "Frijol Negro x Lb",
-      "cantidad": 1,
-      "precio_unitario": 2.63,
-      "precio_total": 2.63
-    }
-  ],
-  "precio_compra_total": "16.31",
-  "navegador": "Safari",
-  "sistema_operativo": "iOS",
-  "tipo_usuario": "Recurrente",
-  "tiempo_promedio_pagina": 0,
-  "fuente_trafico": "Directo"
-},
-{
-  "ip": "2601:586:5601:bd50:909:37fa:accb:a70",
-  "pais": "United States",
-  "fecha_hora_entrada": "2025-09-22 20:52:25",
-  "origen": "Acceso directo",
-  "afiliado": "Ninguno",
-  "duracion_sesion_segundos": 625,
-  "tiempo_carga_pagina_ms": 679,
-  "nombre_comprador": "Rolando Gonzalez Verdecia",
-  "telefono_comprador": "7868057592",
-  "correo_comprador": "gonzalezrolando711@gmail.com",
-  "direccion_envio": "calle 17 s/n entre Calle luis molina y 14 reparto buena vista las tunas",
-  "compras": [
-    {
-      "producto": "El Banquete Familiar",
-      "cantidad": 1,
-      "precio_unitario": 99,
-      "precio_total": 99
-    }
-  ],
-  "precio_compra_total": "99.00",
-  "navegador": "Chrome",
-  "sistema_operativo": "Windows",
-  "tipo_usuario": "Recurrente",
-  "tiempo_promedio_pagina": 0,
-  "fuente_trafico": "Directo"
-},
-{
-  "ip": "2600:387:f:d19::2",
-  "pais": "United States",
-  "fecha_hora_entrada": "2025-09-23 11:45:43",
-  "origen": "Acceso directo",
-  "afiliado": "Juana",
-  "duracion_sesion_segundos": 740,
-  "tiempo_carga_pagina_ms": 820,
-  "nombre_comprador": "Yoandra Martinez",
-  "telefono_comprador": "7863191466",
-  "correo_comprador": "yoa2002ye@gmail.com",
-  "direccion_envio": "Calle 22 15 Alto % 43 Y 45\nReparto De Buena Vista",
-  "compras": [
-    {
-      "producto": "Carne de cerdo x Lb",
-      "cantidad": 6,
-      "precio_unitario": 3.2,
-      "precio_total": 19.200000000000003
-    },
-    {
-      "producto": "Aceite Fritura 900ml",
-      "cantidad": 2,
-      "precio_unitario": 2.9,
-      "precio_total": 5.8
-    },
-    {
-      "producto": "Paquete de pan de bola 10u",
-      "cantidad": 2,
-      "precio_unitario": 1.9,
-      "precio_total": 3.8
-    },
-    {
-      "producto": "Cartón de Huevos",
-      "cantidad": 1,
-      "precio_unitario": 10,
-      "precio_total": 10
-    },
-    {
-      "producto": "Galletas Renata",
-      "cantidad": 2,
-      "precio_unitario": 1.4,
-      "precio_total": 2.8
-    },
-    {
-      "producto": "Pollo Country Pride",
-      "cantidad": 1,
-      "precio_unitario": 11.5,
-      "precio_total": 11.5
-    },
-    {
-      "producto": "Refresco Instantáneo (2Lt)",
-      "cantidad": 5,
-      "precio_unitario": 0.42,
-      "precio_total": 2.1
-    }
-  ],
-  "precio_compra_total": "55.20",
-  "navegador": "Safari",
-  "sistema_operativo": "iOS",
-  "tipo_usuario": "Recurrente",
-  "tiempo_promedio_pagina": 0,
-  "fuente_trafico": "Directo"
-},
-{
-  "ip": "2607:fb91:ca4:44e8:1d6c:b95f:df2f:e648",
-  "pais": "United States",
-  "fecha_hora_entrada": "2025-09-24 02:03:00",
-  "origen": "Acceso directo",
-  "afiliado": "Natty",
-  "duracion_sesion_segundos": 329,
-  "tiempo_carga_pagina_ms": 635,
-  "nombre_comprador": "Cheila Cordove Pupo",
-  "telefono_comprador": "7863220667",
-  "correo_comprador": "cordovesheila769@gmail.com",
-  "direccion_envio": "Juan Ramón Ochoa #123 entre mariana Grajales y R Pupo",
-  "compras": [
-    {
-      "producto": "Manzanas Pack x6",
-      "cantidad": 1,
-      "precio_unitario": 9,
-      "precio_total": 9
-    },
-    {
-      "producto": "Manzana",
-      "cantidad": 1,
-      "precio_unitario": 1.7,
-      "precio_total": 1.7
-    }
-  ],
-  "precio_compra_total": "10.70",
-  "navegador": "Safari",
-  "sistema_operativo": "iOS",
-  "tipo_usuario": "Recurrente",
-  "tiempo_promedio_pagina": 0,
-  "fuente_trafico": "Directo"
-},
-{
-  "ip": "2600:387:f:5c1b::1",
-  "pais": "United States",
-  "fecha_hora_entrada": "2025-09-30 08:45:46",
-  "origen": "Acceso directo",
-  "afiliado": "Eddy",
-  "duracion_sesion_segundos": 282,
-  "tiempo_carga_pagina_ms": 881,
-  "nombre_comprador": "Sandro Batista",
-  "telefono_comprador": "4709526260",
-  "correo_comprador": "sandromichbp@gmail.com",
-  "direccion_envio": "Jorge Ortiz no 3 entre trista y rio",
-  "compras": [
-    {
-      "producto": "Carne de cerdo x Lb",
-      "cantidad": 5,
-      "precio_unitario": 2.9,
-      "precio_total": 14.5
-    },
-    {
-      "producto": "Pasta de tomate Vima (400g)",
-      "cantidad": 1,
-      "precio_unitario": 1.98,
-      "precio_total": 1.98
-    },
-    {
-      "producto": "Queso criollo x Lb",
-      "cantidad": 2,
-      "precio_unitario": 2.4,
-      "precio_total": 4.8
-    },
-    {
-      "producto": "Espaguetis (500g)",
-      "cantidad": 2,
-      "precio_unitario": 1.89,
-      "precio_total": 3.78
-    },
-    {
-      "producto": "Picadillo de pollo (1Kg)",
-      "cantidad": 3,
-      "precio_unitario": 2.97,
-      "precio_total": 8.91
-    },
-    {
-      "producto": "Salchicha de pollo y cerdo 10u (340g)",
-      "cantidad": 1,
-      "precio_unitario": 1.9,
-      "precio_total": 1.9
-    },
-    {
-      "producto": "Paquete de pan de bola 10u",
-      "cantidad": 1,
-      "precio_unitario": 1.9,
-      "precio_total": 1.9
-    },
-    {
-      "producto": "Cartón de Huevos",
-      "cantidad": 1,
-      "precio_unitario": 10,
-      "precio_total": 10
-    }
-  ],
-  "precio_compra_total": "47.77",
-  "navegador": "Safari",
-  "sistema_operativo": "iOS",
-  "tipo_usuario": "Recurrente",
-  "tiempo_promedio_pagina": 0,
-  "fuente_trafico": "Directo"
-},
-{
-  "ip": "98.79.139.15",
-  "pais": "United States",
-  "fecha_hora_entrada": "2025-10-02 11:59:21",
-  "origen": "Acceso directo",
-  "afiliado": "Juana",
-  "duracion_sesion_segundos": 274,
-  "tiempo_carga_pagina_ms": 75,
-  "nombre_comprador": "Yoandra Martinez",
-  "telefono_comprador": "7863191466",
-  "correo_comprador": "yoa2002ye@gmail.com",
-  "direccion_envio": "Calle 22 15 Alto % 43 Y 45\nReparto De Buena Vista",
-  "compras": [
-    {
-      "producto": "Celebración Dulce",
-      "cantidad": 1,
-      "precio_unitario": 56,
-      "precio_total": 56
-    }
-  ],
-  "precio_compra_total": "56.00",
-  "navegador": "Safari",
-  "sistema_operativo": "iOS",
-  "tipo_usuario": "Recurrente",
-  "tiempo_promedio_pagina": 0,
-  "fuente_trafico": "Directo"
-},
   {
-  "ip": "47.201.243.233",
-  "pais": "United States",
-  "fecha_hora_entrada": "2025-10-03 19:08:17",
-  "origen": "Acceso directo",
-  "afiliado": "Juana",
-  "duracion_sesion_segundos": 591,
-  "tiempo_carga_pagina_ms": 333,
-  "nombre_comprador": "Ailen Vega mariño",
-  "telefono_comprador": "9413123962",
-  "correo_comprador": "ailen29101990@gmail.com",
-  "direccion_envio": "Calle Josué paiz/Ramón ortuño y 24 de febrero # 61f",
-  "compras": [
-    {
-      "producto": "Pack Malta Guajira (6u)",
-      "cantidad": 1,
-      "precio_unitario": 6,
-      "precio_total": 6
-    },
-    {
-      "producto": "Refresco Gaseado",
-      "cantidad": 2,
-      "precio_unitario": 2.95,
-      "precio_total": 5.9
-    },
-    {
-      "producto": "Salchicha de pollo y cerdo 10u (340g)",
-      "cantidad": 3,
-      "precio_unitario": 1.9,
-      "precio_total": 5.699999999999999
-    },
-    {
-      "producto": "Lomo de cerdo deshuesado x Lb",
-      "cantidad": 5,
-      "precio_unitario": 3.5,
-      "precio_total": 17.5
-    },
-    {
-      "producto": "Leche entera en polvo (1kg)",
-      "cantidad": 1,
-      "precio_unitario": 11.97,
-      "precio_total": 11.97
-    },
-    {
-      "producto": "Pasta de Bocadito",
-      "cantidad": 1,
-      "precio_unitario": 7.2,
-      "precio_total": 7.2
-    },
-    {
-      "producto": "Aceite Fritura 900ml",
-      "cantidad": 3,
-      "precio_unitario": 2.9,
-      "precio_total": 8.7
-    },
-    {
-      "producto": "Paquete de pan de bola 10u",
-      "cantidad": 4,
-      "precio_unitario": 1.9,
-      "precio_total": 7.6
-    },
-    {
-      "producto": "Cartón de Huevos",
-      "cantidad": 1,
-      "precio_unitario": 10,
-      "precio_total": 10
-    },
-    {
-      "producto": "Leche Condensada azucarada (390g)",
-      "cantidad": 1,
-      "precio_unitario": 2.89,
-      "precio_total": 2.89
-    },
-    {
-      "producto": "Arroz Rainha Brasil (1Kg)",
-      "cantidad": 4,
-      "precio_unitario": 2.97,
-      "precio_total": 11.88
-    },
-    {
-      "producto": "Chocolate en Polvo «Rico» (500g)",
-      "cantidad": 1,
-      "precio_unitario": 4.2,
-      "precio_total": 4.2
-    },
-    {
-      "producto": "Menthoplus",
-      "cantidad": 2,
-      "precio_unitario": 0.63,
-      "precio_total": 1.26
-    },
-    {
-      "producto": "Frijoles negros 500g",
-      "cantidad": 1,
-      "precio_unitario": 3.2,
-      "precio_total": 3.2
-    },
-    {
-      "producto": "Fideos de Ada",
-      "cantidad": 1,
-      "precio_unitario": 1.4,
-      "precio_total": 1.4
-    },
-    {
-      "producto": "Espaguetis (500g)",
-      "cantidad": 3,
-      "precio_unitario": 1.89,
-      "precio_total": 5.67
-    }
-  ],
-  "precio_compra_total": "111.07",
-  "navegador": "Chrome",
-  "sistema_operativo": "Android",
-  "tipo_usuario": "Recurrente",
-  "tiempo_promedio_pagina": 0,
-  "fuente_trafico": "Directo"
+    "ip": "87.5.214.135",
+    "pais": "Italy",
+    "fecha_hora_entrada": "2025-08-13 08:16:05",
+    "origen": "Acceso directo",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 198,
+    "tiempo_carga_pagina_ms": 738,
+    "nombre_comprador": "Nailin contreras santiesteban",
+    "telefono_comprador": "3395327206",
+    "correo_comprador": "leonormax@gmail.com",
+    "direccion_envio": "Calle colon 148A entre Ramon ortuño e 24febrero",
+    "compras": [
+      {
+        "producto": "Arroz importado 1lb",
+        "cantidad": 30,
+        "precio_unitario": 1.15,
+        "precio_total": 34.5
+      }
+    ],
+    "precio_compra_total": "34.50",
+    "navegador": "Chrome",
+    "sistema_operativo": "Android",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   },
   {
-  "ip": "47.62.65.205",
-  "pais": "Spain",
-  "fecha_hora_entrada": "2025-10-04 17:55:15",
-  "origen": "Acceso directo",
-  "afiliado": "Ninguno",
-  "duracion_sesion_segundos": 786,
-  "tiempo_carga_pagina_ms": 623,
-  "nombre_comprador": "Tereza Lucila Rodríguez Escalona",
-  "telefono_comprador": "627179716",
-  "correo_comprador": "escalonafernandezt@gmail.com",
-  "direccion_envio": "Ramón Mendoza # 10 / Ave Roberto Reyes y Eligió Fonseca La Victoria Las Tunas",
-  "compras": [
-    {
-      "producto": "Carne de cerdo x Lb",
-      "cantidad": 10,
-      "precio_unitario": 3.2,
-      "precio_total": 32
-    },
-    {
-      "producto": "Pack de 4 Hamburguesas de cerdo",
-      "cantidad": 3,
-      "precio_unitario": 3.9,
-      "precio_total": 11.7
-    },
-    {
-      "producto": "Picadillo de pollo (1Kg)",
-      "cantidad": 2,
-      "precio_unitario": 2.97,
-      "precio_total": 5.94
-    },
-    {
-      "producto": "Queso criollo x Lb",
-      "cantidad": 5,
-      "precio_unitario": 2.4,
-      "precio_total": 12
-    },
-    {
-      "producto": "Manzanas Pack x6",
-      "cantidad": 1,
-      "precio_unitario": 9,
-      "precio_total": 9
-    },
-    {
-      "producto": "Paquete de pan de bola 10u",
-      "cantidad": 2,
-      "precio_unitario": 1.9,
-      "precio_total": 3.8
-    },
-    {
-      "producto": "Chocolate en Polvo «Rico» (500g)",
-      "cantidad": 1,
-      "precio_unitario": 4.2,
-      "precio_total": 4.2
-    },
-    {
-      "producto": "Arroz importado 1lb",
-      "cantidad": 4,
-      "precio_unitario": 1.15,
-      "precio_total": 4.6
-    },
-    {
-      "producto": "Café Bryderk",
-      "cantidad": 1,
-      "precio_unitario": 6,
-      "precio_total": 6
-    },
-    {
-      "producto": "Refresco Cola (330ml)",
-      "cantidad": 4,
-      "precio_unitario": 0.95,
-      "precio_total": 3.8
-    },
-    {
-      "producto": "Pack Malta Guajira (6u)",
-      "cantidad": 1,
-      "precio_unitario": 6,
-      "precio_total": 6
-    }
-  ],
-  "precio_compra_total": "99.04",
-  "navegador": "Chrome",
-  "sistema_operativo": "Android",
-  "tipo_usuario": "Recurrente",
-  "tiempo_promedio_pagina": 0,
-  "fuente_trafico": "Directo"
+    "ip": "107.134.113.72",
+    "pais": "United States",
+    "fecha_hora_entrada": "2025-08-15 16:23:30",
+    "origen": "Acceso directo",
+    "afiliado": "Natty",
+    "duracion_sesion_segundos": 1131,
+    "tiempo_carga_pagina_ms": 126,
+    "nombre_comprador": "Shakira Granda Rodriguez",
+    "telefono_comprador": "7866094405",
+    "correo_comprador": "shakiragranda@icloud.com",
+    "direccion_envio": "Loco Cruz 108A % Gonzalo de Quesada y Villalon",
+    "compras": [
+      {
+        "producto": "Caja de Malta Bucanero",
+        "cantidad": 1,
+        "precio_unitario": 25,
+        "precio_total": 25
+      },
+      {
+        "producto": "Queso criollo x Lb",
+        "cantidad": 4,
+        "precio_unitario": 2.4,
+        "precio_total": 9.6
+      },
+      {
+        "producto": "Paquete de pan de bola 10u",
+        "cantidad": 3,
+        "precio_unitario": 1.9,
+        "precio_total": 5.699999999999999
+      },
+      {
+        "producto": "Cartón de Huevos",
+        "cantidad": 1,
+        "precio_unitario": 10,
+        "precio_total": 10
+      },
+      {
+        "producto": "Pack Caramelos de leche",
+        "cantidad": 1,
+        "precio_unitario": 4,
+        "precio_total": 4
+      },
+      {
+        "producto": "Melocotones en almíbar",
+        "cantidad": 1,
+        "precio_unitario": 3,
+        "precio_total": 3
+      },
+      {
+        "producto": "Peras en almíbar",
+        "cantidad": 1,
+        "precio_unitario": 3,
+        "precio_total": 3
+      },
+      {
+        "producto": "Mayonesa Celorrio",
+        "cantidad": 1,
+        "precio_unitario": 6.4,
+        "precio_total": 6.4
+      },
+      {
+        "producto": "Helado 4Lts",
+        "cantidad": 1,
+        "precio_unitario": 10.45,
+        "precio_total": 10.45
+      }
+    ],
+    "precio_compra_total": "77.15",
+    "navegador": "Safari",
+    "sistema_operativo": "iOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   },
   {
-  "ip": "2600:387:15:611b::1",
-  "pais": "United States",
-  "fecha_hora_entrada": "2025-10-05 16:17:34",
-  "origen": "Acceso directo",
-  "afiliado": "Ninguno",
-  "duracion_sesion_segundos": 305,
-  "tiempo_carga_pagina_ms": 364,
-  "nombre_comprador": "Miguel A Polo",
-  "telefono_comprador": "+17863229781",
-  "correo_comprador": "miguelpolocbpone2@gmail.com",
-  "direccion_envio": "Lorenzo Ortiz # 56 entre Nicolás Heredia, y Juaquin Aguero reparto primero",
-  "compras": [
-    {
-      "producto": "Helado 4Lts",
-      "cantidad": 2,
-      "precio_unitario": 10.45,
-      "precio_total": 20.9
-    },
-    {
-      "producto": "Ketchup (320g)",
-      "cantidad": 1,
-      "precio_unitario": 3.1,
-      "precio_total": 3.1
-    },
-    {
-      "producto": "Refresco Fresko",
-      "cantidad": 8,
-      "precio_unitario": 0.9,
-      "precio_total": 7.2
-    }
-  ],
-  "precio_compra_total": "31.20",
-  "navegador": "Safari",
-  "sistema_operativo": "iOS",
-  "tipo_usuario": "Recurrente",
-  "tiempo_promedio_pagina": 0,
-  "fuente_trafico": "Directo"
-},
-  {
-  "ip": "2600:387:15:6812::3",
-  "pais": "United States",
-  "fecha_hora_entrada": "2025-10-08 16:17:42",
-  "origen": "Acceso directo",
-  "afiliado": "Dalva 1",
-  "duracion_sesion_segundos": 904,
-  "tiempo_carga_pagina_ms": 1180,
-  "nombre_comprador": "Yanisleydis cruz",
-  "telefono_comprador": "9045044222",
-  "correo_comprador": "yanycruz36@icloud.com",
-  "direccion_envio": "Calle 45 #22 entre 18 y 20 altura buena vista",
-  "compras": [
-    {
-      "producto": "Mantequilla (250g)",
-      "cantidad": 1,
-      "precio_unitario": 2.42,
-      "precio_total": 2.42
-    },
-    {
-      "producto": "Esponjas para fregar",
-      "cantidad": 1,
-      "precio_unitario": 0.48,
-      "precio_total": 0.48
-    },
-    {
-      "producto": "Pechuga de Pollo (1Kg)",
-      "cantidad": 1,
-      "precio_unitario": 8,
-      "precio_total": 8
-    },
-    {
-      "producto": "Pasta de tomate Vima (400g)",
-      "cantidad": 1,
-      "precio_unitario": 1.98,
-      "precio_total": 1.98
-    },
-    {
-      "producto": "Codito Badelli (350g)",
-      "cantidad": 1,
-      "precio_unitario": 1.89,
-      "precio_total": 1.89
-    },
-    {
-      "producto": "Fideos de Ada",
-      "cantidad": 1,
-      "precio_unitario": 1.4,
-      "precio_total": 1.4
-    }
-  ],
-  "precio_compra_total": "16.17",
-  "navegador": "Safari",
-  "sistema_operativo": "iOS",
-  "tipo_usuario": "Recurrente",
-  "tiempo_promedio_pagina": 0,
-  "fuente_trafico": "Directo"
+    "ip": "2607:fb90:e291:dbf4:92a:f137:e8e2:6cac",
+    "pais": "United States",
+    "fecha_hora_entrada": "2025-08-17 15:52:24",
+    "origen": "Acceso directo",
+    "afiliado": "Pica",
+    "duracion_sesion_segundos": 528,
+    "tiempo_carga_pagina_ms": 1606,
+    "nombre_comprador": "Dixan Cruz",
+    "telefono_comprador": "8135858351",
+    "correo_comprador": "dixan.cr@gmail.com",
+    "direccion_envio": "Francisco Vega #175/lora y Nicolás Heredia reparto primera",
+    "compras": [
+      {
+        "producto": "Caja de Malta Bucanero",
+        "cantidad": 2,
+        "precio_unitario": 25,
+        "precio_total": 50
+      }
+    ],
+    "precio_compra_total": "50.00",
+    "navegador": "Safari",
+    "sistema_operativo": "iOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   },
   {
-  "ip": "47.201.243.233",
-  "pais": "United States",
-  "fecha_hora_entrada": "2025-10-09 21:36:08",
-  "origen": "Acceso directo",
-  "afiliado": "Juana",
-  "duracion_sesion_segundos": 951,
-  "tiempo_carga_pagina_ms": 1363,
-  "nombre_comprador": "Ailen Vega mariño",
-  "telefono_comprador": "9413123962",
-  "correo_comprador": "ailen29101990@gmail.com",
-  "direccion_envio": "Edificio 6 apt 3 rept la loma.",
-  "compras": [
-    {
-      "producto": "Salchicha de pollo y cerdo 10u (340g)",
-      "cantidad": 7,
-      "precio_unitario": 1.9,
-      "precio_total": 13.299999999999999
-    },
-    {
-      "producto": "Picadillo de pollo (1Kg)",
-      "cantidad": 2,
-      "precio_unitario": 2.97,
-      "precio_total": 5.94
-    },
-    {
-      "producto": "Rollito Carne de Cerdo x Lb",
-      "cantidad": 3,
-      "precio_unitario": 4.95,
-      "precio_total": 14.850000000000001
-    },
-    {
-      "producto": "Masa de cerdo Ahumada x Lb",
-      "cantidad": 3,
-      "precio_unitario": 4.9,
-      "precio_total": 14.700000000000001
-    },
-    {
-      "producto": "Aceite Fritura 900ml",
-      "cantidad": 4,
-      "precio_unitario": 2.9,
-      "precio_total": 11.6
-    },
-    {
-      "producto": "Paquete de pan de bola 10u",
-      "cantidad": 3,
-      "precio_unitario": 1.9,
-      "precio_total": 5.699999999999999
-    },
-    {
-      "producto": "Azúcar blanca x lb",
-      "cantidad": 10,
-      "precio_unitario": 1.23,
-      "precio_total": 12.3
-    },
-    {
-      "producto": "Arroz Rainha Brasil (1Kg)",
-      "cantidad": 6,
-      "precio_unitario": 2.97,
-      "precio_total": 17.82
-    },
-    {
-      "producto": "Espaguetis (500g)",
-      "cantidad": 4,
-      "precio_unitario": 1.89,
-      "precio_total": 7.56
-    },
-    {
-      "producto": "Codito Badelli (350g)",
-      "cantidad": 4,
-      "precio_unitario": 1.89,
-      "precio_total": 7.56
-    },
-    {
-      "producto": "Frijoles negros 500g",
-      "cantidad": 2,
-      "precio_unitario": 3.2,
-      "precio_total": 6.4
-    },
-    {
-      "producto": "Garbanzo 500g",
-      "cantidad": 2,
-      "precio_unitario": 3.2,
-      "precio_total": 6.4
-    },
-    {
-      "producto": "Fideos de Ada",
-      "cantidad": 2,
-      "precio_unitario": 1.4,
-      "precio_total": 2.8
-    },
-    {
-      "producto": "Galletas Lora",
-      "cantidad": 3,
-      "precio_unitario": 1.4,
-      "precio_total": 4.199999999999999
-    },
-    {
-      "producto": "Galletas Renata",
-      "cantidad": 3,
-      "precio_unitario": 1.4,
-      "precio_total": 4.199999999999999
-    },
-    {
-      "producto": "Pelly Queso Cheerdar",
-      "cantidad": 3,
-      "precio_unitario": 0.98,
-      "precio_total": 2.94
-    },
-    {
-      "producto": "Jabones de baño Harmony",
-      "cantidad": 4,
-      "precio_unitario": 0.8,
-      "precio_total": 3.2
-    }
-  ],
-  "precio_compra_total": "141.47",
-  "navegador": "Chrome",
-  "sistema_operativo": "Android",
-  "tipo_usuario": "Recurrente",
-  "tiempo_promedio_pagina": 0,
-  "fuente_trafico": "Directo"
-},
-  {
-  "ip": "47.201.243.233",
-  "pais": "United States",
-  "fecha_hora_entrada": "2025-10-12 19:39:54",
-  "origen": "Acceso directo",
-  "afiliado": "Juana",
-  "duracion_sesion_segundos": 209,
-  "tiempo_carga_pagina_ms": 356,
-  "nombre_comprador": "Ailen Vega mariño",
-  "telefono_comprador": "9413123962",
-  "correo_comprador": "ailen29101990@gmail.com",
-  "direccion_envio": "Josue paiz/Ramon ortuño y 24 de febrero reparto santo domingo.#61 fondo.",
-  "compras": [
-    {
-      "producto": "Frijoles negros 500g",
-      "cantidad": 1,
-      "precio_unitario": 3.2,
-      "precio_total": 3.2
-    },
-    {
-      "producto": "Arroz Rainha Brasil (1Kg)",
-      "cantidad": 2,
-      "precio_unitario": 2.97,
-      "precio_total": 5.94
-    },
-    {
-      "producto": "Carne de cerdo x Lb",
-      "cantidad": 3,
-      "precio_unitario": 2.9,
-      "precio_total": 8.7
-    },
-    {
-      "producto": "Salchicha de pollo y cerdo 10u (340g)",
-      "cantidad": 1,
-      "precio_unitario": 1.9,
-      "precio_total": 1.9
-    },
-    {
-      "producto": "Paquete de pan de bola 10u",
-      "cantidad": 1,
-      "precio_unitario": 1.9,
-      "precio_total": 1.9
-    }
-  ],
-  "precio_compra_total": "21.64",
-  "navegador": "Chrome",
-  "sistema_operativo": "Android",
-  "tipo_usuario": "Recurrente",
-  "tiempo_promedio_pagina": 0,
-  "fuente_trafico": "Directo"
+    "ip": "69.137.194.196",
+    "pais": "United States",
+    "fecha_hora_entrada": "2025-08-17 17:05:05",
+    "origen": "Acceso directo",
+    "afiliado": "Jennifer",
+    "duracion_sesion_segundos": 281,
+    "tiempo_carga_pagina_ms": 507,
+    "nombre_comprador": "Franklin Ruiz",
+    "telefono_comprador": "9088215298",
+    "correo_comprador": "franklin310426@gmail.com",
+    "direccion_envio": "4515 21st St SW",
+    "compras": [
+      {
+        "producto": "Pack de 4 Hamburguesas de cerdo",
+        "cantidad": 2,
+        "precio_unitario": 3.9,
+        "precio_total": 7.8
+      },
+      {
+        "producto": "Cartón de Huevos",
+        "cantidad": 1,
+        "precio_unitario": 10,
+        "precio_total": 10
+      },
+      {
+        "producto": "Carne de cerdo x Lb",
+        "cantidad": 1,
+        "precio_unitario": 3.2,
+        "precio_total": 3.2
+      }
+    ],
+    "precio_compra_total": "21.00",
+    "navegador": "Safari",
+    "sistema_operativo": "iOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   },
   {
-  "ip": "2607:fb92:907:9282:756d:7873:8e86:591d",
-  "pais": "United States",
-  "fecha_hora_entrada": "2025-10-14 13:53:08",
-  "origen": "Acceso directo",
-  "afiliado": "Ninguno",
-  "duracion_sesion_segundos": 235,
-  "tiempo_carga_pagina_ms": 570,
-  "nombre_comprador": "Nayelin Reyes",
-  "telefono_comprador": "7863002520",
-  "correo_comprador": "nileyan2018@gmail.con",
-  "direccion_envio": "Nicolás Heredia #51 Fco Vega y Lzo Ortiz reparto primero",
-  "compras": [
-    {
-      "producto": "Frijol Rojo x Lb",
-      "cantidad": 3,
-      "precio_unitario": 2.9,
-      "precio_total": 8.7
-    },
-    {
-      "producto": "Frijol Negro x Lb",
-      "cantidad": 2,
-      "precio_unitario": 2.63,
-      "precio_total": 5.26
-    },
-    {
-      "producto": "Arroz importado 1lb",
-      "cantidad": 5,
-      "precio_unitario": 1.15,
-      "precio_total": 5.75
-    }
-  ],
-  "precio_compra_total": "19.71",
-  "navegador": "Safari",
-  "sistema_operativo": "iOS",
-  "tipo_usuario": "Recurrente",
-  "tiempo_promedio_pagina": 0,
-  "fuente_trafico": "Directo"
+    "ip": "2601:80:477f:fcb0:297e:59c3:5844:66f2",
+    "pais": "United States",
+    "fecha_hora_entrada": "2025-08-23 18:20:31",
+    "origen": "Acceso directo",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 601,
+    "tiempo_carga_pagina_ms": 671,
+    "nombre_comprador": "Irina Escalante",
+    "telefono_comprador": "6402597824",
+    "correo_comprador": "escalanterojasirina765@gmail.com",
+    "direccion_envio": "Edif 15 apto b8 avenida Carlos J Finlay entre Camilo Cienfuegos y 42 Reparto Militar Camilo Cienfuegos",
+    "compras": [
+      {
+        "producto": "Pollo Country Pride",
+        "cantidad": 1,
+        "precio_unitario": 14.7,
+        "precio_total": 14.7
+      },
+      {
+        "producto": "Arroz importado 1lb",
+        "cantidad": 5,
+        "precio_unitario": 1.15,
+        "precio_total": 5.75
+      },
+      {
+        "producto": "Colonia Bonabel de Violetas",
+        "cantidad": 1,
+        "precio_unitario": 5.25,
+        "precio_total": 5.25
+      }
+    ],
+    "precio_compra_total": "25.70",
+    "navegador": "Safari",
+    "sistema_operativo": "iOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   },
   {
-  "ip": "2600:387:15:6812::3",
-  "pais": "United States",
-  "fecha_hora_entrada": "2025-10-15 07:19:40",
-  "origen": "Acceso directo",
-  "afiliado": "Dalva 1",
-  "duracion_sesion_segundos": 970,
-  "tiempo_carga_pagina_ms": 1237,
-  "nombre_comprador": "Yanisleydis cruz",
-  "telefono_comprador": "9045044222",
-  "correo_comprador": "yanycruz36@icloud.com",
-  "direccion_envio": "Calle 45 # 22 / 18 y 20 altura de buena vista",
-  "compras": [
-    {
-      "producto": "Chuletas de cerdo x Lb",
-      "cantidad": 2,
-      "precio_unitario": 2.9,
-      "precio_total": 5.8
-    },
-    {
-      "producto": "Cartón de Huevos",
-      "cantidad": 1,
-      "precio_unitario": 10,
-      "precio_total": 10
-    }
-  ],
-  "precio_compra_total": "15.80",
-  "navegador": "Safari",
-  "sistema_operativo": "iOS",
-  "tipo_usuario": "Recurrente",
-  "tiempo_promedio_pagina": 0,
-  "fuente_trafico": "Directo"
-},
-  {
-  "ip": "2601:80:477c:8890:a827:8a96:6405:4988",
-  "pais": "United States",
-  "fecha_hora_entrada": "2025-10-15 13:28:56",
-  "origen": "Acceso directo",
-  "afiliado": "Juana",
-  "duracion_sesion_segundos": 1391,
-  "tiempo_carga_pagina_ms": 958,
-  "nombre_comprador": "Irina Escalante",
-  "telefono_comprador": "6402597824",
-  "correo_comprador": "escalanterojasirina765@gmail.com",
-  "direccion_envio": "Edif 15 apto b8 avenida Carlos J Finlay entre Camilo Cienfuegos y 42 Reparto Militar Camilo Cienfuegos",
-  "compras": [
-    {
-      "producto": "Pack Estilizado",
-      "cantidad": 1,
-      "precio_unitario": 21,
-      "precio_total": 21
-    },
-    {
-      "producto": "Arroz importado 1lb",
-      "cantidad": 3,
-      "precio_unitario": 1.15,
-      "precio_total": 3.4499999999999997
-    }
-  ],
-  "precio_compra_total": "24.45",
-  "navegador": "Safari",
-  "sistema_operativo": "iOS",
-  "tipo_usuario": "Recurrente",
-  "tiempo_promedio_pagina": 0,
-  "fuente_trafico": "Directo"
-},
-  {
-  "ip": "130.45.64.46",
-  "pais": "United States",
-  "fecha_hora_entrada": "2025-10-20 22:06:06",
-  "origen": "Acceso directo",
-  "afiliado": "Ninguno",
-  "duracion_sesion_segundos": 1075,
-  "tiempo_carga_pagina_ms": 493,
-  "nombre_comprador": "Lianet Milanes",
-  "telefono_comprador": "5613296717",
-  "correo_comprador": "milaneslianet9@gmail.com",
-  "direccion_envio": "Calle 27 # 26f  % 6B y 6 Buena Vista, Las Tunas",
-  "compras": [
-    {
-      "producto": "Sorbeto Lorena",
-      "cantidad": 2,
-      "precio_unitario": 0.8,
-      "precio_total": 1.6
-    },
-    {
-      "producto": "Pelly Queso Cheerdar",
-      "cantidad": 2,
-      "precio_unitario": 0.98,
-      "precio_total": 1.96
-    },
-    {
-      "producto": "Galletas Renata",
-      "cantidad": 2,
-      "precio_unitario": 1.4,
-      "precio_total": 2.8
-    },
-    {
-      "producto": "Pack Golozetas (12u de paquetes)",
-      "cantidad": 1,
-      "precio_unitario": 3.12,
-      "precio_total": 3.12
-    },
-    {
-      "producto": "Galletas Lora",
-      "cantidad": 2,
-      "precio_unitario": 1.4,
-      "precio_total": 2.8
-    },
-    {
-      "producto": "Galletas Porleo (45g)",
-      "cantidad": 2,
-      "precio_unitario": 0.91,
-      "precio_total": 1.82
-    },
-    {
-      "producto": "Galletas de Soda con Mantequilla Doricas",
-      "cantidad": 1,
-      "precio_unitario": 5.25,
-      "precio_total": 5.25
-    },
-    {
-      "producto": "Batata Lisa",
-      "cantidad": 1,
-      "precio_unitario": 1.8,
-      "precio_total": 1.8
-    },
-    {
-      "producto": "Pelly de Ajo",
-      "cantidad": 1,
-      "precio_unitario": 2.98,
-      "precio_total": 2.98
-    },
-    {
-      "producto": "Leche entera en polvo (1kg)",
-      "cantidad": 1,
-      "precio_unitario": 8.9,
-      "precio_total": 8.9
-    },
-    {
-      "producto": "Refresco Instantáneo (2Lt)",
-      "cantidad": 5,
-      "precio_unitario": 0.42,
-      "precio_total": 2.1
-    },
-    {
-      "producto": "Helado 4Lts",
-      "cantidad": 1,
-      "precio_unitario": 9.8,
-      "precio_total": 9.8
-    }
-  ],
-  "precio_compra_total": "44.93",
-  "navegador": "Safari",
-  "sistema_operativo": "iOS",
-  "tipo_usuario": "Recurrente",
-  "tiempo_promedio_pagina": 0,
-  "fuente_trafico": "Directo"
+    "ip": "47.201.241.143",
+    "pais": "United States",
+    "fecha_hora_entrada": "2025-08-28 19:38:19",
+    "origen": "Acceso directo",
+    "afiliado": "Juana",
+    "duracion_sesion_segundos": 462,
+    "tiempo_carga_pagina_ms": 821,
+    "nombre_comprador": "Ailen Vega mariño",
+    "telefono_comprador": "9413123962",
+    "correo_comprador": "ailen29101990@gmail.com",
+    "direccion_envio": "Josue paiz/Ramon ortuño y 24 de febrero # 61 fondo",
+    "compras": [
+      {
+        "producto": "Lomo de cerdo deshuesado x Lb",
+        "cantidad": 5,
+        "precio_unitario": 2.95,
+        "precio_total": 14.75
+      },
+      {
+        "producto": "Carne de Ovejo x Lb",
+        "cantidad": 5,
+        "precio_unitario": 2.36,
+        "precio_total": 11.799999999999999
+      },
+      {
+        "producto": "Salchicha de pollo y cerdo 10u (340g)",
+        "cantidad": 1,
+        "precio_unitario": 1.9,
+        "precio_total": 1.9
+      },
+      {
+        "producto": "Picadillo de pollo (1Kg)",
+        "cantidad": 3,
+        "precio_unitario": 2.97,
+        "precio_total": 8.91
+      },
+      {
+        "producto": "Rollito Carne de Cerdo x Lb",
+        "cantidad": 2,
+        "precio_unitario": 4.95,
+        "precio_total": 9.9
+      },
+      {
+        "producto": "Queso criollo x Lb",
+        "cantidad": 3,
+        "precio_unitario": 2.4,
+        "precio_total": 7.199999999999999
+      },
+      {
+        "producto": "Aceite Fritura 900ml",
+        "cantidad": 2,
+        "precio_unitario": 2.9,
+        "precio_total": 5.8
+      },
+      {
+        "producto": "Paquete de pan de bola 10u",
+        "cantidad": 2,
+        "precio_unitario": 1.9,
+        "precio_total": 3.8
+      },
+      {
+        "producto": "Frijol Rojo 500g",
+        "cantidad": 1,
+        "precio_unitario": 3.2,
+        "precio_total": 3.2
+      },
+      {
+        "producto": "Fideos de Ada",
+        "cantidad": 1,
+        "precio_unitario": 1.4,
+        "precio_total": 1.4
+      },
+      {
+        "producto": "Paquete de Papel Sanitario",
+        "cantidad": 1,
+        "precio_unitario": 2.09,
+        "precio_total": 2.09
+      },
+      {
+        "producto": "Galletas Renata",
+        "cantidad": 1,
+        "precio_unitario": 1.4,
+        "precio_total": 1.4
+      },
+      {
+        "producto": "Pelly Queso Cheerdar",
+        "cantidad": 1,
+        "precio_unitario": 0.98,
+        "precio_total": 0.98
+      },
+      {
+        "producto": "Jabones de baño Harmony",
+        "cantidad": 5,
+        "precio_unitario": 0.8,
+        "precio_total": 4
+      }
+    ],
+    "precio_compra_total": "77.13",
+    "navegador": "Chrome",
+    "sistema_operativo": "Android",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   },
   {
-  "ip": "2607:fb92:982:fde3:48a1:4e75:b491:5987",
-  "pais": "United States",
-  "fecha_hora_entrada": "2025-10-24 21:40:13",
-  "origen": "Acceso directo",
-  "afiliado": "Eddy",
-  "duracion_sesion_segundos": 1228,
-  "tiempo_carga_pagina_ms": 702,
-  "nombre_comprador": "Rene  Leyva Reyes",
-  "telefono_comprador": "7866008516",
-  "correo_comprador": "reyesrenecito@gmail.com",
-  "direccion_envio": "Francisco Varona # 330  entre Lucas Ortiz y ángel guardia",
-  "compras": [
-    {
-      "producto": "Helado 4Lts",
-      "cantidad": 1,
-      "precio_unitario": 10.45,
-      "precio_total": 10.45
-    },
-    {
-      "producto": "Mano de plátano burro",
-      "cantidad": 5,
-      "precio_unitario": 0.95,
-      "precio_total": 4.75
-    },
-    {
-      "producto": "Carne de cerdo x Lb",
-      "cantidad": 10,
-      "precio_unitario": 2.9,
-      "precio_total": 29
-    },
-    {
-      "producto": "Picadillo de pollo (1Kg)",
-      "cantidad": 5,
-      "precio_unitario": 2.97,
-      "precio_total": 14.850000000000001
-    },
-    {
-      "producto": "Queso criollo x Lb",
-      "cantidad": 5,
-      "precio_unitario": 2.4,
-      "precio_total": 12
-    },
-    {
-      "producto": "Paquete de pan de bola 10u",
-      "cantidad": 2,
-      "precio_unitario": 1.9,
-      "precio_total": 3.8
-    },
-    {
-      "producto": "Cartón de Huevos",
-      "cantidad": 1,
-      "precio_unitario": 10,
-      "precio_total": 10
-    },
-    {
-      "producto": "Café Bryderk",
-      "cantidad": 2,
-      "precio_unitario": 6,
-      "precio_total": 12
-    }
-  ],
-  "precio_compra_total": "96.85",
-  "navegador": "Safari",
-  "sistema_operativo": "iOS",
-  "tipo_usuario": "Recurrente",
-  "tiempo_promedio_pagina": 0,
-  "fuente_trafico": "Directo"
-},
-  {
-  "ip": "2a09:bac2:6b43:290f::417:28",
-  "pais": "United States",
-  "fecha_hora_entrada": "2025-10-26 16:19:51",
-  "origen": "https://www.google.com/",
-  "afiliado": "Ninguno",
-  "duracion_sesion_segundos": 575,
-  "tiempo_carga_pagina_ms": 1086,
-  "nombre_comprador": "Harol Rojas",
-  "telefono_comprador": "7866303006",
-  "correo_comprador": "harolrojas18783@yahoo.es",
-  "direccion_envio": "Lico cruz 108 A % Gonzalo de Quezada y Vallalon Rpto 1",
-  "compras": [
-    {
-      "producto": "Leche entera en polvo (1kg)",
-      "cantidad": 2,
-      "precio_unitario": 8.9,
-      "precio_total": 17.8
-    },
-    {
-      "producto": "Cartón de Huevos",
-      "cantidad": 2,
-      "precio_unitario": 10,
-      "precio_total": 20
-    },
-    {
-      "producto": "Paquete de pan de bola 10u",
-      "cantidad": 3,
-      "precio_unitario": 1.9,
-      "precio_total": 5.699999999999999
-    },
-    {
-      "producto": "Jugo Tropical",
-      "cantidad": 1,
-      "precio_unitario": 3,
-      "precio_total": 3
-    },
-    {
-      "producto": "Jugo de Piña",
-      "cantidad": 1,
-      "precio_unitario": 3,
-      "precio_total": 3
-    },
-    {
-      "producto": "Jugo de Mango",
-      "cantidad": 1,
-      "precio_unitario": 3,
-      "precio_total": 3
-    },
-    {
-      "producto": "Refresco Instantáneo (2Lt)",
-      "cantidad": 5,
-      "precio_unitario": 0.42,
-      "precio_total": 2.1
-    },
-    {
-      "producto": "Cóctel de frutas en almíbar",
-      "cantidad": 1,
-      "precio_unitario": 3,
-      "precio_total": 3
-    },
-    {
-      "producto": "Peras en almíbar",
-      "cantidad": 1,
-      "precio_unitario": 3,
-      "precio_total": 3
-    },
-    {
-      "producto": "Melocotones en almíbar",
-      "cantidad": 1,
-      "precio_unitario": 3,
-      "precio_total": 3
-    },
-    {
-      "producto": "Ketchup (320g)",
-      "cantidad": 1,
-      "precio_unitario": 3.1,
-      "precio_total": 3.1
-    },
-    {
-      "producto": "Mayonesa Celorrio",
-      "cantidad": 1,
-      "precio_unitario": 6.4,
-      "precio_total": 6.4
-    }
-  ],
-  "precio_compra_total": "73.10",
-  "navegador": "Safari",
-  "sistema_operativo": "iOS",
-  "tipo_usuario": "Recurrente",
-  "tiempo_promedio_pagina": 0,
-  "fuente_trafico": "Google"
-},
-  {
-  "ip": "2600:1700:3d65:580:8199:6083:adc9:c29f",
-  "pais": "United States",
-  "fecha_hora_entrada": "2025-10-26 17:03:32",
-  "origen": "Acceso directo",
-  "afiliado": "Juana",
-  "duracion_sesion_segundos": 281,
-  "tiempo_carga_pagina_ms": 445,
-  "nombre_comprador": "Yoandra Martinez",
-  "telefono_comprador": "7863191466",
-  "correo_comprador": "yoa2002ye@gmail.com",
-  "direccion_envio": "Calle 22 , # 15 Alto % 43 Y 45\nReparto De Buena Vista",
-  "compras": [
-    {
-      "producto": "Paquete de pan de bola 10u",
-      "cantidad": 2,
-      "precio_unitario": 1.9,
-      "precio_total": 3.8
-    },
-    {
-      "producto": "Cartón de Huevos",
-      "cantidad": 1,
-      "precio_unitario": 10,
-      "precio_total": 10
-    },
-    {
-      "producto": "Café Bryderk",
-      "cantidad": 2,
-      "precio_unitario": 6,
-      "precio_total": 12
-    },
-    {
-      "producto": "Carne de cerdo x Lb",
-      "cantidad": 6,
-      "precio_unitario": 2.9,
-      "precio_total": 17.4
-    },
-    {
-      "producto": "Pollo Country Pride",
-      "cantidad": 1,
-      "precio_unitario": 12,
-      "precio_total": 12
-    },
-    {
-      "producto": "Refresco Gaseado",
-      "cantidad": 3,
-      "precio_unitario": 2.95,
-      "precio_total": 8.850000000000001
-    },
-    {
-      "producto": "Aceite Fritura 900ml",
-      "cantidad": 2,
-      "precio_unitario": 2.9,
-      "precio_total": 5.8
-    },
-    {
-      "producto": "Leche entera en polvo (1kg)",
-      "cantidad": 1,
-      "precio_unitario": 8.9,
-      "precio_total": 8.9
-    }
-  ],
-  "precio_compra_total": "78.75",
-  "navegador": "Safari",
-  "sistema_operativo": "iOS",
-  "tipo_usuario": "Único",
-  "tiempo_promedio_pagina": 0,
-  "fuente_trafico": "Directo"
-},
-  {
-  "ip": "2600:387:15:6817::3",
-  "pais": "United States",
-  "fecha_hora_entrada": "2025-10-27 07:14:55",
-  "origen": "Acceso directo",
-  "afiliado": "Ninguno",
-  "duracion_sesion_segundos": 749,
-  "tiempo_carga_pagina_ms": 1031,
-  "nombre_comprador": "Yanisleydis cruz",
-  "telefono_comprador": "9045044222",
-  "correo_comprador": "yanycruz36@icloud.com",
-  "direccion_envio": "Calle 45 #22 / 18 y 20 altura de buena vista",
-  "compras": [
-    {
-      "producto": "Fideos de Ada",
-      "cantidad": 1,
-      "precio_unitario": 1.4,
-      "precio_total": 1.4
-    },
-    {
-      "producto": "Arroz Importado 1kg",
-      "cantidad": 1,
-      "precio_unitario": 2.9,
-      "precio_total": 2.9
-    },
-    {
-      "producto": "Picadillo de pollo (1Kg)",
-      "cantidad": 1,
-      "precio_unitario": 2.97,
-      "precio_total": 2.97
-    },
-    {
-      "producto": "Pollo Country Pride",
-      "cantidad": 1,
-      "precio_unitario": 12,
-      "precio_total": 12
-    }
-  ],
-  "precio_compra_total": "19.27",
-  "navegador": "Safari",
-  "sistema_operativo": "iOS",
-  "tipo_usuario": "Recurrente",
-  "tiempo_promedio_pagina": 0,
-  "fuente_trafico": "Directo"
+    "ip": "2600:387:15:6111::2",
+    "pais": "United States",
+    "fecha_hora_entrada": "2025-08-29 15:44:10",
+    "origen": "Acceso directo",
+    "afiliado": "Juana",
+    "duracion_sesion_segundos": 2260,
+    "tiempo_carga_pagina_ms": 706,
+    "nombre_comprador": "Yoandra Martinez",
+    "telefono_comprador": "7863191466",
+    "correo_comprador": "yoa2002ye@gmail.com",
+    "direccion_envio": "Calle 22 15 Alto % 43 Y 45\nReparto De Buena Vista",
+    "compras": [
+      {
+        "producto": "Pack Malta Guajira (6u)",
+        "cantidad": 2,
+        "precio_unitario": 6,
+        "precio_total": 12
+      },
+      {
+        "producto": "Paquete de pan de bola 10u",
+        "cantidad": 2,
+        "precio_unitario": 1.9,
+        "precio_total": 3.8
+      },
+      {
+        "producto": "Desodorante Keewell",
+        "cantidad": 3,
+        "precio_unitario": 3.01,
+        "precio_total": 9.03
+      },
+      {
+        "producto": "Kit de cuidado oral Bendfresh",
+        "cantidad": 2,
+        "precio_unitario": 3,
+        "precio_total": 6
+      },
+      {
+        "producto": "Jabones de baño Harmony",
+        "cantidad": 4,
+        "precio_unitario": 0.8,
+        "precio_total": 3.2
+      },
+      {
+        "producto": "Café Bryderk",
+        "cantidad": 2,
+        "precio_unitario": 6,
+        "precio_total": 12
+      },
+      {
+        "producto": "Leche Condensada azucarada (390g)",
+        "cantidad": 3,
+        "precio_unitario": 2.89,
+        "precio_total": 8.67
+      },
+      {
+        "producto": "Cartón de Huevos",
+        "cantidad": 1,
+        "precio_unitario": 10,
+        "precio_total": 10
+      },
+      {
+        "producto": "Aceite Fritura 900ml",
+        "cantidad": 1,
+        "precio_unitario": 2.9,
+        "precio_total": 2.9
+      },
+      {
+        "producto": "Aquarino",
+        "cantidad": 1,
+        "precio_unitario": 12,
+        "precio_total": 12
+      },
+      {
+        "producto": "Elements",
+        "cantidad": 1,
+        "precio_unitario": 14,
+        "precio_total": 14
+      }
+    ],
+    "precio_compra_total": "93.60",
+    "navegador": "Safari",
+    "sistema_operativo": "iOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   },
   {
-  "ip": "2603:3020:104:7100:c497:bf75:fd58:e148",
-  "pais": "United States",
-  "fecha_hora_entrada": "2025-10-31 09:20:20",
-  "origen": "Acceso directo",
-  "afiliado": "Ninguno",
-  "duracion_sesion_segundos": 184,
-  "tiempo_carga_pagina_ms": 1122,
-  "nombre_comprador": "Nayelin Reyes",
-  "telefono_comprador": "7863002520",
-  "correo_comprador": "nileyan2018@gmail.com",
-  "direccion_envio": "Edificio 26 apto c5",
-  "compras": [
-    {
-      "producto": "Champú y Acondicionador Brazilian de HT (Aceite de Coco)",
-      "cantidad": 1,
-      "precio_unitario": 14,
-      "precio_total": 14
-    },
-    {
-      "producto": "Jabones de baño Harmony",
-      "cantidad": 4,
-      "precio_unitario": 0.8,
-      "precio_total": 3.2
-    }
-  ],
-  "precio_compra_total": "17.20",
-  "navegador": "Safari",
-  "sistema_operativo": "iOS",
-  "tipo_usuario": "Recurrente",
-  "tiempo_promedio_pagina": 0,
-  "fuente_trafico": "Directo"
-},
-  {
-  "ip": "2607:fb92:981:9824:dc24:2a0c:4ea7:610f",
-  "pais": "United States",
-  "fecha_hora_entrada": "2025-10-31 15:19:47",
-  "origen": "Acceso directo",
-  "afiliado": "Eddy",
-  "duracion_sesion_segundos": 653,
-  "tiempo_carga_pagina_ms": 826,
-  "nombre_comprador": "Rene Leyva reyes",
-  "telefono_comprador": "7866008516",
-  "correo_comprador": "reyesrenecito@gmail.com",
-  "direccion_envio": "Calle 5 sin número entre Camilo Cienfuego y J Espinosa Reparto Buena Vista.",
-  "compras": [
-    {
-      "producto": "Galletas Porleo (45g)",
-      "cantidad": 5,
-      "precio_unitario": 0.91,
-      "precio_total": 4.55
-    },
-    {
-      "producto": "Pack Caramelos de leche",
-      "cantidad": 1,
-      "precio_unitario": 4,
-      "precio_total": 4
-    },
-    {
-      "producto": "Marshmallows Recubiertos de chocolate",
-      "cantidad": 5,
-      "precio_unitario": 0.48,
-      "precio_total": 2.4
-    },
-    {
-      "producto": "Galletas Lora",
-      "cantidad": 6,
-      "precio_unitario": 1.4,
-      "precio_total": 8.399999999999999
-    },
-    {
-      "producto": "Nutella con crema de avellana  Rayan",
-      "cantidad": 1,
-      "precio_unitario": 4.8,
-      "precio_total": 4.8
-    },
-    {
-      "producto": "Sorbeto Lorena",
-      "cantidad": 5,
-      "precio_unitario": 0.8,
-      "precio_total": 4
-    },
-    {
-      "producto": "Nutela",
-      "cantidad": 2,
-      "precio_unitario": 4.7,
-      "precio_total": 9.4
-    },
-    {
-      "producto": "Leche Condensada azucarada (390g)",
-      "cantidad": 2,
-      "precio_unitario": 1.9,
-      "precio_total": 3.8
-    },
-    {
-      "producto": "Leche entera en polvo (1kg)",
-      "cantidad": 1,
-      "precio_unitario": 8.9,
-      "precio_total": 8.9
-    },
-    {
-      "producto": "Palito Relleno de Leche",
-      "cantidad": 5,
-      "precio_unitario": 0.96,
-      "precio_total": 4.8
-    },
-    {
-      "producto": "Refresco Fresko",
-      "cantidad": 10,
-      "precio_unitario": 0.9,
-      "precio_total": 9
-    },
-    {
-      "producto": "Pack Dulce",
-      "cantidad": 1,
-      "precio_unitario": 35,
-      "precio_total": 35
-    }
-  ],
-  "precio_compra_total": "99.05",
-  "navegador": "Safari",
-  "sistema_operativo": "iOS",
-  "tipo_usuario": "Recurrente",
-  "tiempo_promedio_pagina": 0,
-  "fuente_trafico": "Directo"
+    "ip": "2601:80:477f:fcb0:2def:d321:d01a:a4b5",
+    "pais": "United States",
+    "fecha_hora_entrada": "2025-09-03 22:09:11",
+    "origen": "Acceso directo",
+    "afiliado": "Juana",
+    "duracion_sesion_segundos": 1577,
+    "tiempo_carga_pagina_ms": 606,
+    "nombre_comprador": "Irina Escalante",
+    "telefono_comprador": "6402597824",
+    "correo_comprador": "escalanterojasirina765@gmail.com",
+    "direccion_envio": "Julián Santana #194 , entre Marti y Lico Cruz",
+    "compras": [
+      {
+        "producto": "Café Bryderk",
+        "cantidad": 1,
+        "precio_unitario": 6,
+        "precio_total": 6
+      },
+      {
+        "producto": "Leche entera en polvo (1kg)",
+        "cantidad": 1,
+        "precio_unitario": 11.97,
+        "precio_total": 11.97
+      },
+      {
+        "producto": "Arroz Importado 1kg",
+        "cantidad": 1,
+        "precio_unitario": 2.9,
+        "precio_total": 2.9
+      },
+      {
+        "producto": "Pasta de tomate Vima (400g)",
+        "cantidad": 1,
+        "precio_unitario": 1.98,
+        "precio_total": 1.98
+      },
+      {
+        "producto": "Aceite Fritura 900ml",
+        "cantidad": 1,
+        "precio_unitario": 2.9,
+        "precio_total": 2.9
+      }
+    ],
+    "precio_compra_total": "25.75",
+    "navegador": "Safari",
+    "sistema_operativo": "iOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   },
   {
-  "ip": "47.201.243.233",
-  "pais": "United States",
-  "fecha_hora_entrada": "2025-11-02 18:19:13",
-  "origen": "Acceso directo",
-  "afiliado": "Juana",
-  "duracion_sesion_segundos": 268,
-  "tiempo_carga_pagina_ms": 1633,
-  "nombre_comprador": "Ailen Vega marino",
-  "telefono_comprador": "9413123962",
-  "correo_comprador": "ailen29101990@gmail.com",
-  "direccion_envio": "Calle Josué paiz/Ramón ortuño y 24 de febrero reparto santo domingo #61f",
-  "compras": [
-    {
-      "producto": "Pack Malta Guajira (6u)",
-      "cantidad": 1,
-      "precio_unitario": 6,
-      "precio_total": 6
-    },
-    {
-      "producto": "Carne de cerdo x Lb",
-      "cantidad": 5,
-      "precio_unitario": 2.9,
-      "precio_total": 14.5
-    },
-    {
-      "producto": "Pasta de tomate 400g",
-      "cantidad": 1,
-      "precio_unitario": 1.87,
-      "precio_total": 1.87
-    },
-    {
-      "producto": "Arroz Rainha Brasil (1Kg)",
-      "cantidad": 4,
-      "precio_unitario": 2.97,
-      "precio_total": 11.88
-    },
-    {
-      "producto": "Espaguetis (500g)",
-      "cantidad": 2,
-      "precio_unitario": 1.3,
-      "precio_total": 2.6
-    }
-  ],
-  "precio_compra_total": "36.85",
-  "navegador": "Chrome",
-  "sistema_operativo": "Android",
-  "tipo_usuario": "Recurrente",
-  "tiempo_promedio_pagina": 0,
-  "fuente_trafico": "Directo"
-},
-  {
-  "ip": "2601:586:4f7f:c60:3772:a049:73cd:997",
-  "pais": "United States",
-  "fecha_hora_entrada": "2025-11-02 20:19:17",
-  "origen": "Acceso directo",
-  "afiliado": "Ninguno",
-  "duracion_sesion_segundos": 112,
-  "tiempo_carga_pagina_ms": 389,
-  "nombre_comprador": "Yarianna Cepero",
-  "telefono_comprador": "7862602650",
-  "correo_comprador": "yariannacepero3@gmail.com",
-  "direccion_envio": "Rio potrero ,san Juan",
-  "compras": [
-    {
-      "producto": "Cocina Express",
-      "cantidad": 1,
-      "precio_unitario": 16,
-      "precio_total": 16
-    },
-    {
-      "producto": "Leche entera en polvo (1kg)",
-      "cantidad": 1,
-      "precio_unitario": 8.9,
-      "precio_total": 8.9
-    }
-  ],
-  "precio_compra_total": "24.90",
-  "navegador": "Edge",
-  "sistema_operativo": "Android",
-  "tipo_usuario": "Recurrente",
-  "tiempo_promedio_pagina": 0,
-  "fuente_trafico": "Directo"
-}, 
-  {
-  "ip": "2601:586:d102:ce10:3dbb:50fb:1494:efb6",
-  "pais": "United States",
-  "fecha_hora_entrada": "2025-11-04 10:36:10",
-  "origen": "Acceso directo",
-  "afiliado": "Ninguno",
-  "duracion_sesion_segundos": 1205,
-  "tiempo_carga_pagina_ms": 779,
-  "nombre_comprador": "Ileana Vila Rodriguez",
-  "telefono_comprador": "3059707233",
-  "correo_comprador": "vilarodriguez61@gmail.com",
-  "direccion_envio": "Edificio 22 Apt E-1, Rept B. Vista Las Tunas",
-  "compras": [
-    {
-      "producto": "Queso criollo x Lb",
-      "cantidad": 6,
-      "precio_unitario": 1.9,
-      "precio_total": 11.399999999999999
-    }
-  ],
-  "precio_compra_total": "11.40",
-  "navegador": "Chrome",
-  "sistema_operativo": "Android",
-  "tipo_usuario": "Recurrente",
-  "tiempo_promedio_pagina": 0,
-  "fuente_trafico": "Directo"
+    "ip": "2607:fb91:c10:8262:6540:469d:4951:5fd0",
+    "pais": "United States",
+    "fecha_hora_entrada": "2025-09-12 21:45:00",
+    "origen": "Acceso directo",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 435,
+    "tiempo_carga_pagina_ms": 2620,
+    "nombre_comprador": "Nayelin",
+    "telefono_comprador": "7863002550",
+    "correo_comprador": "nileyan2018@gmail.com",
+    "direccion_envio": "Lzo Ortiz #56  % Joaquín aguero y Nicolás Heredia",
+    "compras": [
+      {
+        "producto": "Helado 4Lts",
+        "cantidad": 1,
+        "precio_unitario": 10.45,
+        "precio_total": 10.45
+      },
+      {
+        "producto": "Leche entera en polvo (1kg)",
+        "cantidad": 1,
+        "precio_unitario": 11.97,
+        "precio_total": 11.97
+      },
+      {
+        "producto": "Sal x Lb",
+        "cantidad": 2,
+        "precio_unitario": 0.35,
+        "precio_total": 0.7
+      },
+      {
+        "producto": "Azúcar blanca x lb",
+        "cantidad": 2,
+        "precio_unitario": 1.23,
+        "precio_total": 2.46
+      },
+      {
+        "producto": "Aceite Fritura 900ml",
+        "cantidad": 1,
+        "precio_unitario": 2.9,
+        "precio_total": 2.9
+      },
+      {
+        "producto": "Arroz importado 1lb",
+        "cantidad": 5,
+        "precio_unitario": 1.15,
+        "precio_total": 5.75
+      },
+      {
+        "producto": "Esponjas para fregar",
+        "cantidad": 2,
+        "precio_unitario": 0.48,
+        "precio_total": 0.96
+      },
+      {
+        "producto": "Plátano macho x unidad",
+        "cantidad": 6,
+        "precio_unitario": 0.26,
+        "precio_total": 1.56
+      },
+      {
+        "producto": "Whisky Royal Blue",
+        "cantidad": 1,
+        "precio_unitario": 6,
+        "precio_total": 6
+      },
+      {
+        "producto": "Frijol Rojo x Lb",
+        "cantidad": 2,
+        "precio_unitario": 2.9,
+        "precio_total": 5.8
+      },
+      {
+        "producto": "Frijol Negro x Lb",
+        "cantidad": 2,
+        "precio_unitario": 2.63,
+        "precio_total": 5.26
+      }
+    ],
+    "precio_compra_total": "53.81",
+    "navegador": "Safari",
+    "sistema_operativo": "iOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   },
   {
-  "ip": "2600:387:15:3c13::a",
-  "pais": "United States",
-  "fecha_hora_entrada": "2025-11-05 15:33:22",
-  "origen": "Acceso directo",
-  "afiliado": "Ninguno",
-  "duracion_sesion_segundos": 1688,
-  "tiempo_carga_pagina_ms": 591,
-  "nombre_comprador": "Nayelin Reyes",
-  "telefono_comprador": "7863002520",
-  "correo_comprador": "nileyan2018@gmail.com",
-  "direccion_envio": "Edificio 26 apto c5",
-  "compras": [
-    {
-      "producto": "Pack Confituras",
-      "cantidad": 1,
-      "precio_unitario": 15,
-      "precio_total": 15
-    },
-    {
-      "producto": "Refresco Instantáneo (2Lt)",
-      "cantidad": 10,
-      "precio_unitario": 0.25,
-      "precio_total": 2.5
-    },
-    {
-      "producto": "Leche entera en polvo (1kg)",
-      "cantidad": 1,
-      "precio_unitario": 8.9,
-      "precio_total": 8.9
-    },
-    {
-      "producto": "Aceite Fritura 900ml",
-      "cantidad": 1,
-      "precio_unitario": 3.15,
-      "precio_total": 3.15
-    },
-    {
-      "producto": "Azúcar blanca x lb",
-      "cantidad": 2,
-      "precio_unitario": 1.23,
-      "precio_total": 2.46
-    },
-    {
-      "producto": "Arroz importado 1lb",
-      "cantidad": 5,
-      "precio_unitario": 1.15,
-      "precio_total": 5.75
-    },
-    {
-      "producto": "Frijol Negro x Lb",
-      "cantidad": 2,
-      "precio_unitario": 2.63,
-      "precio_total": 5.26
-    },
-    {
-      "producto": "Frijol Rojo x Lb",
-      "cantidad": 2,
-      "precio_unitario": 2.9,
-      "precio_total": 5.8
-    }
-  ],
-  "precio_compra_total": "48.82",
-  "navegador": "Safari",
-  "sistema_operativo": "iOS",
-  "tipo_usuario": "Recurrente",
-  "tiempo_promedio_pagina": 0,
-  "fuente_trafico": "Directo"
-},
+    "ip": "2600:387:15:6819::a",
+    "pais": "United States",
+    "fecha_hora_entrada": "2025-09-15 10:01:50",
+    "origen": "Acceso directo",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 1495,
+    "tiempo_carga_pagina_ms": -255706,
+    "nombre_comprador": "Yanisleydis cruz",
+    "telefono_comprador": "9045044222",
+    "correo_comprador": "yanycruz36@icloud.com",
+    "direccion_envio": "Calle 45 # 22 entre 18 y 20 altura de buena vista",
+    "compras": [
+      {
+        "producto": "Salchicha de pollo y cerdo 10u (340g)",
+        "cantidad": 1,
+        "precio_unitario": 1.9,
+        "precio_total": 1.9
+      },
+      {
+        "producto": "Espaguetis (500g)",
+        "cantidad": 1,
+        "precio_unitario": 1.89,
+        "precio_total": 1.89
+      },
+      {
+        "producto": "Codito Badelli (350g)",
+        "cantidad": 1,
+        "precio_unitario": 1.89,
+        "precio_total": 1.89
+      },
+      {
+        "producto": "Cervezas Bucanero (355ml)",
+        "cantidad": 2,
+        "precio_unitario": 1.1,
+        "precio_total": 2.2
+      },
+      {
+        "producto": "Arroz Importado 1kg",
+        "cantidad": 1,
+        "precio_unitario": 2.9,
+        "precio_total": 2.9
+      },
+      {
+        "producto": "Aceite Fritura 900ml",
+        "cantidad": 1,
+        "precio_unitario": 2.9,
+        "precio_total": 2.9
+      },
+      {
+        "producto": "Frijol Negro x Lb",
+        "cantidad": 1,
+        "precio_unitario": 2.63,
+        "precio_total": 2.63
+      }
+    ],
+    "precio_compra_total": "16.31",
+    "navegador": "Safari",
+    "sistema_operativo": "iOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+  },
   {
-  "ip": "3fdb:cec9:8f6b:18aa:36a2:c958:75b0:f35a",
-  "pais": "Estados Unidos",
-  "fecha_hora_entrada": "2025-11-08 13:15:00",
-  "origen": "https://www.asereshops.com/",
-  "afiliado": "Ninguno",
-  "duracion_sesion_segundos": 0,
-  "tiempo_carga_pagina_ms": 967,
-  "nombre_comprador": "René Leyva Reyes",
-  "telefono_comprador": "7866008516",
-  "correo_comprador": "reyesrenecito@gmail.com",
-  "direccion_envio": "Juan Ramón Ochoa #123 entre R Pupo y mariana Grajales",
-  "compras": [
-    {
-      "producto": "Cesto para ropa",
-      "cantidad": 1,
-      "precio_unitario": 10.00,
-      "precio_total": 10.00
-    },
-    {
-      "producto": "Pollo Country Pride",
-      "cantidad": 1,
-      "precio_unitario": 12.00,
-      "precio_total": 12.00
-    },
-    {
-      "producto": "Carne de cerdo x Lb",
-      "cantidad": 5,
-      "precio_unitario": 2.90,
-      "precio_total": 14.50
-    },
-    {
-      "producto": "Picadillo de pollo (1Kg)",
-      "cantidad": 5,
-      "precio_unitario": 2.97,
-      "precio_total": 14.85
-    },
-    {
-      "producto": "Toallas sanitarias Sueños Cómodos (30u)",
-      "cantidad": 1,
-      "precio_unitario": 2.60,
-      "precio_total": 2.60
-    },
-    {
-      "producto": "Salchicha de pollo y cerdo 10u (340g)",
-      "cantidad": 1,
-      "precio_unitario": 1.90,
-      "precio_total": 1.90
-    }
-  ],
-  "precio_compra_total": "55.85",
-  "navegador": "Safari",
-  "sistema_operativo": "OS X",
-  "tipo_usuario": "",
-  "tiempo_promedio_pagina": 0,
-  "fuente_trafico": ""
-},
+    "ip": "2601:586:5601:bd50:909:37fa:accb:a70",
+    "pais": "United States",
+    "fecha_hora_entrada": "2025-09-22 20:52:25",
+    "origen": "Acceso directo",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 625,
+    "tiempo_carga_pagina_ms": 679,
+    "nombre_comprador": "Rolando Gonzalez Verdecia",
+    "telefono_comprador": "7868057592",
+    "correo_comprador": "gonzalezrolando711@gmail.com",
+    "direccion_envio": "calle 17 s/n entre Calle luis molina y 14 reparto buena vista las tunas",
+    "compras": [
+      {
+        "producto": "El Banquete Familiar",
+        "cantidad": 1,
+        "precio_unitario": 99,
+        "precio_total": 99
+      }
+    ],
+    "precio_compra_total": "99.00",
+    "navegador": "Chrome",
+    "sistema_operativo": "Windows",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+  },
   {
-  "ip": "2600:1700:3d65:580:bda0:64fe:1800:9a25",
-  "pais": "United States",
-  "fecha_hora_entrada": "2025-11-09 11:06:43",
-  "origen": "Acceso directo",
-  "afiliado": "Juana",
-  "duracion_sesion_segundos": 270,
-  "tiempo_carga_pagina_ms": 788,
-  "nombre_comprador": "Yoandra Martinez",
-  "telefono_comprador": "7863191466",
-  "correo_comprador": "yoa2002ye@gmail.com",
-  "direccion_envio": "Calle 22 15 Alto % 43 Y 45\nReparto De Buena Vista",
-  "compras": [
-    {
-      "producto": "Café Bryderk",
-      "cantidad": 5,
-      "precio_unitario": 6,
-      "precio_total": 30
-    },
-    {
-      "producto": "Aceite Fritura 900ml",
-      "cantidad": 1,
-      "precio_unitario": 3.15,
-      "precio_total": 3.15
-    },
-    {
-      "producto": "Leche entera en polvo (1kg)",
-      "cantidad": 2,
-      "precio_unitario": 8.9,
-      "precio_total": 17.8
-    },
-    {
-      "producto": "Kit de cuidado oral Bendfresh",
-      "cantidad": 2,
-      "precio_unitario": 3,
-      "precio_total": 6
-    },
-    {
-      "producto": "Galletas Porleo (45g)",
-      "cantidad": 5,
-      "precio_unitario": 0.91,
-      "precio_total": 4.55
-    }
-  ],
-  "precio_compra_total": "61.50",
-  "navegador": "Safari",
-  "sistema_operativo": "iOS",
-  "tipo_usuario": "Recurrente",
-  "tiempo_promedio_pagina": 0,
-  "fuente_trafico": "Directo"
-},
+    "ip": "2600:387:f:d19::2",
+    "pais": "United States",
+    "fecha_hora_entrada": "2025-09-23 11:45:43",
+    "origen": "Acceso directo",
+    "afiliado": "Juana",
+    "duracion_sesion_segundos": 740,
+    "tiempo_carga_pagina_ms": 820,
+    "nombre_comprador": "Yoandra Martinez",
+    "telefono_comprador": "7863191466",
+    "correo_comprador": "yoa2002ye@gmail.com",
+    "direccion_envio": "Calle 22 15 Alto % 43 Y 45\nReparto De Buena Vista",
+    "compras": [
+      {
+        "producto": "Carne de cerdo x Lb",
+        "cantidad": 6,
+        "precio_unitario": 3.2,
+        "precio_total": 19.200000000000003
+      },
+      {
+        "producto": "Aceite Fritura 900ml",
+        "cantidad": 2,
+        "precio_unitario": 2.9,
+        "precio_total": 5.8
+      },
+      {
+        "producto": "Paquete de pan de bola 10u",
+        "cantidad": 2,
+        "precio_unitario": 1.9,
+        "precio_total": 3.8
+      },
+      {
+        "producto": "Cartón de Huevos",
+        "cantidad": 1,
+        "precio_unitario": 10,
+        "precio_total": 10
+      },
+      {
+        "producto": "Galletas Renata",
+        "cantidad": 2,
+        "precio_unitario": 1.4,
+        "precio_total": 2.8
+      },
+      {
+        "producto": "Pollo Country Pride",
+        "cantidad": 1,
+        "precio_unitario": 11.5,
+        "precio_total": 11.5
+      },
+      {
+        "producto": "Refresco Instantáneo (2Lt)",
+        "cantidad": 5,
+        "precio_unitario": 0.42,
+        "precio_total": 2.1
+      }
+    ],
+    "precio_compra_total": "55.20",
+    "navegador": "Safari",
+    "sistema_operativo": "iOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+  },
   {
-  "ip": "47.205.161.131",
-  "pais": "United States",
-  "fecha_hora_entrada": "2025-11-13 21:45:49",
-  "origen": "Acceso directo",
-  "afiliado": "Juana",
-  "duracion_sesion_segundos": 523,
-  "tiempo_carga_pagina_ms": 1092,
-  "nombre_comprador": "Ailen Vega mariño",
-  "telefono_comprador": "9413123962",
-  "correo_comprador": "ailen29101990@gmail.com",
-  "direccion_envio": "Edificio 6 apt 3 rept la loma",
-  "compras": [
-    {
-      "producto": "Pack Confituras",
-      "cantidad": 1,
-      "precio_unitario": 15,
-      "precio_total": 15
-    },
-    {
-      "producto": "Pack Malta Guajira (6u)",
-      "cantidad": 3,
-      "precio_unitario": 6,
-      "precio_total": 18
-    },
-    {
-      "producto": "Pollo Country Pride",
-      "cantidad": 2,
-      "precio_unitario": 12,
-      "precio_total": 24
-    },
-    {
-      "producto": "Carne de Ovejo x Lb",
-      "cantidad": 5,
-      "precio_unitario": 1.98,
-      "precio_total": 9.9
-    },
-    {
-      "producto": "Picadillo de pollo (1Kg)",
-      "cantidad": 3,
-      "precio_unitario": 2.15,
-      "precio_total": 6.449999999999999
-    },
-    {
-      "producto": "Pasta de tomate 400g",
-      "cantidad": 4,
-      "precio_unitario": 1.87,
-      "precio_total": 7.48
-    },
-    {
-      "producto": "Queso criollo x Lb",
-      "cantidad": 4,
-      "precio_unitario": 2.35,
-      "precio_total": 9.4
-    },
-    {
-      "producto": "Arroz Rainha Brasil (1Kg)",
-      "cantidad": 10,
-      "precio_unitario": 1.89,
-      "precio_total": 18.9
-    },
-    {
-      "producto": "Salsa Mayonesa (4l)",
-      "cantidad": 1,
-      "precio_unitario": 13.85,
-      "precio_total": 13.85
-    },
-    {
-      "producto": "Azúcar Extra Fina 1Kg (Mirante)",
-      "cantidad": 6,
-      "precio_unitario": 1.93,
-      "precio_total": 11.58
-    },
-    {
-      "producto": "Frijol Negro Alubia (500g)",
-      "cantidad": 4,
-      "precio_unitario": 1.87,
-      "precio_total": 7.48
-    },
-    {
-      "producto": "Garbanzos Extra (500g)",
-      "cantidad": 3,
-      "precio_unitario": 1.87,
-      "precio_total": 5.61
-    },
-    {
-      "producto": "Espaguetis (500g)",
-      "cantidad": 5,
-      "precio_unitario": 1.3,
-      "precio_total": 6.5
-    },
-    {
-      "producto": "Codito Badelli (350g)",
-      "cantidad": 5,
-      "precio_unitario": 1.89,
-      "precio_total": 9.45
-    },
-    {
-      "producto": "Fideos de Ada",
-      "cantidad": 2,
-      "precio_unitario": 1.4,
-      "precio_total": 2.8
-    }
-  ],
-  "precio_compra_total": "166.40",
-  "navegador": "Chrome",
-  "sistema_operativo": "Android",
-  "tipo_usuario": "Recurrente",
-  "tiempo_promedio_pagina": 0,
-  "fuente_trafico": "Directo"
-  }, 
+    "ip": "2607:fb91:ca4:44e8:1d6c:b95f:df2f:e648",
+    "pais": "United States",
+    "fecha_hora_entrada": "2025-09-24 02:03:00",
+    "origen": "Acceso directo",
+    "afiliado": "Natty",
+    "duracion_sesion_segundos": 329,
+    "tiempo_carga_pagina_ms": 635,
+    "nombre_comprador": "Cheila Cordove Pupo",
+    "telefono_comprador": "7863220667",
+    "correo_comprador": "cordovesheila769@gmail.com",
+    "direccion_envio": "Juan Ramón Ochoa #123 entre mariana Grajales y R Pupo",
+    "compras": [
+      {
+        "producto": "Manzanas Pack x6",
+        "cantidad": 1,
+        "precio_unitario": 9,
+        "precio_total": 9
+      },
+      {
+        "producto": "Manzana",
+        "cantidad": 1,
+        "precio_unitario": 1.7,
+        "precio_total": 1.7
+      }
+    ],
+    "precio_compra_total": "10.70",
+    "navegador": "Safari",
+    "sistema_operativo": "iOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+  },
   {
-  "ip": "109.54.119.232",
-  "pais": "Italy",
-  "fecha_hora_entrada": "2025-11-14 14:51:21",
-  "origen": "Acceso directo",
-  "afiliado": "Ninguno",
-  "duracion_sesion_segundos": 605,
-  "tiempo_carga_pagina_ms": 2520,
-  "nombre_comprador": "Nailin contreras santiesteban",
-  "telefono_comprador": "335327206",
-  "correo_comprador": "leonormax@gmail.com",
-  "direccion_envio": "Calle colon 148A entre Ramon ortuño e 24febrero",
-  "compras": [
-    {
-      "producto": "Galletas Renata",
-      "cantidad": 1,
-      "precio_unitario": 1.4,
-      "precio_total": 1.4
-    },
-    {
-      "producto": "Pack galletas Delechitas (18u de paquetes)",
-      "cantidad": 1,
-      "precio_unitario": 2.88,
-      "precio_total": 2.88
-    },
-    {
-      "producto": "Pack Golozetas (12u de paquetes)",
-      "cantidad": 1,
-      "precio_unitario": 3.12,
-      "precio_total": 3.12
-    },
-    {
-      "producto": "Galletas Lora",
-      "cantidad": 1,
-      "precio_unitario": 1.4,
-      "precio_total": 1.4
-    },
-    {
-      "producto": "Sorbeto Lorena",
-      "cantidad": 3,
-      "precio_unitario": 0.8,
-      "precio_total": 2.4000000000000004
-    },
-    {
-      "producto": "Pata de cerdo x Lb",
-      "cantidad": 6,
-      "precio_unitario": 1.5,
-      "precio_total": 9
-    },
-    {
-      "producto": "Garbanzos Extra (500g)",
-      "cantidad": 2,
-      "precio_unitario": 1.87,
-      "precio_total": 3.74
-    },
-    {
-      "producto": "Frijol Negro x Lb",
-      "cantidad": 5,
-      "precio_unitario": 1.75,
-      "precio_total": 8.75
-    },
-    {
-      "producto": "Frijol Rojo x Lb",
-      "cantidad": 5,
-      "precio_unitario": 1.8,
-      "precio_total": 9
-    },
-    {
-      "producto": "Mazo de cebolla blanca",
-      "cantidad": 1,
-      "precio_unitario": 1.5,
-      "precio_total": 1.5
-    },
-    {
-      "producto": "Limón x Lb",
-      "cantidad": 1,
-      "precio_unitario": 1.5,
-      "precio_total": 1.5
-    },
-    {
-      "producto": "Plátano macho x unidad",
-      "cantidad": 10,
-      "precio_unitario": 0.26,
-      "precio_total": 2.6
-    }
-  ],
-  "precio_compra_total": "47.29",
-  "navegador": "Chrome",
-  "sistema_operativo": "Android",
-  "tipo_usuario": "Recurrente",
-  "tiempo_promedio_pagina": 0,
-  "fuente_trafico": "Directo"
+    "ip": "2600:387:f:5c1b::1",
+    "pais": "United States",
+    "fecha_hora_entrada": "2025-09-30 08:45:46",
+    "origen": "Acceso directo",
+    "afiliado": "Eddy",
+    "duracion_sesion_segundos": 282,
+    "tiempo_carga_pagina_ms": 881,
+    "nombre_comprador": "Sandro Batista",
+    "telefono_comprador": "4709526260",
+    "correo_comprador": "sandromichbp@gmail.com",
+    "direccion_envio": "Jorge Ortiz no 3 entre trista y rio",
+    "compras": [
+      {
+        "producto": "Carne de cerdo x Lb",
+        "cantidad": 5,
+        "precio_unitario": 2.9,
+        "precio_total": 14.5
+      },
+      {
+        "producto": "Pasta de tomate Vima (400g)",
+        "cantidad": 1,
+        "precio_unitario": 1.98,
+        "precio_total": 1.98
+      },
+      {
+        "producto": "Queso criollo x Lb",
+        "cantidad": 2,
+        "precio_unitario": 2.4,
+        "precio_total": 4.8
+      },
+      {
+        "producto": "Espaguetis (500g)",
+        "cantidad": 2,
+        "precio_unitario": 1.89,
+        "precio_total": 3.78
+      },
+      {
+        "producto": "Picadillo de pollo (1Kg)",
+        "cantidad": 3,
+        "precio_unitario": 2.97,
+        "precio_total": 8.91
+      },
+      {
+        "producto": "Salchicha de pollo y cerdo 10u (340g)",
+        "cantidad": 1,
+        "precio_unitario": 1.9,
+        "precio_total": 1.9
+      },
+      {
+        "producto": "Paquete de pan de bola 10u",
+        "cantidad": 1,
+        "precio_unitario": 1.9,
+        "precio_total": 1.9
+      },
+      {
+        "producto": "Cartón de Huevos",
+        "cantidad": 1,
+        "precio_unitario": 10,
+        "precio_total": 10
+      }
+    ],
+    "precio_compra_total": "47.77",
+    "navegador": "Safari",
+    "sistema_operativo": "iOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "98.79.139.15",
+    "pais": "United States",
+    "fecha_hora_entrada": "2025-10-02 11:59:21",
+    "origen": "Acceso directo",
+    "afiliado": "Juana",
+    "duracion_sesion_segundos": 274,
+    "tiempo_carga_pagina_ms": 75,
+    "nombre_comprador": "Yoandra Martinez",
+    "telefono_comprador": "7863191466",
+    "correo_comprador": "yoa2002ye@gmail.com",
+    "direccion_envio": "Calle 22 15 Alto % 43 Y 45\nReparto De Buena Vista",
+    "compras": [
+      {
+        "producto": "Celebración Dulce",
+        "cantidad": 1,
+        "precio_unitario": 56,
+        "precio_total": 56
+      }
+    ],
+    "precio_compra_total": "56.00",
+    "navegador": "Safari",
+    "sistema_operativo": "iOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "47.201.243.233",
+    "pais": "United States",
+    "fecha_hora_entrada": "2025-10-03 19:08:17",
+    "origen": "Acceso directo",
+    "afiliado": "Juana",
+    "duracion_sesion_segundos": 591,
+    "tiempo_carga_pagina_ms": 333,
+    "nombre_comprador": "Ailen Vega mariño",
+    "telefono_comprador": "9413123962",
+    "correo_comprador": "ailen29101990@gmail.com",
+    "direccion_envio": "Calle Josué paiz/Ramón ortuño y 24 de febrero # 61f",
+    "compras": [
+      {
+        "producto": "Pack Malta Guajira (6u)",
+        "cantidad": 1,
+        "precio_unitario": 6,
+        "precio_total": 6
+      },
+      {
+        "producto": "Refresco Gaseado",
+        "cantidad": 2,
+        "precio_unitario": 2.95,
+        "precio_total": 5.9
+      },
+      {
+        "producto": "Salchicha de pollo y cerdo 10u (340g)",
+        "cantidad": 3,
+        "precio_unitario": 1.9,
+        "precio_total": 5.699999999999999
+      },
+      {
+        "producto": "Lomo de cerdo deshuesado x Lb",
+        "cantidad": 5,
+        "precio_unitario": 3.5,
+        "precio_total": 17.5
+      },
+      {
+        "producto": "Leche entera en polvo (1kg)",
+        "cantidad": 1,
+        "precio_unitario": 11.97,
+        "precio_total": 11.97
+      },
+      {
+        "producto": "Pasta de Bocadito",
+        "cantidad": 1,
+        "precio_unitario": 7.2,
+        "precio_total": 7.2
+      },
+      {
+        "producto": "Aceite Fritura 900ml",
+        "cantidad": 3,
+        "precio_unitario": 2.9,
+        "precio_total": 8.7
+      },
+      {
+        "producto": "Paquete de pan de bola 10u",
+        "cantidad": 4,
+        "precio_unitario": 1.9,
+        "precio_total": 7.6
+      },
+      {
+        "producto": "Cartón de Huevos",
+        "cantidad": 1,
+        "precio_unitario": 10,
+        "precio_total": 10
+      },
+      {
+        "producto": "Leche Condensada azucarada (390g)",
+        "cantidad": 1,
+        "precio_unitario": 2.89,
+        "precio_total": 2.89
+      },
+      {
+        "producto": "Arroz Rainha Brasil (1Kg)",
+        "cantidad": 4,
+        "precio_unitario": 2.97,
+        "precio_total": 11.88
+      },
+      {
+        "producto": "Chocolate en Polvo «Rico» (500g)",
+        "cantidad": 1,
+        "precio_unitario": 4.2,
+        "precio_total": 4.2
+      },
+      {
+        "producto": "Menthoplus",
+        "cantidad": 2,
+        "precio_unitario": 0.63,
+        "precio_total": 1.26
+      },
+      {
+        "producto": "Frijoles negros 500g",
+        "cantidad": 1,
+        "precio_unitario": 3.2,
+        "precio_total": 3.2
+      },
+      {
+        "producto": "Fideos de Ada",
+        "cantidad": 1,
+        "precio_unitario": 1.4,
+        "precio_total": 1.4
+      },
+      {
+        "producto": "Espaguetis (500g)",
+        "cantidad": 3,
+        "precio_unitario": 1.89,
+        "precio_total": 5.67
+      }
+    ],
+    "precio_compra_total": "111.07",
+    "navegador": "Chrome",
+    "sistema_operativo": "Android",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "47.62.65.205",
+    "pais": "Spain",
+    "fecha_hora_entrada": "2025-10-04 17:55:15",
+    "origen": "Acceso directo",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 786,
+    "tiempo_carga_pagina_ms": 623,
+    "nombre_comprador": "Tereza Lucila Rodríguez Escalona",
+    "telefono_comprador": "627179716",
+    "correo_comprador": "escalonafernandezt@gmail.com",
+    "direccion_envio": "Ramón Mendoza # 10 / Ave Roberto Reyes y Eligió Fonseca La Victoria Las Tunas",
+    "compras": [
+      {
+        "producto": "Carne de cerdo x Lb",
+        "cantidad": 10,
+        "precio_unitario": 3.2,
+        "precio_total": 32
+      },
+      {
+        "producto": "Pack de 4 Hamburguesas de cerdo",
+        "cantidad": 3,
+        "precio_unitario": 3.9,
+        "precio_total": 11.7
+      },
+      {
+        "producto": "Picadillo de pollo (1Kg)",
+        "cantidad": 2,
+        "precio_unitario": 2.97,
+        "precio_total": 5.94
+      },
+      {
+        "producto": "Queso criollo x Lb",
+        "cantidad": 5,
+        "precio_unitario": 2.4,
+        "precio_total": 12
+      },
+      {
+        "producto": "Manzanas Pack x6",
+        "cantidad": 1,
+        "precio_unitario": 9,
+        "precio_total": 9
+      },
+      {
+        "producto": "Paquete de pan de bola 10u",
+        "cantidad": 2,
+        "precio_unitario": 1.9,
+        "precio_total": 3.8
+      },
+      {
+        "producto": "Chocolate en Polvo «Rico» (500g)",
+        "cantidad": 1,
+        "precio_unitario": 4.2,
+        "precio_total": 4.2
+      },
+      {
+        "producto": "Arroz importado 1lb",
+        "cantidad": 4,
+        "precio_unitario": 1.15,
+        "precio_total": 4.6
+      },
+      {
+        "producto": "Café Bryderk",
+        "cantidad": 1,
+        "precio_unitario": 6,
+        "precio_total": 6
+      },
+      {
+        "producto": "Refresco Cola (330ml)",
+        "cantidad": 4,
+        "precio_unitario": 0.95,
+        "precio_total": 3.8
+      },
+      {
+        "producto": "Pack Malta Guajira (6u)",
+        "cantidad": 1,
+        "precio_unitario": 6,
+        "precio_total": 6
+      }
+    ],
+    "precio_compra_total": "99.04",
+    "navegador": "Chrome",
+    "sistema_operativo": "Android",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2600:387:15:611b::1",
+    "pais": "United States",
+    "fecha_hora_entrada": "2025-10-05 16:17:34",
+    "origen": "Acceso directo",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 305,
+    "tiempo_carga_pagina_ms": 364,
+    "nombre_comprador": "Miguel A Polo",
+    "telefono_comprador": "+17863229781",
+    "correo_comprador": "miguelpolocbpone2@gmail.com",
+    "direccion_envio": "Lorenzo Ortiz # 56 entre Nicolás Heredia, y Juaquin Aguero reparto primero",
+    "compras": [
+      {
+        "producto": "Helado 4Lts",
+        "cantidad": 2,
+        "precio_unitario": 10.45,
+        "precio_total": 20.9
+      },
+      {
+        "producto": "Ketchup (320g)",
+        "cantidad": 1,
+        "precio_unitario": 3.1,
+        "precio_total": 3.1
+      },
+      {
+        "producto": "Refresco Fresko",
+        "cantidad": 8,
+        "precio_unitario": 0.9,
+        "precio_total": 7.2
+      }
+    ],
+    "precio_compra_total": "31.20",
+    "navegador": "Safari",
+    "sistema_operativo": "iOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2600:387:15:6812::3",
+    "pais": "United States",
+    "fecha_hora_entrada": "2025-10-08 16:17:42",
+    "origen": "Acceso directo",
+    "afiliado": "Dalva 1",
+    "duracion_sesion_segundos": 904,
+    "tiempo_carga_pagina_ms": 1180,
+    "nombre_comprador": "Yanisleydis cruz",
+    "telefono_comprador": "9045044222",
+    "correo_comprador": "yanycruz36@icloud.com",
+    "direccion_envio": "Calle 45 #22 entre 18 y 20 altura buena vista",
+    "compras": [
+      {
+        "producto": "Mantequilla (250g)",
+        "cantidad": 1,
+        "precio_unitario": 2.42,
+        "precio_total": 2.42
+      },
+      {
+        "producto": "Esponjas para fregar",
+        "cantidad": 1,
+        "precio_unitario": 0.48,
+        "precio_total": 0.48
+      },
+      {
+        "producto": "Pechuga de Pollo (1Kg)",
+        "cantidad": 1,
+        "precio_unitario": 8,
+        "precio_total": 8
+      },
+      {
+        "producto": "Pasta de tomate Vima (400g)",
+        "cantidad": 1,
+        "precio_unitario": 1.98,
+        "precio_total": 1.98
+      },
+      {
+        "producto": "Codito Badelli (350g)",
+        "cantidad": 1,
+        "precio_unitario": 1.89,
+        "precio_total": 1.89
+      },
+      {
+        "producto": "Fideos de Ada",
+        "cantidad": 1,
+        "precio_unitario": 1.4,
+        "precio_total": 1.4
+      }
+    ],
+    "precio_compra_total": "16.17",
+    "navegador": "Safari",
+    "sistema_operativo": "iOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "47.201.243.233",
+    "pais": "United States",
+    "fecha_hora_entrada": "2025-10-09 21:36:08",
+    "origen": "Acceso directo",
+    "afiliado": "Juana",
+    "duracion_sesion_segundos": 951,
+    "tiempo_carga_pagina_ms": 1363,
+    "nombre_comprador": "Ailen Vega mariño",
+    "telefono_comprador": "9413123962",
+    "correo_comprador": "ailen29101990@gmail.com",
+    "direccion_envio": "Edificio 6 apt 3 rept la loma.",
+    "compras": [
+      {
+        "producto": "Salchicha de pollo y cerdo 10u (340g)",
+        "cantidad": 7,
+        "precio_unitario": 1.9,
+        "precio_total": 13.299999999999999
+      },
+      {
+        "producto": "Picadillo de pollo (1Kg)",
+        "cantidad": 2,
+        "precio_unitario": 2.97,
+        "precio_total": 5.94
+      },
+      {
+        "producto": "Rollito Carne de Cerdo x Lb",
+        "cantidad": 3,
+        "precio_unitario": 4.95,
+        "precio_total": 14.850000000000001
+      },
+      {
+        "producto": "Masa de cerdo Ahumada x Lb",
+        "cantidad": 3,
+        "precio_unitario": 4.9,
+        "precio_total": 14.700000000000001
+      },
+      {
+        "producto": "Aceite Fritura 900ml",
+        "cantidad": 4,
+        "precio_unitario": 2.9,
+        "precio_total": 11.6
+      },
+      {
+        "producto": "Paquete de pan de bola 10u",
+        "cantidad": 3,
+        "precio_unitario": 1.9,
+        "precio_total": 5.699999999999999
+      },
+      {
+        "producto": "Azúcar blanca x lb",
+        "cantidad": 10,
+        "precio_unitario": 1.23,
+        "precio_total": 12.3
+      },
+      {
+        "producto": "Arroz Rainha Brasil (1Kg)",
+        "cantidad": 6,
+        "precio_unitario": 2.97,
+        "precio_total": 17.82
+      },
+      {
+        "producto": "Espaguetis (500g)",
+        "cantidad": 4,
+        "precio_unitario": 1.89,
+        "precio_total": 7.56
+      },
+      {
+        "producto": "Codito Badelli (350g)",
+        "cantidad": 4,
+        "precio_unitario": 1.89,
+        "precio_total": 7.56
+      },
+      {
+        "producto": "Frijoles negros 500g",
+        "cantidad": 2,
+        "precio_unitario": 3.2,
+        "precio_total": 6.4
+      },
+      {
+        "producto": "Garbanzo 500g",
+        "cantidad": 2,
+        "precio_unitario": 3.2,
+        "precio_total": 6.4
+      },
+      {
+        "producto": "Fideos de Ada",
+        "cantidad": 2,
+        "precio_unitario": 1.4,
+        "precio_total": 2.8
+      },
+      {
+        "producto": "Galletas Lora",
+        "cantidad": 3,
+        "precio_unitario": 1.4,
+        "precio_total": 4.199999999999999
+      },
+      {
+        "producto": "Galletas Renata",
+        "cantidad": 3,
+        "precio_unitario": 1.4,
+        "precio_total": 4.199999999999999
+      },
+      {
+        "producto": "Pelly Queso Cheerdar",
+        "cantidad": 3,
+        "precio_unitario": 0.98,
+        "precio_total": 2.94
+      },
+      {
+        "producto": "Jabones de baño Harmony",
+        "cantidad": 4,
+        "precio_unitario": 0.8,
+        "precio_total": 3.2
+      }
+    ],
+    "precio_compra_total": "141.47",
+    "navegador": "Chrome",
+    "sistema_operativo": "Android",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "47.201.243.233",
+    "pais": "United States",
+    "fecha_hora_entrada": "2025-10-12 19:39:54",
+    "origen": "Acceso directo",
+    "afiliado": "Juana",
+    "duracion_sesion_segundos": 209,
+    "tiempo_carga_pagina_ms": 356,
+    "nombre_comprador": "Ailen Vega mariño",
+    "telefono_comprador": "9413123962",
+    "correo_comprador": "ailen29101990@gmail.com",
+    "direccion_envio": "Josue paiz/Ramon ortuño y 24 de febrero reparto santo domingo.#61 fondo.",
+    "compras": [
+      {
+        "producto": "Frijoles negros 500g",
+        "cantidad": 1,
+        "precio_unitario": 3.2,
+        "precio_total": 3.2
+      },
+      {
+        "producto": "Arroz Rainha Brasil (1Kg)",
+        "cantidad": 2,
+        "precio_unitario": 2.97,
+        "precio_total": 5.94
+      },
+      {
+        "producto": "Carne de cerdo x Lb",
+        "cantidad": 3,
+        "precio_unitario": 2.9,
+        "precio_total": 8.7
+      },
+      {
+        "producto": "Salchicha de pollo y cerdo 10u (340g)",
+        "cantidad": 1,
+        "precio_unitario": 1.9,
+        "precio_total": 1.9
+      },
+      {
+        "producto": "Paquete de pan de bola 10u",
+        "cantidad": 1,
+        "precio_unitario": 1.9,
+        "precio_total": 1.9
+      }
+    ],
+    "precio_compra_total": "21.64",
+    "navegador": "Chrome",
+    "sistema_operativo": "Android",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2607:fb92:907:9282:756d:7873:8e86:591d",
+    "pais": "United States",
+    "fecha_hora_entrada": "2025-10-14 13:53:08",
+    "origen": "Acceso directo",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 235,
+    "tiempo_carga_pagina_ms": 570,
+    "nombre_comprador": "Nayelin Reyes",
+    "telefono_comprador": "7863002520",
+    "correo_comprador": "nileyan2018@gmail.con",
+    "direccion_envio": "Nicolás Heredia #51 Fco Vega y Lzo Ortiz reparto primero",
+    "compras": [
+      {
+        "producto": "Frijol Rojo x Lb",
+        "cantidad": 3,
+        "precio_unitario": 2.9,
+        "precio_total": 8.7
+      },
+      {
+        "producto": "Frijol Negro x Lb",
+        "cantidad": 2,
+        "precio_unitario": 2.63,
+        "precio_total": 5.26
+      },
+      {
+        "producto": "Arroz importado 1lb",
+        "cantidad": 5,
+        "precio_unitario": 1.15,
+        "precio_total": 5.75
+      }
+    ],
+    "precio_compra_total": "19.71",
+    "navegador": "Safari",
+    "sistema_operativo": "iOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2600:387:15:6812::3",
+    "pais": "United States",
+    "fecha_hora_entrada": "2025-10-15 07:19:40",
+    "origen": "Acceso directo",
+    "afiliado": "Dalva 1",
+    "duracion_sesion_segundos": 970,
+    "tiempo_carga_pagina_ms": 1237,
+    "nombre_comprador": "Yanisleydis cruz",
+    "telefono_comprador": "9045044222",
+    "correo_comprador": "yanycruz36@icloud.com",
+    "direccion_envio": "Calle 45 # 22 / 18 y 20 altura de buena vista",
+    "compras": [
+      {
+        "producto": "Chuletas de cerdo x Lb",
+        "cantidad": 2,
+        "precio_unitario": 2.9,
+        "precio_total": 5.8
+      },
+      {
+        "producto": "Cartón de Huevos",
+        "cantidad": 1,
+        "precio_unitario": 10,
+        "precio_total": 10
+      }
+    ],
+    "precio_compra_total": "15.80",
+    "navegador": "Safari",
+    "sistema_operativo": "iOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2601:80:477c:8890:a827:8a96:6405:4988",
+    "pais": "United States",
+    "fecha_hora_entrada": "2025-10-15 13:28:56",
+    "origen": "Acceso directo",
+    "afiliado": "Juana",
+    "duracion_sesion_segundos": 1391,
+    "tiempo_carga_pagina_ms": 958,
+    "nombre_comprador": "Irina Escalante",
+    "telefono_comprador": "6402597824",
+    "correo_comprador": "escalanterojasirina765@gmail.com",
+    "direccion_envio": "Edif 15 apto b8 avenida Carlos J Finlay entre Camilo Cienfuegos y 42 Reparto Militar Camilo Cienfuegos",
+    "compras": [
+      {
+        "producto": "Pack Estilizado",
+        "cantidad": 1,
+        "precio_unitario": 21,
+        "precio_total": 21
+      },
+      {
+        "producto": "Arroz importado 1lb",
+        "cantidad": 3,
+        "precio_unitario": 1.15,
+        "precio_total": 3.4499999999999997
+      }
+    ],
+    "precio_compra_total": "24.45",
+    "navegador": "Safari",
+    "sistema_operativo": "iOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "130.45.64.46",
+    "pais": "United States",
+    "fecha_hora_entrada": "2025-10-20 22:06:06",
+    "origen": "Acceso directo",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 1075,
+    "tiempo_carga_pagina_ms": 493,
+    "nombre_comprador": "Lianet Milanes",
+    "telefono_comprador": "5613296717",
+    "correo_comprador": "milaneslianet9@gmail.com",
+    "direccion_envio": "Calle 27 # 26f  % 6B y 6 Buena Vista, Las Tunas",
+    "compras": [
+      {
+        "producto": "Sorbeto Lorena",
+        "cantidad": 2,
+        "precio_unitario": 0.8,
+        "precio_total": 1.6
+      },
+      {
+        "producto": "Pelly Queso Cheerdar",
+        "cantidad": 2,
+        "precio_unitario": 0.98,
+        "precio_total": 1.96
+      },
+      {
+        "producto": "Galletas Renata",
+        "cantidad": 2,
+        "precio_unitario": 1.4,
+        "precio_total": 2.8
+      },
+      {
+        "producto": "Pack Golozetas (12u de paquetes)",
+        "cantidad": 1,
+        "precio_unitario": 3.12,
+        "precio_total": 3.12
+      },
+      {
+        "producto": "Galletas Lora",
+        "cantidad": 2,
+        "precio_unitario": 1.4,
+        "precio_total": 2.8
+      },
+      {
+        "producto": "Galletas Porleo (45g)",
+        "cantidad": 2,
+        "precio_unitario": 0.91,
+        "precio_total": 1.82
+      },
+      {
+        "producto": "Galletas de Soda con Mantequilla Doricas",
+        "cantidad": 1,
+        "precio_unitario": 5.25,
+        "precio_total": 5.25
+      },
+      {
+        "producto": "Batata Lisa",
+        "cantidad": 1,
+        "precio_unitario": 1.8,
+        "precio_total": 1.8
+      },
+      {
+        "producto": "Pelly de Ajo",
+        "cantidad": 1,
+        "precio_unitario": 2.98,
+        "precio_total": 2.98
+      },
+      {
+        "producto": "Leche entera en polvo (1kg)",
+        "cantidad": 1,
+        "precio_unitario": 8.9,
+        "precio_total": 8.9
+      },
+      {
+        "producto": "Refresco Instantáneo (2Lt)",
+        "cantidad": 5,
+        "precio_unitario": 0.42,
+        "precio_total": 2.1
+      },
+      {
+        "producto": "Helado 4Lts",
+        "cantidad": 1,
+        "precio_unitario": 9.8,
+        "precio_total": 9.8
+      }
+    ],
+    "precio_compra_total": "44.93",
+    "navegador": "Safari",
+    "sistema_operativo": "iOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2607:fb92:982:fde3:48a1:4e75:b491:5987",
+    "pais": "United States",
+    "fecha_hora_entrada": "2025-10-24 21:40:13",
+    "origen": "Acceso directo",
+    "afiliado": "Eddy",
+    "duracion_sesion_segundos": 1228,
+    "tiempo_carga_pagina_ms": 702,
+    "nombre_comprador": "Rene  Leyva Reyes",
+    "telefono_comprador": "7866008516",
+    "correo_comprador": "reyesrenecito@gmail.com",
+    "direccion_envio": "Francisco Varona # 330  entre Lucas Ortiz y ángel guardia",
+    "compras": [
+      {
+        "producto": "Helado 4Lts",
+        "cantidad": 1,
+        "precio_unitario": 10.45,
+        "precio_total": 10.45
+      },
+      {
+        "producto": "Mano de plátano burro",
+        "cantidad": 5,
+        "precio_unitario": 0.95,
+        "precio_total": 4.75
+      },
+      {
+        "producto": "Carne de cerdo x Lb",
+        "cantidad": 10,
+        "precio_unitario": 2.9,
+        "precio_total": 29
+      },
+      {
+        "producto": "Picadillo de pollo (1Kg)",
+        "cantidad": 5,
+        "precio_unitario": 2.97,
+        "precio_total": 14.850000000000001
+      },
+      {
+        "producto": "Queso criollo x Lb",
+        "cantidad": 5,
+        "precio_unitario": 2.4,
+        "precio_total": 12
+      },
+      {
+        "producto": "Paquete de pan de bola 10u",
+        "cantidad": 2,
+        "precio_unitario": 1.9,
+        "precio_total": 3.8
+      },
+      {
+        "producto": "Cartón de Huevos",
+        "cantidad": 1,
+        "precio_unitario": 10,
+        "precio_total": 10
+      },
+      {
+        "producto": "Café Bryderk",
+        "cantidad": 2,
+        "precio_unitario": 6,
+        "precio_total": 12
+      }
+    ],
+    "precio_compra_total": "96.85",
+    "navegador": "Safari",
+    "sistema_operativo": "iOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2a09:bac2:6b43:290f::417:28",
+    "pais": "United States",
+    "fecha_hora_entrada": "2025-10-26 16:19:51",
+    "origen": "https://www.google.com/",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 575,
+    "tiempo_carga_pagina_ms": 1086,
+    "nombre_comprador": "Harol Rojas",
+    "telefono_comprador": "7866303006",
+    "correo_comprador": "harolrojas18783@yahoo.es",
+    "direccion_envio": "Lico cruz 108 A % Gonzalo de Quezada y Vallalon Rpto 1",
+    "compras": [
+      {
+        "producto": "Leche entera en polvo (1kg)",
+        "cantidad": 2,
+        "precio_unitario": 8.9,
+        "precio_total": 17.8
+      },
+      {
+        "producto": "Cartón de Huevos",
+        "cantidad": 2,
+        "precio_unitario": 10,
+        "precio_total": 20
+      },
+      {
+        "producto": "Paquete de pan de bola 10u",
+        "cantidad": 3,
+        "precio_unitario": 1.9,
+        "precio_total": 5.699999999999999
+      },
+      {
+        "producto": "Jugo Tropical",
+        "cantidad": 1,
+        "precio_unitario": 3,
+        "precio_total": 3
+      },
+      {
+        "producto": "Jugo de Piña",
+        "cantidad": 1,
+        "precio_unitario": 3,
+        "precio_total": 3
+      },
+      {
+        "producto": "Jugo de Mango",
+        "cantidad": 1,
+        "precio_unitario": 3,
+        "precio_total": 3
+      },
+      {
+        "producto": "Refresco Instantáneo (2Lt)",
+        "cantidad": 5,
+        "precio_unitario": 0.42,
+        "precio_total": 2.1
+      },
+      {
+        "producto": "Cóctel de frutas en almíbar",
+        "cantidad": 1,
+        "precio_unitario": 3,
+        "precio_total": 3
+      },
+      {
+        "producto": "Peras en almíbar",
+        "cantidad": 1,
+        "precio_unitario": 3,
+        "precio_total": 3
+      },
+      {
+        "producto": "Melocotones en almíbar",
+        "cantidad": 1,
+        "precio_unitario": 3,
+        "precio_total": 3
+      },
+      {
+        "producto": "Ketchup (320g)",
+        "cantidad": 1,
+        "precio_unitario": 3.1,
+        "precio_total": 3.1
+      },
+      {
+        "producto": "Mayonesa Celorrio",
+        "cantidad": 1,
+        "precio_unitario": 6.4,
+        "precio_total": 6.4
+      }
+    ],
+    "precio_compra_total": "73.10",
+    "navegador": "Safari",
+    "sistema_operativo": "iOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Google"
+  },
+  {
+    "ip": "2600:1700:3d65:580:8199:6083:adc9:c29f",
+    "pais": "United States",
+    "fecha_hora_entrada": "2025-10-26 17:03:32",
+    "origen": "Acceso directo",
+    "afiliado": "Juana",
+    "duracion_sesion_segundos": 281,
+    "tiempo_carga_pagina_ms": 445,
+    "nombre_comprador": "Yoandra Martinez",
+    "telefono_comprador": "7863191466",
+    "correo_comprador": "yoa2002ye@gmail.com",
+    "direccion_envio": "Calle 22 , # 15 Alto % 43 Y 45\nReparto De Buena Vista",
+    "compras": [
+      {
+        "producto": "Paquete de pan de bola 10u",
+        "cantidad": 2,
+        "precio_unitario": 1.9,
+        "precio_total": 3.8
+      },
+      {
+        "producto": "Cartón de Huevos",
+        "cantidad": 1,
+        "precio_unitario": 10,
+        "precio_total": 10
+      },
+      {
+        "producto": "Café Bryderk",
+        "cantidad": 2,
+        "precio_unitario": 6,
+        "precio_total": 12
+      },
+      {
+        "producto": "Carne de cerdo x Lb",
+        "cantidad": 6,
+        "precio_unitario": 2.9,
+        "precio_total": 17.4
+      },
+      {
+        "producto": "Pollo Country Pride",
+        "cantidad": 1,
+        "precio_unitario": 12,
+        "precio_total": 12
+      },
+      {
+        "producto": "Refresco Gaseado",
+        "cantidad": 3,
+        "precio_unitario": 2.95,
+        "precio_total": 8.850000000000001
+      },
+      {
+        "producto": "Aceite Fritura 900ml",
+        "cantidad": 2,
+        "precio_unitario": 2.9,
+        "precio_total": 5.8
+      },
+      {
+        "producto": "Leche entera en polvo (1kg)",
+        "cantidad": 1,
+        "precio_unitario": 8.9,
+        "precio_total": 8.9
+      }
+    ],
+    "precio_compra_total": "78.75",
+    "navegador": "Safari",
+    "sistema_operativo": "iOS",
+    "tipo_usuario": "Único",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2600:387:15:6817::3",
+    "pais": "United States",
+    "fecha_hora_entrada": "2025-10-27 07:14:55",
+    "origen": "Acceso directo",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 749,
+    "tiempo_carga_pagina_ms": 1031,
+    "nombre_comprador": "Yanisleydis cruz",
+    "telefono_comprador": "9045044222",
+    "correo_comprador": "yanycruz36@icloud.com",
+    "direccion_envio": "Calle 45 #22 / 18 y 20 altura de buena vista",
+    "compras": [
+      {
+        "producto": "Fideos de Ada",
+        "cantidad": 1,
+        "precio_unitario": 1.4,
+        "precio_total": 1.4
+      },
+      {
+        "producto": "Arroz Importado 1kg",
+        "cantidad": 1,
+        "precio_unitario": 2.9,
+        "precio_total": 2.9
+      },
+      {
+        "producto": "Picadillo de pollo (1Kg)",
+        "cantidad": 1,
+        "precio_unitario": 2.97,
+        "precio_total": 2.97
+      },
+      {
+        "producto": "Pollo Country Pride",
+        "cantidad": 1,
+        "precio_unitario": 12,
+        "precio_total": 12
+      }
+    ],
+    "precio_compra_total": "19.27",
+    "navegador": "Safari",
+    "sistema_operativo": "iOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2603:3020:104:7100:c497:bf75:fd58:e148",
+    "pais": "United States",
+    "fecha_hora_entrada": "2025-10-31 09:20:20",
+    "origen": "Acceso directo",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 184,
+    "tiempo_carga_pagina_ms": 1122,
+    "nombre_comprador": "Nayelin Reyes",
+    "telefono_comprador": "7863002520",
+    "correo_comprador": "nileyan2018@gmail.com",
+    "direccion_envio": "Edificio 26 apto c5",
+    "compras": [
+      {
+        "producto": "Champú y Acondicionador Brazilian de HT (Aceite de Coco)",
+        "cantidad": 1,
+        "precio_unitario": 14,
+        "precio_total": 14
+      },
+      {
+        "producto": "Jabones de baño Harmony",
+        "cantidad": 4,
+        "precio_unitario": 0.8,
+        "precio_total": 3.2
+      }
+    ],
+    "precio_compra_total": "17.20",
+    "navegador": "Safari",
+    "sistema_operativo": "iOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2607:fb92:981:9824:dc24:2a0c:4ea7:610f",
+    "pais": "United States",
+    "fecha_hora_entrada": "2025-10-31 15:19:47",
+    "origen": "Acceso directo",
+    "afiliado": "Eddy",
+    "duracion_sesion_segundos": 653,
+    "tiempo_carga_pagina_ms": 826,
+    "nombre_comprador": "Rene Leyva reyes",
+    "telefono_comprador": "7866008516",
+    "correo_comprador": "reyesrenecito@gmail.com",
+    "direccion_envio": "Calle 5 sin número entre Camilo Cienfuego y J Espinosa Reparto Buena Vista.",
+    "compras": [
+      {
+        "producto": "Galletas Porleo (45g)",
+        "cantidad": 5,
+        "precio_unitario": 0.91,
+        "precio_total": 4.55
+      },
+      {
+        "producto": "Pack Caramelos de leche",
+        "cantidad": 1,
+        "precio_unitario": 4,
+        "precio_total": 4
+      },
+      {
+        "producto": "Marshmallows Recubiertos de chocolate",
+        "cantidad": 5,
+        "precio_unitario": 0.48,
+        "precio_total": 2.4
+      },
+      {
+        "producto": "Galletas Lora",
+        "cantidad": 6,
+        "precio_unitario": 1.4,
+        "precio_total": 8.399999999999999
+      },
+      {
+        "producto": "Nutella con crema de avellana  Rayan",
+        "cantidad": 1,
+        "precio_unitario": 4.8,
+        "precio_total": 4.8
+      },
+      {
+        "producto": "Sorbeto Lorena",
+        "cantidad": 5,
+        "precio_unitario": 0.8,
+        "precio_total": 4
+      },
+      {
+        "producto": "Nutela",
+        "cantidad": 2,
+        "precio_unitario": 4.7,
+        "precio_total": 9.4
+      },
+      {
+        "producto": "Leche Condensada azucarada (390g)",
+        "cantidad": 2,
+        "precio_unitario": 1.9,
+        "precio_total": 3.8
+      },
+      {
+        "producto": "Leche entera en polvo (1kg)",
+        "cantidad": 1,
+        "precio_unitario": 8.9,
+        "precio_total": 8.9
+      },
+      {
+        "producto": "Palito Relleno de Leche",
+        "cantidad": 5,
+        "precio_unitario": 0.96,
+        "precio_total": 4.8
+      },
+      {
+        "producto": "Refresco Fresko",
+        "cantidad": 10,
+        "precio_unitario": 0.9,
+        "precio_total": 9
+      },
+      {
+        "producto": "Pack Dulce",
+        "cantidad": 1,
+        "precio_unitario": 35,
+        "precio_total": 35
+      }
+    ],
+    "precio_compra_total": "99.05",
+    "navegador": "Safari",
+    "sistema_operativo": "iOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "47.201.243.233",
+    "pais": "United States",
+    "fecha_hora_entrada": "2025-11-02 18:19:13",
+    "origen": "Acceso directo",
+    "afiliado": "Juana",
+    "duracion_sesion_segundos": 268,
+    "tiempo_carga_pagina_ms": 1633,
+    "nombre_comprador": "Ailen Vega marino",
+    "telefono_comprador": "9413123962",
+    "correo_comprador": "ailen29101990@gmail.com",
+    "direccion_envio": "Calle Josué paiz/Ramón ortuño y 24 de febrero reparto santo domingo #61f",
+    "compras": [
+      {
+        "producto": "Pack Malta Guajira (6u)",
+        "cantidad": 1,
+        "precio_unitario": 6,
+        "precio_total": 6
+      },
+      {
+        "producto": "Carne de cerdo x Lb",
+        "cantidad": 5,
+        "precio_unitario": 2.9,
+        "precio_total": 14.5
+      },
+      {
+        "producto": "Pasta de tomate 400g",
+        "cantidad": 1,
+        "precio_unitario": 1.87,
+        "precio_total": 1.87
+      },
+      {
+        "producto": "Arroz Rainha Brasil (1Kg)",
+        "cantidad": 4,
+        "precio_unitario": 2.97,
+        "precio_total": 11.88
+      },
+      {
+        "producto": "Espaguetis (500g)",
+        "cantidad": 2,
+        "precio_unitario": 1.3,
+        "precio_total": 2.6
+      }
+    ],
+    "precio_compra_total": "36.85",
+    "navegador": "Chrome",
+    "sistema_operativo": "Android",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2601:586:4f7f:c60:3772:a049:73cd:997",
+    "pais": "United States",
+    "fecha_hora_entrada": "2025-11-02 20:19:17",
+    "origen": "Acceso directo",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 112,
+    "tiempo_carga_pagina_ms": 389,
+    "nombre_comprador": "Yarianna Cepero",
+    "telefono_comprador": "7862602650",
+    "correo_comprador": "yariannacepero3@gmail.com",
+    "direccion_envio": "Rio potrero ,san Juan",
+    "compras": [
+      {
+        "producto": "Cocina Express",
+        "cantidad": 1,
+        "precio_unitario": 16,
+        "precio_total": 16
+      },
+      {
+        "producto": "Leche entera en polvo (1kg)",
+        "cantidad": 1,
+        "precio_unitario": 8.9,
+        "precio_total": 8.9
+      }
+    ],
+    "precio_compra_total": "24.90",
+    "navegador": "Edge",
+    "sistema_operativo": "Android",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2601:586:d102:ce10:3dbb:50fb:1494:efb6",
+    "pais": "United States",
+    "fecha_hora_entrada": "2025-11-04 10:36:10",
+    "origen": "Acceso directo",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 1205,
+    "tiempo_carga_pagina_ms": 779,
+    "nombre_comprador": "Ileana Vila Rodriguez",
+    "telefono_comprador": "3059707233",
+    "correo_comprador": "vilarodriguez61@gmail.com",
+    "direccion_envio": "Edificio 22 Apt E-1, Rept B. Vista Las Tunas",
+    "compras": [
+      {
+        "producto": "Queso criollo x Lb",
+        "cantidad": 6,
+        "precio_unitario": 1.9,
+        "precio_total": 11.399999999999999
+      }
+    ],
+    "precio_compra_total": "11.40",
+    "navegador": "Chrome",
+    "sistema_operativo": "Android",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2600:387:15:3c13::a",
+    "pais": "United States",
+    "fecha_hora_entrada": "2025-11-05 15:33:22",
+    "origen": "Acceso directo",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 1688,
+    "tiempo_carga_pagina_ms": 591,
+    "nombre_comprador": "Nayelin Reyes",
+    "telefono_comprador": "7863002520",
+    "correo_comprador": "nileyan2018@gmail.com",
+    "direccion_envio": "Edificio 26 apto c5",
+    "compras": [
+      {
+        "producto": "Pack Confituras",
+        "cantidad": 1,
+        "precio_unitario": 15,
+        "precio_total": 15
+      },
+      {
+        "producto": "Refresco Instantáneo (2Lt)",
+        "cantidad": 10,
+        "precio_unitario": 0.25,
+        "precio_total": 2.5
+      },
+      {
+        "producto": "Leche entera en polvo (1kg)",
+        "cantidad": 1,
+        "precio_unitario": 8.9,
+        "precio_total": 8.9
+      },
+      {
+        "producto": "Aceite Fritura 900ml",
+        "cantidad": 1,
+        "precio_unitario": 3.15,
+        "precio_total": 3.15
+      },
+      {
+        "producto": "Azúcar blanca x lb",
+        "cantidad": 2,
+        "precio_unitario": 1.23,
+        "precio_total": 2.46
+      },
+      {
+        "producto": "Arroz importado 1lb",
+        "cantidad": 5,
+        "precio_unitario": 1.15,
+        "precio_total": 5.75
+      },
+      {
+        "producto": "Frijol Negro x Lb",
+        "cantidad": 2,
+        "precio_unitario": 2.63,
+        "precio_total": 5.26
+      },
+      {
+        "producto": "Frijol Rojo x Lb",
+        "cantidad": 2,
+        "precio_unitario": 2.9,
+        "precio_total": 5.8
+      }
+    ],
+    "precio_compra_total": "48.82",
+    "navegador": "Safari",
+    "sistema_operativo": "iOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "3fdb:cec9:8f6b:18aa:36a2:c958:75b0:f35a",
+    "pais": "Estados Unidos",
+    "fecha_hora_entrada": "2025-11-08 13:15:00",
+    "origen": "https://www.asereshops.com/",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 967,
+    "nombre_comprador": "René Leyva Reyes",
+    "telefono_comprador": "7866008516",
+    "correo_comprador": "reyesrenecito@gmail.com",
+    "direccion_envio": "Juan Ramón Ochoa #123 entre R Pupo y mariana Grajales",
+    "compras": [
+      {
+        "producto": "Cesto para ropa",
+        "cantidad": 1,
+        "precio_unitario": 10,
+        "precio_total": 10
+      },
+      {
+        "producto": "Pollo Country Pride",
+        "cantidad": 1,
+        "precio_unitario": 12,
+        "precio_total": 12
+      },
+      {
+        "producto": "Carne de cerdo x Lb",
+        "cantidad": 5,
+        "precio_unitario": 2.9,
+        "precio_total": 14.5
+      },
+      {
+        "producto": "Picadillo de pollo (1Kg)",
+        "cantidad": 5,
+        "precio_unitario": 2.97,
+        "precio_total": 14.85
+      },
+      {
+        "producto": "Toallas sanitarias Sueños Cómodos (30u)",
+        "cantidad": 1,
+        "precio_unitario": 2.6,
+        "precio_total": 2.6
+      },
+      {
+        "producto": "Salchicha de pollo y cerdo 10u (340g)",
+        "cantidad": 1,
+        "precio_unitario": 1.9,
+        "precio_total": 1.9
+      }
+    ],
+    "precio_compra_total": "55.85",
+    "navegador": "Safari",
+    "sistema_operativo": "OS X",
+    "tipo_usuario": "",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": ""
+  },
+  {
+    "ip": "2600:1700:3d65:580:bda0:64fe:1800:9a25",
+    "pais": "United States",
+    "fecha_hora_entrada": "2025-11-09 11:06:43",
+    "origen": "Acceso directo",
+    "afiliado": "Juana",
+    "duracion_sesion_segundos": 270,
+    "tiempo_carga_pagina_ms": 788,
+    "nombre_comprador": "Yoandra Martinez",
+    "telefono_comprador": "7863191466",
+    "correo_comprador": "yoa2002ye@gmail.com",
+    "direccion_envio": "Calle 22 15 Alto % 43 Y 45\nReparto De Buena Vista",
+    "compras": [
+      {
+        "producto": "Café Bryderk",
+        "cantidad": 5,
+        "precio_unitario": 6,
+        "precio_total": 30
+      },
+      {
+        "producto": "Aceite Fritura 900ml",
+        "cantidad": 1,
+        "precio_unitario": 3.15,
+        "precio_total": 3.15
+      },
+      {
+        "producto": "Leche entera en polvo (1kg)",
+        "cantidad": 2,
+        "precio_unitario": 8.9,
+        "precio_total": 17.8
+      },
+      {
+        "producto": "Kit de cuidado oral Bendfresh",
+        "cantidad": 2,
+        "precio_unitario": 3,
+        "precio_total": 6
+      },
+      {
+        "producto": "Galletas Porleo (45g)",
+        "cantidad": 5,
+        "precio_unitario": 0.91,
+        "precio_total": 4.55
+      }
+    ],
+    "precio_compra_total": "61.50",
+    "navegador": "Safari",
+    "sistema_operativo": "iOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "47.205.161.131",
+    "pais": "United States",
+    "fecha_hora_entrada": "2025-11-13 21:45:49",
+    "origen": "Acceso directo",
+    "afiliado": "Juana",
+    "duracion_sesion_segundos": 523,
+    "tiempo_carga_pagina_ms": 1092,
+    "nombre_comprador": "Ailen Vega mariño",
+    "telefono_comprador": "9413123962",
+    "correo_comprador": "ailen29101990@gmail.com",
+    "direccion_envio": "Edificio 6 apt 3 rept la loma",
+    "compras": [
+      {
+        "producto": "Pack Confituras",
+        "cantidad": 1,
+        "precio_unitario": 15,
+        "precio_total": 15
+      },
+      {
+        "producto": "Pack Malta Guajira (6u)",
+        "cantidad": 3,
+        "precio_unitario": 6,
+        "precio_total": 18
+      },
+      {
+        "producto": "Pollo Country Pride",
+        "cantidad": 2,
+        "precio_unitario": 12,
+        "precio_total": 24
+      },
+      {
+        "producto": "Carne de Ovejo x Lb",
+        "cantidad": 5,
+        "precio_unitario": 1.98,
+        "precio_total": 9.9
+      },
+      {
+        "producto": "Picadillo de pollo (1Kg)",
+        "cantidad": 3,
+        "precio_unitario": 2.15,
+        "precio_total": 6.449999999999999
+      },
+      {
+        "producto": "Pasta de tomate 400g",
+        "cantidad": 4,
+        "precio_unitario": 1.87,
+        "precio_total": 7.48
+      },
+      {
+        "producto": "Queso criollo x Lb",
+        "cantidad": 4,
+        "precio_unitario": 2.35,
+        "precio_total": 9.4
+      },
+      {
+        "producto": "Arroz Rainha Brasil (1Kg)",
+        "cantidad": 10,
+        "precio_unitario": 1.89,
+        "precio_total": 18.9
+      },
+      {
+        "producto": "Salsa Mayonesa (4l)",
+        "cantidad": 1,
+        "precio_unitario": 13.85,
+        "precio_total": 13.85
+      },
+      {
+        "producto": "Azúcar Extra Fina 1Kg (Mirante)",
+        "cantidad": 6,
+        "precio_unitario": 1.93,
+        "precio_total": 11.58
+      },
+      {
+        "producto": "Frijol Negro Alubia (500g)",
+        "cantidad": 4,
+        "precio_unitario": 1.87,
+        "precio_total": 7.48
+      },
+      {
+        "producto": "Garbanzos Extra (500g)",
+        "cantidad": 3,
+        "precio_unitario": 1.87,
+        "precio_total": 5.61
+      },
+      {
+        "producto": "Espaguetis (500g)",
+        "cantidad": 5,
+        "precio_unitario": 1.3,
+        "precio_total": 6.5
+      },
+      {
+        "producto": "Codito Badelli (350g)",
+        "cantidad": 5,
+        "precio_unitario": 1.89,
+        "precio_total": 9.45
+      },
+      {
+        "producto": "Fideos de Ada",
+        "cantidad": 2,
+        "precio_unitario": 1.4,
+        "precio_total": 2.8
+      }
+    ],
+    "precio_compra_total": "166.40",
+    "navegador": "Chrome",
+    "sistema_operativo": "Android",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "109.54.119.232",
+    "pais": "Italy",
+    "fecha_hora_entrada": "2025-11-14 14:51:21",
+    "origen": "Acceso directo",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 605,
+    "tiempo_carga_pagina_ms": 2520,
+    "nombre_comprador": "Nailin contreras santiesteban",
+    "telefono_comprador": "335327206",
+    "correo_comprador": "leonormax@gmail.com",
+    "direccion_envio": "Calle colon 148A entre Ramon ortuño e 24febrero",
+    "compras": [
+      {
+        "producto": "Galletas Renata",
+        "cantidad": 1,
+        "precio_unitario": 1.4,
+        "precio_total": 1.4
+      },
+      {
+        "producto": "Pack galletas Delechitas (18u de paquetes)",
+        "cantidad": 1,
+        "precio_unitario": 2.88,
+        "precio_total": 2.88
+      },
+      {
+        "producto": "Pack Golozetas (12u de paquetes)",
+        "cantidad": 1,
+        "precio_unitario": 3.12,
+        "precio_total": 3.12
+      },
+      {
+        "producto": "Galletas Lora",
+        "cantidad": 1,
+        "precio_unitario": 1.4,
+        "precio_total": 1.4
+      },
+      {
+        "producto": "Sorbeto Lorena",
+        "cantidad": 3,
+        "precio_unitario": 0.8,
+        "precio_total": 2.4000000000000004
+      },
+      {
+        "producto": "Pata de cerdo x Lb",
+        "cantidad": 6,
+        "precio_unitario": 1.5,
+        "precio_total": 9
+      },
+      {
+        "producto": "Garbanzos Extra (500g)",
+        "cantidad": 2,
+        "precio_unitario": 1.87,
+        "precio_total": 3.74
+      },
+      {
+        "producto": "Frijol Negro x Lb",
+        "cantidad": 5,
+        "precio_unitario": 1.75,
+        "precio_total": 8.75
+      },
+      {
+        "producto": "Frijol Rojo x Lb",
+        "cantidad": 5,
+        "precio_unitario": 1.8,
+        "precio_total": 9
+      },
+      {
+        "producto": "Mazo de cebolla blanca",
+        "cantidad": 1,
+        "precio_unitario": 1.5,
+        "precio_total": 1.5
+      },
+      {
+        "producto": "Limón x Lb",
+        "cantidad": 1,
+        "precio_unitario": 1.5,
+        "precio_total": 1.5
+      },
+      {
+        "producto": "Plátano macho x unidad",
+        "cantidad": 10,
+        "precio_unitario": 0.26,
+        "precio_total": 2.6
+      }
+    ],
+    "precio_compra_total": "47.29",
+    "navegador": "Chrome",
+    "sistema_operativo": "Android",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2600:387:15:6812::1",
+    "pais": "United States",
+    "fecha_hora_entrada": "2025-11-17 08:19:27",
+    "origen": "Acceso directo",
+    "afiliado": "Dalenis (Ale)",
+    "duracion_sesion_segundos": 426,
+    "tiempo_carga_pagina_ms": 259,
+    "nombre_comprador": "Yanisleydis cruz",
+    "telefono_comprador": "9045044222",
+    "correo_comprador": "yanycruz36@icloud.com",
+    "direccion_envio": "Calle45# 22 / 18 y 20 altura de buena vista",
+    "compras": [
+      {
+        "producto": "Fideos de Ada",
+        "cantidad": 2,
+        "precio_unitario": 1.4,
+        "precio_total": 2.8
+      },
+      {
+        "producto": "Garbanzos Extra (500g)",
+        "cantidad": 1,
+        "precio_unitario": 1.87,
+        "precio_total": 1.87
+      },
+      {
+        "producto": "Picadillo de pollo (1Kg)",
+        "cantidad": 1,
+        "precio_unitario": 2.97,
+        "precio_total": 2.97
+      },
+      {
+        "producto": "Gelatina Boom 40g",
+        "cantidad": 1,
+        "precio_unitario": 1.6,
+        "precio_total": 1.6
+      },
+      {
+        "producto": "Alubia Pinta Extra (500g)",
+        "cantidad": 1,
+        "precio_unitario": 1.87,
+        "precio_total": 1.87
+      },
+      {
+        "producto": "Higado de Pollo Sadia 1KG",
+        "cantidad": 1,
+        "precio_unitario": 2.45,
+        "precio_total": 2.45
+      }
+    ],
+    "precio_compra_total": "13.56",
+    "navegador": "Safari",
+    "sistema_operativo": "iOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   }
 ]
