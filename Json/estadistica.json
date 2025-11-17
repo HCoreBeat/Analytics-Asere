@@ -8134,5 +8134,62 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2600:387:15:6510::c",
+    "pais": "United States",
+    "fecha_hora_entrada": "2025-11-17 14:37:02",
+    "origen": "Acceso directo",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 854,
+    "tiempo_carga_pagina_ms": 747,
+    "nombre_comprador": "Isnelys Guerra",
+    "telefono_comprador": "5029361472",
+    "correo_comprador": "isnelysguerra0@gmail.com",
+    "direccion_envio": "Edificio 11 apartamento E2 reparto Buena Vista",
+    "compras": [
+      {
+        "producto": "Pollo Country Pride",
+        "cantidad": 1,
+        "precio_unitario": 14,
+        "precio_total": 14
+      },
+      {
+        "producto": "Refresco Instantáneo (3Lt)",
+        "cantidad": 11,
+        "precio_unitario": 0.42,
+        "precio_total": 4.62
+      },
+      {
+        "producto": "Limón x Lb",
+        "cantidad": 2,
+        "precio_unitario": 2.31,
+        "precio_total": 4.62
+      },
+      {
+        "producto": "Lomo de cerdo deshuesado x Lb",
+        "cantidad": 3,
+        "precio_unitario": 3.85,
+        "precio_total": 11.55
+      },
+      {
+        "producto": "Alubia Pinta Extra (500g)",
+        "cantidad": 1,
+        "precio_unitario": 1.87,
+        "precio_total": 1.87
+      },
+      {
+        "producto": "Pechuga de Pollo (1Kg)",
+        "cantidad": 1,
+        "precio_unitario": 8,
+        "precio_total": 8
+      }
+    ],
+    "precio_compra_total": "44.66",
+    "navegador": "Safari",
+    "sistema_operativo": "iOS",
+    "tipo_usuario": "Único",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   }
 ]
