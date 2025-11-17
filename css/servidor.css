@@ -1,0 +1,600 @@
+/* ========================================
+   SERVIDOR VIEW - Estilos limpios y responsivos
+   ======================================== */
+
+/* Contenedor principal de la sección */
+.server-section {
+    padding: 1.25rem;
+    width: 100%;
+    box-sizing: border-box;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Banner de advertencia para el desarrollador (Huguito) */
+.srv-warning-banner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    background: linear-gradient(90deg, #ffefc2, #ffd6a5);
+    color: #3b2f00;
+    border: 1px solid rgba(0,0,0,0.06);
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+.srv-warning-content { display:flex; flex-direction:column; gap:0.25rem; }
+.srv-warning-content strong { font-size:0.95rem; }
+.srv-warning-text { font-size:0.9rem; color: rgba(59,47,0,0.9); }
+.srv-warning-close {
+    background: transparent;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    color: rgba(59,47,0,0.9);
+}
+
+/* Small stat-card variant inside servidor view */
+.server-top-stats { display:flex; gap:1rem; flex-wrap:wrap; align-items:stretch; }
+.server-top-stats .stat-card.small { min-width: 140px; padding: 0.85rem; display:flex; flex-direction:column; justify-content:center; }
+.server-top-stats .stat-label { font-size:0.75rem; color: rgba(255,255,255,0.7); }
+.server-top-stats .stat-value { font-size:1.15rem; color: #00ffd1; font-weight:700; }
+
+/* Make sure servidor view content forces the footer down (no overlap) */
+.view-content { position: relative; z-index: 1; }
+
+
+/* Row de configuración (Backend URL, Auto-refresh, etc) */
+.server-config-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 1rem;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.server-config-row label {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #e6eef8;
+    margin: 0;
+}
+
+.server-config-row input[type="text"],
+.server-config-row select {
+    padding: 0.5rem 0.75rem;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(0, 0, 0, 0.3);
+    color: #e6eef8;
+    font-size: 0.9rem;
+}
+
+.server-config-row input[type="text"]:focus,
+.server-config-row select:focus {
+    outline: none;
+    border-color: #4f46e5;
+    background: rgba(79, 70, 229, 0.1);
+}
+
+.server-config-row input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    accent-color: #4f46e5;
+}
+
+.server-config-row .server-url-input {
+    min-width: 250px;
+    flex: 1;
+}
+
+.server-config-row #server-refresh-interval {
+    width: 90px;
+}
+
+#server-last-updated {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.85rem;
+    margin-left: auto;
+}
+
+/* Barra de acciones (botones) */
+.server-actions {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+}
+
+.server-actions .btn {
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-weight: 500;
+}
+
+/* Reduce header action buttons specifically inside servidor view so they fit on small screens */
+#servidor-view .header-actions .btn {
+    padding: 0.45rem 0.6rem;
+    font-size: 0.85rem;
+}
+
+@media (max-width: 768px) {
+    #servidor-view .header-actions .btn { padding: 0.4rem 0.5rem; font-size: 0.82rem; }
+}
+
+@media (max-width: 480px) {
+    #servidor-view .header-actions { display: flex; flex-direction: column; gap: 0.35rem; align-items: stretch; }
+    #servidor-view .header-actions .btn { width: 100%; text-align: center; }
+}
+
+/* Icon-only buttons on very small screens: hide text but keep icons */
+@media (max-width: 360px) {
+    #servidor-view .header-actions .btn { width: 40px; height: 40px; padding: 0.35rem; display:inline-flex; align-items:center; justify-content:center; }
+    #servidor-view .header-actions .btn .btn-text { display: none; }
+    #servidor-view .header-actions .btn i { font-size: 1rem; }
+}
+
+.server-actions .btn:hover {
+    transform: translateY(-1px);
+}
+
+/* Salida de servidor (grid principal) */
+.server-output {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.2rem;
+}
+
+.server-status-panel,
+.server-logs-panel {
+    background: rgba(15, 23, 32, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+.server-status-panel h4,
+.server-logs-panel h4 {
+    margin: 0 0 0.75rem 0;
+    color: #e6eef8;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Pre formateado para JSON */
+.json-pre {
+    background: rgba(0, 0, 0, 0.4);
+    color: #a1d8ff;
+    padding: 0.75rem;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    max-height: 280px;
+    overflow: auto;
+    font-size: 0.8rem;
+    font-family: 'Monaco', 'Menlo', 'Courier New', monospace;
+    line-height: 1.4;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+.json-pre::-webkit-scrollbar {
+    width: 6px;
+}
+
+.json-pre::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.json-pre::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+}
+
+.json-pre::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Paneles de datos (Comparison y Nuevos Pedidos) */
+.server-data-panels {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+}
+
+.server-data-panels > .panel {
+    background: rgba(15, 23, 32, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+.server-status-panel, .server-logs-panel, .server-data-panels > .panel, .card {
+    min-width: 0; /* allow children to shrink correctly and avoid overflow */
+}
+
+.server-data-panels > .panel h4 {
+    margin: 0 0 0.75rem 0;
+    color: #e6eef8;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Panel de lista (Comparison, Nuevos Pedidos) */
+.list-panel {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 0.75rem;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    min-height: 120px;
+    max-height: 250px;
+    overflow-y: auto;
+    flex: 0 1 auto;
+    margin-bottom: 1rem;
+}
+
+/* Specific styling for users by country listing to keep it compact */
+#server-users-by-country .list-item { display:flex; justify-content:space-between; align-items:center; gap:0.5rem; }
+#server-users-by-country .srv-muted { font-size:0.9rem; }
+.list-panel { min-width: 0; }
+
+.list-panel::-webkit-scrollbar {
+    width: 6px;
+}
+
+.list-panel::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.list-panel::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+}
+
+.list-panel::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Elemento de lista (genérico) */
+.list-item {
+    padding: 0.6rem 0.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+    font-size: 0.9rem;
+    color: #d1d5db;
+}
+
+.list-item:last-child {
+    border-bottom: none;
+}
+
+.list-item strong {
+    color: #e6eef8;
+    margin-right: 0.5rem;
+}
+
+.list-item .srv-muted {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.85rem;
+    margin: 0 0.5rem;
+}
+
+/* Elemento de pedido en servidor (único de servidor) */
+.srv-order-item {
+    padding: 0.75rem;
+    margin-bottom: 0.5rem;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+.srv-order-item:hover {
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.srv-order-row {
+    cursor: pointer;
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    flex-wrap: wrap;
+    color: #d1d5db;
+    font-size: 0.9rem;
+    user-select: none;
+}
+.srv-order-row { min-width: 0; }
+
+.srv-order-row strong {
+    color: #e6eef8;
+    min-width: 40px;
+}
+
+.srv-order-row b {
+    color: #a1d8ff;
+}
+
+.srv-order-row:hover {
+    color: #e6eef8;
+}
+
+.srv-order-details {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 0.75rem;
+    margin-top: 0.5rem;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-family: 'Monaco', 'Menlo', 'Courier New', monospace;
+    color: #a1d8ff;
+    max-height: 300px;
+    overflow: auto;
+    line-height: 1.4;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.srv-order-details::-webkit-scrollbar {
+    width: 6px;
+}
+
+.srv-order-details::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.srv-order-details::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+}
+
+.srv-order-details.srv-hidden {
+    display: none;
+}
+
+/* Estilos generales de servidor */
+.srv-muted {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.85rem;
+}
+
+/* Canvas para gráficas */
+canvas {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Ensure charts have a baseline height so they look good on narrow screens */
+.server-data-panels canvas, .server-output canvas { min-height: 160px; height: 220px; }
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+
+@media (max-width: 1200px) {
+    .server-section {
+        padding: 1rem;
+    }
+
+    .server-output {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 0.9rem;
+    }
+
+    .server-data-panels {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .server-section {
+        padding: 0.75rem;
+    }
+
+    .server-config-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+        padding: 0.75rem;
+    }
+
+    .server-config-row label {
+        width: 100%;
+    }
+
+    .server-config-row input[type="text"],
+    .server-config-row select {
+        width: 100%;
+    }
+
+    .server-config-row .server-url-input {
+        width: 100%;
+        min-width: auto;
+        flex: none;
+    }
+
+    #server-last-updated {
+        width: 100%;
+        margin-left: 0;
+        margin-top: 0.5rem;
+    }
+
+    .server-actions {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .server-actions .btn {
+        width: 100%;
+        padding: 0.7rem 1rem;
+    }
+
+    .server-output {
+        gap: 0.5rem;
+    }
+
+    .server-status-panel,
+    .server-logs-panel,
+    .server-data-panels > .panel {
+        padding: 0.75rem;
+    }
+
+    .json-pre {
+        max-height: 200px;
+        font-size: 0.75rem;
+    }
+
+    .list-panel {
+        max-height: 200px;
+        font-size: 0.85rem;
+    }
+
+    .srv-order-item {
+        padding: 0.5rem;
+        margin-bottom: 0.4rem;
+    }
+
+    .server-top-stats { gap: 0.6rem; }
+    .server-top-stats .stat-card.small { min-width: 45%; }
+
+    .srv-order-row {
+/* warning-style for the save button (distinct, cautionary) */
+#servidor-view .btn.btn-warning {
+    background: linear-gradient(90deg,#ffb347,#ffcc33);
+    color: #2b2b2b;
+    border: 1px solid rgba(0,0,0,0.08);
+}
+#servidor-view .btn.btn-warning:hover { filter: brightness(0.98); }
+
+/* Spinner overlay for long operations */
+.srv-spinner {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0,0,0,0.45);
+    z-index: 2000;
+}
+.srv-spinner.hidden { display: none; }
+.srv-spinner-box {
+    background: var(--secondary, #151519);
+    padding: 1rem 1.25rem;
+    border-radius: 8px;
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+    border: 1px solid rgba(255,255,255,0.03);
+}
+.srv-spinner-icon {
+    width: 28px; height: 28px; border-radius: 50%; border: 4px solid rgba(255,255,255,0.12); border-top-color: #fff; animation: srv-spin 1s linear infinite;
+}
+@keyframes srv-spin { to { transform: rotate(360deg); } }
+.srv-spinner-text { color: var(--text, #f4f6f8); font-weight:600; }
+
+/* Simple modal for save results */
+.srv-modal { position: fixed; inset: 0; display:flex; align-items:center; justify-content:center; background: rgba(0,0,0,0.4); z-index:2100; }
+.srv-modal.hidden { display:none; }
+.srv-modal-content { background: var(--secondary,#151519); padding:1rem 1.25rem; border-radius:10px; width: min(640px, 94%); border:1px solid rgba(255,255,255,0.04); }
+.srv-modal-content h3 { margin:0 0 0.5rem 0; color:var(--accent,#00c78f); }
+.srv-modal-content #srv-save-modal-body { color: #e6eef8; font-size:0.95rem; max-height: 320px; overflow:auto; white-space:pre-wrap; }
+.srv-modal-actions { display:flex; justify-content:flex-end; gap:0.5rem; margin-top:0.75rem; }
+        font-size: 0.85rem;
+    }
+
+    .srv-order-details {
+        max-height: 250px;
+        font-size: 0.75rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .server-section {
+        padding: 0.5rem;
+    }
+
+    .server-config-row {
+        padding: 0.5rem;
+        gap: 0.35rem;
+    }
+
+    .server-actions {
+        gap: 0.35rem;
+    }
+
+    .server-actions .btn {
+        padding: 0.6rem 0.8rem;
+        font-size: 0.85rem;
+    }
+
+    .server-output,
+    .server-data-panels {
+        gap: 0.4rem;
+    }
+
+    .server-status-panel,
+    .server-logs-panel,
+    .server-data-panels > .panel {
+        padding: 0.5rem;
+    }
+
+    .server-status-panel h4,
+    .server-logs-panel h4,
+    .server-data-panels > .panel h4 {
+        font-size: 0.85rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .json-pre {
+        max-height: 150px;
+        font-size: 0.7rem;
+        padding: 0.5rem;
+    }
+
+    .list-panel {
+        max-height: 150px;
+        font-size: 0.8rem;
+        padding: 0.5rem;
+    }
+
+    .list-item {
+        padding: 0.4rem 0.3rem;
+        font-size: 0.85rem;
+    }
+
+    .server-top-stats .stat-card.small { min-width: 48%; }
+
+    .srv-order-item {
+        padding: 0.4rem;
+        margin-bottom: 0.3rem;
+    }
+
+    .srv-order-row {
+        font-size: 0.8rem;
+    }
+
+    .srv-order-details {
+        max-height: 200px;
+        font-size: 0.7rem;
+        padding: 0.5rem;
+        margin-top: 0.3rem;
+    }
+}
+

@@ -10,6 +10,7 @@
 
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/floating-bot.css">
+    <link rel="stylesheet" href="css/servidor.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
@@ -41,6 +42,10 @@
             <button class="menu-item" data-view="affiliates">
                 <i class="fas fa-user-clock"></i>
                 <span>Afiliados Temporales</span>
+            </button>
+            <button class="menu-item" data-view="servidor">
+                <i class="fas fa-server"></i>
+                <span>Servidor</span>
             </button>
         </div>
 
@@ -636,6 +641,107 @@
             </div>
         </div>
 
+    <!-- Servidor view (moved above footer so footer stays below content) -->
+    <div id="servidor-view" class="view-content hidden">
+        <header class="header">
+            <div class="header-top">
+                <div class="menu-left">
+                    <button class="menu-toggle"><i class="fas fa-bars"></i> Menú</button>
+                </div>
+                <div class="search-bar">
+                    <input type="text" id="server-search" placeholder="Buscar..." class="input-dark">
+                    <button class="search-btn"><i class="fas fa-search"></i></button>
+                </div>
+                <div class="header-actions">
+                    <button id="btn-get-server-status" class="btn btn-primary" title="Refrescar"><i class="fas fa-sync-alt"></i> <span class="btn-text">Refrescar</span></button>
+                    <button id="btn-update-comparison" class="btn btn-secondary" title="Forzar Comparación"><i class="fas fa-exchange-alt"></i> <span class="btn-text">Forzar</span></button>
+                    <button id="btn-save-new-orders" class="btn btn-warning" title="Guardar pedidos nuevos en GitHub"><i class="fas fa-cloud-upload-alt"></i> <span class="btn-text">Guardar Pedidos</span></button>
+                    <button id="btn-clear-statistics" class="btn cancel-btn" title="Limpiar Estadísticas"><i class="fas fa-trash-alt"></i> <span class="btn-text">Limpiar</span></button>
+                </div>
+            </div>
+            <h2><i class="fas fa-server"></i> Servidor</h2>
+        </header>
+
+        <!-- Banner de advertencia (solo para Huguito) -->
+        <div class="srv-warning-banner" id="srv-warning-banner" role="status" aria-live="polite">
+            <div class="srv-warning-content">
+                <strong>Atención — Solo para Huguito (desarrollador)</strong>
+                <span class="srv-warning-text">Este segmento es peligroso para uso general. Solo el desarrollador debe interactuar aquí ya que acciones incorrectas pueden dañar el servidor.</span>
+            </div>
+            <button class="srv-warning-close" id="srv-warning-close" aria-label="Cerrar aviso">✕</button>
+        </div>
+
+        <section class="server-section">
+            <div class="card">
+                <h3 class="card-title"><i class="fas fa-info-circle"></i> Estado del Servidor</h3>
+
+                <div class="server-top-stats">
+                        <div class="stat-card small">
+                            <div class="stat-label">Uptime</div>
+                            <div id="server-uptime" class="stat-value">-</div>
+                        </div>
+                        <div class="stat-card small">
+                            <div class="stat-label">Solicitudes</div>
+                            <div id="server-requests-count" class="stat-value">-</div>
+                        </div>
+                        <div class="stat-card small">
+                            <div class="stat-label">Nuevos Pedidos</div>
+                            <div id="new-orders-count" class="stat-value">-</div>
+                        </div>
+                        <div class="stat-card small">
+                            <div class="stat-label">Usuarios (preview)</div>
+                            <div id="server-users-count" class="stat-value">-</div>
+                        </div>
+                    </div>
+
+                <div class="server-config-row">
+                    <label for="server-base-url">Backend URL:</label>
+                    <input id="server-base-url" class="input-dark server-url-input" type="text" readonly aria-readonly="true" title="La URL del backend está fijada y no puede cambiarse desde aquí." />
+                    <button id="btn-save-base-url" class="btn btn-secondary" disabled aria-disabled="true" title="No permitido">Guardar URL</button>
+                    <label>Auto-refresh</label>
+                    <input type="checkbox" id="server-auto-refresh" />
+                    <select id="server-refresh-interval" class="select-dark">
+                        <option value="15">15s</option>
+                        <option value="30">30s</option>
+                        <option value="60">60s</option>
+                        <option value="300">5m</option>
+                    </select>
+                    <span id="server-last-updated">No actualizado</span>
+                </div>
+
+                <div class="server-output">
+                    <div class="server-status-panel">
+                        <h4>Información Básica</h4>
+                        <pre id="server-status-pre" class="json-pre">No cargado</pre>
+                    </div>
+
+                    <div class="server-logs-panel">
+                        <h4>Logs / Mensajes</h4>
+                        <pre id="server-logs-pre" class="json-pre">Sin mensajes</pre>
+                    </div>
+
+                    <div class="server-data-panels">
+                        <div class="panel">
+                            <h4>Usuarios (preview)</h4>
+                            <div id="server-users-preview" class="list-panel">N/A</div>
+                        </div>
+                            <div class="panel">
+                                <h4>Usuarios por País</h4>
+                                <div id="server-users-by-country" class="list-panel">N/A</div>
+                                <div class="chart-container" style="margin-top:0.5rem;">
+                                    <canvas id="chart-users-country" width="300" height="120"></canvas>
+                                </div>
+                            </div>
+                        <div class="panel">
+                            <h4>Nuevos Pedidos</h4>
+                            <div id="new-orders-list" class="list-panel">N/A</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
         <footer class="footer">
             <div class="footer-content">
                 <span class="footer-text">© 2025 Analytics-Asere · v3.5.1</span>
@@ -680,11 +786,31 @@
                 </div>
             </div>
         </div>
+        <!-- Spinner/Overlay para operaciones largas (guardar en GitHub) -->
+        <div id="srv-spinner" class="srv-spinner hidden" aria-hidden="true">
+            <div class="srv-spinner-box">
+                <div class="srv-spinner-icon"></div>
+                <div class="srv-spinner-text">Guardando pedidos en GitHub...</div>
+            </div>
+        </div>
+
+        <!-- Modal de resultado de guardado -->
+        <div id="srv-save-modal" class="srv-modal hidden" role="dialog" aria-modal="true" aria-labelledby="srv-save-modal-title">
+            <div class="srv-modal-content">
+                <h3 id="srv-save-modal-title">Resultado</h3>
+                <div id="srv-save-modal-body">Esperando acción...</div>
+                <div class="srv-modal-actions">
+                    <button id="srv-save-modal-close" class="btn btn-primary">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    
     </main>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
     <script src="Js/config.js" defer></script>
     <script src="Js/script.js" defer></script>
+    <script src="Js/servidor.js" defer></script>
     <script src="Js/floating-bot.js"></script>
 </body>
 </html>
