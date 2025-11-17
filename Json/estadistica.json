@@ -8089,5 +8089,50 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "109.54.119.232",
+    "pais": "Italy",
+    "fecha_hora_entrada": "2025-11-17 11:41:17",
+    "origen": "Acceso directo",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 384,
+    "tiempo_carga_pagina_ms": 2268,
+    "nombre_comprador": "Nailin contreras santiesteban",
+    "telefono_comprador": "3395327206",
+    "correo_comprador": "leonormax@gmail.com",
+    "direccion_envio": "Calle colon 148A entre Ramon ortuño e 24febrero",
+    "compras": [
+      {
+        "producto": "Pata de cerdo x Lb",
+        "cantidad": 6,
+        "precio_unitario": 2.8,
+        "precio_total": 16.799999999999997
+      },
+      {
+        "producto": "Garbanzos Extra (500g)",
+        "cantidad": 3,
+        "precio_unitario": 1.87,
+        "precio_total": 5.61
+      },
+      {
+        "producto": "Frijol Negro Alubia (500g)",
+        "cantidad": 3,
+        "precio_unitario": 1.87,
+        "precio_total": 5.61
+      },
+      {
+        "producto": "Alubia Pinta Extra (500g)",
+        "cantidad": 2,
+        "precio_unitario": 1.87,
+        "precio_total": 3.74
+      }
+    ],
+    "precio_compra_total": "31.76",
+    "navegador": "Chrome",
+    "sistema_operativo": "Android",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   }
 ]
