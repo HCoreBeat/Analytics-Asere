@@ -8311,5 +8311,44 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2600:387:15:1a13::9",
+    "pais": "United States",
+    "fecha_hora_entrada": "2025-11-19 16:20:51",
+    "origen": "Acceso directo",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 314,
+    "tiempo_carga_pagina_ms": 1020,
+    "nombre_comprador": "Lianet Milanes",
+    "telefono_comprador": "5613296717",
+    "correo_comprador": "milaneslianet9@gmail.com",
+    "direccion_envio": "Calle 19 #64 entre Cuba y J. Mayedo reparto Buena Vista Las tunas",
+    "compras": [
+      {
+        "producto": "Cartón de Huevos",
+        "cantidad": 2,
+        "precio_unitario": 10,
+        "precio_total": 20
+      },
+      {
+        "producto": "Limón x Lb",
+        "cantidad": 2,
+        "precio_unitario": 2.31,
+        "precio_total": 4.62
+      },
+      {
+        "producto": "Gelatina Boom 40g",
+        "cantidad": 4,
+        "precio_unitario": 1.6,
+        "precio_total": 6.4
+      }
+    ],
+    "precio_compra_total": "31.02",
+    "navegador": "Safari",
+    "sistema_operativo": "iOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   }
 ]
