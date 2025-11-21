@@ -8350,5 +8350,44 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2600:387:15:6812::1",
+    "pais": "United States",
+    "fecha_hora_entrada": "2025-11-21 06:37:55",
+    "origen": "Acceso directo",
+    "afiliado": "Dalenis (Ale)",
+    "duracion_sesion_segundos": 1712,
+    "tiempo_carga_pagina_ms": 135,
+    "nombre_comprador": "Yanisleydis cruz Hidalgo",
+    "telefono_comprador": "9045044222",
+    "correo_comprador": "yanycruz36@icloud.com",
+    "direccion_envio": "Calle 45 #22 /18y 20 altura de buena vista",
+    "compras": [
+      {
+        "producto": "Pechuga de Pollo (1Kg)",
+        "cantidad": 1,
+        "precio_unitario": 8,
+        "precio_total": 8
+      },
+      {
+        "producto": "Gelatina Boom 40g",
+        "cantidad": 2,
+        "precio_unitario": 1.6,
+        "precio_total": 3.2
+      },
+      {
+        "producto": "Fideos de Ada",
+        "cantidad": 2,
+        "precio_unitario": 1.4,
+        "precio_total": 2.8
+      }
+    ],
+    "precio_compra_total": "14.00",
+    "navegador": "Safari",
+    "sistema_operativo": "iOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   }
 ]
