@@ -8389,5 +8389,80 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2600:387:f:d1a::b",
+    "pais": "United States",
+    "fecha_hora_entrada": "2025-11-21 10:18:15",
+    "origen": "Acceso directo",
+    "afiliado": "Juana",
+    "duracion_sesion_segundos": 255,
+    "tiempo_carga_pagina_ms": 86,
+    "nombre_comprador": "Yoandra Martinez",
+    "telefono_comprador": "7863191466",
+    "correo_comprador": "yoa2002ye@gmail.com",
+    "direccion_envio": "Calle 22 15 Alto % 43 Y 45\nReparto De Buena Vista",
+    "compras": [
+      {
+        "producto": "Refresco Instantáneo (3Lt)",
+        "cantidad": 10,
+        "precio_unitario": 0.42,
+        "precio_total": 4.2
+      },
+      {
+        "producto": "Pollo Country Pride",
+        "cantidad": 1,
+        "precio_unitario": 14,
+        "precio_total": 14
+      },
+      {
+        "producto": "Leche entera en polvo (1kg)",
+        "cantidad": 2,
+        "precio_unitario": 8.9,
+        "precio_total": 17.8
+      },
+      {
+        "producto": "Aceite Fritura 900ml",
+        "cantidad": 2,
+        "precio_unitario": 3.15,
+        "precio_total": 6.3
+      },
+      {
+        "producto": "Paquete de pan de bola 10u",
+        "cantidad": 1,
+        "precio_unitario": 1.9,
+        "precio_total": 1.9
+      },
+      {
+        "producto": "Pack Golozetas (12u de paquetes)",
+        "cantidad": 1,
+        "precio_unitario": 3.12,
+        "precio_total": 3.12
+      },
+      {
+        "producto": "Gelatina Boom 40g",
+        "cantidad": 4,
+        "precio_unitario": 1.6,
+        "precio_total": 6.4
+      },
+      {
+        "producto": "Café Dulfito (250g)",
+        "cantidad": 2,
+        "precio_unitario": 5.05,
+        "precio_total": 10.1
+      },
+      {
+        "producto": "Café Bryderk (250g)",
+        "cantidad": 2,
+        "precio_unitario": 6,
+        "precio_total": 12
+      }
+    ],
+    "precio_compra_total": "75.82",
+    "navegador": "Safari",
+    "sistema_operativo": "iOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   }
 ]
