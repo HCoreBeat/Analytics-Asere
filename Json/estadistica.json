@@ -8521,5 +8521,44 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2600:1015:b024:9a99:a950:a43a:9d05:59d6",
+    "pais": "United States",
+    "fecha_hora_entrada": "2025-11-24 14:15:54",
+    "origen": "Acceso directo",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 153,
+    "tiempo_carga_pagina_ms": 501,
+    "nombre_comprador": "Eileen Cruz",
+    "telefono_comprador": "5024387312",
+    "correo_comprador": "eileencruz@gmail.com",
+    "direccion_envio": "Francisco Vega numero 173 entre Lora y Nicolas Heredia Las Tunas reparto primero",
+    "compras": [
+      {
+        "producto": "Malta Bucanero",
+        "cantidad": 12,
+        "precio_unitario": 1.15,
+        "precio_total": 13.799999999999999
+      },
+      {
+        "producto": "Refresco Limón (330ml)",
+        "cantidad": 5,
+        "precio_unitario": 0.95,
+        "precio_total": 4.75
+      },
+      {
+        "producto": "Leche Condensada azucarada (390g)",
+        "cantidad": 1,
+        "precio_unitario": 1.9,
+        "precio_total": 1.9
+      }
+    ],
+    "precio_compra_total": "20.45",
+    "navegador": "Safari",
+    "sistema_operativo": "iOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   }
 ]
