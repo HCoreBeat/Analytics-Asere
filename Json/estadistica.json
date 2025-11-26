@@ -8560,5 +8560,104 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2600:1700:3d65:580:201f:c337:11d:1e2f",
+    "pais": "United States",
+    "fecha_hora_entrada": "2025-11-26 09:15:27",
+    "origen": "Acceso directo",
+    "afiliado": "Juana",
+    "duracion_sesion_segundos": 4418,
+    "tiempo_carga_pagina_ms": 1244,
+    "nombre_comprador": "Yoandra Martinez",
+    "telefono_comprador": "7863191466",
+    "correo_comprador": "yoa2002ye@gmail.com",
+    "direccion_envio": "Calle 22 15 Alto % 43 Y 45\nReparto De Buena Vista",
+    "compras": [
+      {
+        "producto": "Aceite Fritura 900ml",
+        "cantidad": 1,
+        "precio_unitario": 3.15,
+        "precio_total": 3.15
+      },
+      {
+        "producto": "Gelatina Boom 40g",
+        "cantidad": 6,
+        "precio_unitario": 1.6,
+        "precio_total": 9.600000000000001
+      },
+      {
+        "producto": "Café Bryderk (250g)",
+        "cantidad": 2,
+        "precio_unitario": 6,
+        "precio_total": 12
+      },
+      {
+        "producto": "Jabones de baño Harmony",
+        "cantidad": 4,
+        "precio_unitario": 0.8,
+        "precio_total": 3.2
+      },
+      {
+        "producto": "Tohallitas Húmedas sin alcohol (120u)",
+        "cantidad": 2,
+        "precio_unitario": 5.9,
+        "precio_total": 11.8
+      },
+      {
+        "producto": "Colonia Bonabel de Violetas",
+        "cantidad": 2,
+        "precio_unitario": 5.25,
+        "precio_total": 10.5
+      },
+      {
+        "producto": "Pack galletas Delechitas (18u de paquetes)",
+        "cantidad": 1,
+        "precio_unitario": 2.88,
+        "precio_total": 2.88
+      },
+      {
+        "producto": "Pack Golozetas (12u de paquetes)",
+        "cantidad": 1,
+        "precio_unitario": 3.12,
+        "precio_total": 3.12
+      },
+      {
+        "producto": "Pastilla de Pollo",
+        "cantidad": 5,
+        "precio_unitario": 0.2,
+        "precio_total": 1
+      },
+      {
+        "producto": "Cartón de Huevos",
+        "cantidad": 1,
+        "precio_unitario": 10,
+        "precio_total": 10
+      },
+      {
+        "producto": "Paquete de pan de bola 10u",
+        "cantidad": 2,
+        "precio_unitario": 1.9,
+        "precio_total": 3.8
+      },
+      {
+        "producto": "Pechuga de Pollo (1Kg)",
+        "cantidad": 1,
+        "precio_unitario": 8,
+        "precio_total": 8
+      },
+      {
+        "producto": "Pack Malta Guajira (6u)",
+        "cantidad": 1,
+        "precio_unitario": 6,
+        "precio_total": 6
+      }
+    ],
+    "precio_compra_total": "85.05",
+    "navegador": "Safari",
+    "sistema_operativo": "iOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   }
 ]
