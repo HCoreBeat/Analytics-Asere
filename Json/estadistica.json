@@ -8659,5 +8659,197 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2600:1015:b024:9a99:a950:a43a:9d05:59d6",
+    "pais": "United States",
+    "fecha_hora_entrada": "2025-11-26 11:06:57",
+    "origen": "Acceso directo",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 1210,
+    "tiempo_carga_pagina_ms": 859,
+    "nombre_comprador": "Eileen Cruz",
+    "telefono_comprador": "5024387312",
+    "correo_comprador": "eileencruz8902@gmail.com",
+    "direccion_envio": "Francisco Vega 173 Lora y Nicolas Heredia Las Tunas reparto Primero",
+    "compras": [
+      {
+        "producto": "Pack Malta Guajira (6u)",
+        "cantidad": 2,
+        "precio_unitario": 6,
+        "precio_total": 12
+      },
+      {
+        "producto": "Limón x Lb",
+        "cantidad": 4,
+        "precio_unitario": 2.31,
+        "precio_total": 9.24
+      },
+      {
+        "producto": "Pechuga de Pollo (1Kg)",
+        "cantidad": 1,
+        "precio_unitario": 8,
+        "precio_total": 8
+      }
+    ],
+    "precio_compra_total": "29.24",
+    "navegador": "Safari",
+    "sistema_operativo": "iOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2600:1700:3961:1510:9ee:414d:90f:87e5",
+    "pais": "United States",
+    "fecha_hora_entrada": "2025-11-26 15:43:23",
+    "origen": "Acceso directo",
+    "afiliado": "Natty",
+    "duracion_sesion_segundos": 1828,
+    "tiempo_carga_pagina_ms": 922,
+    "nombre_comprador": "Shakira Granda Rodriguez",
+    "telefono_comprador": "7866094405",
+    "correo_comprador": "shakiragranda@icloud.com",
+    "direccion_envio": "Loco Cruz #108A entre Gonzalo de Quesada y Villalon",
+    "compras": [
+      {
+        "producto": "Queso criollo x Lb",
+        "cantidad": 10,
+        "precio_unitario": 2.35,
+        "precio_total": 23.5
+      },
+      {
+        "producto": "Leche entera en polvo Malibú (1Kg)",
+        "cantidad": 1,
+        "precio_unitario": 9.9,
+        "precio_total": 9.9
+      },
+      {
+        "producto": "Mayonesa Celorrio",
+        "cantidad": 1,
+        "precio_unitario": 6.4,
+        "precio_total": 6.4
+      },
+      {
+        "producto": "Paquete de pan de bola 10u",
+        "cantidad": 3,
+        "precio_unitario": 1.9,
+        "precio_total": 5.699999999999999
+      },
+      {
+        "producto": "Cartón de Huevos",
+        "cantidad": 1,
+        "precio_unitario": 10,
+        "precio_total": 10
+      },
+      {
+        "producto": "Gelatina Boom 40g",
+        "cantidad": 5,
+        "precio_unitario": 1.6,
+        "precio_total": 8
+      },
+      {
+        "producto": "Limpiador Multiuso Royal Cleaner",
+        "cantidad": 2,
+        "precio_unitario": 3.2,
+        "precio_total": 6.4
+      },
+      {
+        "producto": "Limpiador Multiuso Royal Cleaner Aroma a Limón",
+        "cantidad": 2,
+        "precio_unitario": 3.2,
+        "precio_total": 6.4
+      },
+      {
+        "producto": "Esponjas para fregar",
+        "cantidad": 10,
+        "precio_unitario": 0.48,
+        "precio_total": 4.8
+      },
+      {
+        "producto": "Pack Malta Guajira (6u)",
+        "cantidad": 1,
+        "precio_unitario": 6,
+        "precio_total": 6
+      },
+      {
+        "producto": "Salchicha de pollo y cerdo 10u (340g)",
+        "cantidad": 2,
+        "precio_unitario": 1.9,
+        "precio_total": 3.8
+      },
+      {
+        "producto": "Menthoplus",
+        "cantidad": 3,
+        "precio_unitario": 0.63,
+        "precio_total": 1.8900000000000001
+      },
+      {
+        "producto": "Frijol Rojo x Lb",
+        "cantidad": 5,
+        "precio_unitario": 2.9,
+        "precio_total": 14.5
+      },
+      {
+        "producto": "Frijol Negro x Lb",
+        "cantidad": 3,
+        "precio_unitario": 2.63,
+        "precio_total": 7.89
+      },
+      {
+        "producto": "Frazada de Piso",
+        "cantidad": 2,
+        "precio_unitario": 1.99,
+        "precio_total": 3.98
+      },
+      {
+        "producto": "Plátano macho x unidad",
+        "cantidad": 15,
+        "precio_unitario": 0.26,
+        "precio_total": 3.9000000000000004
+      },
+      {
+        "producto": "Boniato x Lb",
+        "cantidad": 5,
+        "precio_unitario": 0.42,
+        "precio_total": 2.1
+      },
+      {
+        "producto": "Mano de plátano burro",
+        "cantidad": 2,
+        "precio_unitario": 0.95,
+        "precio_total": 1.9
+      },
+      {
+        "producto": "Mazo de cebolla blanca",
+        "cantidad": 5,
+        "precio_unitario": 2.8,
+        "precio_total": 14
+      },
+      {
+        "producto": "Ajo Pelado (1kg)",
+        "cantidad": 1,
+        "precio_unitario": 7.2,
+        "precio_total": 7.2
+      },
+      {
+        "producto": "Refresco Gaseado",
+        "cantidad": 3,
+        "precio_unitario": 2.95,
+        "precio_total": 8.850000000000001
+      },
+      {
+        "producto": "Refresco Instantáneo (3Lt)",
+        "cantidad": 5,
+        "precio_unitario": 0.42,
+        "precio_total": 2.1
+      }
+    ],
+    "precio_compra_total": "159.21",
+    "navegador": "Safari",
+    "sistema_operativo": "iOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   }
 ]
