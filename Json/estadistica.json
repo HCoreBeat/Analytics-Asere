@@ -8851,5 +8851,44 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2600:387:15:6814::1",
+    "pais": "United States",
+    "fecha_hora_entrada": "2025-11-30 11:50:02",
+    "origen": "Acceso directo",
+    "afiliado": "Dalenis (Ale)",
+    "duracion_sesion_segundos": 319,
+    "tiempo_carga_pagina_ms": 113,
+    "nombre_comprador": "Yanisleydis cruz",
+    "telefono_comprador": "9045044222",
+    "correo_comprador": "yanycruz36@icloud.com",
+    "direccion_envio": "Calle 45 #22/ 20 y 18 altura de buena vista",
+    "compras": [
+      {
+        "producto": "Pollo Country Pride",
+        "cantidad": 1,
+        "precio_unitario": 14,
+        "precio_total": 14
+      },
+      {
+        "producto": "Gelatina Boom 40g",
+        "cantidad": 1,
+        "precio_unitario": 1.6,
+        "precio_total": 1.6
+      },
+      {
+        "producto": "Picadillo de pollo (1Kg)",
+        "cantidad": 1,
+        "precio_unitario": 2.97,
+        "precio_total": 2.97
+      }
+    ],
+    "precio_compra_total": "18.57",
+    "navegador": "Safari",
+    "sistema_operativo": "iOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   }
 ]
