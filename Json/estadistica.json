@@ -8890,5 +8890,104 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2603:6011:1c00:35:6165:377:d098:6e32",
+    "pais": "United States",
+    "fecha_hora_entrada": "2025-12-02 18:16:45",
+    "origen": "Acceso directo",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 1520,
+    "tiempo_carga_pagina_ms": 1488,
+    "nombre_comprador": "Alejandro Pupo",
+    "telefono_comprador": "9412786076",
+    "correo_comprador": "alsteps@gmail.com",
+    "direccion_envio": "Calle Agustín Cebereco. Edif 34 apt. D4. Buena vista",
+    "compras": [
+      {
+        "producto": "Pollo Country Pride",
+        "cantidad": 1,
+        "precio_unitario": 14,
+        "precio_total": 14
+      },
+      {
+        "producto": "Pechuga de Pollo (1Kg)",
+        "cantidad": 1,
+        "precio_unitario": 8,
+        "precio_total": 8
+      },
+      {
+        "producto": "Espaguetis (500g)",
+        "cantidad": 2,
+        "precio_unitario": 1.3,
+        "precio_total": 2.6
+      },
+      {
+        "producto": "Arroz Importado 1kg",
+        "cantidad": 2,
+        "precio_unitario": 2.9,
+        "precio_total": 5.8
+      },
+      {
+        "producto": "Frijol Negro Alubia (500g)",
+        "cantidad": 2,
+        "precio_unitario": 1.87,
+        "precio_total": 3.74
+      },
+      {
+        "producto": "Aceite Fritura 900ml",
+        "cantidad": 2,
+        "precio_unitario": 3.15,
+        "precio_total": 6.3
+      },
+      {
+        "producto": "Cartón de Huevos",
+        "cantidad": 1,
+        "precio_unitario": 10,
+        "precio_total": 10
+      },
+      {
+        "producto": "Garbanzos Extra (500g)",
+        "cantidad": 2,
+        "precio_unitario": 1.87,
+        "precio_total": 3.74
+      },
+      {
+        "producto": "Azúcar Extra Fina 1Kg (Mirante)",
+        "cantidad": 1,
+        "precio_unitario": 1.93,
+        "precio_total": 1.93
+      },
+      {
+        "producto": "Leche entera en polvo (1kg)",
+        "cantidad": 1,
+        "precio_unitario": 8.9,
+        "precio_total": 8.9
+      },
+      {
+        "producto": "Café La Llave (284g)",
+        "cantidad": 1,
+        "precio_unitario": 9.9,
+        "precio_total": 9.9
+      },
+      {
+        "producto": "Salchicha de pollo y cerdo 10u (340g)",
+        "cantidad": 2,
+        "precio_unitario": 1.9,
+        "precio_total": 3.8
+      },
+      {
+        "producto": "Pack Malta Guajira (6u)",
+        "cantidad": 2,
+        "precio_unitario": 6,
+        "precio_total": 12
+      }
+    ],
+    "precio_compra_total": "90.71",
+    "navegador": "Safari",
+    "sistema_operativo": "iOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   }
 ]
