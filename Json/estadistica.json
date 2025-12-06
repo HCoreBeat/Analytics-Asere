@@ -8989,5 +8989,80 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2600:1700:3d65:580:8569:64de:5062:91bc",
+    "pais": "United States",
+    "fecha_hora_entrada": "2025-12-06 12:15:21",
+    "origen": "Acceso directo",
+    "afiliado": "Juana",
+    "duracion_sesion_segundos": 387,
+    "tiempo_carga_pagina_ms": 897,
+    "nombre_comprador": "Yoandra Martinez",
+    "telefono_comprador": "7863191466",
+    "correo_comprador": "yoa2002ye@gmail.com",
+    "direccion_envio": "Calle 22 15 Alto % 43 Y 45\n Reparto De Buena Vista",
+    "compras": [
+      {
+        "producto": "Refresco Gaseado",
+        "cantidad": 2,
+        "precio_unitario": 2.95,
+        "precio_total": 5.9
+      },
+      {
+        "producto": "Refresco Instantáneo (3Lt)",
+        "cantidad": 6,
+        "precio_unitario": 0.42,
+        "precio_total": 2.52
+      },
+      {
+        "producto": "Leche entera en polvo (1kg)",
+        "cantidad": 1,
+        "precio_unitario": 8.9,
+        "precio_total": 8.9
+      },
+      {
+        "producto": "Aceite Fritura 900ml",
+        "cantidad": 2,
+        "precio_unitario": 3.15,
+        "precio_total": 6.3
+      },
+      {
+        "producto": "Pack Golozetas (12u de paquetes)",
+        "cantidad": 1,
+        "precio_unitario": 3.12,
+        "precio_total": 3.12
+      },
+      {
+        "producto": "Gelatina Boom 40g",
+        "cantidad": 3,
+        "precio_unitario": 1.6,
+        "precio_total": 4.800000000000001
+      },
+      {
+        "producto": "Sorbeto Lorena",
+        "cantidad": 4,
+        "precio_unitario": 0.8,
+        "precio_total": 3.2
+      },
+      {
+        "producto": "Café La Llave (284g)",
+        "cantidad": 2,
+        "precio_unitario": 9.9,
+        "precio_total": 19.8
+      },
+      {
+        "producto": "Pechuga de Pollo (1Kg)",
+        "cantidad": 1,
+        "precio_unitario": 8,
+        "precio_total": 8
+      }
+    ],
+    "precio_compra_total": "62.54",
+    "navegador": "Safari",
+    "sistema_operativo": "iOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   }
 ]
