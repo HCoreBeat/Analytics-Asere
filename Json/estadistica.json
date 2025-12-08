@@ -9064,5 +9064,38 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2607:fb91:19ac:828e:5c42:e636:b226:d05b",
+    "pais": "United States",
+    "fecha_hora_entrada": "2025-12-08 08:42:30",
+    "origen": "Acceso directo",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 147,
+    "tiempo_carga_pagina_ms": 8819,
+    "nombre_comprador": "Ileana Vila Rodriguez",
+    "telefono_comprador": "3059707233",
+    "correo_comprador": "vilarodriguez61@gmail.com",
+    "direccion_envio": "Edificio 22 apt. E1 . Buena Vista.  Las Tunas",
+    "compras": [
+      {
+        "producto": "Leche entera en polvo (1kg)",
+        "cantidad": 1,
+        "precio_unitario": 8.9,
+        "precio_total": 8.9
+      },
+      {
+        "producto": "Pack Golozetas (12u de paquetes)",
+        "cantidad": 1,
+        "precio_unitario": 3.12,
+        "precio_total": 3.12
+      }
+    ],
+    "precio_compra_total": "12.02",
+    "navegador": "Chrome",
+    "sistema_operativo": "Android",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   }
 ]
