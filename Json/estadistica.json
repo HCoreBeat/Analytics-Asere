@@ -9130,5 +9130,107 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2601:586:5601:bd50:f901:a3ad:4dbe:1fd7",
+    "pais": "United States",
+    "fecha_hora_entrada": "2025-12-13 19:55:05",
+    "origen": "Acceso directo",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 627,
+    "tiempo_carga_pagina_ms": 4181,
+    "nombre_comprador": "Rolando Gonzalez",
+    "telefono_comprador": "7868057592",
+    "correo_comprador": "gonzalezrolando711@gmail.com",
+    "direccion_envio": "Calle 17 s/n entre calle luis molina y 14 reparto buena vista las tunas",
+    "compras": [
+      {
+        "producto": "Leche entera en polvo (1kg)",
+        "cantidad": 1,
+        "precio_unitario": 8.9,
+        "precio_total": 8.9
+      },
+      {
+        "producto": "Cartón de Huevos",
+        "cantidad": 1,
+        "precio_unitario": 10,
+        "precio_total": 10
+      },
+      {
+        "producto": "Aceite Fritura 900ml",
+        "cantidad": 2,
+        "precio_unitario": 3.15,
+        "precio_total": 6.3
+      },
+      {
+        "producto": "Café Pilón (283g)",
+        "cantidad": 3,
+        "precio_unitario": 8.58,
+        "precio_total": 25.740000000000002
+      },
+      {
+        "producto": "Refresco Gaseado",
+        "cantidad": 3,
+        "precio_unitario": 2.95,
+        "precio_total": 8.850000000000001
+      },
+      {
+        "producto": "Espaguetis (500g)",
+        "cantidad": 5,
+        "precio_unitario": 1.3,
+        "precio_total": 6.5
+      },
+      {
+        "producto": "Mayonesa Celorrio",
+        "cantidad": 3,
+        "precio_unitario": 6.4,
+        "precio_total": 19.200000000000003
+      },
+      {
+        "producto": "Pack Malta Guajira (6u)",
+        "cantidad": 2,
+        "precio_unitario": 6,
+        "precio_total": 12
+      }
+    ],
+    "precio_compra_total": "97.49",
+    "navegador": "Edge",
+    "sistema_operativo": "Windows",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2601:586:5601:bd50:e512:dc90:9c24:3a83",
+    "pais": "United States",
+    "fecha_hora_entrada": "2025-12-13 20:00:42",
+    "origen": "Acceso directo",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 235,
+    "tiempo_carga_pagina_ms": 5201,
+    "nombre_comprador": "Rolando Gonzalez",
+    "telefono_comprador": "7868057592",
+    "correo_comprador": "gonzalezrolando711@gmail.com",
+    "direccion_envio": "Calle 17 s/n entre calle luis molina y 14 reparto buena vista las tunas",
+    "compras": [
+      {
+        "producto": "Leche Condensada azucarada (390g)",
+        "cantidad": 5,
+        "precio_unitario": 1.9,
+        "precio_total": 9.5
+      },
+      {
+        "producto": "Paquete de salchichas 7u (350g)",
+        "cantidad": 3,
+        "precio_unitario": 1.9,
+        "precio_total": 5.699999999999999
+      }
+    ],
+    "precio_compra_total": "15.20",
+    "navegador": "Edge",
+    "sistema_operativo": "Windows",
+    "tipo_usuario": "Único",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   }
 ]
