@@ -9232,5 +9232,38 @@
     "tipo_usuario": "Único",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "130.45.64.46",
+    "pais": "United States",
+    "fecha_hora_entrada": "2025-12-18 14:42:05",
+    "origen": "Acceso directo",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 143,
+    "tiempo_carga_pagina_ms": 529,
+    "nombre_comprador": "Lianet Milanes",
+    "telefono_comprador": "5613296717",
+    "correo_comprador": "milaneslianet9@gmail.com",
+    "direccion_envio": "Edificio 14 apto 3 calle 1ro de Enero entre Máximo Gómez y Julian Grimau, Anap",
+    "compras": [
+      {
+        "producto": "Leche entera en polvo Malibú (1Kg)",
+        "cantidad": 1,
+        "precio_unitario": 9.9,
+        "precio_total": 9.9
+      },
+      {
+        "producto": "Limón x Lb",
+        "cantidad": 2,
+        "precio_unitario": 2.31,
+        "precio_total": 4.62
+      }
+    ],
+    "precio_compra_total": "14.52",
+    "navegador": "Safari",
+    "sistema_operativo": "iOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   }
 ]
