@@ -9265,5 +9265,74 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2607:fb90:791b:4931:6d3f:3381:4467:58fd",
+    "pais": "United States",
+    "fecha_hora_entrada": "2026-01-09 15:01:07",
+    "origen": "https://www.google.com/",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 392,
+    "tiempo_carga_pagina_ms": 1174,
+    "nombre_comprador": "Nayelin Reyes",
+    "telefono_comprador": "7863002520",
+    "correo_comprador": "nileyan2018@gmail.com",
+    "direccion_envio": "Edificio 26 apto c5 buena vista las tunas \nCerca del telecentro",
+    "compras": [
+      {
+        "producto": "Aceite Fritura 900ml",
+        "cantidad": 1,
+        "precio_unitario": 3.15,
+        "precio_total": 3.15
+      },
+      {
+        "producto": "Paquete de pan de bola 10u",
+        "cantidad": 1,
+        "precio_unitario": 1.9,
+        "precio_total": 1.9
+      },
+      {
+        "producto": "Arroz Rainha Brasil (1Kg)",
+        "cantidad": 1,
+        "precio_unitario": 2.97,
+        "precio_total": 2.97
+      },
+      {
+        "producto": "Mano de plátano burro",
+        "cantidad": 1,
+        "precio_unitario": 0.95,
+        "precio_total": 0.95
+      },
+      {
+        "producto": "Plátano macho x unidad",
+        "cantidad": 5,
+        "precio_unitario": 0.26,
+        "precio_total": 1.3
+      },
+      {
+        "producto": "Colonia Bonabel de Violetas",
+        "cantidad": 1,
+        "precio_unitario": 5.25,
+        "precio_total": 5.25
+      },
+      {
+        "producto": "Pack Golozetas (12u de paquetes)",
+        "cantidad": 1,
+        "precio_unitario": 3.12,
+        "precio_total": 3.12
+      },
+      {
+        "producto": "Frijol Rojo x Lb",
+        "cantidad": 1,
+        "precio_unitario": 2.9,
+        "precio_total": 2.9
+      }
+    ],
+    "precio_compra_total": "21.54",
+    "navegador": "Safari",
+    "sistema_operativo": "iOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Google"
   }
 ]
