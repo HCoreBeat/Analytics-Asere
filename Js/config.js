@@ -8,8 +8,8 @@ const CONFIG = {
     },
     PRODUCT_CATEGORIES: [
         'frutas',
-        'cafe',
-        'carnes',
+        'café',
+        'cárnicos',
         'enlatados',
         'aderezos',
         'agro',
@@ -22,7 +22,7 @@ const CONFIG = {
         'confituras',
         'otros',
         'vehículos',
-        'electrodomesticos',
+        'electrodomésticos',
         'aseo',
         'fragancias'
     ]
