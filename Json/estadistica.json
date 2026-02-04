@@ -9334,5 +9334,86 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Google"
+  },
+  {
+    "ip": "2600:1700:3d65:580:50be:fde1:6b8a:3faf",
+    "pais": "United States",
+    "fecha_hora_entrada": "2026-01-31 10:36:59",
+    "origen": "https://www.google.com/",
+    "afiliado": "Juana",
+    "duracion_sesion_segundos": 405,
+    "tiempo_carga_pagina_ms": 1400,
+    "nombre_comprador": "Yoandra Martinez",
+    "telefono_comprador": "7863191466",
+    "correo_comprador": "yoa2002ye@gmail.com",
+    "direccion_envio": "Calle 22 , 15 Alto % 43 Y 45\nReparto De Buena Vista",
+    "compras": [
+      {
+        "producto": "Pollo Country Pride",
+        "cantidad": 1,
+        "precio_unitario": 12,
+        "precio_total": 12
+      },
+      {
+        "producto": "Cartón de Huevos",
+        "cantidad": 1,
+        "precio_unitario": 9,
+        "precio_total": 9
+      },
+      {
+        "producto": "Paquete de pan de bola 8u/10u",
+        "cantidad": 2,
+        "precio_unitario": 1.8,
+        "precio_total": 3.6
+      },
+      {
+        "producto": "Aceite de Girasol 5lts",
+        "cantidad": 1,
+        "precio_unitario": 18.33,
+        "precio_total": 18.33
+      },
+      {
+        "producto": "Galletas Renata",
+        "cantidad": 3,
+        "precio_unitario": 0.95,
+        "precio_total": 2.8499999999999996
+      },
+      {
+        "producto": "Paquete de galletats Lamore",
+        "cantidad": 2,
+        "precio_unitario": 0.97,
+        "precio_total": 1.94
+      },
+      {
+        "producto": "Café Purasangre (250g)",
+        "cantidad": 2,
+        "precio_unitario": 5.17,
+        "precio_total": 10.34
+      },
+      {
+        "producto": "Carne de res enlatada 400g",
+        "cantidad": 2,
+        "precio_unitario": 2.17,
+        "precio_total": 4.34
+      },
+      {
+        "producto": "Spam de cerdo 340g",
+        "cantidad": 2,
+        "precio_unitario": 2.17,
+        "precio_total": 4.34
+      },
+      {
+        "producto": "Pack de 12 latas de néctar de piña",
+        "cantidad": 1,
+        "precio_unitario": 13.73,
+        "precio_total": 13.73
+      }
+    ],
+    "precio_compra_total": "80.47",
+    "navegador": "Safari",
+    "sistema_operativo": "iOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Google"
   }
 ]
