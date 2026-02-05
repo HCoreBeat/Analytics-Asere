@@ -38,6 +38,106 @@
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
   },
+    {
+    "ip": "2600:1700:3d65:580:50be:fde1:6b8a:3faf",
+    "pais": "United States",
+    "fecha_hora_entrada": "2026-02-05 10:11:10",
+    "origen": "WhatsApp Business",
+    "afiliado": "Asere",
+    "asereshop.com": false,
+    "duracion_sesion_segundos": 420,
+    "tiempo_carga_pagina_ms": 1200,
+    "nombre_comprador": "Maria Marquez",
+    "telefono_comprador": "5 6354666",
+    "correo_comprador": "cliente@whatsapp.com",
+    "direccion_envio": "Pendiente de confirmar por el cliente",
+    "compras": [
+      {
+        "producto": "Saco de arroz americano importado 25kgs",
+        "cantidad": 2,
+        "precio_unitario": 35.0,
+        "precio_total": 70.0
+      },
+      {
+        "producto": "Café La Llave (284g)",
+        "cantidad": 2,
+        "precio_unitario": 8.0,
+        "precio_total": 16.0
+      },
+      {
+        "producto": "Picadillo Especial 400g",
+        "cantidad": 5,
+        "precio_unitario": 1.5,
+        "precio_total": 7.5
+      },
+      {
+        "producto": "Pollo Country Pride",
+        "cantidad": 1,
+        "precio_unitario": 11.45,
+        "precio_total": 11.45
+      },
+      {
+        "producto": "Queso criollo x Lb",
+        "cantidad": 3,
+        "precio_unitario": 2.91,
+        "precio_total": 8.73
+      },
+      {
+        "producto": "Azúcar blanca x lb",
+        "cantidad": 10,
+        "precio_unitario": 1.23,
+        "precio_total": 12.3
+      },
+      {
+        "producto": "Spam de cerdo 340g",
+        "cantidad": 3,
+        "precio_unitario": 2.17,
+        "precio_total": 6.51
+      },
+      {
+        "producto": "Pasta de tomate Oderich 350g",
+        "cantidad": 5,
+        "precio_unitario": 1.17,
+        "precio_total": 5.85
+      },
+      {
+        "producto": "Mayonesa Victoria (250ml)",
+        "cantidad": 1,
+        "precio_unitario": 2.17,
+        "precio_total": 2.17
+      },
+      {
+        "producto": "Frazada de Piso",
+        "cantidad": 4,
+        "precio_unitario": 0.73,
+        "precio_total": 2.92
+      },
+      {
+        "producto": "Jabones de baño Florona",
+        "cantidad": 10,
+        "precio_unitario": 0.37,
+        "precio_total": 3.7
+      },
+      {
+        "producto": "Paquete de Papel Sanitario 4 rollos",
+        "cantidad": 5,
+        "precio_unitario": 2.0,
+        "precio_total": 10.0
+      },
+      {
+        "producto": "Detergente en polvo 500g",
+        "cantidad": 5,
+        "precio_unitario": 1.29,
+        "precio_total": 6.45
+      }
+    ],
+    "precio_compra_total": "163.58",
+    "navegador": "WhatsApp Web",
+    "sistema_operativo": "Android/iOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+  },
   {
     "ip": "2607:fb90:79db:8965:196d:4e37:bfeb:3078",
     "pais": "United States",
