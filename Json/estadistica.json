@@ -9415,5 +9415,44 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Google"
+  },
+  {
+    "ip": "176.200.2.53",
+    "pais": "Italy",
+    "fecha_hora_entrada": "2026-02-05 07:22:52",
+    "origen": "Acceso directo",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 121,
+    "tiempo_carga_pagina_ms": 2130,
+    "nombre_comprador": "Nailin contreras santiesteban",
+    "telefono_comprador": "3395327206",
+    "correo_comprador": "leonormax@gmail.com",
+    "direccion_envio": "Calle colon 148A entre Ramon ortuño e 24febrero",
+    "compras": [
+      {
+        "producto": "Plátano macho x unidad",
+        "cantidad": 40,
+        "precio_unitario": 0.31,
+        "precio_total": 12.4
+      },
+      {
+        "producto": "Boniato x Lb",
+        "cantidad": 5,
+        "precio_unitario": 0.53,
+        "precio_total": 2.6500000000000004
+      },
+      {
+        "producto": "Mano de plátano burro",
+        "cantidad": 4,
+        "precio_unitario": 0.97,
+        "precio_total": 3.88
+      }
+    ],
+    "precio_compra_total": "18.93",
+    "navegador": "Chrome",
+    "sistema_operativo": "Android",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   }
 ]
