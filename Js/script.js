@@ -1370,6 +1370,12 @@ class SalesDashboard {
             item.addEventListener('click', () => {
                 this.currentView = item.dataset.view;
                 this.setupView();
+                // Cerrar sidebar al seleccionar una opción del menú (solo menu-item, no filtros)
+                const sidebar = document.querySelector('.sidebar');
+                if (sidebar && sidebar.classList.contains('active')) {
+                    sidebar.classList.remove('active');
+                    document.body.classList.remove('menu-open');
+                }
                 if (this.currentView.includes('affiliates')) {
                     this.renderAllAffiliates();
                 }

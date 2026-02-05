@@ -133,6 +133,71 @@ body.menu-open {
   box-shadow: inset 3px 0 0 rgba(255, 165, 0, 0.3);
 }
 
+/* Finanzas menu styling */
+.menu-item[data-view="finanzas"] {
+  background: linear-gradient(90deg, rgba(6, 182, 212, 0.04), rgba(59, 130, 246, 0.02));
+  color: #60a5fa;
+}
+.menu-item[data-view="finanzas"]:hover {
+  background: linear-gradient(90deg, rgba(59, 130, 246, 0.08), rgba(6, 182, 212, 0.04));
+}
+.menu-item[data-view="finanzas"].active {
+  background: linear-gradient(90deg, rgba(59, 130, 246, 0.12), rgba(14, 165, 233, 0.04));
+  color: #3b82f6;
+  box-shadow: inset 3px 0 0 rgba(59, 130, 246, 0.18);
+}
+
+/* Simple table styles for exchange rates */
+.rates-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+.rates-table th, .rates-table td { 
+  padding: 0.6rem 0.75rem; 
+  text-align: left; 
+  vertical-align: middle; 
+}
+.rates-table th { 
+  font-weight: 600; 
+  color: var(--text-secondary); 
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.rates-table tbody tr td { 
+  border-top: 1px solid rgba(255, 255, 255, 0.05); 
+}
+.rates-table tbody tr:hover {
+  background: rgba(255, 255, 255, 0.02);
+}
+.rates-table .rate-input { 
+  border: 1px solid rgba(255, 255, 255, 0.1); 
+  border-radius: 6px; 
+  background: rgba(0, 0, 0, 0.2);
+  color: var(--text);
+  padding: 0.5rem 0.75rem;
+  width: 100%;
+  max-width: 120px;
+  transition: var(--transition);
+}
+.rates-table .rate-input:focus { 
+  border-color: var(--accent);
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(0, 199, 143, 0.15);
+}
+.rates-table code {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  color: var(--accent);
+}
+.rates-table .rate-status {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
 .menu-item i {
   width: 20px;
   text-align: center;
@@ -144,6 +209,193 @@ body.menu-open {
   flex-direction: column;
   gap: 1.25rem;
   margin-top: 30px;
+  margin-bottom: 100px;
+}
+
+/* ========== Finanzen/Finanzas Section Styles ========== */
+.finances-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.finances-section .card {
+  background: var(--secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+}
+
+.finances-section .card-title {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+  color: var(--accent);
+  font-size: 1.1rem;
+}
+
+.finances-section .card-body {
+  margin-top: 1rem;
+}
+
+.exchange-rates-panel {
+  width: 100%;
+  overflow-x: auto;
+  margin-top: 1rem;
+}
+
+.panel-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.panel-actions .btn {
+  padding: 0.5rem 1rem;
+  font-size: 0.85rem;
+}
+
+.loading-placeholder {
+  text-align: center;
+  padding: 2rem;
+  color: var(--text-secondary);
+}
+
+.loading-placeholder i {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+/* Responsive styles for Finanzen/Finanzas */
+@media (max-width: 768px) {
+  .finances-section {
+    gap: 1rem;
+  }
+  
+  .finances-section .card {
+    padding: 1rem;
+  }
+  
+  .finances-section .card-title {
+    font-size: 1rem;
+    flex-wrap: wrap;
+  }
+  
+  .panel-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .panel-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .finances-section .card {
+    padding: 0.75rem;
+  }
+  
+  .finances-section .card-title i {
+    font-size: 1rem;
+  }
+  
+  .loading-placeholder {
+    padding: 1.5rem 1rem;
+  }
+  
+  .loading-placeholder i {
+    font-size: 1.5rem;
+  }
+}
+
+/* Table responsive wrapper */
+.table-responsive-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin-top: 1rem;
+  border-radius: 8px;
+}
+
+.table-responsive-wrapper .rates-table {
+  min-width: 600px;
+}
+
+/* Enhanced rates table */
+.rates-table-enhanced .rate-description {
+  font-weight: 500;
+  color: var(--text);
+  display: block;
+  max-width: 250px;
+}
+
+.rates-table-enhanced .rate-origen {
+  display: inline-block;
+  padding: 0.2rem 0.5rem;
+  background: rgba(59, 130, 246, 0.1);
+  border-radius: 4px;
+  font-size: 0.8rem;
+  color: #60a5fa;
+}
+
+.rates-table-enhanced .rate-rango {
+  font-family: monospace;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.rates-table-enhanced .rate-input-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.rates-table-enhanced .rate-input {
+  width: 100px;
+  min-width: 80px;
+}
+
+.rates-table-enhanced .rate-moneda {
+  font-weight: 600;
+  color: var(--accent);
+  font-size: 0.85rem;
+}
+
+.rates-table-enhanced .rate-status {
+  display: block;
+  font-size: 0.75rem;
+  margin-top: 0.25rem;
+  color: var(--text-secondary);
+}
+
+@media (max-width: 768px) {
+  .table-responsive-wrapper .rates-table {
+    min-width: 550px;
+  }
+  
+  .rates-table-enhanced .rate-description {
+    max-width: 180px;
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .table-responsive-wrapper .rates-table {
+    min-width: 500px;
+  }
+  
+  .rates-table-enhanced .rate-description {
+    max-width: 150px;
+    font-size: 0.8rem;
+  }
 }
 
 .filter-group label {
