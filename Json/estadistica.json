@@ -38,7 +38,7 @@
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
   },
-    {
+  {
     "ip": "2600:1700:3d65:580:50be:fde1:6b8a:3faf",
     "pais": "United States",
     "fecha_hora_entrada": "2026-02-05 10:11:10",
@@ -55,14 +55,14 @@
       {
         "producto": "Saco de arroz americano importado 25kgs",
         "cantidad": 2,
-        "precio_unitario": 35.0,
-        "precio_total": 70.0
+        "precio_unitario": 35,
+        "precio_total": 70
       },
       {
         "producto": "Café La Llave (284g)",
         "cantidad": 2,
-        "precio_unitario": 8.0,
-        "precio_total": 16.0
+        "precio_unitario": 8,
+        "precio_total": 16
       },
       {
         "producto": "Picadillo Especial 400g",
@@ -121,8 +121,8 @@
       {
         "producto": "Paquete de Papel Sanitario 4 rollos",
         "cantidad": 5,
-        "precio_unitario": 2.0,
-        "precio_total": 10.0
+        "precio_unitario": 2,
+        "precio_total": 10
       },
       {
         "producto": "Detergente en polvo 500g",
@@ -204,6 +204,51 @@
     "navegador": "Safari",
     "sistema_operativo": "iOS",
     "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2601:58a:8504:6480:76b3:b924:35c7:8bc3",
+    "pais": "United States",
+    "fecha_hora_entrada": "2026-02-05 11:30:35",
+    "origen": "Acceso directo",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 47996,
+    "tiempo_carga_pagina_ms": 1599,
+    "nombre_comprador": "Mayelin",
+    "telefono_comprador": "7862568427",
+    "correo_comprador": "susanlaffita@gmail.com",
+    "direccion_envio": "Calle colon #148A / ramón ortuño y 24 febrero reparto primero",
+    "compras": [
+      {
+        "producto": "Caja de cuartos de pollo 40lbs",
+        "cantidad": 1,
+        "precio_unitario": 45,
+        "precio_total": 45
+      },
+      {
+        "producto": "Aceite de Girasol 5lts",
+        "cantidad": 1,
+        "precio_unitario": 18.33,
+        "precio_total": 18.33
+      },
+      {
+        "producto": "Paquete de íntimas 8u",
+        "cantidad": 2,
+        "precio_unitario": 1.17,
+        "precio_total": 2.34
+      },
+      {
+        "producto": "Caja de Malta Bucanero",
+        "cantidad": 1,
+        "precio_unitario": 25,
+        "precio_total": 25
+      }
+    ],
+    "precio_compra_total": "90.67",
+    "navegador": "Chrome",
+    "sistema_operativo": "Android",
+    "tipo_usuario": "Único",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
   }
