@@ -507,6 +507,9 @@ class SalesDashboard {
             order.userType = order.tipo_usuario || 'No especificado';
             order.affiliate = order.afiliado || 'Sin afiliado';
             order.country = order.pais || 'No especificado';
+            // Origen: campo 'asereshop.com' indica si el pedido vino desde la web oficial
+            order.fromAsereshop = (typeof order["asereshop.com"] !== 'undefined') ? !!order["asereshop.com"] : null;
+            order.isExternal = (order.fromAsereshop === false); // true si fue un pedido hecho fuera de la web
             order.searchText = `${order.nombre_comprador} ${order.country} ${order.userType} ${order.affiliate} ${order.telefono_comprador} ${order.correo_comprador}`.toLowerCase();
             
             // Verificar si es pedido de hoy
@@ -2148,7 +2151,7 @@ class SalesDashboard {
     container.innerHTML = data
         .sort((a, b) => b.date - a.date)
         .map(order => `
-            <div class="order-card">
+            <div class="order-card ${order.isExternal ? 'external' : ''}">
                 <div class="order-header">
                     <div class="order-main-info">
                         <h4>${order.nombre_comprador}</h4>
@@ -2172,6 +2175,17 @@ class SalesDashboard {
                             <span>Afiliado: ${order.afiliado}</span>
                         </div>
                         ` : ''}
+                        ${order.isExternal ? `
+                        <div class="traffic-source external">
+                            <i class="fas fa-external-link-alt"></i>
+                            Pedido externo (fuera de la web)
+                        </div>
+                        ` : `
+                        <div class="traffic-source">
+                            <i class="fas fa-globe"></i>
+                            Web ${order.fromAsereshop ? '(asereshop.com)' : (order.origen ? '('+order.origen+')' : '')}
+                        </div>
+                        `}
                     </div>
                     <div class="order-stats">
                         <div class="stat-value">$${order.total.toFixed(2)}</div>
@@ -2188,6 +2202,12 @@ class SalesDashboard {
                         `).join('')}
                     </div>
                     <div class="order-footer">
+                        ${order.direccion_envio ? `
+                        <div class="meta-item full-width">
+                            <i class="fas fa-map-marker-alt"></i>
+                            ${order.direccion_envio}
+                        </div>
+                        ` : ''}
                         <div class="meta-item">
                             <i class="fas fa-desktop"></i>
                             ${order.navegador} / ${order.sistema_operativo}

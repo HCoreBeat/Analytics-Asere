@@ -832,11 +832,26 @@
 
         <!-- Modal de resultado de guardado -->
         <div id="srv-save-modal" class="srv-modal hidden" role="dialog" aria-modal="true" aria-labelledby="srv-save-modal-title">
+            <div class="srv-modal-overlay" id="srv-modal-overlay"></div>
             <div class="srv-modal-content">
-                <h3 id="srv-save-modal-title">Resultado</h3>
-                <div id="srv-save-modal-body">Esperando acción...</div>
+                <div class="srv-modal-header">
+                    <h3 id="srv-save-modal-title">Resultado</h3>
+                    <button id="srv-save-modal-close-btn" class="srv-modal-close-btn" type="button" aria-label="Cerrar">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div id="srv-save-modal-body" class="srv-modal-body">
+                    <div class="srv-modal-intro">
+                        <div class="srv-modal-icon"><i class="fas fa-bell"></i></div>
+                        <div class="srv-modal-title-desc" id="srv-save-modal-desc">Vista previa del mensaje que se enviará al cliente.</div>
+                    </div>
+                    <pre id="srv-save-modal-pre" class="srv-modal-pre" tabindex="0">Esperando acción...</pre>
+                </div>
                 <div class="srv-modal-actions">
-                    <button id="srv-save-modal-close" class="btn btn-primary">Cerrar</button>
+                    <button id="srv-save-modal-copy" class="btn btn-sm srv-copy-message" type="button">
+                        <i class="fas fa-copy"></i> Copiar
+                    </button>
+                    <button id="srv-save-modal-close" class="btn btn-primary" type="button">Cerrar</button>
                 </div>
             </div>
         </div>

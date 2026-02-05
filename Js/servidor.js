@@ -238,16 +238,88 @@
         else { s.classList.add('hidden'); s.setAttribute('aria-hidden','true'); }
     }
 
-    function showModal(title, body){
+    function showModal(title, body, desc){
         const m = document.getElementById('srv-save-modal');
+        const content = m?.querySelector('.srv-modal-content');
         const h = document.getElementById('srv-save-modal-title');
-        const b = document.getElementById('srv-save-modal-body');
-        if(!m||!h||!b) return;
-        h.textContent = title||'Resultado';
-        b.textContent = (typeof body === 'string') ? body : JSON.stringify(body,null,2);
+        const pre = document.getElementById('srv-save-modal-pre');
+        const overlay = document.getElementById('srv-modal-overlay');
+        const copyBtn = document.getElementById('srv-save-modal-copy');
+        const closeBtn = document.getElementById('srv-save-modal-close-btn');
+        const closeAction = document.getElementById('srv-save-modal-close');
+        const descEl = document.getElementById('srv-save-modal-desc');
+        if(!m||!h||!pre) return;
+
+        const bodyText = (typeof body === 'string') ? body : JSON.stringify(body, null, 2);
+        h.textContent = title || 'Resultado';
+        descEl && (descEl.textContent = desc || 'Vista previa del mensaje que se enviará al cliente.');
+        pre.textContent = bodyText;
+        pre.dataset.text = bodyText;
+
+        // track who had focus to restore later
+        const previouslyFocused = document.activeElement;
+
+        // Open modal and animate
         m.classList.remove('hidden');
-        // wire close
-        document.getElementById('srv-save-modal-close')?.addEventListener('click', ()=>{ m.classList.add('hidden'); });
+        // small timeout to allow CSS transitions
+        setTimeout(()=>{ content && content.classList.add('open'); }, 25);
+
+        // Focus management and trap
+        const focusableSelector = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
+        const focusable = Array.from(m.querySelectorAll(focusableSelector)).filter(el => !el.hasAttribute('disabled'));
+        const firstFocusable = focusable[0];
+        const lastFocusable = focusable[focusable.length-1];
+        firstFocusable && firstFocusable.focus();
+
+        function trapTab(e){
+            if (e.key !== 'Tab') return;
+            if (e.shiftKey) { // shift + tab
+                if (document.activeElement === firstFocusable) { e.preventDefault(); lastFocusable.focus(); }
+            } else {
+                if (document.activeElement === lastFocusable) { e.preventDefault(); firstFocusable.focus(); }
+            }
+        }
+
+        function onKeyDown(e){
+            if (e.key === 'Escape') { e.preventDefault(); closeModal(); return; }
+            trapTab(e);
+        }
+
+        document.addEventListener('keydown', onKeyDown);
+
+        // Close handler that cleans up listeners and restores focus
+        function closeModal(){
+            document.removeEventListener('keydown', onKeyDown);
+            m.classList.add('hidden');
+            content && content.classList.remove('open');
+            try{ previouslyFocused && previouslyFocused.focus(); }catch(e){}
+        }
+
+        // Bind overlay and close buttons (use once)
+        overlay && overlay.addEventListener('click', closeModal, { once: true });
+        closeBtn && closeBtn.addEventListener('click', closeModal, { once: true });
+        closeAction && closeAction.addEventListener('click', closeModal, { once: true });
+
+        // Copy action with feedback (temporary state)
+        if(copyBtn){
+            copyBtn.onclick = async (e)=>{
+                e.preventDefault();
+                const text = pre.dataset.text || pre.textContent || '';
+                const original = copyBtn.innerHTML;
+                try{
+                    await navigator.clipboard.writeText(text);
+                    copyBtn.innerHTML = '<i class="fas fa-check"></i> Copiado';
+                    copyBtn.disabled = true;
+                    showToast('Texto copiado al portapapeles','success');
+                    setTimeout(()=>{ copyBtn.innerHTML = original; copyBtn.disabled = false; }, 1600);
+                }catch(err){
+                    // fallback
+                    const ta = document.createElement('textarea'); ta.value = text; document.body.appendChild(ta); ta.select();
+                    try{ document.execCommand('copy'); showToast('Texto copiado al portapapeles (fallback)','success'); }catch(e){ showToast('No se pudo copiar automáticamente. Seleccione y copie manualmente.','error'); }
+                    ta.remove();
+                }
+            };
+        }
     }
 
     function renderComparisonList(items){
@@ -278,6 +350,10 @@
             const details = encodeURIComponent(JSON.stringify(it));
             return `<div class="srv-order-item" data-idx="${idx}">
                 <div class="srv-order-row"><strong>#${idx+1}</strong> <span class="srv-muted">${date}</span> <b>${buyer}</b> · ${total}</div>
+                <div class="srv-order-actions">
+                    <button class="btn btn-sm srv-preview-btn" type="button">Vista</button>
+                    <button class="btn btn-sm srv-copy-btn" type="button">Copiar</button>
+                </div>
                 <div class="srv-order-details srv-hidden">${escapeHtml(JSON.stringify(it, null, 2))}</div>
             </div>`;
         }).join('');
@@ -288,6 +364,60 @@
                 const parent = row.parentElement;
                 const details = parent.querySelector('.srv-order-details');
                 if (details) details.classList.toggle('srv-hidden');
+            });
+        });
+
+        // Generar texto compacto para enviar al cliente
+        function generateCustomerMessage(it, idx){
+            if (!it) return '';
+            const buyer = it.nombre_comprador || 'Cliente';
+            const date = it.fecha_hora_entrada ? new Date(it.fecha_hora_entrada).toLocaleString() : '';
+            const total = (it.precio_compra_total || it.total || 0);
+            const address = it.direccion_envio || 'Dirección pendiente';
+            const phone = it.telefono_comprador || '';
+            const productos = (it.compras || []).map(p => `${p.cantidad||1} x ${p.producto}`).join(', ');
+            return [
+                `Hola ${buyer},`,
+                ``,
+                `Hemos recibido tu pedido (${idx+1}) el ${date}.`,
+                `Productos: ${productos}.`,
+                `Total: $${parseFloat(total).toFixed(2)}.`,
+                `Dirección: ${address}.`,
+                `Teléfono: ${phone}.`,
+                ``,
+                `Gracias por comprar con nosotros. Pronto te confirmaremos la entrega.`
+            ].join('\n');
+        }
+
+        // Botón de vista (muestra el mensaje en modal)
+        document.querySelectorAll('.srv-order-item .srv-preview-btn').forEach(btn=>{
+            btn.addEventListener('click', (e)=>{
+                e.stopPropagation();
+                const parent = btn.closest('.srv-order-item');
+                const idx = Number(parent?.dataset?.idx);
+                const it = items[idx];
+                const msg = generateCustomerMessage(it, idx);
+                showModal('Vista de notificación', msg);
+            });
+        });
+
+        // Botón de copiar al portapapeles
+        document.querySelectorAll('.srv-order-item .srv-copy-btn').forEach(btn=>{
+            btn.addEventListener('click', async (e)=>{
+                e.stopPropagation();
+                const parent = btn.closest('.srv-order-item');
+                const idx = Number(parent?.dataset?.idx);
+                const it = items[idx];
+                const msg = generateCustomerMessage(it, idx);
+                try{
+                    await navigator.clipboard.writeText(msg);
+                    showToast('Mensaje copiado al portapapeles','success');
+                }catch(err){
+                    // Fallback tradicional
+                    const ta = document.createElement('textarea'); ta.value = msg; document.body.appendChild(ta); ta.select();
+                    try{ document.execCommand('copy'); showToast('Mensaje copiado al portapapeles','success'); }catch(e){ showToast('No se pudo copiar automáticamente. Seleccione y copie manualmente.','error'); }
+                    ta.remove();
+                }
             });
         });
 
