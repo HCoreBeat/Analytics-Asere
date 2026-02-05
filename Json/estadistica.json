@@ -9454,5 +9454,74 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2607:fb90:79db:8965:196d:4e37:bfeb:3078",
+    "pais": "United States",
+    "fecha_hora_entrada": "2026-02-05 10:30:51",
+    "origen": "Acceso directo",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 814,
+    "tiempo_carga_pagina_ms": 1123,
+    "nombre_comprador": "Yakelin Suarez",
+    "telefono_comprador": "2393169117",
+    "correo_comprador": "yakelinsuarez24@gmail.com",
+    "direccion_envio": "𝑪𝒂𝒍𝒍𝒆 #5 𝒆𝒅𝒊𝒇𝒊𝒄𝒊𝒐 23 𝑩 𝒂𝒑𝒂𝒓𝒕𝒂𝒎𝒆𝒏𝒕𝒐 𝑬8 𝑹𝒆𝒑𝒂𝒓𝒕𝒐 𝑨𝒈𝒖𝒊𝒍𝒆𝒓𝒂 𝒑𝒖𝒏𝒕𝒐 𝒅𝒆 𝒓𝒆𝒇𝒆𝒓𝒆𝒏𝒄𝒊𝒂 𝒆𝒍 𝒎𝒆𝒓𝒄𝒂𝒅𝒐 𝒅𝒆𝒍 𝒐𝒓𝒊𝒆𝒏𝒕𝒆",
+    "compras": [
+      {
+        "producto": "Colonia Bonabel de Violetas",
+        "cantidad": 1,
+        "precio_unitario": 3.47,
+        "precio_total": 3.47
+      },
+      {
+        "producto": "Jabones de baño Florona",
+        "cantidad": 4,
+        "precio_unitario": 0.37,
+        "precio_total": 1.48
+      },
+      {
+        "producto": "Paquete de íntimas 8u",
+        "cantidad": 2,
+        "precio_unitario": 1.17,
+        "precio_total": 2.34
+      },
+      {
+        "producto": "Detergente en polvo 500g",
+        "cantidad": 3,
+        "precio_unitario": 1.29,
+        "precio_total": 3.87
+      },
+      {
+        "producto": "Galletas Renata",
+        "cantidad": 2,
+        "precio_unitario": 0.95,
+        "precio_total": 1.9
+      },
+      {
+        "producto": "Paquete de galletats Lamore",
+        "cantidad": 4,
+        "precio_unitario": 0.97,
+        "precio_total": 3.88
+      },
+      {
+        "producto": "Leche Condensada azucarada (390g)",
+        "cantidad": 2,
+        "precio_unitario": 1.67,
+        "precio_total": 3.34
+      },
+      {
+        "producto": "Malta Bucanero",
+        "cantidad": 4,
+        "precio_unitario": 1.15,
+        "precio_total": 4.6
+      }
+    ],
+    "precio_compra_total": "24.88",
+    "navegador": "Safari",
+    "sistema_operativo": "iOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   }
 ]
