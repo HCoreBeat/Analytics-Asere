@@ -667,9 +667,9 @@ class SalesDashboard {
 
             const precioRaw = s.data?.precio || 0;
             // precio mostrado en UI (aplicar factor si tu sistema lo usa)
-            const displayPrice = `$${(precioRaw * 1.05).toFixed(2)}`;
+            const displayPrice = `$${precioRaw.toFixed(2)}`;
             const hasDiscount = s.data?.oferta && s.data?.descuento > 0;
-            const discountedPrice = hasDiscount ? `$${((precioRaw * 1.05) * (1 - (s.data.descuento || 0)/100)).toFixed(2)}` : null;
+            const discountedPrice = hasDiscount ? `$${(precioRaw * (1 - (s.data.descuento || 0)/100)).toFixed(2)}` : null;
 
             // Determine index in the main products JSON (if exists)
             const jsonIndex = this.getProductIndexByName(name);
@@ -2202,12 +2202,6 @@ class SalesDashboard {
                         `).join('')}
                     </div>
                     <div class="order-footer">
-                        ${order.direccion_envio ? `
-                        <div class="meta-item full-width">
-                            <i class="fas fa-map-marker-alt"></i>
-                            ${order.direccion_envio}
-                        </div>
-                        ` : ''}
                         <div class="meta-item">
                             <i class="fas fa-desktop"></i>
                             ${order.navegador} / ${order.sistema_operativo}
@@ -2448,7 +2442,7 @@ class SalesDashboard {
 
         container.innerHTML = this.filteredProducts.map(product => {
             // Calcular precios
-            const finalPrice = product.precio * 1.05;
+            const finalPrice = product.precio;
             const hasDiscount = product.oferta && product.descuento > 0;
             const discountedPrice = hasDiscount ? 
                 finalPrice * (1 - product.descuento/100) : 
@@ -2883,12 +2877,12 @@ class SalesDashboard {
     populateProductForm(product) {
         document.getElementById('product-name').value = product.nombre;
         document.getElementById('product-category').value = product.categoria;
-        document.getElementById('product-price').value = (product.precio * 1.05).toFixed(2);
+        document.getElementById('product-price').value = product.precio.toFixed(2);
         
         // Calcular y mostrar el precio con descuento en lugar del porcentaje
         const discountedPrice = product.oferta ? 
-            (product.precio * 1.05 * (1 - (product.descuento || 0)/100)).toFixed(2) : 
-            (product.precio * 1.05).toFixed(2);
+            (product.precio * 1 * (1 - (product.descuento || 0)/100)).toFixed(2) : 
+            (product.precio * 1).toFixed(2);
         document.getElementById('product-discount').value = discountedPrice;
         
         document.getElementById('product-oferta').checked = product.oferta || false;
@@ -3056,8 +3050,8 @@ class SalesDashboard {
             discountPercentage = ((price - discountPrice) / price * 100).toFixed(1);
         }
         
-        // Calculate final price (price / 1.05)
-        const finalPrice = price / 1.05;
+        // Calculate final price (price / 1)
+        const finalPrice = price / 1;
         
         // Determine image paths
         let imagen = '';
