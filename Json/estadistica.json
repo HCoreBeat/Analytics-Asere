@@ -251,5 +251,90 @@
     "tipo_usuario": "Único",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
-  }
+  },
+  {
+    "ip": "2600:1700:3d65:580:50be:fde1:6b8a:3faf",
+    "pais": "United States",
+    "fecha_hora_entrada": "2026-02-07 09:34:20",
+    "origen": "WhatsApp Business",
+    "afiliado": "Asere",
+    "asereshop.com": false,
+    "duracion_sesion_segundos": 315,
+    "tiempo_carga_pagina_ms": 1150,
+    "nombre_comprador": "Luis Miguel",
+    "telefono_comprador": "No disponible",
+    "correo_comprador": "luis.miguel@cliente.com",
+    "direccion_envio": "Entrega a: Aliannis (Esposa) - Tel: +53 52 46 84 12",
+    "compras": [
+      {
+        "producto": "Saco de arroz 25 kg",
+        "cantidad": 1,
+        "precio_unitario": 45,
+        "precio_total": 45
+      },
+      {
+        "producto": "Carne de cerdo x lb",
+        "cantidad": 20,
+        "precio_unitario": 2.65,
+        "precio_total": 53
+      },
+      {
+        "producto": "Frijol negro x lb",
+        "cantidad": 5,
+        "precio_unitario": 1.87,
+        "precio_total": 9.35
+      },
+      {
+        "producto": "Frijoles colorados x lb",
+        "cantidad": 5,
+        "precio_unitario": 2.57,
+        "precio_total": 12.85
+      }
+    ],
+    "precio_compra_total": "120.20",
+    "navegador": "WhatsApp Web",
+    "sistema_operativo": "Android/iOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+},
+  {
+  "ip": "217.201.244.49",
+  "pais": "Italy",
+  "fecha_hora_entrada": "2026-02-06 15:14:57",
+  "origen": "Acceso directo",
+  "afiliado": "Ninguno",
+  "duracion_sesion_segundos": 673,
+  "tiempo_carga_pagina_ms": 2016,
+  "nombre_comprador": "Nailin contreras santiesteban",
+  "telefono_comprador": "3395327206",
+  "correo_comprador": "leonormax@gmail.com",
+  "direccion_envio": "Calle colon 148A entre Ramon ortuño e 24febrero",
+  "compras": [
+    {
+      "producto": "Pack Confituras",
+      "cantidad": 1,
+      "precio_unitario": 15,
+      "precio_total": 15
+    },
+    {
+      "producto": "Paquete de salchicha 10u (340g)",
+      "cantidad": 2,
+      "precio_unitario": 1.17,
+      "precio_total": 2.34
+    },
+    {
+      "producto": "Frijoles negros x lb",
+      "cantidad": 1,
+      "precio_unitario": 1.43,
+      "precio_total": 1.43
+    }
+  ],
+  "precio_compra_total": "18.77",
+  "navegador": "Chrome",
+  "sistema_operativo": "Android",
+  "tipo_usuario": "Recurrente",
+  "tiempo_promedio_pagina": 0,
+  "fuente_trafico": "Directo"
+}
 ]
