@@ -336,5 +336,164 @@
   "tipo_usuario": "Recurrente",
   "tiempo_promedio_pagina": 0,
   "fuente_trafico": "Directo"
+},
+  {
+  "ip": "47.205.161.131",
+  "pais": "United States",
+  "fecha_hora_entrada": "2026-02-09 16:34:28",
+  "origen": "Acceso directo",
+  "afiliado": "Juana",
+  "duracion_sesion_segundos": 803,
+  "tiempo_carga_pagina_ms": 358,
+  "nombre_comprador": "Ailen",
+  "telefono_comprador": "9413123962",
+  "correo_comprador": "ailen29101990@gmail.com",
+  "direccion_envio": "Josué paiz/Ramón ortuño y 24 de febrero reparto santo domingo #61f",
+  "compras": [
+    {
+      "producto": "Georges piernas de pollo",
+      "cantidad": 1,
+      "precio_unitario": 12.0,
+      "precio_total": 12.0
+    },
+    {
+      "producto": "Jamón Bravo 2kgs",
+      "cantidad": 1,
+      "precio_unitario": 22.5,
+      "precio_total": 22.5
+    },
+    {
+      "producto": "Picadillo de pollo (1Kg)",
+      "cantidad": 2,
+      "precio_unitario": 2.97,
+      "precio_total": 5.94
+    },
+    {
+      "producto": "Paquete Salchicha 1kg",
+      "cantidad": 2,
+      "precio_unitario": 3.17,
+      "precio_total": 6.34
+    },
+    {
+      "producto": "Aceite Fritura 900ml",
+      "cantidad": 4,
+      "precio_unitario": 3.97,
+      "precio_total": 15.88
+    },
+    {
+      "producto": "Paquete de pan de bola 8u/10u",
+      "cantidad": 4,
+      "precio_unitario": 1.8,
+      "precio_total": 7.2
+    },
+    {
+      "producto": "Cartón de Huevos",
+      "cantidad": 2,
+      "precio_unitario": 9.0,
+      "precio_total": 18.0
+    },
+    {
+      "producto": "Paquete de Azúcar Extra Fina 1Kg",
+      "cantidad": 4,
+      "precio_unitario": 1.77,
+      "precio_total": 7.08
+    },
+    {
+      "producto": "Sal 1Kg",
+      "cantidad": 2,
+      "precio_unitario": 1.43,
+      "precio_total": 2.86
+    },
+    {
+      "producto": "Espaguetis (500g)",
+      "cantidad": 5,
+      "precio_unitario": 0.87,
+      "precio_total": 4.35
+    },
+    {
+      "producto": "Arroz Rainha Brasil (1Kg)",
+      "cantidad": 10,
+      "precio_unitario": 1.87,
+      "precio_total": 18.7
+    },
+    {
+      "producto": "Frijoles Negros (1Kg)",
+      "cantidad": 3,
+      "precio_unitario": 2.57,
+      "precio_total": 7.71
+    },
+    {
+      "producto": "Garbanzos (1lb)",
+      "cantidad": 1,
+      "precio_unitario": 2.29,
+      "precio_total": 2.29
+    },
+    {
+      "producto": "Pasta de tomate Oderich 350g",
+      "cantidad": 2,
+      "precio_unitario": 1.17,
+      "precio_total": 2.34
+    },
+    {
+      "producto": "Leche Condensada azucarada (390g)",
+      "cantidad": 4,
+      "precio_unitario": 1.67,
+      "precio_total": 6.68
+    },
+    {
+      "producto": "Spam de cerdo 340g",
+      "cantidad": 4,
+      "precio_unitario": 2.17,
+      "precio_total": 8.68
+    },
+    {
+      "producto": "Carne de res enlatada 400g",
+      "cantidad": 4,
+      "precio_unitario": 2.17,
+      "precio_total": 8.68
+    },
+    {
+      "producto": "Lomito de atún 110g",
+      "cantidad": 4,
+      "precio_unitario": 2.13,
+      "precio_total": 8.52
+    },
+    {
+      "producto": "Mayonesa Victoria (250ml)",
+      "cantidad": 3,
+      "precio_unitario": 2.17,
+      "precio_total": 6.51
+    },
+    {
+      "producto": "Salsa rosa Rayan 440g",
+      "cantidad": 1,
+      "precio_unitario": 2.97,
+      "precio_total": 2.97
+    },
+    {
+      "producto": "Mano de plátano burro",
+      "cantidad": 4,
+      "precio_unitario": 0.97,
+      "precio_total": 3.88
+    },
+    {
+      "producto": "Malta Bucanero",
+      "cantidad": 4,
+      "precio_unitario": 1.15,
+      "precio_total": 4.6
+    },
+    {
+      "producto": "Paquete de Papel Sanitario 4 rollos",
+      "cantidad": 2,
+      "precio_unitario": 2.0,
+      "precio_total": 4.0
+    }
+  ],
+  "precio_compra_total": "187.71",
+  "navegador": "Chrome",
+  "sistema_operativo": "Android",
+  "tipo_usuario": "Recurrente",
+  "tiempo_promedio_pagina": 0,
+  "fuente_trafico": "Directo"
 }
 ]
