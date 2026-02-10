@@ -737,12 +737,25 @@ class SalesDashboard {
             type,
             id: this.sanitizeId(id),
             originalName: options.originalName || null,
+            originalId: options.originalId || null,
             data: productData,
             mainImageKey: null,
             mainImageName: null,
             additionalImageKeys: [] // { name, key }
         };
 
+        // If originalId wasn't provided but we have originalName, try to resolve it
+        if (!staged.originalId && staged.originalName) {
+            const prod = this.products.find(p => p.nombre === staged.originalName);
+            if (prod && prod.id) staged.originalId = prod.id;
+        }
+
+        // Ensure staged data has an id (for stable lookups); for new items generate one
+        if (staged.data) {
+            if (!staged.data.id) {
+                staged.data.id = staged.originalId || (type === 'new' ? this.generateUniqueId() : this.generateUniqueId());
+            }
+        }
         // Convert files to base64 and save to IndexedDB if provided
         if (options.mainImageFile) {
             try {
@@ -776,6 +789,7 @@ class SalesDashboard {
         const existingIdx = this.stagedChanges.findIndex(s => {
             if (!s) return false;
             if (s.id === staged.id) return true;
+            if (s.originalId && staged.originalId && s.originalId === staged.originalId) return true;
             if (staged.originalName && s.originalName && s.originalName === staged.originalName) return true;
             return false;
         });
@@ -854,11 +868,16 @@ class SalesDashboard {
             // Procesar los cambios y actualizar this.products local
             for (const s of this.stagedChanges) {
                 if (s.type === 'delete') {
-                    const name = s.originalName || s.data?.nombre;
+                    const idToDelete = s.data?.id || s.originalId || null;
                     // eliminar imágenes si hay snapshot
-                    try { await this.deleteProductImages(s.data || { nombre: name }); } catch (err) { console.warn(err); }
-                    // remover del listado
-                    this.products = this.products.filter(p => p.nombre !== name);
+                    try { await this.deleteProductImages(s.data || { nombre: s.originalName || '' }); } catch (err) { console.warn(err); }
+                    // remover del listado por id si existe, si no por nombre
+                    if (idToDelete) {
+                        this.products = this.products.filter(p => String(p.id) !== String(idToDelete));
+                    } else {
+                        const name = s.originalName || s.data?.nombre;
+                        this.products = this.products.filter(p => p.nombre !== name);
+                    }
                 } else if (s.type === 'new' || s.type === 'modify') {
                     const productData = s.data;
 
@@ -902,10 +921,10 @@ class SalesDashboard {
                     }
 
                     if (s.type === 'new') {
-                        // Evitar duplicados
-                        if (!this.products.some(p => p.nombre === productData.nombre)) this.products.push(productData);
+                        // Evitar duplicados por id
+                        if (!this.products.some(p => (p.id && productData.id && p.id === productData.id) || p.nombre === productData.nombre)) this.products.push(productData);
                     } else {
-                        const idx = this.products.findIndex(p => p.nombre === (s.originalName || productData.nombre));
+                        const idx = this.products.findIndex(p => (productData.id && p.id === productData.id) || p.nombre === (s.originalName || productData.nombre));
                         if (idx >= 0) this.products[idx] = productData;
                         else this.products.push(productData);
                     }
@@ -1648,18 +1667,7 @@ class SalesDashboard {
             this.loadRepositoryImages();
         });
         
-        document.getElementById('delete-selected-images')?.addEventListener('click', () => {
-            this.deleteSelectedImages();
-        });
-        
-        document.getElementById('confirm-image-deletion')?.addEventListener('click', () => {
-            this.confirmImageDeletion();
-        });
-        
-        document.getElementById('cancel-image-deletion')?.addEventListener('click', () => {
-            this.imagesToDelete = [];
-            this.resetImageManagerUI();
-        });
+
     }
 
     showTokenModal(show = true) {
@@ -2225,7 +2233,12 @@ class SalesDashboard {
         try {
             const response = await fetch(`https://raw.githubusercontent.com/${CONFIG.GITHUB_API.REPO_OWNER}/${CONFIG.GITHUB_API.REPO_NAME}/main/${CONFIG.GITHUB_API.PRODUCTS_FILE_PATH}?t=${Date.now()}`);
             this.products = await response.json();
-            
+
+            // Asegurar que cada producto tenga un `id` estable y único (no forzamos commit automático)
+            for (const p of this.products) {
+                if (!p.id) p.id = this.generateUniqueId();
+            }
+
             // ✨ Guardar como último sync exitoso
             this.lastSyncedProducts = JSON.parse(JSON.stringify(this.products));
             this.pendingChanges = {}; // Limpiar cambios pendientes en carga inicial
@@ -2353,11 +2366,11 @@ class SalesDashboard {
         
         // VERSIÓN SIMPLIFICADA: Solo verificar que los productos existen en el servidor
         // No somos tan estrictos con las propiedades exactas
-        for (const [productName, pendingData] of Object.entries(this.pendingChanges)) {
+        for (const [key, pendingData] of Object.entries(this.pendingChanges)) {
             // Ignorar cambios de eliminación (tienen prefijo _deleted_)
-            if (productName.startsWith('_deleted_')) {
-                const actualName = productName.replace('_deleted_', '');
-                const found = serverProducts.find(p => p.nombre === actualName);
+            if (key.startsWith('_deleted_')) {
+                const actualName = key.replace('_deleted_', '');
+                const found = serverProducts.find(p => p.nombre === actualName || String(p.id) === actualName);
                 if (found) {
                     console.warn(`⏳ Producto "${actualName}" aún existe (CDN con caché viejo)`);
                     return false; // Datos viejos, debe reintentarse
@@ -2366,10 +2379,13 @@ class SalesDashboard {
                 continue;
             }
             
-            const serverProduct = serverProducts.find(p => p.nombre === productName);
+            // Buscar por id si pendingData tiene id, sino por nombre (o por la llave)
+            const serverProduct = (pendingData && pendingData.id)
+                ? serverProducts.find(p => String(p.id) === String(pendingData.id))
+                : serverProducts.find(p => p.nombre === (pendingData.nombre || key));
             
             if (!serverProduct) {
-                console.warn(`⏳ Producto "${productName}" no encontrado aún en servidor (CDN con caché)`);
+                console.warn(`⏳ Producto "${pendingData.nombre || key}" no encontrado aún en servidor (CDN con caché)`);
                 return false; // Datos viejos, debe reintentarse
             }
             
@@ -2382,7 +2398,7 @@ class SalesDashboard {
                 if (serverProduct[prop] !== pendingData[prop]) {
                     hasChanges = true;
                     console.log(
-                        `⏳ ${productName}.${prop} aún no sincronizado: ` +
+                        `⏳ ${pendingData.nombre || key}.${prop} aún no sincronizado: ` +
                         `servidor=${serverProduct[prop]}, local=${pendingData[prop]}`
                     );
                     break; // Un mismatch es suficiente para saber que es caché viejo
@@ -2390,7 +2406,7 @@ class SalesDashboard {
             }
             
             if (!hasChanges) {
-                console.log(`✅ ${productName} sincronizado correctamente`);
+                console.log(`✅ ${pendingData.nombre || key} sincronizado correctamente`);
             } else {
                 return false; // Reintentarse
             }
@@ -2457,7 +2473,7 @@ class SalesDashboard {
             const indexBadge = jsonIndex > -1 ? `<span class="product-index">#${jsonIndex}</span>` : '';
 
             return `
-            <div class="product-card" data-id="${this.sanitizeId(product.nombre)}">
+            <div class="product-card" data-id="${product.id}">
                 <div class="product-image-container">
                     <img class="product-image" src="${imageUrl}" alt="${product.nombre}" loading="lazy" onerror="(function(i){i.onerror=null;i.src='img/logo_2.png';})(this)" onload="this.classList.add('loaded')">
                     <div class="product-badges">
@@ -2466,7 +2482,7 @@ class SalesDashboard {
                         ${product.nuevo ? '<span class="product-badge nuevo">NUEVO</span>' : ''}
                         ${!product.disponible ? '<span class="product-badge no-disponible">AGOTADO</span>' : ''}
                         ${(() => {
-                            const staged = this.stagedChanges && this.stagedChanges.find(s => (s.data && s.data.nombre === product.nombre) || s.originalName === product.nombre);
+                            const staged = this.stagedChanges && this.stagedChanges.find(s => (s.data && s.data.nombre === product.nombre) || s.originalName === product.nombre || (s.data && s.data.id === product.id));
                             return staged ? '<span class="product-badge staged">MOD</span>' : '';
                         })()}
                     </div>
@@ -2484,10 +2500,10 @@ class SalesDashboard {
                         `}
                     </div>
                     <div class="product-actions">
-                        <button class="btn btn-secondary edit-product" data-id="${this.sanitizeId(product.nombre)}">
+                        <button class="btn btn-secondary edit-product" data-id="${product.id}">
                             <i class="fas fa-edit"></i> Editar
                         </button>
-                        <button class="btn cancel-btn delete-product" data-id="${this.sanitizeId(product.nombre)}">
+                        <button class="btn cancel-btn delete-product" data-id="${product.id}">
                             <i class="fas fa-trash"></i>
                         </button>
                     </div>
@@ -2504,7 +2520,7 @@ class SalesDashboard {
         document.querySelectorAll('.edit-product').forEach(btn => {
             btn.addEventListener('click', (e) => {
                 const productId = e.currentTarget.dataset.id;
-                const product = this.products.find(p => this.sanitizeId(p.nombre) === productId);
+                const product = this.products.find(p => String(p.id) === productId) || this.products.find(p => this.sanitizeId(p.nombre) === productId);
                 if (product) {
                     this.editProduct(product);
                 }
@@ -2514,19 +2530,40 @@ class SalesDashboard {
         document.querySelectorAll('.delete-product').forEach(btn => {
             btn.addEventListener('click', (e) => {
                 const productId = e.currentTarget.dataset.id;
-                const originalName = this.getOriginalNameFromId(productId);
-                this.deleteProduct(originalName);
+                // Ahora pasamos el id directamente y deleteProduct resolverá por id o por nombre
+                this.deleteProduct(productId);
             });
         });
     }
 
     getOriginalNameFromId(id) {
-        const product = this.products.find(p => this.sanitizeId(p.nombre) === id);
+        const product = this.products.find(p => String(p.id) === id) || this.products.find(p => this.sanitizeId(p.nombre) === id);
         return product ? product.nombre : id.replace(/_/g, ' ');
     }
     
     sanitizeId(name) {
         return name.replace(/[^a-zA-Z0-9]/g, '_');
+    }
+    
+    // Genera un id corto y único para productos (verifica colisiones con los ids existentes)
+    generateUniqueId() {
+        const existing = new Set((this.products || []).map(p => String(p.id)).filter(Boolean));
+        let id;
+        do {
+            try {
+                // Preferir crypto para mejor aleatoriedad
+                const array = new Uint32Array(2);
+                if (typeof crypto !== 'undefined' && crypto.getRandomValues) {
+                    crypto.getRandomValues(array);
+                    id = `${Date.now().toString(36)}-${array[0].toString(36)}${array[1].toString(36)}`.slice(0, 16);
+                } else {
+                    id = `${Date.now().toString(36)}-${Math.random().toString(36).slice(2,10)}`.slice(0,16);
+                }
+            } catch (e) {
+                id = `${Date.now().toString(36)}-${Math.random().toString(36).slice(2,10)}`.slice(0,16);
+            }
+        } while (existing.has(id));
+        return id;
     }
     
     setupProductsView() {
@@ -2706,7 +2743,8 @@ class SalesDashboard {
                             idx,
                             id: staged.id,
                             type: staged.type,
-                            originalName: staged.data?.nombre || staged.originalName || null
+                            originalName: staged.data?.nombre || staged.originalName || null,
+                            originalId: staged.data?.id || staged.originalId || null
                         };
 
                     // Si hay imagen principal en base64, mostrar preview
@@ -3087,14 +3125,16 @@ class SalesDashboard {
         };
     }
     
-    async deleteProduct(productName) {
-        if (!confirm(`¿Estás seguro de eliminar el producto "${productName}"? Esta acción se guardará localmente y podrá confirmarse en "Productos modificados".`)) {
-            return;
-        }
-
-        const product = this.products.find(p => p.nombre === productName);
+    async deleteProduct(productIdentifier) {
+        // Accept either id or product name
+        let product = this.products.find(p => String(p.id) === String(productIdentifier));
+        if (!product) product = this.products.find(p => p.nombre === productIdentifier);
         if (!product) {
             this.showAlert('Producto no encontrado', 'error');
+            return;
+        }
+        const productName = product.nombre;
+        if (!confirm(`¿Estás seguro de eliminar el producto "${productName}"? Esta acción se guardará localmente y podrá confirmarse en "Productos modificados".`)) {
             return;
         }
 
@@ -3270,11 +3310,17 @@ class SalesDashboard {
             // If we are editing a staged item (from staged panel), update that staged entry preserving its staged id
             if (this.editingStaged) {
                 const es = this.editingStaged;
-                await this.stageChange(es.type, productData, { stagedId: es.id, originalName: es.originalName || undefined, mainImageFile: this.mainImageFile, additionalImageFiles: this.additionalImageFiles });
+                // Preserve id when editing a staged item so updates replace the correct product
+                if (es.originalId && !productData.id) productData.id = es.originalId;
+                await this.stageChange(es.type, productData, { stagedId: es.id, originalName: es.originalName || undefined, originalId: es.originalId || undefined, mainImageFile: this.mainImageFile, additionalImageFiles: this.additionalImageFiles });
 
-                // Update products array: try to find by originalName first, then by product name; if new and not found, push
+                // Update products array: try to find by originalId first, then by originalName, then by product name; if new and not found, push
                 let updated = false;
-                if (es.originalName) {
+                if (es.originalId) {
+                    const idxId = this.products.findIndex(p => p.id && p.id === es.originalId);
+                    if (idxId >= 0) { this.products[idxId] = productData; updated = true; }
+                }
+                if (!updated && es.originalName) {
                     const idx = this.products.findIndex(p => p.nombre === es.originalName);
                     if (idx >= 0) { this.products[idx] = productData; updated = true; }
                 }
@@ -3292,12 +3338,15 @@ class SalesDashboard {
                 const isNew = !this.currentProduct;
                 if (isNew) {
                     // Evitar nombre duplicado en productos actuales
-                    const exists = this.products.some(p => p.nombre === productData.nombre);
+                    const exists = this.products.some(p => (productData.id && p.id === productData.id) || p.nombre === productData.nombre);
                     if (exists) {
                         loadingAlert.remove();
-                        this.showAlert('Ya existe un producto con este nombre', 'error');
+                        this.showAlert('Ya existe un producto con este nombre o id', 'error');
                         return;
                     }
+                    // Assign unique id to the new product
+                    productData.id = productData.id || this.generateUniqueId();
+
                     // Stage as new
                     await this.stageChange('new', productData, { mainImageFile: this.mainImageFile, additionalImageFiles: this.additionalImageFiles });
 
@@ -3305,10 +3354,12 @@ class SalesDashboard {
                     this.products.push(productData);
                 } else {
                     // Stage modification
-                    await this.stageChange('modify', productData, { originalName: this.currentProduct.nombre, mainImageFile: this.mainImageFile, additionalImageFiles: this.additionalImageFiles });
+                    // Keep id on non-staged modifications so we replace the correct product
+                    if (this.currentProduct?.id && !productData.id) productData.id = this.currentProduct.id;
+                    await this.stageChange('modify', productData, { originalName: this.currentProduct.nombre, originalId: this.currentProduct.id, mainImageFile: this.mainImageFile, additionalImageFiles: this.additionalImageFiles });
 
-                    // Actualizar vista localmente
-                    const idx = this.products.findIndex(p => p.nombre === this.currentProduct.nombre);
+                    // Actualizar vista localmente (buscar por id si existe, si no usar nombre)
+                    const idx = this.products.findIndex(p => (this.currentProduct.id && p.id === this.currentProduct.id) || p.nombre === this.currentProduct.nombre);
                     if (idx >= 0) this.products[idx] = productData;
                 }
             }
@@ -3500,6 +3551,11 @@ class SalesDashboard {
             
             const data = await response.json();
             this.renderRepositoryImages(data);
+            // Aplicar filtro actual (si el usuario había seleccionado uno)
+            try {
+                const currentFilter = document.getElementById('filter-image-type')?.value || 'all';
+                await this.filterImagesByType(currentFilter);
+            } catch (e) { /* no crítico */ }
             loadingAlert.remove();
             
         } catch (error) {
@@ -3562,47 +3618,51 @@ class SalesDashboard {
     }
 
     setupImageSelection() {
+        // Rebuild selection state safely to avoid duplicados y estados previos
+        this.selectedImages = [];
+
+        document.querySelectorAll('.image-checkbox').forEach(checkbox => {
+            // If DOM checkbox is already checked (e.g., re-render), add to selectedImages
+            const imageItem = checkbox.closest('.image-item');
+            if (!imageItem) return;
+            const imageName = imageItem.dataset.name;
+            const imagePath = imageItem.dataset.path;
+            if (checkbox.checked) {
+                imageItem.classList.add('selected');
+                if (!this.selectedImages.find(i => i.name === imageName)) this.selectedImages.push({ name: imageName, path: imagePath });
+            }
+
+            checkbox.addEventListener('change', (e) => {
+                const imageItem = e.target.closest('.image-item');
+                const imageName = imageItem.dataset.name;
+                const imagePath = imageItem.dataset.path;
+
+                if (e.target.checked) {
+                    imageItem.classList.add('selected');
+                    if (!this.selectedImages.find(i => i.name === imageName)) this.selectedImages.push({ name: imageName, path: imagePath });
+                } else {
+                    imageItem.classList.remove('selected');
+                    this.selectedImages = this.selectedImages.filter(img => img.name !== imageName);
+                }
+
+                updateSelectionCount();
+            });
+        });
+
         const updateSelectionCount = () => {
             const count = this.selectedImages.length;
             document.getElementById('selected-count').textContent = count;
             document.getElementById('delete-selected-images').disabled = count === 0;
         };
-    
-        document.querySelectorAll('.image-checkbox').forEach(checkbox => {
-            checkbox.addEventListener('change', (e) => {
-                const imageItem = e.target.closest('.image-item');
-                const imageName = imageItem.dataset.name;
-                const imagePath = imageItem.dataset.path;
-                
-                if (e.target.checked) {
-                    imageItem.classList.add('selected');
-                    this.selectedImages.push({ name: imageName, path: imagePath });
-                } else {
-                    imageItem.classList.remove('selected');
-                    this.selectedImages = this.selectedImages.filter(img => img.name !== imageName);
-                }
-                
-                updateSelectionCount();
-            });
-        });
-    
+
         // Actualizar contador inicial
         updateSelectionCount();
     }
 
     setupImageManagerEvents() {
         document.getElementById('delete-selected-images').addEventListener('click', () => {
-            if (this.selectedImages.length === 0) return;
-            
-            document.getElementById('delete-count').textContent = this.selectedImages.length;
-            document.getElementById('confirm-image-deletion').classList.remove('hidden');
-            document.getElementById('cancel-image-deletion').classList.remove('hidden');
-            document.getElementById('close-image-manager-btn').classList.add('hidden');
-            
-            // Deshabilitar todos los checkboxes temporalmente
-            document.querySelectorAll('.image-checkbox').forEach(checkbox => {
-                checkbox.disabled = true;
-            });
+            // Centralizar la lógica de preparación para eliminación
+            this.deleteSelectedImages();
         });
         
         document.getElementById('confirm-image-deletion').addEventListener('click', async () => {
@@ -3617,16 +3677,16 @@ class SalesDashboard {
             this.filterImagesByType(e.target.value);
         });
     }
-    filterImagesByType(filterType) {
+    async filterImagesByType(filterType) {
         const imageItems = document.querySelectorAll('.image-item');
-        const usedImages = this.getUsedImages();
-        
-        imageItems.forEach(item => {
+        const usedImages = await this.getUsedImages();
+
+        // Recalcular selección para mantener coherencia al filtrar
+        for (const item of imageItems) {
             const imageName = item.dataset.name;
             const isUsed = usedImages.has(imageName);
-            
+
             let shouldShow = true;
-            
             switch (filterType) {
                 case 'used':
                     shouldShow = isUsed;
@@ -3636,88 +3696,131 @@ class SalesDashboard {
                     break;
                 // 'all' no necesita filtro
             }
-            
-            item.style.display = shouldShow ? 'block' : 'none';
-        });
+
+            if (!shouldShow) {
+                // Si la imagen estaba seleccionada, deseleccionarla
+                const checkbox = item.querySelector('.image-checkbox');
+                if (checkbox && checkbox.checked) {
+                    checkbox.checked = false;
+                    item.classList.remove('selected');
+                    this.selectedImages = this.selectedImages.filter(i => i.name !== imageName);
+                }
+                item.style.display = 'none';
+            } else {
+                item.style.display = 'block';
+            }
+        }
+
+        // Actualizar contador y estado del botón
+        const count = this.selectedImages.length;
+        document.getElementById('selected-count').textContent = count;
+        document.getElementById('delete-selected-images').disabled = count === 0;
     }
     
     async deleteSelectedImages() {
         if (this.selectedImages.length === 0) return;
-        
+
         // Mostrar confirmación
+        document.getElementById('delete-count').textContent = this.selectedImages.length;
         document.getElementById('confirm-image-deletion').classList.remove('hidden');
         document.getElementById('cancel-image-deletion').classList.remove('hidden');
         document.getElementById('close-image-manager-btn').classList.add('hidden');
-        
+
         // Guardar imágenes para eliminar
         this.imagesToDelete = [...this.selectedImages];
         this.selectedImages = [];
-        
-        // Deshabilitar checkboxes
+
+        // Deshabilitar checkboxes que estén visibles
         document.querySelectorAll('.image-checkbox').forEach(checkbox => {
             checkbox.disabled = true;
         });
+
+        // Actualizar contador y estado
+        const count = this.selectedImages.length;
+        document.getElementById('selected-count').textContent = count;
+        document.getElementById('delete-selected-images').disabled = true;
     }
     
     async confirmImageDeletion() {
         if (this.imagesToDelete.length === 0) return;
-        
+
         const loadingAlert = this.showAlert('Eliminando imágenes...', 'loading');
         this.repoStatus = 'loading';
         this.updateStatusUI();
-        
+
+        const failed = [];
         try {
             const GITHUB_TOKEN = localStorage.getItem('github_token');
             if (!GITHUB_TOKEN) {
                 throw new Error("No hay token de GitHub configurado");
             }
-            
+
             const { REPO_OWNER, REPO_NAME } = CONFIG.GITHUB_API;
-            
-            // Eliminar cada imagen
+
+            // Eliminar cada imagen (hacerlo de forma tolerante por imagen)
             for (const img of this.imagesToDelete) {
-                // Primero obtener el SHA de la imagen
-                const getResponse = await fetch(`https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${img.path}`, {
-                    headers: {
-                        'Authorization': `token ${GITHUB_TOKEN}`,
-                        'Accept': 'application/vnd.github.v3+json'
+                try {
+                    const encodedPath = encodeURIComponent(String(img.path));
+                    console.debug('Deleting image path:', img.path, 'encoded:', encodedPath);
+
+                    // Primero obtener el SHA de la imagen
+                    const getUrl = `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${encodedPath}`;
+                    const getResponse = await fetch(getUrl, {
+                        headers: {
+                            'Authorization': `token ${GITHUB_TOKEN}`,
+                            'Accept': 'application/vnd.github.v3+json'
+                        }
+                    });
+
+                    if (!getResponse.ok) {
+                        const errBody = await getResponse.json().catch(() => ({}));
+                        const msg = errBody && errBody.message ? errBody.message : `HTTP ${getResponse.status}`;
+                        throw new Error(`No se pudo obtener '${img.name}': ${msg}`);
                     }
-                });
-                
-                if (!getResponse.ok) {
-                    throw new Error(`Error al obtener archivo: ${getResponse.status}`);
-                }
-                
-                const fileData = await getResponse.json();
-    
-                // Eliminar el archivo
-                const deleteResponse = await fetch(`https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${img.path}`, {
-                    method: 'DELETE',
-                    headers: {
-                        'Authorization': `token ${GITHUB_TOKEN}`,
-                        'Accept': 'application/vnd.github.v3+json',
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        message: `Eliminar imagen: ${img.name}`,
-                        sha: fileData.sha,
-                        branch: 'main'
-                    })
-                });
-                
-                if (!deleteResponse.ok) {
-                    const errorData = await deleteResponse.json().catch(() => ({}));
-                    throw new Error(errorData.message || `Error HTTP: ${deleteResponse.status}`);
+
+                    const fileData = await getResponse.json();
+
+                    // Eliminar el archivo
+                    const deleteUrl = `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${encodedPath}`;
+                    const deleteResponse = await fetch(deleteUrl, {
+                        method: 'DELETE',
+                        headers: {
+                            'Authorization': `token ${GITHUB_TOKEN}`,
+                            'Accept': 'application/vnd.github.v3+json',
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            message: `Eliminar imagen: ${img.name}`,
+                            sha: fileData.sha,
+                            branch: 'main'
+                        })
+                    });
+
+                    if (!deleteResponse.ok) {
+                        const errorData = await deleteResponse.json().catch(() => ({}));
+                        const msg = errorData && errorData.message ? errorData.message : `HTTP ${deleteResponse.status}`;
+                        throw new Error(msg);
+                    }
+                } catch (errImg) {
+                    console.warn('Error al procesar imagen:', img.name, errImg);
+                    failed.push({ name: img.name, message: String(errImg.message || errImg) });
+                    // continuar con la siguiente imagen
                 }
             }
-            
+
             // Recargar imágenes
             await this.loadRepositoryImages();
             loadingAlert.remove();
-            this.showAlert('✅ Imágenes eliminadas correctamente', 'success');
-            
+
+            if (failed.length === 0) {
+                this.showAlert('✅ Imágenes eliminadas correctamente', 'success');
+            } else {
+                const failedList = failed.map(f => `${f.name}: ${f.message}`).join('\n');
+                this.showAlert(`⚠️ Algunas imágenes no se pudieron eliminar:\n${failedList}`, 'warning');
+            }
+
         } catch (error) {
-            console.error('Error al eliminar imágenes:', error);
+            console.error('Error al eliminar imágenes (general):', error);
             loadingAlert.remove();
             this.showAlert(`❌ Error al eliminar imágenes: ${error.message}`, 'error');
         } finally {
@@ -3727,21 +3830,35 @@ class SalesDashboard {
             this.resetImageManagerUI();
         }
     }
+
+    cancelImageDeletion() {
+        // Cancelar la operación en curso y resetear UI
+        this.imagesToDelete = [];
+        this.selectedImages = [];
+        this.resetImageManagerUI();
+    }
     
     resetImageManagerUI() {
         document.getElementById('confirm-image-deletion').classList.add('hidden');
         document.getElementById('cancel-image-deletion').classList.add('hidden');
         document.getElementById('close-image-manager-btn').classList.remove('hidden');
         document.getElementById('delete-selected-images').disabled = true;
-        
+
+        // Limpiar selecciones y habilitar checkboxes
+        this.selectedImages = [];
+        this.imagesToDelete = [];
+
         document.querySelectorAll('.image-checkbox').forEach(checkbox => {
             checkbox.disabled = false;
             checkbox.checked = false;
         });
-        
+
         document.querySelectorAll('.image-item').forEach(item => {
             item.classList.remove('selected');
         });
+
+        // Actualizar contador
+        document.getElementById('selected-count').textContent = '0';
     }
 }
 
