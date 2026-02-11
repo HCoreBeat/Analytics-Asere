@@ -707,6 +707,67 @@
   "tipo_usuario": "Recurrente",
   "tiempo_promedio_pagina": 0,
   "fuente_trafico": "wp"
+},
+  {
+  "ip": "0.0.0.0",
+  "pais": "Sistema Local",
+  "fecha_hora_entrada": "2026-02-11 10:22:05",
+  "origen": "Terminal Interna",
+  "asereshop.com": false,
+  "afiliado": "Ninguno",
+  "duracion_sesion_segundos": 0,
+  "tiempo_carga_pagina_ms": 0,
+  "nombre_comprador": "Yusniel Dario",
+  "telefono_comprador": "+53 51158687",
+  "correo_comprador": "",
+  "direccion_envio": "Julian Grimau #20 reparto Velazquez o deportivo : Entre el estadio chiquito y el Mella (Recibe: Matilde Gamboa)",
+  "compras": [
+    {
+      "producto": "Leche entera en polvo Macrofood(1kg)",
+      "cantidad": 2,
+      "precio_unitario": 8,
+      "precio_total": 16
+    },
+    {
+      "producto": "Arroz Grano Dorado 50lb",
+      "cantidad": 2,
+      "precio_unitario": 45,
+      "precio_total": 90
+    },
+    {
+      "producto": "Carne de res enlatada 400g",
+      "cantidad": 4,
+      "precio_unitario": 2.17,
+      "precio_total": 8.68
+    },
+    {
+      "producto": "Spam de cerdo 340g",
+      "cantidad": 4,
+      "precio_unitario": 2.17,
+      "precio_total": 8.68
+    },
+    {
+      "producto": "Sopa instantánea sabor Pollo (85g)",
+      "cantidad": 10,
+      "precio_unitario": 0.59,
+      "precio_total": 5.8999999999999995
+    },
+    {
+      "producto": "Caja de Pollo Gold Leaf (Muslo y Contramuslos)",
+      "cantidad": 1,
+      "precio_unitario": 55,
+      "precio_total": 55
+    }
+  ],
+  "precio_compra_total": "184.26",
+  "navegador": "Sistema Interno",
+  "sistema_operativo": "Electron",
+  "tipo_usuario": "Recurrente",
+  "tiempo_promedio_pagina": 0,
+  "fuente_trafico": "terminal",
+  "prioridad": "normal",
+  "metodo_entrega": "domicilio",
+  "id_orden": "ORD-1770823325696"
 }
  
 ]
