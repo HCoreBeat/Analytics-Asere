@@ -652,5 +652,32 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2600:1700:2081:ac40:b8b8:2b8f:eb27:465c",
+    "pais": "United States",
+    "fecha_hora_entrada": "2026-02-10 20:38:04",
+    "origen": "https://l.instagram.com/",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 178,
+    "tiempo_carga_pagina_ms": 397,
+    "nombre_comprador": "Jessica Leyva",
+    "telefono_comprador": "7868220298",
+    "correo_comprador": "jessilabrada9@gmail.com",
+    "direccion_envio": "Calle julio Álvarez entré 44 bolcurria número de la casa 8. Las Tunas",
+    "compras": [
+      {
+        "producto": "El Banquete Familiar",
+        "cantidad": 1,
+        "precio_unitario": 99,
+        "precio_total": 99
+      }
+    ],
+    "precio_compra_total": "99.00",
+    "navegador": "Safari",
+    "sistema_operativo": "iOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "ig"
   }
 ]
