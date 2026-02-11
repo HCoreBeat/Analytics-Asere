@@ -395,8 +395,8 @@
       {
         "producto": "Georges piernas de pollo",
         "cantidad": 1,
-        "precio_unitario": 12.0,
-        "precio_total": 12.0
+        "precio_unitario": 12,
+        "precio_total": 12
       },
       {
         "producto": "Jamón Bravo 2kgs",
@@ -431,8 +431,8 @@
       {
         "producto": "Cartón de Huevos",
         "cantidad": 2,
-        "precio_unitario": 9.0,
-        "precio_total": 18.0
+        "precio_unitario": 9,
+        "precio_total": 18
       },
       {
         "producto": "Paquete de Azúcar Extra Fina 1Kg",
@@ -527,8 +527,8 @@
       {
         "producto": "Paquete de Papel Sanitario 4 rollos",
         "cantidad": 2,
-        "precio_unitario": 2.0,
-        "precio_total": 4.0
+        "precio_unitario": 2,
+        "precio_total": 4
       }
     ],
     "precio_compra_total": "187.71",
@@ -585,8 +585,8 @@
       {
         "producto": "Cartón de Huevos",
         "cantidad": 1,
-        "precio_unitario": 9.0,
-        "precio_total": 9.0
+        "precio_unitario": 9,
+        "precio_total": 9
       },
       {
         "producto": "Paquete de pan de bola 8u/10u",
@@ -610,6 +610,45 @@
     "precio_compra_total": "74.96",
     "navegador": "Chrome",
     "sistema_operativo": "Android",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2601:6c1:b00:200:f4cf:d281:e3d0:c4ba",
+    "pais": "United States",
+    "fecha_hora_entrada": "2026-02-10 17:18:30",
+    "origen": "Acceso directo",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 588,
+    "tiempo_carga_pagina_ms": 1290,
+    "nombre_comprador": "Yakelin Suarez",
+    "telefono_comprador": "2393169117",
+    "correo_comprador": "yakelinsuarez24@gmail.com",
+    "direccion_envio": "Calle Luis Manuel Suarez triplanta 6 apto B1 /36 y 38 rpto santos",
+    "compras": [
+      {
+        "producto": "Cartón de Huevos",
+        "cantidad": 1,
+        "precio_unitario": 9,
+        "precio_total": 9
+      },
+      {
+        "producto": "Carne de res enlatada 400g",
+        "cantidad": 5,
+        "precio_unitario": 2.17,
+        "precio_total": 10.85
+      },
+      {
+        "producto": "Spam de cerdo 340g",
+        "cantidad": 5,
+        "precio_unitario": 2.17,
+        "precio_total": 10.85
+      }
+    ],
+    "precio_compra_total": "30.70",
+    "navegador": "Safari",
+    "sistema_operativo": "iOS",
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
