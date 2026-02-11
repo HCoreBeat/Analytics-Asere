@@ -679,95 +679,175 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "ig"
-  }, 
-{
-  "ip": "2600:1700:2081:ac40:b8b8:2b8f:eb27:465c",
-  "pais": "United States",
-  "fecha_hora_entrada": "2026-02-10 21:16:04",
-  "origen": "WhatsApp",
-"asereshop.com" : false, 
-  "afiliado": "Ninguno",
-  "duracion_sesion_segundos": 178,
-  "tiempo_carga_pagina_ms": 397,
-  "nombre_comprador": "Iliana",
-  "telefono_comprador": "+1 (305) 970-7233 ",
-  "correo_comprador": "",
-  "direccion_envio": "Edificio 22, Apartamento E-1, Buena Vista. (Recibe: Ana, tía de Eddy)",
-  "compras": [
-    {
-      "producto": "Caja de pollo",
-      "cantidad": 1,
-      "precio_unitario": 55,
-      "precio_total": 55
-    }
-  ],
-  "precio_compra_total": "55.00",
-  "navegador": "Safari",
-  "sistema_operativo": "iOS",
-  "tipo_usuario": "Recurrente",
-  "tiempo_promedio_pagina": 0,
-  "fuente_trafico": "wp"
-},
+  },
   {
-  "ip": "0.0.0.0",
-  "pais": "Sistema Local",
-  "fecha_hora_entrada": "2026-02-11 10:22:05",
-  "origen": "Terminal Interna",
-  "asereshop.com": false,
-  "afiliado": "Ninguno",
-  "duracion_sesion_segundos": 0,
-  "tiempo_carga_pagina_ms": 0,
-  "nombre_comprador": "Yusniel Dario",
-  "telefono_comprador": "+53 51158687",
-  "correo_comprador": "",
-  "direccion_envio": "Julian Grimau #20 reparto Velazquez o deportivo : Entre el estadio chiquito y el Mella (Recibe: Matilde Gamboa)",
-  "compras": [
-    {
-      "producto": "Leche entera en polvo Macrofood(1kg)",
-      "cantidad": 2,
-      "precio_unitario": 8,
-      "precio_total": 16
-    },
-    {
-      "producto": "Arroz Grano Dorado 50lb",
-      "cantidad": 2,
-      "precio_unitario": 45,
-      "precio_total": 90
-    },
-    {
-      "producto": "Carne de res enlatada 400g",
-      "cantidad": 4,
-      "precio_unitario": 2.17,
-      "precio_total": 8.68
-    },
-    {
-      "producto": "Spam de cerdo 340g",
-      "cantidad": 4,
-      "precio_unitario": 2.17,
-      "precio_total": 8.68
-    },
-    {
-      "producto": "Sopa instantánea sabor Pollo (85g)",
-      "cantidad": 10,
-      "precio_unitario": 0.59,
-      "precio_total": 5.8999999999999995
-    },
-    {
-      "producto": "Caja de Pollo Gold Leaf (Muslo y Contramuslos)",
-      "cantidad": 1,
-      "precio_unitario": 55,
-      "precio_total": 55
-    }
-  ],
-  "precio_compra_total": "184.26",
-  "navegador": "Sistema Interno",
-  "sistema_operativo": "Electron",
-  "tipo_usuario": "Recurrente",
-  "tiempo_promedio_pagina": 0,
-  "fuente_trafico": "terminal",
-  "prioridad": "normal",
-  "metodo_entrega": "domicilio",
-  "id_orden": "ORD-1770823325696"
-}
- 
+    "ip": "2600:1700:2081:ac40:b8b8:2b8f:eb27:465c",
+    "pais": "United States",
+    "fecha_hora_entrada": "2026-02-10 21:16:04",
+    "origen": "WhatsApp",
+    "asereshop.com": false,
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 178,
+    "tiempo_carga_pagina_ms": 397,
+    "nombre_comprador": "Iliana",
+    "telefono_comprador": "+1 (305) 970-7233 ",
+    "correo_comprador": "",
+    "direccion_envio": "Edificio 22, Apartamento E-1, Buena Vista. (Recibe: Ana, tía de Eddy)",
+    "compras": [
+      {
+        "producto": "Caja de pollo",
+        "cantidad": 1,
+        "precio_unitario": 55,
+        "precio_total": 55
+      }
+    ],
+    "precio_compra_total": "55.00",
+    "navegador": "Safari",
+    "sistema_operativo": "iOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "wp"
+  },
+  {
+    "ip": "0.0.0.0",
+    "pais": "Sistema Local",
+    "fecha_hora_entrada": "2026-02-11 10:22:05",
+    "origen": "Terminal Interna",
+    "asereshop.com": false,
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Yusniel Dario",
+    "telefono_comprador": "+53 51158687",
+    "correo_comprador": "",
+    "direccion_envio": "Julian Grimau #20 reparto Velazquez o deportivo : Entre el estadio chiquito y el Mella (Recibe: Matilde Gamboa)",
+    "compras": [
+      {
+        "producto": "Leche entera en polvo Macrofood(1kg)",
+        "cantidad": 2,
+        "precio_unitario": 8,
+        "precio_total": 16
+      },
+      {
+        "producto": "Arroz Grano Dorado 50lb",
+        "cantidad": 2,
+        "precio_unitario": 45,
+        "precio_total": 90
+      },
+      {
+        "producto": "Carne de res enlatada 400g",
+        "cantidad": 4,
+        "precio_unitario": 2.17,
+        "precio_total": 8.68
+      },
+      {
+        "producto": "Spam de cerdo 340g",
+        "cantidad": 4,
+        "precio_unitario": 2.17,
+        "precio_total": 8.68
+      },
+      {
+        "producto": "Sopa instantánea sabor Pollo (85g)",
+        "cantidad": 10,
+        "precio_unitario": 0.59,
+        "precio_total": 5.8999999999999995
+      },
+      {
+        "producto": "Caja de Pollo Gold Leaf (Muslo y Contramuslos)",
+        "cantidad": 1,
+        "precio_unitario": 55,
+        "precio_total": 55
+      }
+    ],
+    "precio_compra_total": "184.26",
+    "navegador": "Sistema Interno",
+    "sistema_operativo": "Electron",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "terminal",
+    "prioridad": "normal",
+    "metodo_entrega": "domicilio",
+    "id_orden": "ORD-1770823325696"
+  },
+  {
+    "ip": "2a09:bac2:6b19:290f::417:2a",
+    "pais": "United States",
+    "fecha_hora_entrada": "2026-02-11 15:52:43",
+    "origen": "Acceso directo",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 889,
+    "tiempo_carga_pagina_ms": 3373,
+    "nombre_comprador": "Harol Rojas",
+    "telefono_comprador": "+17866303006",
+    "correo_comprador": "harolrojas18783@yahoo.es",
+    "direccion_envio": "Lico Cruz 108 Altos % Villalon y Gonzalo de Quezada Rpto Primero las tunas",
+    "compras": [
+      {
+        "producto": "Paquete de pan de bola 8u/10u",
+        "cantidad": 3,
+        "precio_unitario": 1.8,
+        "precio_total": 5.4
+      },
+      {
+        "producto": "Espaguetis (500g)",
+        "cantidad": 5,
+        "precio_unitario": 0.87,
+        "precio_total": 4.35
+      },
+      {
+        "producto": "Arroz Rainha Brasil (1Kg)",
+        "cantidad": 9,
+        "precio_unitario": 1.87,
+        "precio_total": 16.830000000000002
+      },
+      {
+        "producto": "Frijoles Negros (1Kg)",
+        "cantidad": 2,
+        "precio_unitario": 2.57,
+        "precio_total": 5.14
+      },
+      {
+        "producto": "Garbanzos (1lb)",
+        "cantidad": 1,
+        "precio_unitario": 2.29,
+        "precio_total": 2.29
+      },
+      {
+        "producto": "Leche Condensada azucarada (390g)",
+        "cantidad": 2,
+        "precio_unitario": 1.67,
+        "precio_total": 3.34
+      },
+      {
+        "producto": "Mano de plátano burro",
+        "cantidad": 2,
+        "precio_unitario": 0.97,
+        "precio_total": 1.94
+      },
+      {
+        "producto": "Azúcar blanca x lb",
+        "cantidad": 9,
+        "precio_unitario": 1.23,
+        "precio_total": 11.07
+      },
+      {
+        "producto": "Pastilla de Pollo",
+        "cantidad": 5,
+        "precio_unitario": 0.2,
+        "precio_total": 1
+      },
+      {
+        "producto": "Cartón de Huevos",
+        "cantidad": 1,
+        "precio_unitario": 9,
+        "precio_total": 9
+      }
+    ],
+    "precio_compra_total": "60.36",
+    "navegador": "Safari",
+    "sistema_operativo": "iOS",
+    "tipo_usuario": "Único",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+  }
 ]
