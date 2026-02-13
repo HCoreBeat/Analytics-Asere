@@ -849,5 +849,54 @@
     "tipo_usuario": "Único",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
-  }
+  },
+  {
+  "ip": "0.0.0.0",
+  "pais": "Sistema Local",
+  "fecha_hora_entrada": "2026-02-13 09:26:11",
+  "origen": "Terminal Interna",
+  "asereshop.com": false,
+  "afiliado": "Ninguno",
+  "duracion_sesion_segundos": 0,
+  "tiempo_carga_pagina_ms": 0,
+  "nombre_comprador": "Martha",
+  "telefono_comprador": "+53 53980478",
+  "correo_comprador": "",
+  "direccion_envio": "Antonio arrera #97 Alto, entre A.Gonzalez y Andres Leyva, Buena Vista (Recibe: Yanela Gutierrez)",
+  "compras": [
+    {
+      "producto": "Paquete de Cuartos de Pollo 10lb",
+      "cantidad": 1,
+      "precio_unitario": 14,
+      "precio_total": 14
+    },
+    {
+      "producto": "Cartón de Huevos",
+      "cantidad": 1,
+      "precio_unitario": 9,
+      "precio_total": 9
+    },
+    {
+      "producto": "Leche entera en polvo (1kg)",
+      "cantidad": 1,
+      "precio_unitario": 9.13,
+      "precio_total": 9.13
+    },
+    {
+      "producto": "Lomo de cerdo x Lb",
+      "cantidad": 5,
+      "precio_unitario": 3.5,
+      "precio_total": 17.5
+    }
+  ],
+  "precio_compra_total": "49.63",
+  "navegador": "Sistema Interno",
+  "sistema_operativo": "Electron",
+  "tipo_usuario": "Recurrente",
+  "tiempo_promedio_pagina": 0,
+  "fuente_trafico": "terminal",
+  "prioridad": "normal",
+  "metodo_entrega": "domicilio",
+  "id_orden": "ORD-1770992771415"
+}
 ]
