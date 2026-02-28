@@ -999,95 +999,293 @@
     "fuente_trafico": "Directo"
   },
   {
-  "ip": "0.0.0.0",
-  "pais": "Sistema Local",
-  "fecha_hora_entrada": "2026-02-18 17:19:41",
-  "origen": "Terminal Interna",
-  "asereshop.com": false,
-  "afiliado": "Ninguno",
-  "duracion_sesion_segundos": 0,
-  "tiempo_carga_pagina_ms": 0,
-  "nombre_comprador": "Nailin contreras santiesteban",
-  "telefono_comprador": "+53 5 9469194",
-  "correo_comprador": "",
-  "direccion_envio": "CALLE COLÓN #167 ENTRE JULIÁN SANTANA Y FRANCISCO VEGA (Recibe:  Erioth Ramirez Posada)",
-  "compras": [
-    {
-      "producto": "Pack de 4 yogurts de Fresa Vima",
-      "cantidad": 5,
-      "precio_unitario": 2.9,
-      "precio_total": 14.5
-    },
-    {
-      "producto": "Pack de 4 yogurts Natural Azucarado Vima",
-      "cantidad": 2,
-      "precio_unitario": 2.9,
-      "precio_total": 5.8
-    }
-  ],
-  "precio_compra_total": "20.30",
-  "navegador": "Sistema Interno",
-  "sistema_operativo": "Electron",
-  "tipo_usuario": "Recurrente",
-  "tiempo_promedio_pagina": 0,
-  "fuente_trafico": "terminal",
-  "prioridad": "normal",
-  "metodo_entrega": "domicilio",
-  "id_orden": "ORD-1771453181151"
-},
+    "ip": "0.0.0.0",
+    "pais": "Sistema Local",
+    "fecha_hora_entrada": "2026-02-18 17:19:41",
+    "origen": "Terminal Interna",
+    "asereshop.com": false,
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Nailin contreras santiesteban",
+    "telefono_comprador": "+53 5 9469194",
+    "correo_comprador": "",
+    "direccion_envio": "CALLE COLÓN #167 ENTRE JULIÁN SANTANA Y FRANCISCO VEGA (Recibe:  Erioth Ramirez Posada)",
+    "compras": [
+      {
+        "producto": "Pack de 4 yogurts de Fresa Vima",
+        "cantidad": 5,
+        "precio_unitario": 2.9,
+        "precio_total": 14.5
+      },
+      {
+        "producto": "Pack de 4 yogurts Natural Azucarado Vima",
+        "cantidad": 2,
+        "precio_unitario": 2.9,
+        "precio_total": 5.8
+      }
+    ],
+    "precio_compra_total": "20.30",
+    "navegador": "Sistema Interno",
+    "sistema_operativo": "Electron",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "terminal",
+    "prioridad": "normal",
+    "metodo_entrega": "domicilio",
+    "id_orden": "ORD-1771453181151"
+  },
   {
-  "ip": "0.0.0.0",
-  "pais": "Sistema Local",
-  "fecha_hora_entrada": "2026-02-24 12:29:21",
-  "origen": "Terminal Interna",
-  "asereshop.com": false,
-  "afiliado": "Ninguno",
-  "duracion_sesion_segundos": 0,
-  "tiempo_carga_pagina_ms": 0,
-  "nombre_comprador": "Liyisbet",
-  "telefono_comprador": "+53 53678783",
-  "correo_comprador": "",
-  "direccion_envio": "24 de febrero #196 entre cucalambe y rubi (Recibe: Lili)",
-  "compras": [
-    {
-      "producto": "Caja de néctar Mixto(x12 manzanas | x12 Mangos)",
-      "cantidad": 1,
-      "precio_unitario": 27,
-      "precio_total": 27
-    },
-    {
-      "producto": "Pack de 1kg de jamón bravo y 1kg de queso gouda",
-      "cantidad": 1,
-      "precio_unitario": 23,
-      "precio_total": 23
-    },
-    {
-      "producto": "Chocolate en Polvo",
-      "cantidad": 1,
-      "precio_unitario": 5,
-      "precio_total": 5
-    },
-    {
-      "producto": "Salchichas GuiBon",
-      "cantidad": 1,
-      "precio_unitario": 10,
-      "precio_total": 10
-    },
-    {
-      "producto": "Paquete de pan de bola 8u/10u",
-      "cantidad": 2,
-      "precio_unitario": 1.8,
-      "precio_total": 3.6
-    }
-  ],
-  "precio_compra_total": "68.60",
-  "navegador": "Sistema Interno",
-  "sistema_operativo": "Electron",
-  "tipo_usuario": "Recurrente",
-  "tiempo_promedio_pagina": 0,
-  "fuente_trafico": "terminal",
-  "prioridad": "normal",
-  "metodo_entrega": "domicilio",
-  "id_orden": "ORD-1771954161566"
-}
+    "ip": "0.0.0.0",
+    "pais": "Sistema Local",
+    "fecha_hora_entrada": "2026-02-24 12:29:21",
+    "origen": "Terminal Interna",
+    "asereshop.com": false,
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Liyisbet",
+    "telefono_comprador": "+53 53678783",
+    "correo_comprador": "",
+    "direccion_envio": "24 de febrero #196 entre cucalambe y rubi (Recibe: Lili)",
+    "compras": [
+      {
+        "producto": "Caja de néctar Mixto(x12 manzanas | x12 Mangos)",
+        "cantidad": 1,
+        "precio_unitario": 27,
+        "precio_total": 27
+      },
+      {
+        "producto": "Pack de 1kg de jamón bravo y 1kg de queso gouda",
+        "cantidad": 1,
+        "precio_unitario": 23,
+        "precio_total": 23
+      },
+      {
+        "producto": "Chocolate en Polvo",
+        "cantidad": 1,
+        "precio_unitario": 5,
+        "precio_total": 5
+      },
+      {
+        "producto": "Salchichas GuiBon",
+        "cantidad": 1,
+        "precio_unitario": 10,
+        "precio_total": 10
+      },
+      {
+        "producto": "Paquete de pan de bola 8u/10u",
+        "cantidad": 2,
+        "precio_unitario": 1.8,
+        "precio_total": 3.6
+      }
+    ],
+    "precio_compra_total": "68.60",
+    "navegador": "Sistema Interno",
+    "sistema_operativo": "Electron",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "terminal",
+    "prioridad": "normal",
+    "metodo_entrega": "domicilio",
+    "id_orden": "ORD-1771954161566"
+  },
+  {
+    "ip": "2600:387:f:d11::1",
+    "pais": "United States",
+    "fecha_hora_entrada": "2026-02-27 11:17:01",
+    "origen": "Acceso directo",
+    "afiliado": "Juana",
+    "duracion_sesion_segundos": 2943,
+    "tiempo_carga_pagina_ms": 1306,
+    "nombre_comprador": "Yoandra Martinez",
+    "telefono_comprador": "7863191466",
+    "correo_comprador": "yoa2002ye@gmail.com",
+    "direccion_envio": "Calle 22 15 Alto % 43 Y 45\nReparto De Buena Vista",
+    "compras": [
+      {
+        "producto": "Pollo entero congelado",
+        "cantidad": 1,
+        "precio_unitario": 7.17,
+        "precio_total": 7.17
+      },
+      {
+        "producto": "Leche entera en polvo (1kg)",
+        "cantidad": 2,
+        "precio_unitario": 9.13,
+        "precio_total": 18.26
+      },
+      {
+        "producto": "Pack de 4 yogurts de Fresa Vima",
+        "cantidad": 1,
+        "precio_unitario": 2.9,
+        "precio_total": 2.9
+      },
+      {
+        "producto": "Pack de 4 yogurts Natural Azucarado Vima",
+        "cantidad": 1,
+        "precio_unitario": 2.9,
+        "precio_total": 2.9
+      },
+      {
+        "producto": "Paquete de pan de bola 8u/10u",
+        "cantidad": 2,
+        "precio_unitario": 1.8,
+        "precio_total": 3.6
+      },
+      {
+        "producto": "Cartón de Huevos",
+        "cantidad": 1,
+        "precio_unitario": 9,
+        "precio_total": 9
+      },
+      {
+        "producto": "Galletas Renata",
+        "cantidad": 2,
+        "precio_unitario": 0.95,
+        "precio_total": 1.9
+      },
+      {
+        "producto": "Galletas Marias",
+        "cantidad": 2,
+        "precio_unitario": 1.13,
+        "precio_total": 2.26
+      },
+      {
+        "producto": "Leche Condensada azucarada (390g)",
+        "cantidad": 4,
+        "precio_unitario": 1.67,
+        "precio_total": 6.68
+      },
+      {
+        "producto": "Troncho de pescado en tomate",
+        "cantidad": 2,
+        "precio_unitario": 3.47,
+        "precio_total": 6.94
+      },
+      {
+        "producto": "Jabón de Baño",
+        "cantidad": 4,
+        "precio_unitario": 0.57,
+        "precio_total": 2.28
+      },
+      {
+        "producto": "Desodorante Keewell",
+        "cantidad": 2,
+        "precio_unitario": 1.47,
+        "precio_total": 2.94
+      },
+      {
+        "producto": "Café la Llave",
+        "cantidad": 2,
+        "precio_unitario": 10,
+        "precio_total": 20
+      },
+      {
+        "producto": "Malta Bucanero",
+        "cantidad": 4,
+        "precio_unitario": 1.15,
+        "precio_total": 4.6
+      },
+      {
+        "producto": "Refresco Naranja (330ml)",
+        "cantidad": 4,
+        "precio_unitario": 0.95,
+        "precio_total": 3.8
+      }
+    ],
+    "precio_compra_total": "95.23",
+    "navegador": "Safari",
+    "sistema_operativo": "iOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "47.205.161.131",
+    "pais": "United States",
+    "fecha_hora_entrada": "2026-02-27 20:25:45",
+    "origen": "Acceso directo",
+    "afiliado": "Juana",
+    "duracion_sesion_segundos": 386,
+    "tiempo_carga_pagina_ms": 2010,
+    "nombre_comprador": "Ailen",
+    "telefono_comprador": "9413123962",
+    "correo_comprador": "ailen29101990@gmail.com",
+    "direccion_envio": "Josué paiz #61f /Ramón ortuño y 24 de febrero.reparto Santo Domingo",
+    "compras": [
+      {
+        "producto": "Paquete de salchichas (340g)",
+        "cantidad": 2,
+        "precio_unitario": 1.57,
+        "precio_total": 3.14
+      },
+      {
+        "producto": "Pollo entero congelado",
+        "cantidad": 1,
+        "precio_unitario": 7.17,
+        "precio_total": 7.17
+      },
+      {
+        "producto": "Helado La Finquita 4lts",
+        "cantidad": 1,
+        "precio_unitario": 14.97,
+        "precio_total": 14.97
+      },
+      {
+        "producto": "Paquete de pan de bola 8u/10u",
+        "cantidad": 2,
+        "precio_unitario": 1.8,
+        "precio_total": 3.6
+      },
+      {
+        "producto": "Cartón de Huevos",
+        "cantidad": 1,
+        "precio_unitario": 9,
+        "precio_total": 9
+      },
+      {
+        "producto": "Cubeta de Galletas de Soda",
+        "cantidad": 1,
+        "precio_unitario": 11.47,
+        "precio_total": 11.47
+      },
+      {
+        "producto": "Espaguetis (500g)",
+        "cantidad": 2,
+        "precio_unitario": 0.87,
+        "precio_total": 1.74
+      },
+      {
+        "producto": "Leche Condensada azucarada (390g)",
+        "cantidad": 2,
+        "precio_unitario": 1.67,
+        "precio_total": 3.34
+      },
+      {
+        "producto": "Mayonesa Victoria (250ml)",
+        "cantidad": 1,
+        "precio_unitario": 2.17,
+        "precio_total": 2.17
+      },
+      {
+        "producto": "Malta Bucanero",
+        "cantidad": 4,
+        "precio_unitario": 1.15,
+        "precio_total": 4.6
+      },
+      {
+        "producto": "Paquete de Papel Sanitario 4 rollos",
+        "cantidad": 1,
+        "precio_unitario": 2,
+        "precio_total": 2
+      }
+    ],
+    "precio_compra_total": "63.20",
+    "navegador": "Chrome",
+    "sistema_operativo": "Android",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+  }
 ]
