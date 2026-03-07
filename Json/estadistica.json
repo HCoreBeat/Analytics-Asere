@@ -1513,5 +1513,102 @@
   "prioridad": "normal",
   "metodo_entrega": "domicilio",
   "id_orden": "ORD-1772883743862"
+},
+{
+  "ip": "0.0.0.0",
+  "pais": "Sistema Local",
+  "fecha_hora_entrada": "2026-03-07 11:37:19",
+  "origen": "Terminal Interna",
+  "asereshop.com": false,
+  "afiliado": "Ninguno",
+  "duracion_sesion_segundos": 0,
+  "tiempo_carga_pagina_ms": 0,
+  "nombre_comprador": "Ileana",
+  "telefono_comprador": "+5353035338",
+  "correo_comprador": "",
+  "direccion_envio": "Edificio 22 apartamento E1 Buena Vista (Recibe: Ana)",
+  "compras": [
+    {
+      "producto": "Sopa instantánea sabor Pollo (85g)",
+      "cantidad": 10,
+      "precio_unitario": 0.59,
+      "precio_total": 5.8999999999999995
+    },
+    {
+      "producto": "Fideos 500g",
+      "cantidad": 2,
+      "precio_unitario": 1.47,
+      "precio_total": 2.94
+    },
+    {
+      "producto": "Sal 1Kg",
+      "cantidad": 1,
+      "precio_unitario": 1.43,
+      "precio_total": 1.43
+    },
+    {
+      "producto": "Pastilla de Pollo",
+      "cantidad": 10,
+      "precio_unitario": 0.2,
+      "precio_total": 2
+    },
+    {
+      "producto": "Paquete de harina Vima",
+      "cantidad": 1,
+      "precio_unitario": 2.17,
+      "precio_total": 2.17
+    },
+    {
+      "producto": "Paquete de coditos 500g",
+      "cantidad": 2,
+      "precio_unitario": 0.93,
+      "precio_total": 1.86
+    },
+    {
+      "producto": "Espaguetis (500g)",
+      "cantidad": 2,
+      "precio_unitario": 0.87,
+      "precio_total": 1.74
+    },
+    {
+      "producto": "Troncho de pescado en tomate",
+      "cantidad": 2,
+      "precio_unitario": 3.47,
+      "precio_total": 6.94
+    },
+    {
+      "producto": "Carne de Res enlatada",
+      "cantidad": 2,
+      "precio_unitario": 2.57,
+      "precio_total": 5.14
+    },
+    {
+      "producto": "Mortadella especial 3Kg",
+      "cantidad": 1,
+      "precio_unitario": 7.27,
+      "precio_total": 7.27
+    },
+    {
+      "producto": "Mantequilla",
+      "cantidad": 4,
+      "precio_unitario": 0.77,
+      "precio_total": 3.08
+    },
+    {
+      "producto": "Saco de Carbón",
+      "cantidad": 1,
+      "precio_unitario": 6,
+      "precio_total": 6
+    }
+  ],
+  "precio_compra_total": "46.47",
+  "navegador": "Sistema Interno",
+  "sistema_operativo": "Electron",
+  "tipo_usuario": "Recurrente",
+  "tiempo_promedio_pagina": 0,
+  "fuente_trafico": "terminal",
+  "prioridad": "normal",
+  "metodo_entrega": "domicilio",
+  "id_orden": "ORD-1772901439112"
 }
 ]
