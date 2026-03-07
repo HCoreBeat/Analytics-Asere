@@ -1418,5 +1418,100 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
-  }
+  },
+  {
+    "ip": "217.201.240.70",
+    "pais": "Italy",
+    "fecha_hora_entrada": "2026-03-04 09:35:49",
+    "origen": "Acceso directo",
+    "afiliado": "Ninguno",
+    "asereshop.com": false,
+    "duracion_sesion_segundos": 572,
+    "tiempo_carga_pagina_ms": 1599,
+    "nombre_comprador": "Yaili Castro",
+    "telefono_comprador": "+39 3773222186",
+    "correo_comprador": "ninguno",
+    "direccion_envio": "Cuerpo de guardia del pediatrico",
+    "compras": [
+      {
+        "producto": "Caja de nectar de manzana",
+        "cantidad": 1,
+        "precio_unitario": 27,
+        "precio_total": 27
+      },
+      {
+        "producto": "Pack de 12 latas de nectar de pera",
+        "cantidad": 1,
+        "precio_unitario": 13.73,
+        "precio_total": 13.73
+      }
+    ],
+    "precio_compra_total": "40.73",
+    "navegador": "Chrome",
+    "sistema_operativo": "Android",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+  },
+  {
+  "ip": "0.0.0.0",
+  "pais": "Sistema Local",
+  "fecha_hora_entrada": "2026-03-07 06:42:23",
+  "origen": "Terminal Interna",
+  "asereshop.com": false,
+  "afiliado": "Ninguno",
+  "duracion_sesion_segundos": 0,
+  "tiempo_carga_pagina_ms": 0,
+  "nombre_comprador": "Yaili Castro",
+  "telefono_comprador": "+53 52048438",
+  "correo_comprador": "",
+  "direccion_envio": "Calle 48 entre Elieser Botello y primera, nuevo sosa (Recibe: Carli)",
+  "compras": [
+    {
+      "producto": "Frazada de Piso",
+      "cantidad": 3,
+      "precio_unitario": 0.73,
+      "precio_total": 2.19
+    },
+    {
+      "producto": "Lomo de cerdo x Lb",
+      "cantidad": 10,
+      "precio_unitario": 3.5,
+      "precio_total": 35
+    },
+    {
+      "producto": "Carne de cerdo x Lb",
+      "cantidad": 10,
+      "precio_unitario": 2.65,
+      "precio_total": 26.5
+    },
+    {
+      "producto": "Chuletas de cerdo x Lb",
+      "cantidad": 10,
+      "precio_unitario": 3.5,
+      "precio_total": 35
+    },
+    {
+      "producto": "Café Molido Natural Vima",
+      "cantidad": 1,
+      "precio_unitario": 8,
+      "precio_total": 8
+    },
+    {
+      "producto": "Saco de Arroz 25kg",
+      "cantidad": 1,
+      "precio_unitario": 45,
+      "precio_total": 45
+    }
+  ],
+  "precio_compra_total": "151.69",
+  "navegador": "Sistema Interno",
+  "sistema_operativo": "Electron",
+  "tipo_usuario": "Recurrente",
+  "tiempo_promedio_pagina": 0,
+  "fuente_trafico": "terminal",
+  "prioridad": "normal",
+  "metodo_entrega": "domicilio",
+  "id_orden": "ORD-1772883743862"
+}
 ]
