@@ -1454,161 +1454,266 @@
     "fuente_trafico": "Directo"
   },
   {
-  "ip": "0.0.0.0",
-  "pais": "Sistema Local",
-  "fecha_hora_entrada": "2026-03-07 06:42:23",
-  "origen": "Terminal Interna",
-  "asereshop.com": false,
-  "afiliado": "Ninguno",
-  "duracion_sesion_segundos": 0,
-  "tiempo_carga_pagina_ms": 0,
-  "nombre_comprador": "Yaili Castro",
-  "telefono_comprador": "+53 52048438",
-  "correo_comprador": "",
-  "direccion_envio": "Calle 48 entre Elieser Botello y primera, nuevo sosa (Recibe: Carli)",
-  "compras": [
-    {
-      "producto": "Frazada de Piso",
-      "cantidad": 3,
-      "precio_unitario": 0.73,
-      "precio_total": 2.19
-    },
-    {
-      "producto": "Lomo de cerdo x Lb",
-      "cantidad": 10,
-      "precio_unitario": 3.5,
-      "precio_total": 35
-    },
-    {
-      "producto": "Carne de cerdo x Lb",
-      "cantidad": 10,
-      "precio_unitario": 2.65,
-      "precio_total": 26.5
-    },
-    {
-      "producto": "Chuletas de cerdo x Lb",
-      "cantidad": 10,
-      "precio_unitario": 3.5,
-      "precio_total": 35
-    },
-    {
-      "producto": "Café Molido Natural Vima",
-      "cantidad": 1,
-      "precio_unitario": 8,
-      "precio_total": 8
-    },
-    {
-      "producto": "Saco de Arroz 25kg",
-      "cantidad": 1,
-      "precio_unitario": 45,
-      "precio_total": 45
-    }
-  ],
-  "precio_compra_total": "151.69",
-  "navegador": "Sistema Interno",
-  "sistema_operativo": "Electron",
-  "tipo_usuario": "Recurrente",
-  "tiempo_promedio_pagina": 0,
-  "fuente_trafico": "terminal",
-  "prioridad": "normal",
-  "metodo_entrega": "domicilio",
-  "id_orden": "ORD-1772883743862"
-},
-{
-  "ip": "0.0.0.0",
-  "pais": "Sistema Local",
-  "fecha_hora_entrada": "2026-03-07 11:37:19",
-  "origen": "Terminal Interna",
-  "asereshop.com": false,
-  "afiliado": "Ninguno",
-  "duracion_sesion_segundos": 0,
-  "tiempo_carga_pagina_ms": 0,
-  "nombre_comprador": "Ileana",
-  "telefono_comprador": "+5353035338",
-  "correo_comprador": "",
-  "direccion_envio": "Edificio 22 apartamento E1 Buena Vista (Recibe: Ana)",
-  "compras": [
-    {
-      "producto": "Sopa instantánea sabor Pollo (85g)",
-      "cantidad": 10,
-      "precio_unitario": 0.59,
-      "precio_total": 5.8999999999999995
-    },
-    {
-      "producto": "Fideos 500g",
-      "cantidad": 2,
-      "precio_unitario": 1.47,
-      "precio_total": 2.94
-    },
-    {
-      "producto": "Sal 1Kg",
-      "cantidad": 1,
-      "precio_unitario": 1.43,
-      "precio_total": 1.43
-    },
-    {
-      "producto": "Pastilla de Pollo",
-      "cantidad": 10,
-      "precio_unitario": 0.2,
-      "precio_total": 2
-    },
-    {
-      "producto": "Paquete de harina Vima",
-      "cantidad": 1,
-      "precio_unitario": 2.17,
-      "precio_total": 2.17
-    },
-    {
-      "producto": "Paquete de coditos 500g",
-      "cantidad": 2,
-      "precio_unitario": 0.93,
-      "precio_total": 1.86
-    },
-    {
-      "producto": "Espaguetis (500g)",
-      "cantidad": 2,
-      "precio_unitario": 0.87,
-      "precio_total": 1.74
-    },
-    {
-      "producto": "Troncho de pescado en tomate",
-      "cantidad": 2,
-      "precio_unitario": 3.47,
-      "precio_total": 6.94
-    },
-    {
-      "producto": "Carne de Res enlatada",
-      "cantidad": 2,
-      "precio_unitario": 2.57,
-      "precio_total": 5.14
-    },
-    {
-      "producto": "Mortadella especial 3Kg",
-      "cantidad": 1,
-      "precio_unitario": 7.27,
-      "precio_total": 7.27
-    },
-    {
-      "producto": "Mantequilla",
-      "cantidad": 4,
-      "precio_unitario": 0.77,
-      "precio_total": 3.08
-    },
-    {
-      "producto": "Saco de Carbón",
-      "cantidad": 1,
-      "precio_unitario": 6,
-      "precio_total": 6
-    }
-  ],
-  "precio_compra_total": "46.47",
-  "navegador": "Sistema Interno",
-  "sistema_operativo": "Electron",
-  "tipo_usuario": "Recurrente",
-  "tiempo_promedio_pagina": 0,
-  "fuente_trafico": "terminal",
-  "prioridad": "normal",
-  "metodo_entrega": "domicilio",
-  "id_orden": "ORD-1772901439112"
-}
+    "ip": "0.0.0.0",
+    "pais": "Sistema Local",
+    "fecha_hora_entrada": "2026-03-07 06:42:23",
+    "origen": "Terminal Interna",
+    "asereshop.com": false,
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Yaili Castro",
+    "telefono_comprador": "+53 52048438",
+    "correo_comprador": "",
+    "direccion_envio": "Calle 48 entre Elieser Botello y primera, nuevo sosa (Recibe: Carli)",
+    "compras": [
+      {
+        "producto": "Frazada de Piso",
+        "cantidad": 3,
+        "precio_unitario": 0.73,
+        "precio_total": 2.19
+      },
+      {
+        "producto": "Lomo de cerdo x Lb",
+        "cantidad": 10,
+        "precio_unitario": 3.5,
+        "precio_total": 35
+      },
+      {
+        "producto": "Carne de cerdo x Lb",
+        "cantidad": 10,
+        "precio_unitario": 2.65,
+        "precio_total": 26.5
+      },
+      {
+        "producto": "Chuletas de cerdo x Lb",
+        "cantidad": 10,
+        "precio_unitario": 3.5,
+        "precio_total": 35
+      },
+      {
+        "producto": "Café Molido Natural Vima",
+        "cantidad": 1,
+        "precio_unitario": 8,
+        "precio_total": 8
+      },
+      {
+        "producto": "Saco de Arroz 25kg",
+        "cantidad": 1,
+        "precio_unitario": 45,
+        "precio_total": 45
+      }
+    ],
+    "precio_compra_total": "151.69",
+    "navegador": "Sistema Interno",
+    "sistema_operativo": "Electron",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "terminal",
+    "prioridad": "normal",
+    "metodo_entrega": "domicilio",
+    "id_orden": "ORD-1772883743862"
+  },
+  {
+    "ip": "0.0.0.0",
+    "pais": "Sistema Local",
+    "fecha_hora_entrada": "2026-03-07 11:37:19",
+    "origen": "Terminal Interna",
+    "asereshop.com": false,
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Ileana",
+    "telefono_comprador": "+5353035338",
+    "correo_comprador": "",
+    "direccion_envio": "Edificio 22 apartamento E1 Buena Vista (Recibe: Ana)",
+    "compras": [
+      {
+        "producto": "Sopa instantánea sabor Pollo (85g)",
+        "cantidad": 10,
+        "precio_unitario": 0.59,
+        "precio_total": 5.8999999999999995
+      },
+      {
+        "producto": "Fideos 500g",
+        "cantidad": 2,
+        "precio_unitario": 1.47,
+        "precio_total": 2.94
+      },
+      {
+        "producto": "Sal 1Kg",
+        "cantidad": 1,
+        "precio_unitario": 1.43,
+        "precio_total": 1.43
+      },
+      {
+        "producto": "Pastilla de Pollo",
+        "cantidad": 10,
+        "precio_unitario": 0.2,
+        "precio_total": 2
+      },
+      {
+        "producto": "Paquete de harina Vima",
+        "cantidad": 1,
+        "precio_unitario": 2.17,
+        "precio_total": 2.17
+      },
+      {
+        "producto": "Paquete de coditos 500g",
+        "cantidad": 2,
+        "precio_unitario": 0.93,
+        "precio_total": 1.86
+      },
+      {
+        "producto": "Espaguetis (500g)",
+        "cantidad": 2,
+        "precio_unitario": 0.87,
+        "precio_total": 1.74
+      },
+      {
+        "producto": "Troncho de pescado en tomate",
+        "cantidad": 2,
+        "precio_unitario": 3.47,
+        "precio_total": 6.94
+      },
+      {
+        "producto": "Carne de Res enlatada",
+        "cantidad": 2,
+        "precio_unitario": 2.57,
+        "precio_total": 5.14
+      },
+      {
+        "producto": "Mortadella especial 3Kg",
+        "cantidad": 1,
+        "precio_unitario": 7.27,
+        "precio_total": 7.27
+      },
+      {
+        "producto": "Mantequilla",
+        "cantidad": 4,
+        "precio_unitario": 0.77,
+        "precio_total": 3.08
+      },
+      {
+        "producto": "Saco de Carbón",
+        "cantidad": 1,
+        "precio_unitario": 6,
+        "precio_total": 6
+      }
+    ],
+    "precio_compra_total": "46.47",
+    "navegador": "Sistema Interno",
+    "sistema_operativo": "Electron",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "terminal",
+    "prioridad": "normal",
+    "metodo_entrega": "domicilio",
+    "id_orden": "ORD-1772901439112"
+  },
+  {
+    "ip": "2600:1700:3961:1510:19ec:7e8:199e:5de1",
+    "pais": "United States",
+    "fecha_hora_entrada": "2026-03-09 18:19:44",
+    "origen": "Acceso directo",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 1410,
+    "tiempo_carga_pagina_ms": 6295,
+    "nombre_comprador": "Shakira Granda Rodriguez",
+    "telefono_comprador": "7866094405",
+    "correo_comprador": "shakiragranda@icloud.com",
+    "direccion_envio": "Lico Cruz #108 Altos entre Gonzalo de Quesada y Villalon",
+    "compras": [
+      {
+        "producto": "Cartón de Huevos",
+        "cantidad": 2,
+        "precio_unitario": 9,
+        "precio_total": 18
+      },
+      {
+        "producto": "Fideos 500g",
+        "cantidad": 1,
+        "precio_unitario": 1.47,
+        "precio_total": 1.47
+      },
+      {
+        "producto": "Galletas Marias",
+        "cantidad": 2,
+        "precio_unitario": 1.13,
+        "precio_total": 2.26
+      },
+      {
+        "producto": "Lomito de atún 110g",
+        "cantidad": 3,
+        "precio_unitario": 2.13,
+        "precio_total": 6.39
+      },
+      {
+        "producto": "Mayonesa Victoria (250ml)",
+        "cantidad": 1,
+        "precio_unitario": 2.17,
+        "precio_total": 2.17
+      },
+      {
+        "producto": "Pasta para bocaditos 465ml",
+        "cantidad": 1,
+        "precio_unitario": 7.17,
+        "precio_total": 7.17
+      },
+      {
+        "producto": "Limón x Lb",
+        "cantidad": 2,
+        "precio_unitario": 2.31,
+        "precio_total": 4.62
+      },
+      {
+        "producto": "Caja de nectar de manzana",
+        "cantidad": 1,
+        "precio_unitario": 27,
+        "precio_total": 27
+      },
+      {
+        "producto": "Queso criollo x Lb",
+        "cantidad": 5,
+        "precio_unitario": 2.91,
+        "precio_total": 14.55
+      },
+      {
+        "producto": "Paquete de Papel Sanitario 4 rollos",
+        "cantidad": 2,
+        "precio_unitario": 2,
+        "precio_total": 4
+      },
+      {
+        "producto": "Leche Condensada azucarada (390g)",
+        "cantidad": 2,
+        "precio_unitario": 1.67,
+        "precio_total": 3.34
+      },
+      {
+        "producto": "Mantequilla",
+        "cantidad": 2,
+        "precio_unitario": 0.77,
+        "precio_total": 1.54
+      },
+      {
+        "producto": "Boniato x Lb",
+        "cantidad": 5,
+        "precio_unitario": 0.53,
+        "precio_total": 2.6500000000000004
+      },
+      {
+        "producto": "Lata de Galletas",
+        "cantidad": 1,
+        "precio_unitario": 4,
+        "precio_total": 4
+      }
+    ],
+    "precio_compra_total": "99.16",
+    "navegador": "Safari",
+    "sistema_operativo": "iOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+  }
 ]
