@@ -2521,5 +2521,72 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
-  }
+  },
+  {
+  "ip": "0.0.0.0",
+  "pais": "Sistema Local",
+  "fecha_hora_entrada": "2026-04-06 18:24:11",
+  "origen": "Terminal Interna",
+  "asereshop.com": false,
+  "afiliado": "Ninguno",
+  "duracion_sesion_segundos": 0,
+  "tiempo_carga_pagina_ms": 0,
+  "nombre_comprador": "Katia",
+  "telefono_comprador": "+5359206045",
+  "correo_comprador": "",
+  "direccion_envio": "Calle 20 #106 reparto Aguilera (Recibe: Blevis León)",
+  "compras": [
+    {
+      "producto": "Papa x Lb",
+      "cantidad": 1,
+      "precio_unitario": 1.97,
+      "precio_total": 1.97
+    },
+    {
+      "producto": "Boniato x Lb",
+      "cantidad": 1,
+      "precio_unitario": 0.53,
+      "precio_total": 0.53
+    },
+    {
+      "producto": "Azúcar blanca x lb",
+      "cantidad": 2,
+      "precio_unitario": 1.23,
+      "precio_total": 2.46
+    },
+    {
+      "producto": "Picadillo de pollo (1Kg)",
+      "cantidad": 1,
+      "precio_unitario": 2.37,
+      "precio_total": 2.37
+    },
+    {
+      "producto": "Carne de cerdo x Lb",
+      "cantidad": 1,
+      "precio_unitario": 2.9,
+      "precio_total": 2.9
+    },
+    {
+      "producto": "Spam de Res (340g)",
+      "cantidad": 1,
+      "precio_unitario": 2.27,
+      "precio_total": 2.27
+    },
+    {
+      "producto": "Aceite 900ml",
+      "cantidad": 2,
+      "precio_unitario": 4.37,
+      "precio_total": 8.74
+    }
+  ],
+  "precio_compra_total": "21.24",
+  "navegador": "Sistema Interno",
+  "sistema_operativo": "Electron",
+  "tipo_usuario": "Recurrente",
+  "tiempo_promedio_pagina": 0,
+  "fuente_trafico": "terminal",
+  "prioridad": "normal",
+  "metodo_entrega": "domicilio",
+  "id_orden": "ORD-1775514251632"
+}
 ]
