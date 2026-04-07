@@ -2523,70 +2523,127 @@
     "fuente_trafico": "Directo"
   },
   {
-  "ip": "0.0.0.0",
-  "pais": "Sistema Local",
-  "fecha_hora_entrada": "2026-04-06 18:24:11",
-  "origen": "Terminal Interna",
-  "asereshop.com": false,
-  "afiliado": "Ninguno",
-  "duracion_sesion_segundos": 0,
-  "tiempo_carga_pagina_ms": 0,
-  "nombre_comprador": "Katia",
-  "telefono_comprador": "+5359206045",
-  "correo_comprador": "",
-  "direccion_envio": "Calle 20 #106 reparto Aguilera (Recibe: Blevis León)",
-  "compras": [
-    {
-      "producto": "Papa x Lb",
-      "cantidad": 1,
-      "precio_unitario": 1.97,
-      "precio_total": 1.97
-    },
-    {
-      "producto": "Boniato x Lb",
-      "cantidad": 1,
-      "precio_unitario": 0.53,
-      "precio_total": 0.53
-    },
-    {
-      "producto": "Azúcar blanca x lb",
-      "cantidad": 2,
-      "precio_unitario": 1.23,
-      "precio_total": 2.46
-    },
-    {
-      "producto": "Picadillo de pollo (1Kg)",
-      "cantidad": 1,
-      "precio_unitario": 2.37,
-      "precio_total": 2.37
-    },
-    {
-      "producto": "Carne de cerdo x Lb",
-      "cantidad": 1,
-      "precio_unitario": 2.9,
-      "precio_total": 2.9
-    },
-    {
-      "producto": "Spam de Res (340g)",
-      "cantidad": 1,
-      "precio_unitario": 2.27,
-      "precio_total": 2.27
-    },
-    {
-      "producto": "Aceite 900ml",
-      "cantidad": 2,
-      "precio_unitario": 4.37,
-      "precio_total": 8.74
-    }
-  ],
-  "precio_compra_total": "21.24",
-  "navegador": "Sistema Interno",
-  "sistema_operativo": "Electron",
-  "tipo_usuario": "Recurrente",
-  "tiempo_promedio_pagina": 0,
-  "fuente_trafico": "terminal",
-  "prioridad": "normal",
-  "metodo_entrega": "domicilio",
-  "id_orden": "ORD-1775514251632"
-}
+    "ip": "0.0.0.0",
+    "pais": "Sistema Local",
+    "fecha_hora_entrada": "2026-04-06 18:24:11",
+    "origen": "Terminal Interna",
+    "asereshop.com": false,
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Katia",
+    "telefono_comprador": "+5359206045",
+    "correo_comprador": "",
+    "direccion_envio": "Calle 20 #106 reparto Aguilera (Recibe: Blevis León)",
+    "compras": [
+      {
+        "producto": "Papa x Lb",
+        "cantidad": 1,
+        "precio_unitario": 1.97,
+        "precio_total": 1.97
+      },
+      {
+        "producto": "Boniato x Lb",
+        "cantidad": 1,
+        "precio_unitario": 0.53,
+        "precio_total": 0.53
+      },
+      {
+        "producto": "Azúcar blanca x lb",
+        "cantidad": 2,
+        "precio_unitario": 1.23,
+        "precio_total": 2.46
+      },
+      {
+        "producto": "Picadillo de pollo (1Kg)",
+        "cantidad": 1,
+        "precio_unitario": 2.37,
+        "precio_total": 2.37
+      },
+      {
+        "producto": "Carne de cerdo x Lb",
+        "cantidad": 1,
+        "precio_unitario": 2.9,
+        "precio_total": 2.9
+      },
+      {
+        "producto": "Spam de Res (340g)",
+        "cantidad": 1,
+        "precio_unitario": 2.27,
+        "precio_total": 2.27
+      },
+      {
+        "producto": "Aceite 900ml",
+        "cantidad": 2,
+        "precio_unitario": 4.37,
+        "precio_total": 8.74
+      }
+    ],
+    "precio_compra_total": "21.24",
+    "navegador": "Sistema Interno",
+    "sistema_operativo": "Electron",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "terminal",
+    "prioridad": "normal",
+    "metodo_entrega": "domicilio",
+    "id_orden": "ORD-1775514251632"
+  },
+  {
+    "ip": "2607:fb90:9167:48a8:64eb:95cb:bda4:7179",
+    "pais": "United States",
+    "fecha_hora_entrada": "2026-04-07 15:01:21",
+    "origen": "Acceso directo",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 568,
+    "tiempo_carga_pagina_ms": 931,
+    "nombre_comprador": "Mayelin Contrera",
+    "telefono_comprador": "7862568427",
+    "correo_comprador": "susanlaffita@gmail.com",
+    "direccion_envio": "Calle colon #148A",
+    "compras": [
+      {
+        "producto": "Caja de cuartos de pollo 40lbs",
+        "cantidad": 1,
+        "precio_unitario": 54,
+        "precio_total": 54
+      },
+      {
+        "producto": "Paquete de papas prefritas",
+        "cantidad": 1,
+        "precio_unitario": 4.79,
+        "precio_total": 4.79
+      },
+      {
+        "producto": "Salchichas GuiBon 3kg",
+        "cantidad": 1,
+        "precio_unitario": 10,
+        "precio_total": 10
+      },
+      {
+        "producto": "Plátano macho x unidad",
+        "cantidad": 10,
+        "precio_unitario": 0.31,
+        "precio_total": 3.1
+      },
+      {
+        "producto": "Papa x Lb",
+        "cantidad": 4,
+        "precio_unitario": 1.97,
+        "precio_total": 7.88
+      },
+      {
+        "producto": "Helado Nestlé Sabor fresa 4.5lts",
+        "cantidad": 1,
+        "precio_unitario": 22,
+        "precio_total": 22
+      }
+    ],
+    "precio_compra_total": "101.77",
+    "navegador": "Chrome",
+    "sistema_operativo": "Android",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
+  }
 ]
