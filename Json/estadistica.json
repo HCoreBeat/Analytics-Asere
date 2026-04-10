@@ -2672,5 +2672,134 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2a04:4e41:3404:e66c::a517:166c",
+    "pais": "United States",
+    "fecha_hora_entrada": "2026-04-09 18:39:44",
+    "origen": "Acceso directo",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 557,
+    "tiempo_carga_pagina_ms": 1099,
+    "nombre_comprador": "Eileen Cruz",
+    "telefono_comprador": "5024387312",
+    "correo_comprador": "eileencruz8902@gmail.com",
+    "direccion_envio": "Calle Agustín Cebereco. Edif 34 apt. D4. Buena vista",
+    "compras": [
+      {
+        "producto": "Pechuga de pollo (2Kg)",
+        "cantidad": 1,
+        "precio_unitario": 15.73,
+        "precio_total": 15.73
+      },
+      {
+        "producto": "Paquete de Cuartos de Pollo 10lb",
+        "cantidad": 1,
+        "precio_unitario": 14,
+        "precio_total": 14
+      },
+      {
+        "producto": "Azúcar Blanca (1Kg)",
+        "cantidad": 1,
+        "precio_unitario": 1.97,
+        "precio_total": 1.97
+      },
+      {
+        "producto": "Café Molido Natural Vima (250g)",
+        "cantidad": 1,
+        "precio_unitario": 7.97,
+        "precio_total": 7.97
+      },
+      {
+        "producto": "Cebolla blanca × lb",
+        "cantidad": 1,
+        "precio_unitario": 3.37,
+        "precio_total": 3.37
+      },
+      {
+        "producto": "Boniato x Lb",
+        "cantidad": 7,
+        "precio_unitario": 0.53,
+        "precio_total": 3.71
+      },
+      {
+        "producto": "Pasta de tomate Oderich 350g",
+        "cantidad": 1,
+        "precio_unitario": 1.17,
+        "precio_total": 1.17
+      },
+      {
+        "producto": "Espaguetis (500g)",
+        "cantidad": 2,
+        "precio_unitario": 0.87,
+        "precio_total": 1.74
+      },
+      {
+        "producto": "Frijoles colorados x lb",
+        "cantidad": 2,
+        "precio_unitario": 2.57,
+        "precio_total": 5.14
+      },
+      {
+        "producto": "Picadillo de pollo (1Kg)",
+        "cantidad": 1,
+        "precio_unitario": 2.37,
+        "precio_total": 2.37
+      },
+      {
+        "producto": "Paquete de Salchichas 10u, 340g",
+        "cantidad": 2,
+        "precio_unitario": 1.59,
+        "precio_total": 3.18
+      },
+      {
+        "producto": "Cartón de Huevos",
+        "cantidad": 1,
+        "precio_unitario": 9,
+        "precio_total": 9
+      },
+      {
+        "producto": "Aceite 900ml",
+        "cantidad": 2,
+        "precio_unitario": 4.37,
+        "precio_total": 8.74
+      },
+      {
+        "producto": "Paquete de sal (1kg)",
+        "cantidad": 1,
+        "precio_unitario": 0.97,
+        "precio_total": 0.97
+      },
+      {
+        "producto": "Papa x Lb",
+        "cantidad": 4,
+        "precio_unitario": 1.97,
+        "precio_total": 7.88
+      },
+      {
+        "producto": "Plátano macho x unidad",
+        "cantidad": 10,
+        "precio_unitario": 0.31,
+        "precio_total": 3.1
+      },
+      {
+        "producto": "Leche entera en polvo (1kg)",
+        "cantidad": 1,
+        "precio_unitario": 9.13,
+        "precio_total": 9.13
+      },
+      {
+        "producto": "Arroz Blanco (1Kg)",
+        "cantidad": 2,
+        "precio_unitario": 2.17,
+        "precio_total": 4.34
+      }
+    ],
+    "precio_compra_total": "103.51",
+    "navegador": "Safari",
+    "sistema_operativo": "iOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   }
 ]
