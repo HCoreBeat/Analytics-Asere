@@ -2801,5 +2801,116 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2601:58a:8602:8330:576:bf81:6e42:506c",
+    "pais": "United States",
+    "fecha_hora_entrada": "2026-04-15 11:06:59",
+    "origen": "Acceso directo",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 585,
+    "tiempo_carga_pagina_ms": 2183,
+    "nombre_comprador": "Juan Carlos Heredia Lopez",
+    "telefono_comprador": "+13055094055",
+    "correo_comprador": "juanka9205@gmail.com",
+    "direccion_envio": "Menocal #39 Entre Carretera central y L Ortiz, Rpto Primero",
+    "compras": [
+      {
+        "producto": "Paquete de Mollejas de pollo 1kg",
+        "cantidad": 1,
+        "precio_unitario": 4.97,
+        "precio_total": 4.97
+      },
+      {
+        "producto": "Carne de Res enlatada",
+        "cantidad": 2,
+        "precio_unitario": 2.57,
+        "precio_total": 5.14
+      },
+      {
+        "producto": "Hamburguesa de pollo (4u)",
+        "cantidad": 1,
+        "precio_unitario": 1.49,
+        "precio_total": 1.49
+      },
+      {
+        "producto": "Paquete de coditos 500g",
+        "cantidad": 2,
+        "precio_unitario": 0.93,
+        "precio_total": 1.86
+      },
+      {
+        "producto": "Cartón de Huevos",
+        "cantidad": 1,
+        "precio_unitario": 9,
+        "precio_total": 9
+      },
+      {
+        "producto": "Paquete de Croquetas de Bacalao",
+        "cantidad": 1,
+        "precio_unitario": 4.39,
+        "precio_total": 4.39
+      },
+      {
+        "producto": "Queso blanco x Lb",
+        "cantidad": 3,
+        "precio_unitario": 2.91,
+        "precio_total": 8.73
+      },
+      {
+        "producto": "Espaguetis (500g)",
+        "cantidad": 2,
+        "precio_unitario": 0.87,
+        "precio_total": 1.74
+      },
+      {
+        "producto": "Spam de cerdo 340g",
+        "cantidad": 2,
+        "precio_unitario": 2.27,
+        "precio_total": 4.54
+      },
+      {
+        "producto": "Pasta de tomate Oderich 350g",
+        "cantidad": 2,
+        "precio_unitario": 1.17,
+        "precio_total": 2.34
+      },
+      {
+        "producto": "Atún en Aceite Vegetal (140g)",
+        "cantidad": 2,
+        "precio_unitario": 1.77,
+        "precio_total": 3.54
+      },
+      {
+        "producto": "Frazada de Piso",
+        "cantidad": 4,
+        "precio_unitario": 1,
+        "precio_total": 4
+      },
+      {
+        "producto": "Papa x Lb",
+        "cantidad": 2,
+        "precio_unitario": 1.97,
+        "precio_total": 3.94
+      },
+      {
+        "producto": "Plátano macho x unidad",
+        "cantidad": 6,
+        "precio_unitario": 0.31,
+        "precio_total": 1.8599999999999999
+      },
+      {
+        "producto": "Spam de Res (340g)",
+        "cantidad": 2,
+        "precio_unitario": 2.27,
+        "precio_total": 4.54
+      }
+    ],
+    "precio_compra_total": "62.08",
+    "navegador": "Chrome",
+    "sistema_operativo": "Android",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   }
 ]
