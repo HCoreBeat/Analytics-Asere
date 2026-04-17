@@ -2912,5 +2912,86 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2600:1700:3d61:a1d0:bdde:f70:87fc:3fd6",
+    "pais": "United States",
+    "fecha_hora_entrada": "2026-04-17 12:23:05",
+    "origen": "Acceso directo",
+    "afiliado": "Juana",
+    "duracion_sesion_segundos": 120,
+    "tiempo_carga_pagina_ms": 753,
+    "nombre_comprador": "Yoandra Martinez",
+    "telefono_comprador": "7863191466",
+    "correo_comprador": "yoa2002ye@gmail.com",
+    "direccion_envio": "Calle 22 15 Alto % 43 Y 45\nReparto De Buena Vista",
+    "compras": [
+      {
+        "producto": "Paquete de Cuartos de Pollo 10lb",
+        "cantidad": 1,
+        "precio_unitario": 14,
+        "precio_total": 14
+      },
+      {
+        "producto": "Pasta dental 100g",
+        "cantidad": 2,
+        "precio_unitario": 1.29,
+        "precio_total": 2.58
+      },
+      {
+        "producto": "Café Molido Natural Vima (250g)",
+        "cantidad": 2,
+        "precio_unitario": 7.97,
+        "precio_total": 15.94
+      },
+      {
+        "producto": "Leche entera en polvo (1kg)",
+        "cantidad": 1,
+        "precio_unitario": 9.13,
+        "precio_total": 9.13
+      },
+      {
+        "producto": "Pack de 4 yogurts de Fresa Vima",
+        "cantidad": 1,
+        "precio_unitario": 2.9,
+        "precio_total": 2.9
+      },
+      {
+        "producto": "Pack de 4 yogurts Natural Azucarado Vima",
+        "cantidad": 1,
+        "precio_unitario": 2.9,
+        "precio_total": 2.9
+      },
+      {
+        "producto": "Cartón de Huevos",
+        "cantidad": 1,
+        "precio_unitario": 9,
+        "precio_total": 9
+      },
+      {
+        "producto": "Paquete de Croquetas de Bacalao",
+        "cantidad": 1,
+        "precio_unitario": 4.39,
+        "precio_total": 4.39
+      },
+      {
+        "producto": "Aceite 900ml",
+        "cantidad": 2,
+        "precio_unitario": 4.37,
+        "precio_total": 8.74
+      },
+      {
+        "producto": "Pack x 12 Néctar de Manzana (12x330ml)",
+        "cantidad": 1,
+        "precio_unitario": 13.73,
+        "precio_total": 13.73
+      }
+    ],
+    "precio_compra_total": "83.31",
+    "navegador": "Safari",
+    "sistema_operativo": "iOS",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   }
 ]
