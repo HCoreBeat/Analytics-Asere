@@ -2993,5 +2993,215 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "0.0.0.0",
+    "pais": "Sistema Local",
+    "fecha_hora_entrada": "2026-04-25 04:40:20",
+    "origen": "Terminal Interna",
+    "asereshop.com": false,
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Paloma de la Fuente ",
+    "telefono_comprador": "63238892",
+    "correo_comprador": "",
+    "direccion_envio": "Andrés Rodríguez #45 entre Ramon ortuño y 24 de febrero  (Recibe: Jessica Hervas)",
+    "compras": [
+      {
+        "producto": "Remesa moneda nacional",
+        "cantidad": 1,
+        "precio_unitario": 50,
+        "precio_total": 50
+      }
+    ],
+    "precio_compra_total": "50.00",
+    "navegador": "Sistema Interno",
+    "sistema_operativo": "Electron",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "terminal",
+    "prioridad": "normal",
+    "metodo_entrega": "domicilio",
+    "id_orden": "ORD-1777106420611"
+  },
+  {
+    "ip": "0.0.0.0",
+    "pais": "Sistema Local",
+    "fecha_hora_entrada": "2026-04-25 04:40:32",
+    "origen": "Terminal Interna",
+    "asereshop.com": false,
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Juan Carlos",
+    "telefono_comprador": "+53 5 8749816",
+    "correo_comprador": "",
+    "direccion_envio": "Menocal #39 E/ Carretera Central y L Ortiz, Rpto Primero (Recibe: Juan Emilio)",
+    "compras": [
+      {
+        "producto": "Café Sello Rojo",
+        "cantidad": 2,
+        "precio_unitario": 9,
+        "precio_total": 18
+      }
+    ],
+    "precio_compra_total": "18.00",
+    "navegador": "Sistema Interno",
+    "sistema_operativo": "Electron",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "terminal",
+    "prioridad": "normal",
+    "metodo_entrega": "domicilio",
+    "id_orden": "ORD-1777106432868"
+  },
+  {
+    "ip": "0.0.0.0",
+    "pais": "Sistema Local",
+    "fecha_hora_entrada": "2026-04-25 04:40:55",
+    "origen": "Terminal Interna",
+    "asereshop.com": false,
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Vladimir Cervantes",
+    "telefono_comprador": "+5355267097",
+    "correo_comprador": "",
+    "direccion_envio": "Gonzalo de quezada #102A / Frank Pais y Lucaz ortiz (Recibe: Abel Cervantes)",
+    "compras": [
+      {
+        "producto": "Remesa en USD 100$",
+        "cantidad": 1,
+        "precio_unitario": 110,
+        "precio_total": 110
+      }
+    ],
+    "precio_compra_total": "110.00",
+    "navegador": "Sistema Interno",
+    "sistema_operativo": "Electron",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "terminal",
+    "prioridad": "urgente",
+    "metodo_entrega": "domicilio",
+    "id_orden": "ORD-1777106455049"
+  },
+  {
+    "ip": "0.0.0.0",
+    "pais": "Sistema Local",
+    "fecha_hora_entrada": "2026-04-25 04:40:41",
+    "origen": "Terminal Interna",
+    "asereshop.com": false,
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Juan Carlos",
+    "telefono_comprador": "+5358749816",
+    "correo_comprador": "",
+    "direccion_envio": "Menocal #39 Entre Carretera central y L Ortiz, Rpto Primero (Recibe: Juan Emilio)",
+    "compras": [
+      {
+        "producto": "Saco de Carbón",
+        "cantidad": 3,
+        "precio_unitario": 6,
+        "precio_total": 18
+      }
+    ],
+    "precio_compra_total": "18.00",
+    "navegador": "Sistema Interno",
+    "sistema_operativo": "Electron",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "terminal",
+    "prioridad": "normal",
+    "metodo_entrega": "domicilio",
+    "id_orden": "ORD-1777106441862"
+  },
+  {
+    "ip": "0.0.0.0",
+    "pais": "Sistema Local",
+    "fecha_hora_entrada": "2026-04-25 04:40:55",
+    "origen": "Terminal Interna",
+    "asereshop.com": false,
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Vladimir Cervantes",
+    "telefono_comprador": "+5355267097",
+    "correo_comprador": "",
+    "direccion_envio": "Gonzalo de quezada #102A / Frank Pais y Lucaz ortiz (Recibe: Abel Cervantes)",
+    "compras": [
+      {
+        "producto": "Remesa en USD 100$",
+        "cantidad": 1,
+        "precio_unitario": 110,
+        "precio_total": 110
+      }
+    ],
+    "precio_compra_total": "110.00",
+    "navegador": "Sistema Interno",
+    "sistema_operativo": "Electron",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "terminal",
+    "prioridad": "urgente",
+    "metodo_entrega": "domicilio",
+    "id_orden": "ORD-1777106455049"
+  },
+  {
+    "ip": "0.0.0.0",
+    "pais": "Sistema Local",
+    "fecha_hora_entrada": "2026-04-06 04:41:06",
+    "origen": "Terminal Interna",
+    "asereshop.com": false,
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 0,
+    "tiempo_carga_pagina_ms": 0,
+    "nombre_comprador": "Liyisbet",
+    "telefono_comprador": "+5359073151",
+    "correo_comprador": "",
+    "direccion_envio": "24 de febrero #196 / Cucalambe y Rubi (Recibe: Lourdes)",
+    "compras": [
+      {
+        "producto": "Jamón Bravo 2Kg",
+        "cantidad": 1,
+        "precio_unitario": 22.5,
+        "precio_total": 22.5
+      },
+      {
+        "producto": "Helado Nestlé Sabor fresa 4.5lts",
+        "cantidad": 1,
+        "precio_unitario": 22,
+        "precio_total": 22
+      },
+      {
+        "producto": "Hamburguesa de pollo (4u)",
+        "cantidad": 1,
+        "precio_unitario": 1.49,
+        "precio_total": 1.49
+      },
+      {
+        "producto": "Pomo de galletas saladas saborizadas",
+        "cantidad": 1,
+        "precio_unitario": 1.87,
+        "precio_total": 1.87
+      },
+      {
+        "producto": "Queso Gouda, porción 1kg",
+        "cantidad": 1,
+        "precio_unitario": 14.99,
+        "precio_total": 14.99
+      }
+    ],
+    "precio_compra_total": "62.85",
+    "navegador": "Sistema Interno",
+    "sistema_operativo": "Electron",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "terminal",
+    "prioridad": "normal",
+    "metodo_entrega": "domicilio",
+    "id_orden": "ORD-1777106466664"
   }
 ]
