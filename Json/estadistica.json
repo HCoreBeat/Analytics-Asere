@@ -3203,5 +3203,32 @@
     "prioridad": "normal",
     "metodo_entrega": "domicilio",
     "id_orden": "ORD-1777106466664"
+  },
+  {
+    "ip": "79.25.59.213",
+    "pais": "Italy",
+    "fecha_hora_entrada": "2026-04-30 08:18:16",
+    "origen": "Acceso directo",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 822,
+    "tiempo_carga_pagina_ms": 2011,
+    "nombre_comprador": "Nailin contreras",
+    "telefono_comprador": "3395327206",
+    "correo_comprador": "leonormax@gmail.com",
+    "direccion_envio": "Calle Colón #148 entre Ramon ortuño e 24febrero",
+    "compras": [
+      {
+        "producto": "Azúcar Parda x lb",
+        "cantidad": 20,
+        "precio_unitario": 1.33,
+        "precio_total": 26.6
+      }
+    ],
+    "precio_compra_total": "26.60",
+    "navegador": "Chrome",
+    "sistema_operativo": "Android",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   }
 ]
