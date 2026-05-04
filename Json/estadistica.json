@@ -3230,5 +3230,56 @@
     "tipo_usuario": "Recurrente",
     "tiempo_promedio_pagina": 0,
     "fuente_trafico": "Directo"
+  },
+  {
+    "ip": "2601:58a:8602:8330:2d56:fd5:1a22:3393",
+    "pais": "United States",
+    "fecha_hora_entrada": "2026-04-30 10:41:26",
+    "origen": "Acceso directo",
+    "afiliado": "Ninguno",
+    "duracion_sesion_segundos": 1102,
+    "tiempo_carga_pagina_ms": 1506,
+    "nombre_comprador": "Juan Carlos Heredia Lopez",
+    "telefono_comprador": "+13055094055",
+    "correo_comprador": "juanka9205@gmail.com",
+    "direccion_envio": "Menocal #39 E/ Carretera central y lorenzo ortiz, Rpto Primero",
+    "compras": [
+      {
+        "producto": "Leche entera en polvo (1kg)",
+        "cantidad": 1,
+        "precio_unitario": 9.13,
+        "precio_total": 9.13
+      },
+      {
+        "producto": "Chocolate en Polvo Rayan (350g)",
+        "cantidad": 1,
+        "precio_unitario": 5,
+        "precio_total": 5
+      },
+      {
+        "producto": "Refresco Instantáneo Piña colada 20lts",
+        "cantidad": 1,
+        "precio_unitario": 7.27,
+        "precio_total": 7.27
+      },
+      {
+        "producto": "Atún en Aceite Vegetal (140g)",
+        "cantidad": 2,
+        "precio_unitario": 1.77,
+        "precio_total": 3.54
+      },
+      {
+        "producto": "Jabón de Baño",
+        "cantidad": 2,
+        "precio_unitario": 0.75,
+        "precio_total": 1.5
+      }
+    ],
+    "precio_compra_total": "26.44",
+    "navegador": "Chrome",
+    "sistema_operativo": "Android",
+    "tipo_usuario": "Recurrente",
+    "tiempo_promedio_pagina": 0,
+    "fuente_trafico": "Directo"
   }
 ]
